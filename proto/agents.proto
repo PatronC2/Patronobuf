@@ -1,0 +1,138 @@
+syntax = "proto3";
+
+package patron;
+option go_package = "github.com/PatronC2/Patronobuf/go/patron";
+
+enum RequestType {
+  CONFIGURATION = 0;
+  COMMAND = 1;
+  COMMAND_STATUS = 2;
+  KEYS = 3;
+  FILE = 4;
+  FILE_TO_SERVER = 5;
+}
+
+enum ResponseType {
+  CONFIGURATION_RESPONSE = 0;
+  COMMAND_RESPONSE = 1;
+  COMMAND_STATUS_RESPONSE = 2;
+  KEYS_RESPONSE = 3;
+  FILE_RESPONSE = 4;
+  FILE_TRANSFER_STATUS = 5;
+}
+
+message Request {
+  RequestType type = 1;
+
+  oneof payload {
+    ConfigurationRequest configuration = 2;
+    CommandRequest command = 3;
+    CommandStatusRequest command_status = 4;
+    KeysRequest keys = 5;
+    FileRequest file = 6;
+    FileToServer file_to_server = 7;
+  }
+}
+
+message Response {
+  ResponseType type = 1;
+
+  oneof payload {
+    ConfigurationResponse configuration_response = 2;
+    CommandResponse command_response = 3;
+    CommandStatusResponse command_status_response = 4;
+    KeysResponse keys_response = 5;
+    FileResponse file_response = 6;
+    FileTransferStatusResponse file_transfer_status_response = 7;
+  }
+}
+
+message ConfigurationRequest {
+  string uuid = 1;
+  string username = 2;
+  string hostname = 3;
+  string ostype = 4;
+  string arch = 5;
+  string osbuild = 6;
+  string cpus = 7;
+  string memory = 8;
+  string agentip = 9;
+  string serverip = 10;
+  string serverport = 11;
+  string callbackfrequency = 12;
+  string callbackjitter = 13;
+  string masterkey = 14;
+  string status = 15;
+  repeated Tag tags = 16;
+  int64 nextcallback_unix = 17;
+}
+
+message ConfigurationResponse {
+  string uuid = 1;
+  string serverip = 2;
+  string serverport = 3;
+  string callbackfrequency = 4;
+  string callbackjitter = 5;
+}
+
+message CommandRequest {
+  string uuid = 1;
+}
+
+message CommandResponse {
+  string uuid = 1;
+  string commandtype = 2;
+  string commandid = 3;
+  string command = 4;
+}
+
+message CommandStatusRequest {
+  string uuid = 1;
+  string commandid = 2;
+  string result = 3;
+  string output = 4;
+}
+
+message CommandStatusResponse {
+  string uuid = 1;
+}
+
+message KeysRequest {
+  string uuid = 1;
+  string keys = 2;
+}
+
+message KeysResponse {
+  string uuid = 1;
+}
+
+message FileRequest {
+  string uuid = 1;
+}
+
+message FileResponse {
+  string fileid = 1;
+  string uuid = 2;
+  string transfertype = 3;
+  string filepath = 4;
+  bytes chunk = 5;
+}
+
+message FileToServer {
+  string fileid = 1;
+  string uuid = 2;
+  string transfertype = 3;
+  string path = 4;
+  string status = 5;
+  bytes chunk = 6;
+}
+
+message FileTransferStatusResponse {
+  string fileid = 1;
+  string uuid = 2;
+}
+
+message Tag {
+  string key = 1;
+  string value = 2;
+}
