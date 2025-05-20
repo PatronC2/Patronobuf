@@ -3,34 +3,42 @@
 set -e
 
 PROTO_DIR="./proto"
-GO_OUT="./go"
-PY_OUT="./python"
-CS_OUT="./csharp"
+GO_OUT="./go/patronobuf"
+PY_OUT="./python/patronobuf"
+CS_OUT="./csharp/patronobuf"
 
-# Make sure output directories exist
-mkdir -p "$GO_OUT"
-mkdir -p "$PY_OUT"
-mkdir -p "$CS_OUT"
+# Ensure output directories exist
+mkdir -p "$GO_OUT" "$PY_OUT" "$CS_OUT"
 
 echo "[*] Generating Go code..."
-protoc \
-  --proto_path="$PROTO_DIR" \
+
+docker build -f Dockerfile.go -t proto-gen .
+
+docker run --rm -v "$PWD":/work -w /work proto-gen \
   --go_out="$GO_OUT" \
   --go_opt=paths=source_relative \
   --go-grpc_out="$GO_OUT" \
   --go-grpc_opt=paths=source_relative \
-  "$PROTO_DIR"/*.proto
+  --proto_path=proto proto/agents.proto
+
+echo "[*] Initializing go.mod for Go package..."
+
+docker run --rm -v "$PWD/go/patronobuf:/goout" -w /goout golang:1.24.3 \
+  sh -c "go mod init github.com/PatronC2/Patronobuf/go/patronobuf && go mod tidy"
+
 
 echo "[*] Generating Python code..."
-protoc \
-  --proto_path="$PROTO_DIR" \
-  --python_out="$PY_OUT" \
-  "$PROTO_DIR"/*.proto
+docker run --rm -v "$(pwd):/defs" -w /defs \
+  namely/protoc-all \
+  -d "$PROTO_DIR" \
+  -l python \
+  -o python/patronobuf
 
 echo "[*] Generating C# code..."
-protoc \
-  --proto_path="$PROTO_DIR" \
-  --csharp_out="$CS_OUT" \
-  "$PROTO_DIR"/*.proto
+docker run --rm -v "$(pwd):/defs" -w /defs \
+  namely/protoc-all \
+  -d "$PROTO_DIR" \
+  -l csharp \
+  -o csharp/patronobuf
 
-echo "[✓] Protobuf generation complete."
+echo "[✓] Protobuf generation and go.mod complete."
