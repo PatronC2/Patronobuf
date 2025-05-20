@@ -4,7 +4,7 @@
 // 	protoc        v3.12.4
 // source: agents.proto
 
-package patron
+package patronobuf
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -139,7 +139,7 @@ func (ResponseType) EnumDescriptor() ([]byte, []int) {
 
 type Request struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	Type  RequestType            `protobuf:"varint,1,opt,name=type,proto3,enum=patron.RequestType" json:"type,omitempty"`
+	Type  RequestType            `protobuf:"varint,1,opt,name=type,proto3,enum=patronobuf.RequestType" json:"type,omitempty"`
 	// Types that are valid to be assigned to Payload:
 	//
 	//	*Request_Configuration
@@ -293,7 +293,7 @@ func (*Request_FileToServer) isRequest_Payload() {}
 
 type Response struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	Type  ResponseType           `protobuf:"varint,1,opt,name=type,proto3,enum=patron.ResponseType" json:"type,omitempty"`
+	Type  ResponseType           `protobuf:"varint,1,opt,name=type,proto3,enum=patronobuf.ResponseType" json:"type,omitempty"`
 	// Types that are valid to be assigned to Payload:
 	//
 	//	*Response_ConfigurationResponse
@@ -1325,25 +1325,26 @@ var File_agents_proto protoreflect.FileDescriptor
 
 const file_agents_proto_rawDesc = "" +
 	"\n" +
-	"\fagents.proto\x12\x06patron\"\x92\x03\n" +
-	"\aRequest\x12'\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x13.patron.RequestTypeR\x04type\x12D\n" +
-	"\rconfiguration\x18\x02 \x01(\v2\x1c.patron.ConfigurationRequestH\x00R\rconfiguration\x122\n" +
-	"\acommand\x18\x03 \x01(\v2\x16.patron.CommandRequestH\x00R\acommand\x12E\n" +
-	"\x0ecommand_status\x18\x04 \x01(\v2\x1c.patron.CommandStatusRequestH\x00R\rcommandStatus\x12)\n" +
-	"\x04keys\x18\x05 \x01(\v2\x13.patron.KeysRequestH\x00R\x04keys\x12)\n" +
-	"\x04file\x18\x06 \x01(\v2\x13.patron.FileRequestH\x00R\x04file\x12<\n" +
-	"\x0efile_to_server\x18\a \x01(\v2\x14.patron.FileToServerH\x00R\ffileToServerB\t\n" +
-	"\apayload\"\x99\x04\n" +
-	"\bResponse\x12(\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x14.patron.ResponseTypeR\x04type\x12V\n" +
-	"\x16configuration_response\x18\x02 \x01(\v2\x1d.patron.ConfigurationResponseH\x00R\x15configurationResponse\x12D\n" +
-	"\x10command_response\x18\x03 \x01(\v2\x17.patron.CommandResponseH\x00R\x0fcommandResponse\x12W\n" +
-	"\x17command_status_response\x18\x04 \x01(\v2\x1d.patron.CommandStatusResponseH\x00R\x15commandStatusResponse\x12;\n" +
-	"\rkeys_response\x18\x05 \x01(\v2\x14.patron.KeysResponseH\x00R\fkeysResponse\x12;\n" +
-	"\rfile_response\x18\x06 \x01(\v2\x14.patron.FileResponseH\x00R\ffileResponse\x12g\n" +
-	"\x1dfile_transfer_status_response\x18\a \x01(\v2\".patron.FileTransferStatusResponseH\x00R\x1afileTransferStatusResponseB\t\n" +
-	"\apayload\"\x84\x04\n" +
+	"\fagents.proto\x12\n" +
+	"patronobuf\"\xae\x03\n" +
+	"\aRequest\x12+\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x17.patronobuf.RequestTypeR\x04type\x12H\n" +
+	"\rconfiguration\x18\x02 \x01(\v2 .patronobuf.ConfigurationRequestH\x00R\rconfiguration\x126\n" +
+	"\acommand\x18\x03 \x01(\v2\x1a.patronobuf.CommandRequestH\x00R\acommand\x12I\n" +
+	"\x0ecommand_status\x18\x04 \x01(\v2 .patronobuf.CommandStatusRequestH\x00R\rcommandStatus\x12-\n" +
+	"\x04keys\x18\x05 \x01(\v2\x17.patronobuf.KeysRequestH\x00R\x04keys\x12-\n" +
+	"\x04file\x18\x06 \x01(\v2\x17.patronobuf.FileRequestH\x00R\x04file\x12@\n" +
+	"\x0efile_to_server\x18\a \x01(\v2\x18.patronobuf.FileToServerH\x00R\ffileToServerB\t\n" +
+	"\apayload\"\xb5\x04\n" +
+	"\bResponse\x12,\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x18.patronobuf.ResponseTypeR\x04type\x12Z\n" +
+	"\x16configuration_response\x18\x02 \x01(\v2!.patronobuf.ConfigurationResponseH\x00R\x15configurationResponse\x12H\n" +
+	"\x10command_response\x18\x03 \x01(\v2\x1b.patronobuf.CommandResponseH\x00R\x0fcommandResponse\x12[\n" +
+	"\x17command_status_response\x18\x04 \x01(\v2!.patronobuf.CommandStatusResponseH\x00R\x15commandStatusResponse\x12?\n" +
+	"\rkeys_response\x18\x05 \x01(\v2\x18.patronobuf.KeysResponseH\x00R\fkeysResponse\x12?\n" +
+	"\rfile_response\x18\x06 \x01(\v2\x18.patronobuf.FileResponseH\x00R\ffileResponse\x12k\n" +
+	"\x1dfile_transfer_status_response\x18\a \x01(\v2&.patronobuf.FileTransferStatusResponseH\x00R\x1afileTransferStatusResponseB\t\n" +
+	"\apayload\"\x88\x04\n" +
 	"\x14ConfigurationRequest\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x1a\n" +
@@ -1362,8 +1363,8 @@ const file_agents_proto_rawDesc = "" +
 	"\x11callbackfrequency\x18\f \x01(\tR\x11callbackfrequency\x12&\n" +
 	"\x0ecallbackjitter\x18\r \x01(\tR\x0ecallbackjitter\x12\x1c\n" +
 	"\tmasterkey\x18\x0e \x01(\tR\tmasterkey\x12\x16\n" +
-	"\x06status\x18\x0f \x01(\tR\x06status\x12\x1f\n" +
-	"\x04tags\x18\x10 \x03(\v2\v.patron.TagR\x04tags\x12+\n" +
+	"\x06status\x18\x0f \x01(\tR\x06status\x12#\n" +
+	"\x04tags\x18\x10 \x03(\v2\x0f.patronobuf.TagR\x04tags\x12+\n" +
 	"\x11nextcallback_unix\x18\x11 \x01(\x03R\x10nextcallbackUnix\"\xbd\x01\n" +
 	"\x15ConfigurationResponse\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1a\n" +
@@ -1426,7 +1427,7 @@ const file_agents_proto_rawDesc = "" +
 	"\x17COMMAND_STATUS_RESPONSE\x10\x02\x12\x11\n" +
 	"\rKEYS_RESPONSE\x10\x03\x12\x11\n" +
 	"\rFILE_RESPONSE\x10\x04\x12\x18\n" +
-	"\x14FILE_TRANSFER_STATUS\x10\x05B*Z(github.com/PatronC2/Patronobuf/go/patronb\x06proto3"
+	"\x14FILE_TRANSFER_STATUS\x10\x05B.Z,github.com/PatronC2/Patronobuf/go/patronobufb\x06proto3"
 
 var (
 	file_agents_proto_rawDescOnce sync.Once
@@ -1443,40 +1444,40 @@ func file_agents_proto_rawDescGZIP() []byte {
 var file_agents_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_agents_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
 var file_agents_proto_goTypes = []any{
-	(RequestType)(0),                   // 0: patron.RequestType
-	(ResponseType)(0),                  // 1: patron.ResponseType
-	(*Request)(nil),                    // 2: patron.Request
-	(*Response)(nil),                   // 3: patron.Response
-	(*ConfigurationRequest)(nil),       // 4: patron.ConfigurationRequest
-	(*ConfigurationResponse)(nil),      // 5: patron.ConfigurationResponse
-	(*CommandRequest)(nil),             // 6: patron.CommandRequest
-	(*CommandResponse)(nil),            // 7: patron.CommandResponse
-	(*CommandStatusRequest)(nil),       // 8: patron.CommandStatusRequest
-	(*CommandStatusResponse)(nil),      // 9: patron.CommandStatusResponse
-	(*KeysRequest)(nil),                // 10: patron.KeysRequest
-	(*KeysResponse)(nil),               // 11: patron.KeysResponse
-	(*FileRequest)(nil),                // 12: patron.FileRequest
-	(*FileResponse)(nil),               // 13: patron.FileResponse
-	(*FileToServer)(nil),               // 14: patron.FileToServer
-	(*FileTransferStatusResponse)(nil), // 15: patron.FileTransferStatusResponse
-	(*Tag)(nil),                        // 16: patron.Tag
+	(RequestType)(0),                   // 0: patronobuf.RequestType
+	(ResponseType)(0),                  // 1: patronobuf.ResponseType
+	(*Request)(nil),                    // 2: patronobuf.Request
+	(*Response)(nil),                   // 3: patronobuf.Response
+	(*ConfigurationRequest)(nil),       // 4: patronobuf.ConfigurationRequest
+	(*ConfigurationResponse)(nil),      // 5: patronobuf.ConfigurationResponse
+	(*CommandRequest)(nil),             // 6: patronobuf.CommandRequest
+	(*CommandResponse)(nil),            // 7: patronobuf.CommandResponse
+	(*CommandStatusRequest)(nil),       // 8: patronobuf.CommandStatusRequest
+	(*CommandStatusResponse)(nil),      // 9: patronobuf.CommandStatusResponse
+	(*KeysRequest)(nil),                // 10: patronobuf.KeysRequest
+	(*KeysResponse)(nil),               // 11: patronobuf.KeysResponse
+	(*FileRequest)(nil),                // 12: patronobuf.FileRequest
+	(*FileResponse)(nil),               // 13: patronobuf.FileResponse
+	(*FileToServer)(nil),               // 14: patronobuf.FileToServer
+	(*FileTransferStatusResponse)(nil), // 15: patronobuf.FileTransferStatusResponse
+	(*Tag)(nil),                        // 16: patronobuf.Tag
 }
 var file_agents_proto_depIdxs = []int32{
-	0,  // 0: patron.Request.type:type_name -> patron.RequestType
-	4,  // 1: patron.Request.configuration:type_name -> patron.ConfigurationRequest
-	6,  // 2: patron.Request.command:type_name -> patron.CommandRequest
-	8,  // 3: patron.Request.command_status:type_name -> patron.CommandStatusRequest
-	10, // 4: patron.Request.keys:type_name -> patron.KeysRequest
-	12, // 5: patron.Request.file:type_name -> patron.FileRequest
-	14, // 6: patron.Request.file_to_server:type_name -> patron.FileToServer
-	1,  // 7: patron.Response.type:type_name -> patron.ResponseType
-	5,  // 8: patron.Response.configuration_response:type_name -> patron.ConfigurationResponse
-	7,  // 9: patron.Response.command_response:type_name -> patron.CommandResponse
-	9,  // 10: patron.Response.command_status_response:type_name -> patron.CommandStatusResponse
-	11, // 11: patron.Response.keys_response:type_name -> patron.KeysResponse
-	13, // 12: patron.Response.file_response:type_name -> patron.FileResponse
-	15, // 13: patron.Response.file_transfer_status_response:type_name -> patron.FileTransferStatusResponse
-	16, // 14: patron.ConfigurationRequest.tags:type_name -> patron.Tag
+	0,  // 0: patronobuf.Request.type:type_name -> patronobuf.RequestType
+	4,  // 1: patronobuf.Request.configuration:type_name -> patronobuf.ConfigurationRequest
+	6,  // 2: patronobuf.Request.command:type_name -> patronobuf.CommandRequest
+	8,  // 3: patronobuf.Request.command_status:type_name -> patronobuf.CommandStatusRequest
+	10, // 4: patronobuf.Request.keys:type_name -> patronobuf.KeysRequest
+	12, // 5: patronobuf.Request.file:type_name -> patronobuf.FileRequest
+	14, // 6: patronobuf.Request.file_to_server:type_name -> patronobuf.FileToServer
+	1,  // 7: patronobuf.Response.type:type_name -> patronobuf.ResponseType
+	5,  // 8: patronobuf.Response.configuration_response:type_name -> patronobuf.ConfigurationResponse
+	7,  // 9: patronobuf.Response.command_response:type_name -> patronobuf.CommandResponse
+	9,  // 10: patronobuf.Response.command_status_response:type_name -> patronobuf.CommandStatusResponse
+	11, // 11: patronobuf.Response.keys_response:type_name -> patronobuf.KeysResponse
+	13, // 12: patronobuf.Response.file_response:type_name -> patronobuf.FileResponse
+	15, // 13: patronobuf.Response.file_transfer_status_response:type_name -> patronobuf.FileTransferStatusResponse
+	16, // 14: patronobuf.ConfigurationRequest.tags:type_name -> patronobuf.Tag
 	15, // [15:15] is the sub-list for method output_type
 	15, // [15:15] is the sub-list for method input_type
 	15, // [15:15] is the sub-list for extension type_name

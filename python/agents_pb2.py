@@ -16,16 +16,16 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='agents.proto',
-  package='patron',
+  package='patronobuf',
   syntax='proto3',
-  serialized_options=b'Z(github.com/PatronC2/Patronobuf/go/patron',
+  serialized_options=b'Z,github.com/PatronC2/Patronobuf/go/patronobuf',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0c\x61gents.proto\x12\x06patron\"\xcb\x02\n\x07Request\x12!\n\x04type\x18\x01 \x01(\x0e\x32\x13.patron.RequestType\x12\x35\n\rconfiguration\x18\x02 \x01(\x0b\x32\x1c.patron.ConfigurationRequestH\x00\x12)\n\x07\x63ommand\x18\x03 \x01(\x0b\x32\x16.patron.CommandRequestH\x00\x12\x36\n\x0e\x63ommand_status\x18\x04 \x01(\x0b\x32\x1c.patron.CommandStatusRequestH\x00\x12#\n\x04keys\x18\x05 \x01(\x0b\x32\x13.patron.KeysRequestH\x00\x12#\n\x04\x66ile\x18\x06 \x01(\x0b\x32\x13.patron.FileRequestH\x00\x12.\n\x0e\x66ile_to_server\x18\x07 \x01(\x0b\x32\x14.patron.FileToServerH\x00\x42\t\n\x07payload\"\x9c\x03\n\x08Response\x12\"\n\x04type\x18\x01 \x01(\x0e\x32\x14.patron.ResponseType\x12?\n\x16\x63onfiguration_response\x18\x02 \x01(\x0b\x32\x1d.patron.ConfigurationResponseH\x00\x12\x33\n\x10\x63ommand_response\x18\x03 \x01(\x0b\x32\x17.patron.CommandResponseH\x00\x12@\n\x17\x63ommand_status_response\x18\x04 \x01(\x0b\x32\x1d.patron.CommandStatusResponseH\x00\x12-\n\rkeys_response\x18\x05 \x01(\x0b\x32\x14.patron.KeysResponseH\x00\x12-\n\rfile_response\x18\x06 \x01(\x0b\x32\x14.patron.FileResponseH\x00\x12K\n\x1d\x66ile_transfer_status_response\x18\x07 \x01(\x0b\x32\".patron.FileTransferStatusResponseH\x00\x42\t\n\x07payload\"\xd8\x02\n\x14\x43onfigurationRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x10\n\x08hostname\x18\x03 \x01(\t\x12\x0e\n\x06ostype\x18\x04 \x01(\t\x12\x0c\n\x04\x61rch\x18\x05 \x01(\t\x12\x0f\n\x07osbuild\x18\x06 \x01(\t\x12\x0c\n\x04\x63pus\x18\x07 \x01(\t\x12\x0e\n\x06memory\x18\x08 \x01(\t\x12\x0f\n\x07\x61gentip\x18\t \x01(\t\x12\x10\n\x08serverip\x18\n \x01(\t\x12\x12\n\nserverport\x18\x0b \x01(\t\x12\x19\n\x11\x63\x61llbackfrequency\x18\x0c \x01(\t\x12\x16\n\x0e\x63\x61llbackjitter\x18\r \x01(\t\x12\x11\n\tmasterkey\x18\x0e \x01(\t\x12\x0e\n\x06status\x18\x0f \x01(\t\x12\x19\n\x04tags\x18\x10 \x03(\x0b\x32\x0b.patron.Tag\x12\x19\n\x11nextcallback_unix\x18\x11 \x01(\x03\"~\n\x15\x43onfigurationResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x10\n\x08serverip\x18\x02 \x01(\t\x12\x12\n\nserverport\x18\x03 \x01(\t\x12\x19\n\x11\x63\x61llbackfrequency\x18\x04 \x01(\t\x12\x16\n\x0e\x63\x61llbackjitter\x18\x05 \x01(\t\"\x1e\n\x0e\x43ommandRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"X\n\x0f\x43ommandResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x13\n\x0b\x63ommandtype\x18\x02 \x01(\t\x12\x11\n\tcommandid\x18\x03 \x01(\t\x12\x0f\n\x07\x63ommand\x18\x04 \x01(\t\"W\n\x14\x43ommandStatusRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\tcommandid\x18\x02 \x01(\t\x12\x0e\n\x06result\x18\x03 \x01(\t\x12\x0e\n\x06output\x18\x04 \x01(\t\"%\n\x15\x43ommandStatusResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\")\n\x0bKeysRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04keys\x18\x02 \x01(\t\"\x1c\n\x0cKeysResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"\x1b\n\x0b\x46ileRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"c\n\x0c\x46ileResponse\x12\x0e\n\x06\x66ileid\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12\x14\n\x0ctransfertype\x18\x03 \x01(\t\x12\x10\n\x08\x66ilepath\x18\x04 \x01(\t\x12\r\n\x05\x63hunk\x18\x05 \x01(\x0c\"o\n\x0c\x46ileToServer\x12\x0e\n\x06\x66ileid\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12\x14\n\x0ctransfertype\x18\x03 \x01(\t\x12\x0c\n\x04path\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12\r\n\x05\x63hunk\x18\x06 \x01(\x0c\":\n\x1a\x46ileTransferStatusResponse\x12\x0e\n\x06\x66ileid\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\"!\n\x03Tag\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t*i\n\x0bRequestType\x12\x11\n\rCONFIGURATION\x10\x00\x12\x0b\n\x07\x43OMMAND\x10\x01\x12\x12\n\x0e\x43OMMAND_STATUS\x10\x02\x12\x08\n\x04KEYS\x10\x03\x12\x08\n\x04\x46ILE\x10\x04\x12\x12\n\x0e\x46ILE_TO_SERVER\x10\x05*\x9d\x01\n\x0cResponseType\x12\x1a\n\x16\x43ONFIGURATION_RESPONSE\x10\x00\x12\x14\n\x10\x43OMMAND_RESPONSE\x10\x01\x12\x1b\n\x17\x43OMMAND_STATUS_RESPONSE\x10\x02\x12\x11\n\rKEYS_RESPONSE\x10\x03\x12\x11\n\rFILE_RESPONSE\x10\x04\x12\x18\n\x14\x46ILE_TRANSFER_STATUS\x10\x05\x42*Z(github.com/PatronC2/Patronobuf/go/patronb\x06proto3'
+  serialized_pb=b'\n\x0c\x61gents.proto\x12\npatronobuf\"\xe7\x02\n\x07Request\x12%\n\x04type\x18\x01 \x01(\x0e\x32\x17.patronobuf.RequestType\x12\x39\n\rconfiguration\x18\x02 \x01(\x0b\x32 .patronobuf.ConfigurationRequestH\x00\x12-\n\x07\x63ommand\x18\x03 \x01(\x0b\x32\x1a.patronobuf.CommandRequestH\x00\x12:\n\x0e\x63ommand_status\x18\x04 \x01(\x0b\x32 .patronobuf.CommandStatusRequestH\x00\x12\'\n\x04keys\x18\x05 \x01(\x0b\x32\x17.patronobuf.KeysRequestH\x00\x12\'\n\x04\x66ile\x18\x06 \x01(\x0b\x32\x17.patronobuf.FileRequestH\x00\x12\x32\n\x0e\x66ile_to_server\x18\x07 \x01(\x0b\x32\x18.patronobuf.FileToServerH\x00\x42\t\n\x07payload\"\xb8\x03\n\x08Response\x12&\n\x04type\x18\x01 \x01(\x0e\x32\x18.patronobuf.ResponseType\x12\x43\n\x16\x63onfiguration_response\x18\x02 \x01(\x0b\x32!.patronobuf.ConfigurationResponseH\x00\x12\x37\n\x10\x63ommand_response\x18\x03 \x01(\x0b\x32\x1b.patronobuf.CommandResponseH\x00\x12\x44\n\x17\x63ommand_status_response\x18\x04 \x01(\x0b\x32!.patronobuf.CommandStatusResponseH\x00\x12\x31\n\rkeys_response\x18\x05 \x01(\x0b\x32\x18.patronobuf.KeysResponseH\x00\x12\x31\n\rfile_response\x18\x06 \x01(\x0b\x32\x18.patronobuf.FileResponseH\x00\x12O\n\x1d\x66ile_transfer_status_response\x18\x07 \x01(\x0b\x32&.patronobuf.FileTransferStatusResponseH\x00\x42\t\n\x07payload\"\xdc\x02\n\x14\x43onfigurationRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x10\n\x08hostname\x18\x03 \x01(\t\x12\x0e\n\x06ostype\x18\x04 \x01(\t\x12\x0c\n\x04\x61rch\x18\x05 \x01(\t\x12\x0f\n\x07osbuild\x18\x06 \x01(\t\x12\x0c\n\x04\x63pus\x18\x07 \x01(\t\x12\x0e\n\x06memory\x18\x08 \x01(\t\x12\x0f\n\x07\x61gentip\x18\t \x01(\t\x12\x10\n\x08serverip\x18\n \x01(\t\x12\x12\n\nserverport\x18\x0b \x01(\t\x12\x19\n\x11\x63\x61llbackfrequency\x18\x0c \x01(\t\x12\x16\n\x0e\x63\x61llbackjitter\x18\r \x01(\t\x12\x11\n\tmasterkey\x18\x0e \x01(\t\x12\x0e\n\x06status\x18\x0f \x01(\t\x12\x1d\n\x04tags\x18\x10 \x03(\x0b\x32\x0f.patronobuf.Tag\x12\x19\n\x11nextcallback_unix\x18\x11 \x01(\x03\"~\n\x15\x43onfigurationResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x10\n\x08serverip\x18\x02 \x01(\t\x12\x12\n\nserverport\x18\x03 \x01(\t\x12\x19\n\x11\x63\x61llbackfrequency\x18\x04 \x01(\t\x12\x16\n\x0e\x63\x61llbackjitter\x18\x05 \x01(\t\"\x1e\n\x0e\x43ommandRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"X\n\x0f\x43ommandResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x13\n\x0b\x63ommandtype\x18\x02 \x01(\t\x12\x11\n\tcommandid\x18\x03 \x01(\t\x12\x0f\n\x07\x63ommand\x18\x04 \x01(\t\"W\n\x14\x43ommandStatusRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\tcommandid\x18\x02 \x01(\t\x12\x0e\n\x06result\x18\x03 \x01(\t\x12\x0e\n\x06output\x18\x04 \x01(\t\"%\n\x15\x43ommandStatusResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\")\n\x0bKeysRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04keys\x18\x02 \x01(\t\"\x1c\n\x0cKeysResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"\x1b\n\x0b\x46ileRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"c\n\x0c\x46ileResponse\x12\x0e\n\x06\x66ileid\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12\x14\n\x0ctransfertype\x18\x03 \x01(\t\x12\x10\n\x08\x66ilepath\x18\x04 \x01(\t\x12\r\n\x05\x63hunk\x18\x05 \x01(\x0c\"o\n\x0c\x46ileToServer\x12\x0e\n\x06\x66ileid\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12\x14\n\x0ctransfertype\x18\x03 \x01(\t\x12\x0c\n\x04path\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12\r\n\x05\x63hunk\x18\x06 \x01(\x0c\":\n\x1a\x46ileTransferStatusResponse\x12\x0e\n\x06\x66ileid\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\"!\n\x03Tag\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t*i\n\x0bRequestType\x12\x11\n\rCONFIGURATION\x10\x00\x12\x0b\n\x07\x43OMMAND\x10\x01\x12\x12\n\x0e\x43OMMAND_STATUS\x10\x02\x12\x08\n\x04KEYS\x10\x03\x12\x08\n\x04\x46ILE\x10\x04\x12\x12\n\x0e\x46ILE_TO_SERVER\x10\x05*\x9d\x01\n\x0cResponseType\x12\x1a\n\x16\x43ONFIGURATION_RESPONSE\x10\x00\x12\x14\n\x10\x43OMMAND_RESPONSE\x10\x01\x12\x1b\n\x17\x43OMMAND_STATUS_RESPONSE\x10\x02\x12\x11\n\rKEYS_RESPONSE\x10\x03\x12\x11\n\rFILE_RESPONSE\x10\x04\x12\x18\n\x14\x46ILE_TRANSFER_STATUS\x10\x05\x42.Z,github.com/PatronC2/Patronobuf/go/patronobufb\x06proto3'
 )
 
 _REQUESTTYPE = _descriptor.EnumDescriptor(
   name='RequestType',
-  full_name='patron.RequestType',
+  full_name='patronobuf.RequestType',
   filename=None,
   file=DESCRIPTOR,
   create_key=_descriptor._internal_create_key,
@@ -63,15 +63,15 @@ _REQUESTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1909,
-  serialized_end=2014,
+  serialized_start=1973,
+  serialized_end=2078,
 )
 _sym_db.RegisterEnumDescriptor(_REQUESTTYPE)
 
 RequestType = enum_type_wrapper.EnumTypeWrapper(_REQUESTTYPE)
 _RESPONSETYPE = _descriptor.EnumDescriptor(
   name='ResponseType',
-  full_name='patron.ResponseType',
+  full_name='patronobuf.ResponseType',
   filename=None,
   file=DESCRIPTOR,
   create_key=_descriptor._internal_create_key,
@@ -109,8 +109,8 @@ _RESPONSETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2017,
-  serialized_end=2174,
+  serialized_start=2081,
+  serialized_end=2238,
 )
 _sym_db.RegisterEnumDescriptor(_RESPONSETYPE)
 
@@ -132,56 +132,56 @@ FILE_TRANSFER_STATUS = 5
 
 _REQUEST = _descriptor.Descriptor(
   name='Request',
-  full_name='patron.Request',
+  full_name='patronobuf.Request',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='patron.Request.type', index=0,
+      name='type', full_name='patronobuf.Request.type', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='configuration', full_name='patron.Request.configuration', index=1,
+      name='configuration', full_name='patronobuf.Request.configuration', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='command', full_name='patron.Request.command', index=2,
+      name='command', full_name='patronobuf.Request.command', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='command_status', full_name='patron.Request.command_status', index=3,
+      name='command_status', full_name='patronobuf.Request.command_status', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='keys', full_name='patron.Request.keys', index=4,
+      name='keys', full_name='patronobuf.Request.keys', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='file', full_name='patron.Request.file', index=5,
+      name='file', full_name='patronobuf.Request.file', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='file_to_server', full_name='patron.Request.file_to_server', index=6,
+      name='file_to_server', full_name='patronobuf.Request.file_to_server', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -199,68 +199,68 @@ _REQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='payload', full_name='patron.Request.payload',
+      name='payload', full_name='patronobuf.Request.payload',
       index=0, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=25,
-  serialized_end=356,
+  serialized_start=29,
+  serialized_end=388,
 )
 
 
 _RESPONSE = _descriptor.Descriptor(
   name='Response',
-  full_name='patron.Response',
+  full_name='patronobuf.Response',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='patron.Response.type', index=0,
+      name='type', full_name='patronobuf.Response.type', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='configuration_response', full_name='patron.Response.configuration_response', index=1,
+      name='configuration_response', full_name='patronobuf.Response.configuration_response', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='command_response', full_name='patron.Response.command_response', index=2,
+      name='command_response', full_name='patronobuf.Response.command_response', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='command_status_response', full_name='patron.Response.command_status_response', index=3,
+      name='command_status_response', full_name='patronobuf.Response.command_status_response', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='keys_response', full_name='patron.Response.keys_response', index=4,
+      name='keys_response', full_name='patronobuf.Response.keys_response', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='file_response', full_name='patron.Response.file_response', index=5,
+      name='file_response', full_name='patronobuf.Response.file_response', index=5,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='file_transfer_status_response', full_name='patron.Response.file_transfer_status_response', index=6,
+      name='file_transfer_status_response', full_name='patronobuf.Response.file_transfer_status_response', index=6,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -278,138 +278,138 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
     _descriptor.OneofDescriptor(
-      name='payload', full_name='patron.Response.payload',
+      name='payload', full_name='patronobuf.Response.payload',
       index=0, containing_type=None,
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=359,
-  serialized_end=771,
+  serialized_start=391,
+  serialized_end=831,
 )
 
 
 _CONFIGURATIONREQUEST = _descriptor.Descriptor(
   name='ConfigurationRequest',
-  full_name='patron.ConfigurationRequest',
+  full_name='patronobuf.ConfigurationRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='patron.ConfigurationRequest.uuid', index=0,
+      name='uuid', full_name='patronobuf.ConfigurationRequest.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='username', full_name='patron.ConfigurationRequest.username', index=1,
+      name='username', full_name='patronobuf.ConfigurationRequest.username', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='hostname', full_name='patron.ConfigurationRequest.hostname', index=2,
+      name='hostname', full_name='patronobuf.ConfigurationRequest.hostname', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ostype', full_name='patron.ConfigurationRequest.ostype', index=3,
+      name='ostype', full_name='patronobuf.ConfigurationRequest.ostype', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='arch', full_name='patron.ConfigurationRequest.arch', index=4,
+      name='arch', full_name='patronobuf.ConfigurationRequest.arch', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='osbuild', full_name='patron.ConfigurationRequest.osbuild', index=5,
+      name='osbuild', full_name='patronobuf.ConfigurationRequest.osbuild', index=5,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='cpus', full_name='patron.ConfigurationRequest.cpus', index=6,
+      name='cpus', full_name='patronobuf.ConfigurationRequest.cpus', index=6,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='memory', full_name='patron.ConfigurationRequest.memory', index=7,
+      name='memory', full_name='patronobuf.ConfigurationRequest.memory', index=7,
       number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='agentip', full_name='patron.ConfigurationRequest.agentip', index=8,
+      name='agentip', full_name='patronobuf.ConfigurationRequest.agentip', index=8,
       number=9, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='serverip', full_name='patron.ConfigurationRequest.serverip', index=9,
+      name='serverip', full_name='patronobuf.ConfigurationRequest.serverip', index=9,
       number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='serverport', full_name='patron.ConfigurationRequest.serverport', index=10,
+      name='serverport', full_name='patronobuf.ConfigurationRequest.serverport', index=10,
       number=11, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='callbackfrequency', full_name='patron.ConfigurationRequest.callbackfrequency', index=11,
+      name='callbackfrequency', full_name='patronobuf.ConfigurationRequest.callbackfrequency', index=11,
       number=12, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='callbackjitter', full_name='patron.ConfigurationRequest.callbackjitter', index=12,
+      name='callbackjitter', full_name='patronobuf.ConfigurationRequest.callbackjitter', index=12,
       number=13, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='masterkey', full_name='patron.ConfigurationRequest.masterkey', index=13,
+      name='masterkey', full_name='patronobuf.ConfigurationRequest.masterkey', index=13,
       number=14, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status', full_name='patron.ConfigurationRequest.status', index=14,
+      name='status', full_name='patronobuf.ConfigurationRequest.status', index=14,
       number=15, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='tags', full_name='patron.ConfigurationRequest.tags', index=15,
+      name='tags', full_name='patronobuf.ConfigurationRequest.tags', index=15,
       number=16, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='nextcallback_unix', full_name='patron.ConfigurationRequest.nextcallback_unix', index=16,
+      name='nextcallback_unix', full_name='patronobuf.ConfigurationRequest.nextcallback_unix', index=16,
       number=17, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -427,49 +427,49 @@ _CONFIGURATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=774,
-  serialized_end=1118,
+  serialized_start=834,
+  serialized_end=1182,
 )
 
 
 _CONFIGURATIONRESPONSE = _descriptor.Descriptor(
   name='ConfigurationResponse',
-  full_name='patron.ConfigurationResponse',
+  full_name='patronobuf.ConfigurationResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='patron.ConfigurationResponse.uuid', index=0,
+      name='uuid', full_name='patronobuf.ConfigurationResponse.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='serverip', full_name='patron.ConfigurationResponse.serverip', index=1,
+      name='serverip', full_name='patronobuf.ConfigurationResponse.serverip', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='serverport', full_name='patron.ConfigurationResponse.serverport', index=2,
+      name='serverport', full_name='patronobuf.ConfigurationResponse.serverport', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='callbackfrequency', full_name='patron.ConfigurationResponse.callbackfrequency', index=3,
+      name='callbackfrequency', full_name='patronobuf.ConfigurationResponse.callbackfrequency', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='callbackjitter', full_name='patron.ConfigurationResponse.callbackjitter', index=4,
+      name='callbackjitter', full_name='patronobuf.ConfigurationResponse.callbackjitter', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -487,21 +487,21 @@ _CONFIGURATIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1120,
-  serialized_end=1246,
+  serialized_start=1184,
+  serialized_end=1310,
 )
 
 
 _COMMANDREQUEST = _descriptor.Descriptor(
   name='CommandRequest',
-  full_name='patron.CommandRequest',
+  full_name='patronobuf.CommandRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='patron.CommandRequest.uuid', index=0,
+      name='uuid', full_name='patronobuf.CommandRequest.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -519,42 +519,42 @@ _COMMANDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1248,
-  serialized_end=1278,
+  serialized_start=1312,
+  serialized_end=1342,
 )
 
 
 _COMMANDRESPONSE = _descriptor.Descriptor(
   name='CommandResponse',
-  full_name='patron.CommandResponse',
+  full_name='patronobuf.CommandResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='patron.CommandResponse.uuid', index=0,
+      name='uuid', full_name='patronobuf.CommandResponse.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='commandtype', full_name='patron.CommandResponse.commandtype', index=1,
+      name='commandtype', full_name='patronobuf.CommandResponse.commandtype', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='commandid', full_name='patron.CommandResponse.commandid', index=2,
+      name='commandid', full_name='patronobuf.CommandResponse.commandid', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='command', full_name='patron.CommandResponse.command', index=3,
+      name='command', full_name='patronobuf.CommandResponse.command', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -572,42 +572,42 @@ _COMMANDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1280,
-  serialized_end=1368,
+  serialized_start=1344,
+  serialized_end=1432,
 )
 
 
 _COMMANDSTATUSREQUEST = _descriptor.Descriptor(
   name='CommandStatusRequest',
-  full_name='patron.CommandStatusRequest',
+  full_name='patronobuf.CommandStatusRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='patron.CommandStatusRequest.uuid', index=0,
+      name='uuid', full_name='patronobuf.CommandStatusRequest.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='commandid', full_name='patron.CommandStatusRequest.commandid', index=1,
+      name='commandid', full_name='patronobuf.CommandStatusRequest.commandid', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='result', full_name='patron.CommandStatusRequest.result', index=2,
+      name='result', full_name='patronobuf.CommandStatusRequest.result', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='output', full_name='patron.CommandStatusRequest.output', index=3,
+      name='output', full_name='patronobuf.CommandStatusRequest.output', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -625,21 +625,21 @@ _COMMANDSTATUSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1370,
-  serialized_end=1457,
+  serialized_start=1434,
+  serialized_end=1521,
 )
 
 
 _COMMANDSTATUSRESPONSE = _descriptor.Descriptor(
   name='CommandStatusResponse',
-  full_name='patron.CommandStatusResponse',
+  full_name='patronobuf.CommandStatusResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='patron.CommandStatusResponse.uuid', index=0,
+      name='uuid', full_name='patronobuf.CommandStatusResponse.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -657,28 +657,28 @@ _COMMANDSTATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1459,
-  serialized_end=1496,
+  serialized_start=1523,
+  serialized_end=1560,
 )
 
 
 _KEYSREQUEST = _descriptor.Descriptor(
   name='KeysRequest',
-  full_name='patron.KeysRequest',
+  full_name='patronobuf.KeysRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='patron.KeysRequest.uuid', index=0,
+      name='uuid', full_name='patronobuf.KeysRequest.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='keys', full_name='patron.KeysRequest.keys', index=1,
+      name='keys', full_name='patronobuf.KeysRequest.keys', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -696,21 +696,21 @@ _KEYSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1498,
-  serialized_end=1539,
+  serialized_start=1562,
+  serialized_end=1603,
 )
 
 
 _KEYSRESPONSE = _descriptor.Descriptor(
   name='KeysResponse',
-  full_name='patron.KeysResponse',
+  full_name='patronobuf.KeysResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='patron.KeysResponse.uuid', index=0,
+      name='uuid', full_name='patronobuf.KeysResponse.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -728,21 +728,21 @@ _KEYSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1541,
-  serialized_end=1569,
+  serialized_start=1605,
+  serialized_end=1633,
 )
 
 
 _FILEREQUEST = _descriptor.Descriptor(
   name='FileRequest',
-  full_name='patron.FileRequest',
+  full_name='patronobuf.FileRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='patron.FileRequest.uuid', index=0,
+      name='uuid', full_name='patronobuf.FileRequest.uuid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -760,49 +760,49 @@ _FILEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1571,
-  serialized_end=1598,
+  serialized_start=1635,
+  serialized_end=1662,
 )
 
 
 _FILERESPONSE = _descriptor.Descriptor(
   name='FileResponse',
-  full_name='patron.FileResponse',
+  full_name='patronobuf.FileResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='fileid', full_name='patron.FileResponse.fileid', index=0,
+      name='fileid', full_name='patronobuf.FileResponse.fileid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='patron.FileResponse.uuid', index=1,
+      name='uuid', full_name='patronobuf.FileResponse.uuid', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='transfertype', full_name='patron.FileResponse.transfertype', index=2,
+      name='transfertype', full_name='patronobuf.FileResponse.transfertype', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='filepath', full_name='patron.FileResponse.filepath', index=3,
+      name='filepath', full_name='patronobuf.FileResponse.filepath', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='chunk', full_name='patron.FileResponse.chunk', index=4,
+      name='chunk', full_name='patronobuf.FileResponse.chunk', index=4,
       number=5, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
@@ -820,56 +820,56 @@ _FILERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1600,
-  serialized_end=1699,
+  serialized_start=1664,
+  serialized_end=1763,
 )
 
 
 _FILETOSERVER = _descriptor.Descriptor(
   name='FileToServer',
-  full_name='patron.FileToServer',
+  full_name='patronobuf.FileToServer',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='fileid', full_name='patron.FileToServer.fileid', index=0,
+      name='fileid', full_name='patronobuf.FileToServer.fileid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='patron.FileToServer.uuid', index=1,
+      name='uuid', full_name='patronobuf.FileToServer.uuid', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='transfertype', full_name='patron.FileToServer.transfertype', index=2,
+      name='transfertype', full_name='patronobuf.FileToServer.transfertype', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='path', full_name='patron.FileToServer.path', index=3,
+      name='path', full_name='patronobuf.FileToServer.path', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status', full_name='patron.FileToServer.status', index=4,
+      name='status', full_name='patronobuf.FileToServer.status', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='chunk', full_name='patron.FileToServer.chunk', index=5,
+      name='chunk', full_name='patronobuf.FileToServer.chunk', index=5,
       number=6, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
@@ -887,28 +887,28 @@ _FILETOSERVER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1701,
-  serialized_end=1812,
+  serialized_start=1765,
+  serialized_end=1876,
 )
 
 
 _FILETRANSFERSTATUSRESPONSE = _descriptor.Descriptor(
   name='FileTransferStatusResponse',
-  full_name='patron.FileTransferStatusResponse',
+  full_name='patronobuf.FileTransferStatusResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='fileid', full_name='patron.FileTransferStatusResponse.fileid', index=0,
+      name='fileid', full_name='patronobuf.FileTransferStatusResponse.fileid', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='uuid', full_name='patron.FileTransferStatusResponse.uuid', index=1,
+      name='uuid', full_name='patronobuf.FileTransferStatusResponse.uuid', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -926,28 +926,28 @@ _FILETRANSFERSTATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1814,
-  serialized_end=1872,
+  serialized_start=1878,
+  serialized_end=1936,
 )
 
 
 _TAG = _descriptor.Descriptor(
   name='Tag',
-  full_name='patron.Tag',
+  full_name='patronobuf.Tag',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='patron.Tag.key', index=0,
+      name='key', full_name='patronobuf.Tag.key', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='value', full_name='patron.Tag.value', index=1,
+      name='value', full_name='patronobuf.Tag.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -965,8 +965,8 @@ _TAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1874,
-  serialized_end=1907,
+  serialized_start=1938,
+  serialized_end=1971,
 )
 
 _REQUEST.fields_by_name['type'].enum_type = _REQUESTTYPE
@@ -1042,105 +1042,105 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 Request = _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), {
   'DESCRIPTOR' : _REQUEST,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.Request)
+  # @@protoc_insertion_point(class_scope:patronobuf.Request)
   })
 _sym_db.RegisterMessage(Request)
 
 Response = _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), {
   'DESCRIPTOR' : _RESPONSE,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.Response)
+  # @@protoc_insertion_point(class_scope:patronobuf.Response)
   })
 _sym_db.RegisterMessage(Response)
 
 ConfigurationRequest = _reflection.GeneratedProtocolMessageType('ConfigurationRequest', (_message.Message,), {
   'DESCRIPTOR' : _CONFIGURATIONREQUEST,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.ConfigurationRequest)
+  # @@protoc_insertion_point(class_scope:patronobuf.ConfigurationRequest)
   })
 _sym_db.RegisterMessage(ConfigurationRequest)
 
 ConfigurationResponse = _reflection.GeneratedProtocolMessageType('ConfigurationResponse', (_message.Message,), {
   'DESCRIPTOR' : _CONFIGURATIONRESPONSE,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.ConfigurationResponse)
+  # @@protoc_insertion_point(class_scope:patronobuf.ConfigurationResponse)
   })
 _sym_db.RegisterMessage(ConfigurationResponse)
 
 CommandRequest = _reflection.GeneratedProtocolMessageType('CommandRequest', (_message.Message,), {
   'DESCRIPTOR' : _COMMANDREQUEST,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.CommandRequest)
+  # @@protoc_insertion_point(class_scope:patronobuf.CommandRequest)
   })
 _sym_db.RegisterMessage(CommandRequest)
 
 CommandResponse = _reflection.GeneratedProtocolMessageType('CommandResponse', (_message.Message,), {
   'DESCRIPTOR' : _COMMANDRESPONSE,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.CommandResponse)
+  # @@protoc_insertion_point(class_scope:patronobuf.CommandResponse)
   })
 _sym_db.RegisterMessage(CommandResponse)
 
 CommandStatusRequest = _reflection.GeneratedProtocolMessageType('CommandStatusRequest', (_message.Message,), {
   'DESCRIPTOR' : _COMMANDSTATUSREQUEST,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.CommandStatusRequest)
+  # @@protoc_insertion_point(class_scope:patronobuf.CommandStatusRequest)
   })
 _sym_db.RegisterMessage(CommandStatusRequest)
 
 CommandStatusResponse = _reflection.GeneratedProtocolMessageType('CommandStatusResponse', (_message.Message,), {
   'DESCRIPTOR' : _COMMANDSTATUSRESPONSE,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.CommandStatusResponse)
+  # @@protoc_insertion_point(class_scope:patronobuf.CommandStatusResponse)
   })
 _sym_db.RegisterMessage(CommandStatusResponse)
 
 KeysRequest = _reflection.GeneratedProtocolMessageType('KeysRequest', (_message.Message,), {
   'DESCRIPTOR' : _KEYSREQUEST,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.KeysRequest)
+  # @@protoc_insertion_point(class_scope:patronobuf.KeysRequest)
   })
 _sym_db.RegisterMessage(KeysRequest)
 
 KeysResponse = _reflection.GeneratedProtocolMessageType('KeysResponse', (_message.Message,), {
   'DESCRIPTOR' : _KEYSRESPONSE,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.KeysResponse)
+  # @@protoc_insertion_point(class_scope:patronobuf.KeysResponse)
   })
 _sym_db.RegisterMessage(KeysResponse)
 
 FileRequest = _reflection.GeneratedProtocolMessageType('FileRequest', (_message.Message,), {
   'DESCRIPTOR' : _FILEREQUEST,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.FileRequest)
+  # @@protoc_insertion_point(class_scope:patronobuf.FileRequest)
   })
 _sym_db.RegisterMessage(FileRequest)
 
 FileResponse = _reflection.GeneratedProtocolMessageType('FileResponse', (_message.Message,), {
   'DESCRIPTOR' : _FILERESPONSE,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.FileResponse)
+  # @@protoc_insertion_point(class_scope:patronobuf.FileResponse)
   })
 _sym_db.RegisterMessage(FileResponse)
 
 FileToServer = _reflection.GeneratedProtocolMessageType('FileToServer', (_message.Message,), {
   'DESCRIPTOR' : _FILETOSERVER,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.FileToServer)
+  # @@protoc_insertion_point(class_scope:patronobuf.FileToServer)
   })
 _sym_db.RegisterMessage(FileToServer)
 
 FileTransferStatusResponse = _reflection.GeneratedProtocolMessageType('FileTransferStatusResponse', (_message.Message,), {
   'DESCRIPTOR' : _FILETRANSFERSTATUSRESPONSE,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.FileTransferStatusResponse)
+  # @@protoc_insertion_point(class_scope:patronobuf.FileTransferStatusResponse)
   })
 _sym_db.RegisterMessage(FileTransferStatusResponse)
 
 Tag = _reflection.GeneratedProtocolMessageType('Tag', (_message.Message,), {
   'DESCRIPTOR' : _TAG,
   '__module__' : 'agents_pb2'
-  # @@protoc_insertion_point(class_scope:patron.Tag)
+  # @@protoc_insertion_point(class_scope:patronobuf.Tag)
   })
 _sym_db.RegisterMessage(Tag)
 

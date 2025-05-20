@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-package patron;
-option go_package = "github.com/PatronC2/Patronobuf/go/patron";
+package patronobuf;
+option go_package = "github.com/PatronC2/Patronobuf/go/patronobuf";
 
 enum RequestType {
   CONFIGURATION = 0;

@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Patron {
+namespace Patronobuf {
 
   /// <summary>Holder for reflection information generated from agents.proto</summary>
   public static partial class AgentsReflection {
@@ -24,74 +24,75 @@ namespace Patron {
     static AgentsReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgxhZ2VudHMucHJvdG8SBnBhdHJvbiLLAgoHUmVxdWVzdBIhCgR0eXBlGAEg",
-            "ASgOMhMucGF0cm9uLlJlcXVlc3RUeXBlEjUKDWNvbmZpZ3VyYXRpb24YAiAB",
-            "KAsyHC5wYXRyb24uQ29uZmlndXJhdGlvblJlcXVlc3RIABIpCgdjb21tYW5k",
-            "GAMgASgLMhYucGF0cm9uLkNvbW1hbmRSZXF1ZXN0SAASNgoOY29tbWFuZF9z",
-            "dGF0dXMYBCABKAsyHC5wYXRyb24uQ29tbWFuZFN0YXR1c1JlcXVlc3RIABIj",
-            "CgRrZXlzGAUgASgLMhMucGF0cm9uLktleXNSZXF1ZXN0SAASIwoEZmlsZRgG",
-            "IAEoCzITLnBhdHJvbi5GaWxlUmVxdWVzdEgAEi4KDmZpbGVfdG9fc2VydmVy",
-            "GAcgASgLMhQucGF0cm9uLkZpbGVUb1NlcnZlckgAQgkKB3BheWxvYWQinAMK",
-            "CFJlc3BvbnNlEiIKBHR5cGUYASABKA4yFC5wYXRyb24uUmVzcG9uc2VUeXBl",
-            "Ej8KFmNvbmZpZ3VyYXRpb25fcmVzcG9uc2UYAiABKAsyHS5wYXRyb24uQ29u",
-            "ZmlndXJhdGlvblJlc3BvbnNlSAASMwoQY29tbWFuZF9yZXNwb25zZRgDIAEo",
-            "CzIXLnBhdHJvbi5Db21tYW5kUmVzcG9uc2VIABJAChdjb21tYW5kX3N0YXR1",
-            "c19yZXNwb25zZRgEIAEoCzIdLnBhdHJvbi5Db21tYW5kU3RhdHVzUmVzcG9u",
-            "c2VIABItCg1rZXlzX3Jlc3BvbnNlGAUgASgLMhQucGF0cm9uLktleXNSZXNw",
-            "b25zZUgAEi0KDWZpbGVfcmVzcG9uc2UYBiABKAsyFC5wYXRyb24uRmlsZVJl",
-            "c3BvbnNlSAASSwodZmlsZV90cmFuc2Zlcl9zdGF0dXNfcmVzcG9uc2UYByAB",
-            "KAsyIi5wYXRyb24uRmlsZVRyYW5zZmVyU3RhdHVzUmVzcG9uc2VIAEIJCgdw",
-            "YXlsb2FkItgCChRDb25maWd1cmF0aW9uUmVxdWVzdBIMCgR1dWlkGAEgASgJ",
-            "EhAKCHVzZXJuYW1lGAIgASgJEhAKCGhvc3RuYW1lGAMgASgJEg4KBm9zdHlw",
-            "ZRgEIAEoCRIMCgRhcmNoGAUgASgJEg8KB29zYnVpbGQYBiABKAkSDAoEY3B1",
-            "cxgHIAEoCRIOCgZtZW1vcnkYCCABKAkSDwoHYWdlbnRpcBgJIAEoCRIQCghz",
-            "ZXJ2ZXJpcBgKIAEoCRISCgpzZXJ2ZXJwb3J0GAsgASgJEhkKEWNhbGxiYWNr",
-            "ZnJlcXVlbmN5GAwgASgJEhYKDmNhbGxiYWNraml0dGVyGA0gASgJEhEKCW1h",
-            "c3RlcmtleRgOIAEoCRIOCgZzdGF0dXMYDyABKAkSGQoEdGFncxgQIAMoCzIL",
-            "LnBhdHJvbi5UYWcSGQoRbmV4dGNhbGxiYWNrX3VuaXgYESABKAMifgoVQ29u",
-            "ZmlndXJhdGlvblJlc3BvbnNlEgwKBHV1aWQYASABKAkSEAoIc2VydmVyaXAY",
-            "AiABKAkSEgoKc2VydmVycG9ydBgDIAEoCRIZChFjYWxsYmFja2ZyZXF1ZW5j",
-            "eRgEIAEoCRIWCg5jYWxsYmFja2ppdHRlchgFIAEoCSIeCg5Db21tYW5kUmVx",
-            "dWVzdBIMCgR1dWlkGAEgASgJIlgKD0NvbW1hbmRSZXNwb25zZRIMCgR1dWlk",
-            "GAEgASgJEhMKC2NvbW1hbmR0eXBlGAIgASgJEhEKCWNvbW1hbmRpZBgDIAEo",
-            "CRIPCgdjb21tYW5kGAQgASgJIlcKFENvbW1hbmRTdGF0dXNSZXF1ZXN0EgwK",
-            "BHV1aWQYASABKAkSEQoJY29tbWFuZGlkGAIgASgJEg4KBnJlc3VsdBgDIAEo",
-            "CRIOCgZvdXRwdXQYBCABKAkiJQoVQ29tbWFuZFN0YXR1c1Jlc3BvbnNlEgwK",
-            "BHV1aWQYASABKAkiKQoLS2V5c1JlcXVlc3QSDAoEdXVpZBgBIAEoCRIMCgRr",
-            "ZXlzGAIgASgJIhwKDEtleXNSZXNwb25zZRIMCgR1dWlkGAEgASgJIhsKC0Zp",
-            "bGVSZXF1ZXN0EgwKBHV1aWQYASABKAkiYwoMRmlsZVJlc3BvbnNlEg4KBmZp",
-            "bGVpZBgBIAEoCRIMCgR1dWlkGAIgASgJEhQKDHRyYW5zZmVydHlwZRgDIAEo",
-            "CRIQCghmaWxlcGF0aBgEIAEoCRINCgVjaHVuaxgFIAEoDCJvCgxGaWxlVG9T",
-            "ZXJ2ZXISDgoGZmlsZWlkGAEgASgJEgwKBHV1aWQYAiABKAkSFAoMdHJhbnNm",
-            "ZXJ0eXBlGAMgASgJEgwKBHBhdGgYBCABKAkSDgoGc3RhdHVzGAUgASgJEg0K",
-            "BWNodW5rGAYgASgMIjoKGkZpbGVUcmFuc2ZlclN0YXR1c1Jlc3BvbnNlEg4K",
-            "BmZpbGVpZBgBIAEoCRIMCgR1dWlkGAIgASgJIiEKA1RhZxILCgNrZXkYASAB",
-            "KAkSDQoFdmFsdWUYAiABKAkqaQoLUmVxdWVzdFR5cGUSEQoNQ09ORklHVVJB",
-            "VElPThAAEgsKB0NPTU1BTkQQARISCg5DT01NQU5EX1NUQVRVUxACEggKBEtF",
-            "WVMQAxIICgRGSUxFEAQSEgoORklMRV9UT19TRVJWRVIQBSqdAQoMUmVzcG9u",
-            "c2VUeXBlEhoKFkNPTkZJR1VSQVRJT05fUkVTUE9OU0UQABIUChBDT01NQU5E",
-            "X1JFU1BPTlNFEAESGwoXQ09NTUFORF9TVEFUVVNfUkVTUE9OU0UQAhIRCg1L",
-            "RVlTX1JFU1BPTlNFEAMSEQoNRklMRV9SRVNQT05TRRAEEhgKFEZJTEVfVFJB",
-            "TlNGRVJfU1RBVFVTEAVCKlooZ2l0aHViLmNvbS9QYXRyb25DMi9QYXRyb25v",
-            "YnVmL2dvL3BhdHJvbmIGcHJvdG8z"));
+            "CgxhZ2VudHMucHJvdG8SCnBhdHJvbm9idWYi5wIKB1JlcXVlc3QSJQoEdHlw",
+            "ZRgBIAEoDjIXLnBhdHJvbm9idWYuUmVxdWVzdFR5cGUSOQoNY29uZmlndXJh",
+            "dGlvbhgCIAEoCzIgLnBhdHJvbm9idWYuQ29uZmlndXJhdGlvblJlcXVlc3RI",
+            "ABItCgdjb21tYW5kGAMgASgLMhoucGF0cm9ub2J1Zi5Db21tYW5kUmVxdWVz",
+            "dEgAEjoKDmNvbW1hbmRfc3RhdHVzGAQgASgLMiAucGF0cm9ub2J1Zi5Db21t",
+            "YW5kU3RhdHVzUmVxdWVzdEgAEicKBGtleXMYBSABKAsyFy5wYXRyb25vYnVm",
+            "LktleXNSZXF1ZXN0SAASJwoEZmlsZRgGIAEoCzIXLnBhdHJvbm9idWYuRmls",
+            "ZVJlcXVlc3RIABIyCg5maWxlX3RvX3NlcnZlchgHIAEoCzIYLnBhdHJvbm9i",
+            "dWYuRmlsZVRvU2VydmVySABCCQoHcGF5bG9hZCK4AwoIUmVzcG9uc2USJgoE",
+            "dHlwZRgBIAEoDjIYLnBhdHJvbm9idWYuUmVzcG9uc2VUeXBlEkMKFmNvbmZp",
+            "Z3VyYXRpb25fcmVzcG9uc2UYAiABKAsyIS5wYXRyb25vYnVmLkNvbmZpZ3Vy",
+            "YXRpb25SZXNwb25zZUgAEjcKEGNvbW1hbmRfcmVzcG9uc2UYAyABKAsyGy5w",
+            "YXRyb25vYnVmLkNvbW1hbmRSZXNwb25zZUgAEkQKF2NvbW1hbmRfc3RhdHVz",
+            "X3Jlc3BvbnNlGAQgASgLMiEucGF0cm9ub2J1Zi5Db21tYW5kU3RhdHVzUmVz",
+            "cG9uc2VIABIxCg1rZXlzX3Jlc3BvbnNlGAUgASgLMhgucGF0cm9ub2J1Zi5L",
+            "ZXlzUmVzcG9uc2VIABIxCg1maWxlX3Jlc3BvbnNlGAYgASgLMhgucGF0cm9u",
+            "b2J1Zi5GaWxlUmVzcG9uc2VIABJPCh1maWxlX3RyYW5zZmVyX3N0YXR1c19y",
+            "ZXNwb25zZRgHIAEoCzImLnBhdHJvbm9idWYuRmlsZVRyYW5zZmVyU3RhdHVz",
+            "UmVzcG9uc2VIAEIJCgdwYXlsb2FkItwCChRDb25maWd1cmF0aW9uUmVxdWVz",
+            "dBIMCgR1dWlkGAEgASgJEhAKCHVzZXJuYW1lGAIgASgJEhAKCGhvc3RuYW1l",
+            "GAMgASgJEg4KBm9zdHlwZRgEIAEoCRIMCgRhcmNoGAUgASgJEg8KB29zYnVp",
+            "bGQYBiABKAkSDAoEY3B1cxgHIAEoCRIOCgZtZW1vcnkYCCABKAkSDwoHYWdl",
+            "bnRpcBgJIAEoCRIQCghzZXJ2ZXJpcBgKIAEoCRISCgpzZXJ2ZXJwb3J0GAsg",
+            "ASgJEhkKEWNhbGxiYWNrZnJlcXVlbmN5GAwgASgJEhYKDmNhbGxiYWNraml0",
+            "dGVyGA0gASgJEhEKCW1hc3RlcmtleRgOIAEoCRIOCgZzdGF0dXMYDyABKAkS",
+            "HQoEdGFncxgQIAMoCzIPLnBhdHJvbm9idWYuVGFnEhkKEW5leHRjYWxsYmFj",
+            "a191bml4GBEgASgDIn4KFUNvbmZpZ3VyYXRpb25SZXNwb25zZRIMCgR1dWlk",
+            "GAEgASgJEhAKCHNlcnZlcmlwGAIgASgJEhIKCnNlcnZlcnBvcnQYAyABKAkS",
+            "GQoRY2FsbGJhY2tmcmVxdWVuY3kYBCABKAkSFgoOY2FsbGJhY2tqaXR0ZXIY",
+            "BSABKAkiHgoOQ29tbWFuZFJlcXVlc3QSDAoEdXVpZBgBIAEoCSJYCg9Db21t",
+            "YW5kUmVzcG9uc2USDAoEdXVpZBgBIAEoCRITCgtjb21tYW5kdHlwZRgCIAEo",
+            "CRIRCgljb21tYW5kaWQYAyABKAkSDwoHY29tbWFuZBgEIAEoCSJXChRDb21t",
+            "YW5kU3RhdHVzUmVxdWVzdBIMCgR1dWlkGAEgASgJEhEKCWNvbW1hbmRpZBgC",
+            "IAEoCRIOCgZyZXN1bHQYAyABKAkSDgoGb3V0cHV0GAQgASgJIiUKFUNvbW1h",
+            "bmRTdGF0dXNSZXNwb25zZRIMCgR1dWlkGAEgASgJIikKC0tleXNSZXF1ZXN0",
+            "EgwKBHV1aWQYASABKAkSDAoEa2V5cxgCIAEoCSIcCgxLZXlzUmVzcG9uc2US",
+            "DAoEdXVpZBgBIAEoCSIbCgtGaWxlUmVxdWVzdBIMCgR1dWlkGAEgASgJImMK",
+            "DEZpbGVSZXNwb25zZRIOCgZmaWxlaWQYASABKAkSDAoEdXVpZBgCIAEoCRIU",
+            "Cgx0cmFuc2ZlcnR5cGUYAyABKAkSEAoIZmlsZXBhdGgYBCABKAkSDQoFY2h1",
+            "bmsYBSABKAwibwoMRmlsZVRvU2VydmVyEg4KBmZpbGVpZBgBIAEoCRIMCgR1",
+            "dWlkGAIgASgJEhQKDHRyYW5zZmVydHlwZRgDIAEoCRIMCgRwYXRoGAQgASgJ",
+            "Eg4KBnN0YXR1cxgFIAEoCRINCgVjaHVuaxgGIAEoDCI6ChpGaWxlVHJhbnNm",
+            "ZXJTdGF0dXNSZXNwb25zZRIOCgZmaWxlaWQYASABKAkSDAoEdXVpZBgCIAEo",
+            "CSIhCgNUYWcSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJKmkKC1JlcXVl",
+            "c3RUeXBlEhEKDUNPTkZJR1VSQVRJT04QABILCgdDT01NQU5EEAESEgoOQ09N",
+            "TUFORF9TVEFUVVMQAhIICgRLRVlTEAMSCAoERklMRRAEEhIKDkZJTEVfVE9f",
+            "U0VSVkVSEAUqnQEKDFJlc3BvbnNlVHlwZRIaChZDT05GSUdVUkFUSU9OX1JF",
+            "U1BPTlNFEAASFAoQQ09NTUFORF9SRVNQT05TRRABEhsKF0NPTU1BTkRfU1RB",
+            "VFVTX1JFU1BPTlNFEAISEQoNS0VZU19SRVNQT05TRRADEhEKDUZJTEVfUkVT",
+            "UE9OU0UQBBIYChRGSUxFX1RSQU5TRkVSX1NUQVRVUxAFQi5aLGdpdGh1Yi5j",
+            "b20vUGF0cm9uQzIvUGF0cm9ub2J1Zi9nby9wYXRyb25vYnVmYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Patron.RequestType), typeof(global::Patron.ResponseType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.Request), global::Patron.Request.Parser, new[]{ "Type", "Configuration", "Command", "CommandStatus", "Keys", "File", "FileToServer" }, new[]{ "Payload" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.Response), global::Patron.Response.Parser, new[]{ "Type", "ConfigurationResponse", "CommandResponse", "CommandStatusResponse", "KeysResponse", "FileResponse", "FileTransferStatusResponse" }, new[]{ "Payload" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.ConfigurationRequest), global::Patron.ConfigurationRequest.Parser, new[]{ "Uuid", "Username", "Hostname", "Ostype", "Arch", "Osbuild", "Cpus", "Memory", "Agentip", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", "Masterkey", "Status", "Tags", "NextcallbackUnix" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.ConfigurationResponse), global::Patron.ConfigurationResponse.Parser, new[]{ "Uuid", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.CommandRequest), global::Patron.CommandRequest.Parser, new[]{ "Uuid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.CommandResponse), global::Patron.CommandResponse.Parser, new[]{ "Uuid", "Commandtype", "Commandid", "Command" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.CommandStatusRequest), global::Patron.CommandStatusRequest.Parser, new[]{ "Uuid", "Commandid", "Result", "Output" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.CommandStatusResponse), global::Patron.CommandStatusResponse.Parser, new[]{ "Uuid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.KeysRequest), global::Patron.KeysRequest.Parser, new[]{ "Uuid", "Keys" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.KeysResponse), global::Patron.KeysResponse.Parser, new[]{ "Uuid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.FileRequest), global::Patron.FileRequest.Parser, new[]{ "Uuid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.FileResponse), global::Patron.FileResponse.Parser, new[]{ "Fileid", "Uuid", "Transfertype", "Filepath", "Chunk" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.FileToServer), global::Patron.FileToServer.Parser, new[]{ "Fileid", "Uuid", "Transfertype", "Path", "Status", "Chunk" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.FileTransferStatusResponse), global::Patron.FileTransferStatusResponse.Parser, new[]{ "Fileid", "Uuid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patron.Tag), global::Patron.Tag.Parser, new[]{ "Key", "Value" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Patronobuf.RequestType), typeof(global::Patronobuf.ResponseType), }, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.Request), global::Patronobuf.Request.Parser, new[]{ "Type", "Configuration", "Command", "CommandStatus", "Keys", "File", "FileToServer" }, new[]{ "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.Response), global::Patronobuf.Response.Parser, new[]{ "Type", "ConfigurationResponse", "CommandResponse", "CommandStatusResponse", "KeysResponse", "FileResponse", "FileTransferStatusResponse" }, new[]{ "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.ConfigurationRequest), global::Patronobuf.ConfigurationRequest.Parser, new[]{ "Uuid", "Username", "Hostname", "Ostype", "Arch", "Osbuild", "Cpus", "Memory", "Agentip", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", "Masterkey", "Status", "Tags", "NextcallbackUnix" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.ConfigurationResponse), global::Patronobuf.ConfigurationResponse.Parser, new[]{ "Uuid", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.CommandRequest), global::Patronobuf.CommandRequest.Parser, new[]{ "Uuid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.CommandResponse), global::Patronobuf.CommandResponse.Parser, new[]{ "Uuid", "Commandtype", "Commandid", "Command" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.CommandStatusRequest), global::Patronobuf.CommandStatusRequest.Parser, new[]{ "Uuid", "Commandid", "Result", "Output" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.CommandStatusResponse), global::Patronobuf.CommandStatusResponse.Parser, new[]{ "Uuid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.KeysRequest), global::Patronobuf.KeysRequest.Parser, new[]{ "Uuid", "Keys" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.KeysResponse), global::Patronobuf.KeysResponse.Parser, new[]{ "Uuid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.FileRequest), global::Patronobuf.FileRequest.Parser, new[]{ "Uuid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.FileResponse), global::Patronobuf.FileResponse.Parser, new[]{ "Fileid", "Uuid", "Transfertype", "Filepath", "Chunk" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.FileToServer), global::Patronobuf.FileToServer.Parser, new[]{ "Fileid", "Uuid", "Transfertype", "Path", "Status", "Chunk" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.FileTransferStatusResponse), global::Patronobuf.FileTransferStatusResponse.Parser, new[]{ "Fileid", "Uuid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.Tag), global::Patronobuf.Tag.Parser, new[]{ "Key", "Value" }, null, null, null, null)
           }));
     }
     #endregion
@@ -127,7 +128,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -176,9 +177,9 @@ namespace Patron {
 
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private global::Patron.RequestType type_ = global::Patron.RequestType.Configuration;
+    private global::Patronobuf.RequestType type_ = global::Patronobuf.RequestType.Configuration;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.RequestType Type {
+    public global::Patronobuf.RequestType Type {
       get { return type_; }
       set {
         type_ = value;
@@ -188,8 +189,8 @@ namespace Patron {
     /// <summary>Field number for the "configuration" field.</summary>
     public const int ConfigurationFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.ConfigurationRequest Configuration {
-      get { return payloadCase_ == PayloadOneofCase.Configuration ? (global::Patron.ConfigurationRequest) payload_ : null; }
+    public global::Patronobuf.ConfigurationRequest Configuration {
+      get { return payloadCase_ == PayloadOneofCase.Configuration ? (global::Patronobuf.ConfigurationRequest) payload_ : null; }
       set {
         payload_ = value;
         payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.Configuration;
@@ -199,8 +200,8 @@ namespace Patron {
     /// <summary>Field number for the "command" field.</summary>
     public const int CommandFieldNumber = 3;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.CommandRequest Command {
-      get { return payloadCase_ == PayloadOneofCase.Command ? (global::Patron.CommandRequest) payload_ : null; }
+    public global::Patronobuf.CommandRequest Command {
+      get { return payloadCase_ == PayloadOneofCase.Command ? (global::Patronobuf.CommandRequest) payload_ : null; }
       set {
         payload_ = value;
         payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.Command;
@@ -210,8 +211,8 @@ namespace Patron {
     /// <summary>Field number for the "command_status" field.</summary>
     public const int CommandStatusFieldNumber = 4;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.CommandStatusRequest CommandStatus {
-      get { return payloadCase_ == PayloadOneofCase.CommandStatus ? (global::Patron.CommandStatusRequest) payload_ : null; }
+    public global::Patronobuf.CommandStatusRequest CommandStatus {
+      get { return payloadCase_ == PayloadOneofCase.CommandStatus ? (global::Patronobuf.CommandStatusRequest) payload_ : null; }
       set {
         payload_ = value;
         payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.CommandStatus;
@@ -221,8 +222,8 @@ namespace Patron {
     /// <summary>Field number for the "keys" field.</summary>
     public const int KeysFieldNumber = 5;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.KeysRequest Keys {
-      get { return payloadCase_ == PayloadOneofCase.Keys ? (global::Patron.KeysRequest) payload_ : null; }
+    public global::Patronobuf.KeysRequest Keys {
+      get { return payloadCase_ == PayloadOneofCase.Keys ? (global::Patronobuf.KeysRequest) payload_ : null; }
       set {
         payload_ = value;
         payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.Keys;
@@ -232,8 +233,8 @@ namespace Patron {
     /// <summary>Field number for the "file" field.</summary>
     public const int FileFieldNumber = 6;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.FileRequest File {
-      get { return payloadCase_ == PayloadOneofCase.File ? (global::Patron.FileRequest) payload_ : null; }
+    public global::Patronobuf.FileRequest File {
+      get { return payloadCase_ == PayloadOneofCase.File ? (global::Patronobuf.FileRequest) payload_ : null; }
       set {
         payload_ = value;
         payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.File;
@@ -243,8 +244,8 @@ namespace Patron {
     /// <summary>Field number for the "file_to_server" field.</summary>
     public const int FileToServerFieldNumber = 7;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.FileToServer FileToServer {
-      get { return payloadCase_ == PayloadOneofCase.FileToServer ? (global::Patron.FileToServer) payload_ : null; }
+    public global::Patronobuf.FileToServer FileToServer {
+      get { return payloadCase_ == PayloadOneofCase.FileToServer ? (global::Patronobuf.FileToServer) payload_ : null; }
       set {
         payload_ = value;
         payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.FileToServer;
@@ -301,7 +302,7 @@ namespace Patron {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Type != global::Patron.RequestType.Configuration) hash ^= Type.GetHashCode();
+      if (Type != global::Patronobuf.RequestType.Configuration) hash ^= Type.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.Configuration) hash ^= Configuration.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.Command) hash ^= Command.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.CommandStatus) hash ^= CommandStatus.GetHashCode();
@@ -322,7 +323,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Type != global::Patron.RequestType.Configuration) {
+      if (Type != global::Patronobuf.RequestType.Configuration) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
@@ -358,7 +359,7 @@ namespace Patron {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Type != global::Patron.RequestType.Configuration) {
+      if (Type != global::Patronobuf.RequestType.Configuration) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       if (payloadCase_ == PayloadOneofCase.Configuration) {
@@ -390,43 +391,43 @@ namespace Patron {
       if (other == null) {
         return;
       }
-      if (other.Type != global::Patron.RequestType.Configuration) {
+      if (other.Type != global::Patronobuf.RequestType.Configuration) {
         Type = other.Type;
       }
       switch (other.PayloadCase) {
         case PayloadOneofCase.Configuration:
           if (Configuration == null) {
-            Configuration = new global::Patron.ConfigurationRequest();
+            Configuration = new global::Patronobuf.ConfigurationRequest();
           }
           Configuration.MergeFrom(other.Configuration);
           break;
         case PayloadOneofCase.Command:
           if (Command == null) {
-            Command = new global::Patron.CommandRequest();
+            Command = new global::Patronobuf.CommandRequest();
           }
           Command.MergeFrom(other.Command);
           break;
         case PayloadOneofCase.CommandStatus:
           if (CommandStatus == null) {
-            CommandStatus = new global::Patron.CommandStatusRequest();
+            CommandStatus = new global::Patronobuf.CommandStatusRequest();
           }
           CommandStatus.MergeFrom(other.CommandStatus);
           break;
         case PayloadOneofCase.Keys:
           if (Keys == null) {
-            Keys = new global::Patron.KeysRequest();
+            Keys = new global::Patronobuf.KeysRequest();
           }
           Keys.MergeFrom(other.Keys);
           break;
         case PayloadOneofCase.File:
           if (File == null) {
-            File = new global::Patron.FileRequest();
+            File = new global::Patronobuf.FileRequest();
           }
           File.MergeFrom(other.File);
           break;
         case PayloadOneofCase.FileToServer:
           if (FileToServer == null) {
-            FileToServer = new global::Patron.FileToServer();
+            FileToServer = new global::Patronobuf.FileToServer();
           }
           FileToServer.MergeFrom(other.FileToServer);
           break;
@@ -444,11 +445,11 @@ namespace Patron {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Type = (global::Patron.RequestType) input.ReadEnum();
+            Type = (global::Patronobuf.RequestType) input.ReadEnum();
             break;
           }
           case 18: {
-            global::Patron.ConfigurationRequest subBuilder = new global::Patron.ConfigurationRequest();
+            global::Patronobuf.ConfigurationRequest subBuilder = new global::Patronobuf.ConfigurationRequest();
             if (payloadCase_ == PayloadOneofCase.Configuration) {
               subBuilder.MergeFrom(Configuration);
             }
@@ -457,7 +458,7 @@ namespace Patron {
             break;
           }
           case 26: {
-            global::Patron.CommandRequest subBuilder = new global::Patron.CommandRequest();
+            global::Patronobuf.CommandRequest subBuilder = new global::Patronobuf.CommandRequest();
             if (payloadCase_ == PayloadOneofCase.Command) {
               subBuilder.MergeFrom(Command);
             }
@@ -466,7 +467,7 @@ namespace Patron {
             break;
           }
           case 34: {
-            global::Patron.CommandStatusRequest subBuilder = new global::Patron.CommandStatusRequest();
+            global::Patronobuf.CommandStatusRequest subBuilder = new global::Patronobuf.CommandStatusRequest();
             if (payloadCase_ == PayloadOneofCase.CommandStatus) {
               subBuilder.MergeFrom(CommandStatus);
             }
@@ -475,7 +476,7 @@ namespace Patron {
             break;
           }
           case 42: {
-            global::Patron.KeysRequest subBuilder = new global::Patron.KeysRequest();
+            global::Patronobuf.KeysRequest subBuilder = new global::Patronobuf.KeysRequest();
             if (payloadCase_ == PayloadOneofCase.Keys) {
               subBuilder.MergeFrom(Keys);
             }
@@ -484,7 +485,7 @@ namespace Patron {
             break;
           }
           case 50: {
-            global::Patron.FileRequest subBuilder = new global::Patron.FileRequest();
+            global::Patronobuf.FileRequest subBuilder = new global::Patronobuf.FileRequest();
             if (payloadCase_ == PayloadOneofCase.File) {
               subBuilder.MergeFrom(File);
             }
@@ -493,7 +494,7 @@ namespace Patron {
             break;
           }
           case 58: {
-            global::Patron.FileToServer subBuilder = new global::Patron.FileToServer();
+            global::Patronobuf.FileToServer subBuilder = new global::Patronobuf.FileToServer();
             if (payloadCase_ == PayloadOneofCase.FileToServer) {
               subBuilder.MergeFrom(FileToServer);
             }
@@ -515,7 +516,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -564,9 +565,9 @@ namespace Patron {
 
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private global::Patron.ResponseType type_ = global::Patron.ResponseType.ConfigurationResponse;
+    private global::Patronobuf.ResponseType type_ = global::Patronobuf.ResponseType.ConfigurationResponse;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.ResponseType Type {
+    public global::Patronobuf.ResponseType Type {
       get { return type_; }
       set {
         type_ = value;
@@ -576,8 +577,8 @@ namespace Patron {
     /// <summary>Field number for the "configuration_response" field.</summary>
     public const int ConfigurationResponseFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.ConfigurationResponse ConfigurationResponse {
-      get { return payloadCase_ == PayloadOneofCase.ConfigurationResponse ? (global::Patron.ConfigurationResponse) payload_ : null; }
+    public global::Patronobuf.ConfigurationResponse ConfigurationResponse {
+      get { return payloadCase_ == PayloadOneofCase.ConfigurationResponse ? (global::Patronobuf.ConfigurationResponse) payload_ : null; }
       set {
         payload_ = value;
         payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.ConfigurationResponse;
@@ -587,8 +588,8 @@ namespace Patron {
     /// <summary>Field number for the "command_response" field.</summary>
     public const int CommandResponseFieldNumber = 3;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.CommandResponse CommandResponse {
-      get { return payloadCase_ == PayloadOneofCase.CommandResponse ? (global::Patron.CommandResponse) payload_ : null; }
+    public global::Patronobuf.CommandResponse CommandResponse {
+      get { return payloadCase_ == PayloadOneofCase.CommandResponse ? (global::Patronobuf.CommandResponse) payload_ : null; }
       set {
         payload_ = value;
         payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.CommandResponse;
@@ -598,8 +599,8 @@ namespace Patron {
     /// <summary>Field number for the "command_status_response" field.</summary>
     public const int CommandStatusResponseFieldNumber = 4;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.CommandStatusResponse CommandStatusResponse {
-      get { return payloadCase_ == PayloadOneofCase.CommandStatusResponse ? (global::Patron.CommandStatusResponse) payload_ : null; }
+    public global::Patronobuf.CommandStatusResponse CommandStatusResponse {
+      get { return payloadCase_ == PayloadOneofCase.CommandStatusResponse ? (global::Patronobuf.CommandStatusResponse) payload_ : null; }
       set {
         payload_ = value;
         payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.CommandStatusResponse;
@@ -609,8 +610,8 @@ namespace Patron {
     /// <summary>Field number for the "keys_response" field.</summary>
     public const int KeysResponseFieldNumber = 5;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.KeysResponse KeysResponse {
-      get { return payloadCase_ == PayloadOneofCase.KeysResponse ? (global::Patron.KeysResponse) payload_ : null; }
+    public global::Patronobuf.KeysResponse KeysResponse {
+      get { return payloadCase_ == PayloadOneofCase.KeysResponse ? (global::Patronobuf.KeysResponse) payload_ : null; }
       set {
         payload_ = value;
         payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.KeysResponse;
@@ -620,8 +621,8 @@ namespace Patron {
     /// <summary>Field number for the "file_response" field.</summary>
     public const int FileResponseFieldNumber = 6;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.FileResponse FileResponse {
-      get { return payloadCase_ == PayloadOneofCase.FileResponse ? (global::Patron.FileResponse) payload_ : null; }
+    public global::Patronobuf.FileResponse FileResponse {
+      get { return payloadCase_ == PayloadOneofCase.FileResponse ? (global::Patronobuf.FileResponse) payload_ : null; }
       set {
         payload_ = value;
         payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.FileResponse;
@@ -631,8 +632,8 @@ namespace Patron {
     /// <summary>Field number for the "file_transfer_status_response" field.</summary>
     public const int FileTransferStatusResponseFieldNumber = 7;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Patron.FileTransferStatusResponse FileTransferStatusResponse {
-      get { return payloadCase_ == PayloadOneofCase.FileTransferStatusResponse ? (global::Patron.FileTransferStatusResponse) payload_ : null; }
+    public global::Patronobuf.FileTransferStatusResponse FileTransferStatusResponse {
+      get { return payloadCase_ == PayloadOneofCase.FileTransferStatusResponse ? (global::Patronobuf.FileTransferStatusResponse) payload_ : null; }
       set {
         payload_ = value;
         payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.FileTransferStatusResponse;
@@ -689,7 +690,7 @@ namespace Patron {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Type != global::Patron.ResponseType.ConfigurationResponse) hash ^= Type.GetHashCode();
+      if (Type != global::Patronobuf.ResponseType.ConfigurationResponse) hash ^= Type.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.ConfigurationResponse) hash ^= ConfigurationResponse.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.CommandResponse) hash ^= CommandResponse.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.CommandStatusResponse) hash ^= CommandStatusResponse.GetHashCode();
@@ -710,7 +711,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Type != global::Patron.ResponseType.ConfigurationResponse) {
+      if (Type != global::Patronobuf.ResponseType.ConfigurationResponse) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
@@ -746,7 +747,7 @@ namespace Patron {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Type != global::Patron.ResponseType.ConfigurationResponse) {
+      if (Type != global::Patronobuf.ResponseType.ConfigurationResponse) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
       if (payloadCase_ == PayloadOneofCase.ConfigurationResponse) {
@@ -778,43 +779,43 @@ namespace Patron {
       if (other == null) {
         return;
       }
-      if (other.Type != global::Patron.ResponseType.ConfigurationResponse) {
+      if (other.Type != global::Patronobuf.ResponseType.ConfigurationResponse) {
         Type = other.Type;
       }
       switch (other.PayloadCase) {
         case PayloadOneofCase.ConfigurationResponse:
           if (ConfigurationResponse == null) {
-            ConfigurationResponse = new global::Patron.ConfigurationResponse();
+            ConfigurationResponse = new global::Patronobuf.ConfigurationResponse();
           }
           ConfigurationResponse.MergeFrom(other.ConfigurationResponse);
           break;
         case PayloadOneofCase.CommandResponse:
           if (CommandResponse == null) {
-            CommandResponse = new global::Patron.CommandResponse();
+            CommandResponse = new global::Patronobuf.CommandResponse();
           }
           CommandResponse.MergeFrom(other.CommandResponse);
           break;
         case PayloadOneofCase.CommandStatusResponse:
           if (CommandStatusResponse == null) {
-            CommandStatusResponse = new global::Patron.CommandStatusResponse();
+            CommandStatusResponse = new global::Patronobuf.CommandStatusResponse();
           }
           CommandStatusResponse.MergeFrom(other.CommandStatusResponse);
           break;
         case PayloadOneofCase.KeysResponse:
           if (KeysResponse == null) {
-            KeysResponse = new global::Patron.KeysResponse();
+            KeysResponse = new global::Patronobuf.KeysResponse();
           }
           KeysResponse.MergeFrom(other.KeysResponse);
           break;
         case PayloadOneofCase.FileResponse:
           if (FileResponse == null) {
-            FileResponse = new global::Patron.FileResponse();
+            FileResponse = new global::Patronobuf.FileResponse();
           }
           FileResponse.MergeFrom(other.FileResponse);
           break;
         case PayloadOneofCase.FileTransferStatusResponse:
           if (FileTransferStatusResponse == null) {
-            FileTransferStatusResponse = new global::Patron.FileTransferStatusResponse();
+            FileTransferStatusResponse = new global::Patronobuf.FileTransferStatusResponse();
           }
           FileTransferStatusResponse.MergeFrom(other.FileTransferStatusResponse);
           break;
@@ -832,11 +833,11 @@ namespace Patron {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Type = (global::Patron.ResponseType) input.ReadEnum();
+            Type = (global::Patronobuf.ResponseType) input.ReadEnum();
             break;
           }
           case 18: {
-            global::Patron.ConfigurationResponse subBuilder = new global::Patron.ConfigurationResponse();
+            global::Patronobuf.ConfigurationResponse subBuilder = new global::Patronobuf.ConfigurationResponse();
             if (payloadCase_ == PayloadOneofCase.ConfigurationResponse) {
               subBuilder.MergeFrom(ConfigurationResponse);
             }
@@ -845,7 +846,7 @@ namespace Patron {
             break;
           }
           case 26: {
-            global::Patron.CommandResponse subBuilder = new global::Patron.CommandResponse();
+            global::Patronobuf.CommandResponse subBuilder = new global::Patronobuf.CommandResponse();
             if (payloadCase_ == PayloadOneofCase.CommandResponse) {
               subBuilder.MergeFrom(CommandResponse);
             }
@@ -854,7 +855,7 @@ namespace Patron {
             break;
           }
           case 34: {
-            global::Patron.CommandStatusResponse subBuilder = new global::Patron.CommandStatusResponse();
+            global::Patronobuf.CommandStatusResponse subBuilder = new global::Patronobuf.CommandStatusResponse();
             if (payloadCase_ == PayloadOneofCase.CommandStatusResponse) {
               subBuilder.MergeFrom(CommandStatusResponse);
             }
@@ -863,7 +864,7 @@ namespace Patron {
             break;
           }
           case 42: {
-            global::Patron.KeysResponse subBuilder = new global::Patron.KeysResponse();
+            global::Patronobuf.KeysResponse subBuilder = new global::Patronobuf.KeysResponse();
             if (payloadCase_ == PayloadOneofCase.KeysResponse) {
               subBuilder.MergeFrom(KeysResponse);
             }
@@ -872,7 +873,7 @@ namespace Patron {
             break;
           }
           case 50: {
-            global::Patron.FileResponse subBuilder = new global::Patron.FileResponse();
+            global::Patronobuf.FileResponse subBuilder = new global::Patronobuf.FileResponse();
             if (payloadCase_ == PayloadOneofCase.FileResponse) {
               subBuilder.MergeFrom(FileResponse);
             }
@@ -881,7 +882,7 @@ namespace Patron {
             break;
           }
           case 58: {
-            global::Patron.FileTransferStatusResponse subBuilder = new global::Patron.FileTransferStatusResponse();
+            global::Patronobuf.FileTransferStatusResponse subBuilder = new global::Patronobuf.FileTransferStatusResponse();
             if (payloadCase_ == PayloadOneofCase.FileTransferStatusResponse) {
               subBuilder.MergeFrom(FileTransferStatusResponse);
             }
@@ -903,7 +904,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1112,11 +1113,11 @@ namespace Patron {
 
     /// <summary>Field number for the "tags" field.</summary>
     public const int TagsFieldNumber = 16;
-    private static readonly pb::FieldCodec<global::Patron.Tag> _repeated_tags_codec
-        = pb::FieldCodec.ForMessage(130, global::Patron.Tag.Parser);
-    private readonly pbc::RepeatedField<global::Patron.Tag> tags_ = new pbc::RepeatedField<global::Patron.Tag>();
+    private static readonly pb::FieldCodec<global::Patronobuf.Tag> _repeated_tags_codec
+        = pb::FieldCodec.ForMessage(130, global::Patronobuf.Tag.Parser);
+    private readonly pbc::RepeatedField<global::Patronobuf.Tag> tags_ = new pbc::RepeatedField<global::Patronobuf.Tag>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Patron.Tag> Tags {
+    public pbc::RepeatedField<global::Patronobuf.Tag> Tags {
       get { return tags_; }
     }
 
@@ -1472,7 +1473,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1713,7 +1714,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1842,7 +1843,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2055,7 +2056,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2268,7 +2269,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2397,7 +2398,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2554,7 +2555,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2683,7 +2684,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2812,7 +2813,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3053,7 +3054,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3322,7 +3323,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3479,7 +3480,7 @@ namespace Patron {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patron.AgentsReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
