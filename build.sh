@@ -21,12 +21,6 @@ docker run --rm -v "$PWD":/work -w /work proto-gen \
   --go-grpc_opt=paths=source_relative \
   --proto_path=proto proto/agents.proto
 
-echo "[*] Initializing go.mod for Go package..."
-
-docker run --rm -v "$PWD/go/patronobuf:/goout" -w /goout golang:1.24.3 \
-  sh -c "go mod init github.com/PatronC2/Patronobuf/go/patronobuf && go mod tidy"
-
-
 echo "[*] Generating Python code..."
 docker run --rm -v "$(pwd):/defs" -w /defs \
   namely/protoc-all \
