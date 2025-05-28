@@ -156,6 +156,7 @@ export interface ConfigurationRequest {
   status: string;
   tags: Tag[];
   nextcallbackUnix: number;
+  transportprotocol: string;
 }
 
 export interface ConfigurationResponse {
@@ -164,6 +165,7 @@ export interface ConfigurationResponse {
   serverport: string;
   callbackfrequency: string;
   callbackjitter: string;
+  transportprotocol: string;
 }
 
 export interface CommandRequest {
@@ -524,6 +526,7 @@ function createBaseConfigurationRequest(): ConfigurationRequest {
     status: "",
     tags: [],
     nextcallbackUnix: 0,
+    transportprotocol: "",
   };
 }
 
@@ -579,6 +582,9 @@ export const ConfigurationRequest = {
     }
     if (message.nextcallbackUnix !== 0) {
       writer.uint32(136).int64(message.nextcallbackUnix);
+    }
+    if (message.transportprotocol !== "") {
+      writer.uint32(146).string(message.transportprotocol);
     }
     return writer;
   },
@@ -641,6 +647,9 @@ export const ConfigurationRequest = {
         case 17:
           message.nextcallbackUnix = longToNumber(reader.int64() as Long);
           break;
+        case 18:
+          message.transportprotocol = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -668,6 +677,7 @@ export const ConfigurationRequest = {
       status: isSet(object.status) ? String(object.status) : "",
       tags: Array.isArray(object?.tags) ? object.tags.map((e: any) => Tag.fromJSON(e)) : [],
       nextcallbackUnix: isSet(object.nextcallbackUnix) ? Number(object.nextcallbackUnix) : 0,
+      transportprotocol: isSet(object.transportprotocol) ? String(object.transportprotocol) : "",
     };
   },
 
@@ -694,6 +704,7 @@ export const ConfigurationRequest = {
       obj.tags = [];
     }
     message.nextcallbackUnix !== undefined && (obj.nextcallbackUnix = Math.round(message.nextcallbackUnix));
+    message.transportprotocol !== undefined && (obj.transportprotocol = message.transportprotocol);
     return obj;
   },
 
@@ -720,12 +731,13 @@ export const ConfigurationRequest = {
     message.status = object.status ?? "";
     message.tags = object.tags?.map((e) => Tag.fromPartial(e)) || [];
     message.nextcallbackUnix = object.nextcallbackUnix ?? 0;
+    message.transportprotocol = object.transportprotocol ?? "";
     return message;
   },
 };
 
 function createBaseConfigurationResponse(): ConfigurationResponse {
-  return { uuid: "", serverip: "", serverport: "", callbackfrequency: "", callbackjitter: "" };
+  return { uuid: "", serverip: "", serverport: "", callbackfrequency: "", callbackjitter: "", transportprotocol: "" };
 }
 
 export const ConfigurationResponse = {
@@ -744,6 +756,9 @@ export const ConfigurationResponse = {
     }
     if (message.callbackjitter !== "") {
       writer.uint32(42).string(message.callbackjitter);
+    }
+    if (message.transportprotocol !== "") {
+      writer.uint32(50).string(message.transportprotocol);
     }
     return writer;
   },
@@ -770,6 +785,9 @@ export const ConfigurationResponse = {
         case 5:
           message.callbackjitter = reader.string();
           break;
+        case 6:
+          message.transportprotocol = reader.string();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -785,6 +803,7 @@ export const ConfigurationResponse = {
       serverport: isSet(object.serverport) ? String(object.serverport) : "",
       callbackfrequency: isSet(object.callbackfrequency) ? String(object.callbackfrequency) : "",
       callbackjitter: isSet(object.callbackjitter) ? String(object.callbackjitter) : "",
+      transportprotocol: isSet(object.transportprotocol) ? String(object.transportprotocol) : "",
     };
   },
 
@@ -795,6 +814,7 @@ export const ConfigurationResponse = {
     message.serverport !== undefined && (obj.serverport = message.serverport);
     message.callbackfrequency !== undefined && (obj.callbackfrequency = message.callbackfrequency);
     message.callbackjitter !== undefined && (obj.callbackjitter = message.callbackjitter);
+    message.transportprotocol !== undefined && (obj.transportprotocol = message.transportprotocol);
     return obj;
   },
 
@@ -809,6 +829,7 @@ export const ConfigurationResponse = {
     message.serverport = object.serverport ?? "";
     message.callbackfrequency = object.callbackfrequency ?? "";
     message.callbackjitter = object.callbackjitter ?? "";
+    message.transportprotocol = object.transportprotocol ?? "";
     return message;
   },
 };

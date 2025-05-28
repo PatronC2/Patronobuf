@@ -1343,7 +1343,8 @@ proto.patronobuf.ConfigurationRequest.toObject = function(includeInstance, msg) 
     status: jspb.Message.getFieldWithDefault(msg, 15, ""),
     tagsList: jspb.Message.toObjectList(msg.getTagsList(),
     proto.patronobuf.Tag.toObject, includeInstance),
-    nextcallbackUnix: jspb.Message.getFieldWithDefault(msg, 17, 0)
+    nextcallbackUnix: jspb.Message.getFieldWithDefault(msg, 17, 0),
+    transportprotocol: jspb.Message.getFieldWithDefault(msg, 18, "")
   };
 
   if (includeInstance) {
@@ -1448,6 +1449,10 @@ proto.patronobuf.ConfigurationRequest.deserializeBinaryFromReader = function(msg
     case 17:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setNextcallbackUnix(value);
+      break;
+    case 18:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTransportprotocol(value);
       break;
     default:
       reader.skipField();
@@ -1595,6 +1600,13 @@ proto.patronobuf.ConfigurationRequest.serializeBinaryToWriter = function(message
   if (f !== 0) {
     writer.writeInt64(
       17,
+      f
+    );
+  }
+  f = message.getTransportprotocol();
+  if (f.length > 0) {
+    writer.writeString(
+      18,
       f
     );
   }
@@ -1927,6 +1939,24 @@ proto.patronobuf.ConfigurationRequest.prototype.setNextcallbackUnix = function(v
 };
 
 
+/**
+ * optional string transportprotocol = 18;
+ * @return {string}
+ */
+proto.patronobuf.ConfigurationRequest.prototype.getTransportprotocol = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 18, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.patronobuf.ConfigurationRequest} returns this
+ */
+proto.patronobuf.ConfigurationRequest.prototype.setTransportprotocol = function(value) {
+  return jspb.Message.setProto3StringField(this, 18, value);
+};
+
+
 
 
 
@@ -1963,7 +1993,8 @@ proto.patronobuf.ConfigurationResponse.toObject = function(includeInstance, msg)
     serverip: jspb.Message.getFieldWithDefault(msg, 2, ""),
     serverport: jspb.Message.getFieldWithDefault(msg, 3, ""),
     callbackfrequency: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    callbackjitter: jspb.Message.getFieldWithDefault(msg, 5, "")
+    callbackjitter: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    transportprotocol: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -2019,6 +2050,10 @@ proto.patronobuf.ConfigurationResponse.deserializeBinaryFromReader = function(ms
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setCallbackjitter(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTransportprotocol(value);
       break;
     default:
       reader.skipField();
@@ -2081,6 +2116,13 @@ proto.patronobuf.ConfigurationResponse.serializeBinaryToWriter = function(messag
   if (f.length > 0) {
     writer.writeString(
       5,
+      f
+    );
+  }
+  f = message.getTransportprotocol();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
       f
     );
   }
@@ -2174,6 +2216,24 @@ proto.patronobuf.ConfigurationResponse.prototype.getCallbackjitter = function() 
  */
 proto.patronobuf.ConfigurationResponse.prototype.setCallbackjitter = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional string transportprotocol = 6;
+ * @return {string}
+ */
+proto.patronobuf.ConfigurationResponse.prototype.getTransportprotocol = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.patronobuf.ConfigurationResponse} returns this
+ */
+proto.patronobuf.ConfigurationResponse.prototype.setTransportprotocol = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
