@@ -464,6 +464,7 @@ type ConfigurationRequest struct {
 	Status            string                 `protobuf:"bytes,15,opt,name=status,proto3" json:"status,omitempty"`
 	Tags              []*Tag                 `protobuf:"bytes,16,rep,name=tags,proto3" json:"tags,omitempty"`
 	NextcallbackUnix  int64                  `protobuf:"varint,17,opt,name=nextcallback_unix,json=nextcallbackUnix,proto3" json:"nextcallback_unix,omitempty"`
+	Transportprotocol string                 `protobuf:"bytes,18,opt,name=transportprotocol,proto3" json:"transportprotocol,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -617,6 +618,13 @@ func (x *ConfigurationRequest) GetNextcallbackUnix() int64 {
 	return 0
 }
 
+func (x *ConfigurationRequest) GetTransportprotocol() string {
+	if x != nil {
+		return x.Transportprotocol
+	}
+	return ""
+}
+
 type ConfigurationResponse struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
 	Uuid              string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
@@ -624,6 +632,7 @@ type ConfigurationResponse struct {
 	Serverport        string                 `protobuf:"bytes,3,opt,name=serverport,proto3" json:"serverport,omitempty"`
 	Callbackfrequency string                 `protobuf:"bytes,4,opt,name=callbackfrequency,proto3" json:"callbackfrequency,omitempty"`
 	Callbackjitter    string                 `protobuf:"bytes,5,opt,name=callbackjitter,proto3" json:"callbackjitter,omitempty"`
+	Transportprotocol string                 `protobuf:"bytes,6,opt,name=transportprotocol,proto3" json:"transportprotocol,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -689,6 +698,13 @@ func (x *ConfigurationResponse) GetCallbackfrequency() string {
 func (x *ConfigurationResponse) GetCallbackjitter() string {
 	if x != nil {
 		return x.Callbackjitter
+	}
+	return ""
+}
+
+func (x *ConfigurationResponse) GetTransportprotocol() string {
+	if x != nil {
+		return x.Transportprotocol
 	}
 	return ""
 }
@@ -1344,7 +1360,7 @@ const file_agents_proto_rawDesc = "" +
 	"\rkeys_response\x18\x05 \x01(\v2\x18.patronobuf.KeysResponseH\x00R\fkeysResponse\x12?\n" +
 	"\rfile_response\x18\x06 \x01(\v2\x18.patronobuf.FileResponseH\x00R\ffileResponse\x12k\n" +
 	"\x1dfile_transfer_status_response\x18\a \x01(\v2&.patronobuf.FileTransferStatusResponseH\x00R\x1afileTransferStatusResponseB\t\n" +
-	"\apayload\"\x88\x04\n" +
+	"\apayload\"\xb6\x04\n" +
 	"\x14ConfigurationRequest\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x1a\n" +
@@ -1365,7 +1381,8 @@ const file_agents_proto_rawDesc = "" +
 	"\tmasterkey\x18\x0e \x01(\tR\tmasterkey\x12\x16\n" +
 	"\x06status\x18\x0f \x01(\tR\x06status\x12#\n" +
 	"\x04tags\x18\x10 \x03(\v2\x0f.patronobuf.TagR\x04tags\x12+\n" +
-	"\x11nextcallback_unix\x18\x11 \x01(\x03R\x10nextcallbackUnix\"\xbd\x01\n" +
+	"\x11nextcallback_unix\x18\x11 \x01(\x03R\x10nextcallbackUnix\x12,\n" +
+	"\x11transportprotocol\x18\x12 \x01(\tR\x11transportprotocol\"\xeb\x01\n" +
 	"\x15ConfigurationResponse\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1a\n" +
 	"\bserverip\x18\x02 \x01(\tR\bserverip\x12\x1e\n" +
@@ -1373,7 +1390,8 @@ const file_agents_proto_rawDesc = "" +
 	"serverport\x18\x03 \x01(\tR\n" +
 	"serverport\x12,\n" +
 	"\x11callbackfrequency\x18\x04 \x01(\tR\x11callbackfrequency\x12&\n" +
-	"\x0ecallbackjitter\x18\x05 \x01(\tR\x0ecallbackjitter\"$\n" +
+	"\x0ecallbackjitter\x18\x05 \x01(\tR\x0ecallbackjitter\x12,\n" +
+	"\x11transportprotocol\x18\x06 \x01(\tR\x11transportprotocol\"$\n" +
 	"\x0eCommandRequest\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\"\x7f\n" +
 	"\x0fCommandResponse\x12\x12\n" +

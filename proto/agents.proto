@@ -65,6 +65,7 @@ message ConfigurationRequest {
   string status = 15;
   repeated Tag tags = 16;
   int64 nextcallback_unix = 17;
+  string transportprotocol = 18;
 }
 
 message ConfigurationResponse {
@@ -73,6 +74,7 @@ message ConfigurationResponse {
   string serverport = 3;
   string callbackfrequency = 4;
   string callbackjitter = 5;
+  string transportprotocol = 6;
 }
 
 message CommandRequest {

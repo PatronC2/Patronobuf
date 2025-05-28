@@ -4471,6 +4471,18 @@ public final class Agents {
      * @return The nextcallbackUnix.
      */
     long getNextcallbackUnix();
+
+    /**
+     * <code>string transportprotocol = 18;</code>
+     * @return The transportprotocol.
+     */
+    java.lang.String getTransportprotocol();
+    /**
+     * <code>string transportprotocol = 18;</code>
+     * @return The bytes for transportprotocol.
+     */
+    com.google.protobuf.ByteString
+        getTransportprotocolBytes();
   }
   /**
    * Protobuf type {@code patronobuf.ConfigurationRequest}
@@ -4501,6 +4513,7 @@ public final class Agents {
       masterkey_ = "";
       status_ = "";
       tags_ = java.util.Collections.emptyList();
+      transportprotocol_ = "";
     }
 
     @java.lang.Override
@@ -4636,6 +4649,12 @@ public final class Agents {
             case 136: {
 
               nextcallbackUnix_ = input.readInt64();
+              break;
+            }
+            case 146: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              transportprotocol_ = s;
               break;
             }
             default: {
@@ -5296,6 +5315,44 @@ public final class Agents {
       return nextcallbackUnix_;
     }
 
+    public static final int TRANSPORTPROTOCOL_FIELD_NUMBER = 18;
+    private volatile java.lang.Object transportprotocol_;
+    /**
+     * <code>string transportprotocol = 18;</code>
+     * @return The transportprotocol.
+     */
+    @java.lang.Override
+    public java.lang.String getTransportprotocol() {
+      java.lang.Object ref = transportprotocol_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        transportprotocol_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string transportprotocol = 18;</code>
+     * @return The bytes for transportprotocol.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTransportprotocolBytes() {
+      java.lang.Object ref = transportprotocol_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        transportprotocol_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5361,6 +5418,9 @@ public final class Agents {
       if (nextcallbackUnix_ != 0L) {
         output.writeInt64(17, nextcallbackUnix_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transportprotocol_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 18, transportprotocol_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5423,6 +5483,9 @@ public final class Agents {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(17, nextcallbackUnix_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transportprotocol_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, transportprotocol_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -5472,6 +5535,8 @@ public final class Agents {
           .equals(other.getTagsList())) return false;
       if (getNextcallbackUnix()
           != other.getNextcallbackUnix()) return false;
+      if (!getTransportprotocol()
+          .equals(other.getTransportprotocol())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5520,6 +5585,8 @@ public final class Agents {
       hash = (37 * hash) + NEXTCALLBACK_UNIX_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getNextcallbackUnix());
+      hash = (37 * hash) + TRANSPORTPROTOCOL_FIELD_NUMBER;
+      hash = (53 * hash) + getTransportprotocol().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5692,6 +5759,8 @@ public final class Agents {
         }
         nextcallbackUnix_ = 0L;
 
+        transportprotocol_ = "";
+
         return this;
       }
 
@@ -5744,6 +5813,7 @@ public final class Agents {
           result.tags_ = tagsBuilder_.build();
         }
         result.nextcallbackUnix_ = nextcallbackUnix_;
+        result.transportprotocol_ = transportprotocol_;
         onBuilt();
         return result;
       }
@@ -5880,6 +5950,10 @@ public final class Agents {
         }
         if (other.getNextcallbackUnix() != 0L) {
           setNextcallbackUnix(other.getNextcallbackUnix());
+        }
+        if (!other.getTransportprotocol().isEmpty()) {
+          transportprotocol_ = other.transportprotocol_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7321,6 +7395,82 @@ public final class Agents {
         onChanged();
         return this;
       }
+
+      private java.lang.Object transportprotocol_ = "";
+      /**
+       * <code>string transportprotocol = 18;</code>
+       * @return The transportprotocol.
+       */
+      public java.lang.String getTransportprotocol() {
+        java.lang.Object ref = transportprotocol_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          transportprotocol_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string transportprotocol = 18;</code>
+       * @return The bytes for transportprotocol.
+       */
+      public com.google.protobuf.ByteString
+          getTransportprotocolBytes() {
+        java.lang.Object ref = transportprotocol_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          transportprotocol_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string transportprotocol = 18;</code>
+       * @param value The transportprotocol to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTransportprotocol(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        transportprotocol_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string transportprotocol = 18;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTransportprotocol() {
+        
+        transportprotocol_ = getDefaultInstance().getTransportprotocol();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string transportprotocol = 18;</code>
+       * @param value The bytes for transportprotocol to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTransportprotocolBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        transportprotocol_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7437,6 +7587,18 @@ public final class Agents {
      */
     com.google.protobuf.ByteString
         getCallbackjitterBytes();
+
+    /**
+     * <code>string transportprotocol = 6;</code>
+     * @return The transportprotocol.
+     */
+    java.lang.String getTransportprotocol();
+    /**
+     * <code>string transportprotocol = 6;</code>
+     * @return The bytes for transportprotocol.
+     */
+    com.google.protobuf.ByteString
+        getTransportprotocolBytes();
   }
   /**
    * Protobuf type {@code patronobuf.ConfigurationResponse}
@@ -7456,6 +7618,7 @@ public final class Agents {
       serverport_ = "";
       callbackfrequency_ = "";
       callbackjitter_ = "";
+      transportprotocol_ = "";
     }
 
     @java.lang.Override
@@ -7516,6 +7679,12 @@ public final class Agents {
               java.lang.String s = input.readStringRequireUtf8();
 
               callbackjitter_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              transportprotocol_ = s;
               break;
             }
             default: {
@@ -7742,6 +7911,44 @@ public final class Agents {
       }
     }
 
+    public static final int TRANSPORTPROTOCOL_FIELD_NUMBER = 6;
+    private volatile java.lang.Object transportprotocol_;
+    /**
+     * <code>string transportprotocol = 6;</code>
+     * @return The transportprotocol.
+     */
+    @java.lang.Override
+    public java.lang.String getTransportprotocol() {
+      java.lang.Object ref = transportprotocol_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        transportprotocol_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string transportprotocol = 6;</code>
+     * @return The bytes for transportprotocol.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTransportprotocolBytes() {
+      java.lang.Object ref = transportprotocol_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        transportprotocol_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7771,6 +7978,9 @@ public final class Agents {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackjitter_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, callbackjitter_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transportprotocol_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, transportprotocol_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7794,6 +8004,9 @@ public final class Agents {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackjitter_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, callbackjitter_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transportprotocol_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, transportprotocol_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7820,6 +8033,8 @@ public final class Agents {
           .equals(other.getCallbackfrequency())) return false;
       if (!getCallbackjitter()
           .equals(other.getCallbackjitter())) return false;
+      if (!getTransportprotocol()
+          .equals(other.getTransportprotocol())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -7841,6 +8056,8 @@ public final class Agents {
       hash = (53 * hash) + getCallbackfrequency().hashCode();
       hash = (37 * hash) + CALLBACKJITTER_FIELD_NUMBER;
       hash = (53 * hash) + getCallbackjitter().hashCode();
+      hash = (37 * hash) + TRANSPORTPROTOCOL_FIELD_NUMBER;
+      hash = (53 * hash) + getTransportprotocol().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7984,6 +8201,8 @@ public final class Agents {
 
         callbackjitter_ = "";
 
+        transportprotocol_ = "";
+
         return this;
       }
 
@@ -8015,6 +8234,7 @@ public final class Agents {
         result.serverport_ = serverport_;
         result.callbackfrequency_ = callbackfrequency_;
         result.callbackjitter_ = callbackjitter_;
+        result.transportprotocol_ = transportprotocol_;
         onBuilt();
         return result;
       }
@@ -8081,6 +8301,10 @@ public final class Agents {
         }
         if (!other.getCallbackjitter().isEmpty()) {
           callbackjitter_ = other.callbackjitter_;
+          onChanged();
+        }
+        if (!other.getTransportprotocol().isEmpty()) {
+          transportprotocol_ = other.transportprotocol_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -8488,6 +8712,82 @@ public final class Agents {
   checkByteStringIsUtf8(value);
         
         callbackjitter_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object transportprotocol_ = "";
+      /**
+       * <code>string transportprotocol = 6;</code>
+       * @return The transportprotocol.
+       */
+      public java.lang.String getTransportprotocol() {
+        java.lang.Object ref = transportprotocol_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          transportprotocol_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string transportprotocol = 6;</code>
+       * @return The bytes for transportprotocol.
+       */
+      public com.google.protobuf.ByteString
+          getTransportprotocolBytes() {
+        java.lang.Object ref = transportprotocol_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          transportprotocol_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string transportprotocol = 6;</code>
+       * @param value The transportprotocol to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTransportprotocol(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        transportprotocol_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string transportprotocol = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTransportprotocol() {
+        
+        transportprotocol_ = getDefaultInstance().getTransportprotocol();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string transportprotocol = 6;</code>
+       * @param value The bytes for transportprotocol to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTransportprotocolBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        transportprotocol_ = value;
         onChanged();
         return this;
       }
@@ -17466,7 +17766,7 @@ public final class Agents {
       "sponseH\000\0221\n\rfile_response\030\006 \001(\0132\030.patron" +
       "obuf.FileResponseH\000\022O\n\035file_transfer_sta" +
       "tus_response\030\007 \001(\0132&.patronobuf.FileTran" +
-      "sferStatusResponseH\000B\t\n\007payload\"\334\002\n\024Conf" +
+      "sferStatusResponseH\000B\t\n\007payload\"\367\002\n\024Conf" +
       "igurationRequest\022\014\n\004uuid\030\001 \001(\t\022\020\n\010userna" +
       "me\030\002 \001(\t\022\020\n\010hostname\030\003 \001(\t\022\016\n\006ostype\030\004 \001" +
       "(\t\022\014\n\004arch\030\005 \001(\t\022\017\n\007osbuild\030\006 \001(\t\022\014\n\004cpu" +
@@ -17475,35 +17775,36 @@ public final class Agents {
       "\n\021callbackfrequency\030\014 \001(\t\022\026\n\016callbackjit" +
       "ter\030\r \001(\t\022\021\n\tmasterkey\030\016 \001(\t\022\016\n\006status\030\017" +
       " \001(\t\022\035\n\004tags\030\020 \003(\0132\017.patronobuf.Tag\022\031\n\021n" +
-      "extcallback_unix\030\021 \001(\003\"~\n\025ConfigurationR" +
-      "esponse\022\014\n\004uuid\030\001 \001(\t\022\020\n\010serverip\030\002 \001(\t\022" +
-      "\022\n\nserverport\030\003 \001(\t\022\031\n\021callbackfrequency" +
-      "\030\004 \001(\t\022\026\n\016callbackjitter\030\005 \001(\t\"\036\n\016Comman" +
-      "dRequest\022\014\n\004uuid\030\001 \001(\t\"X\n\017CommandRespons" +
-      "e\022\014\n\004uuid\030\001 \001(\t\022\023\n\013commandtype\030\002 \001(\t\022\021\n\t" +
-      "commandid\030\003 \001(\t\022\017\n\007command\030\004 \001(\t\"W\n\024Comm" +
-      "andStatusRequest\022\014\n\004uuid\030\001 \001(\t\022\021\n\tcomman" +
-      "did\030\002 \001(\t\022\016\n\006result\030\003 \001(\t\022\016\n\006output\030\004 \001(" +
-      "\t\"%\n\025CommandStatusResponse\022\014\n\004uuid\030\001 \001(\t" +
-      "\")\n\013KeysRequest\022\014\n\004uuid\030\001 \001(\t\022\014\n\004keys\030\002 " +
-      "\001(\t\"\034\n\014KeysResponse\022\014\n\004uuid\030\001 \001(\t\"\033\n\013Fil" +
-      "eRequest\022\014\n\004uuid\030\001 \001(\t\"c\n\014FileResponse\022\016" +
-      "\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014transfer" +
-      "type\030\003 \001(\t\022\020\n\010filepath\030\004 \001(\t\022\r\n\005chunk\030\005 " +
-      "\001(\014\"o\n\014FileToServer\022\016\n\006fileid\030\001 \001(\t\022\014\n\004u" +
-      "uid\030\002 \001(\t\022\024\n\014transfertype\030\003 \001(\t\022\014\n\004path\030" +
-      "\004 \001(\t\022\016\n\006status\030\005 \001(\t\022\r\n\005chunk\030\006 \001(\014\":\n\032" +
-      "FileTransferStatusResponse\022\016\n\006fileid\030\001 \001" +
-      "(\t\022\014\n\004uuid\030\002 \001(\t\"!\n\003Tag\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\t*i\n\013RequestType\022\021\n\rCONFIGURAT" +
-      "ION\020\000\022\013\n\007COMMAND\020\001\022\022\n\016COMMAND_STATUS\020\002\022\010" +
-      "\n\004KEYS\020\003\022\010\n\004FILE\020\004\022\022\n\016FILE_TO_SERVER\020\005*\235" +
-      "\001\n\014ResponseType\022\032\n\026CONFIGURATION_RESPONS" +
-      "E\020\000\022\024\n\020COMMAND_RESPONSE\020\001\022\033\n\027COMMAND_STA" +
-      "TUS_RESPONSE\020\002\022\021\n\rKEYS_RESPONSE\020\003\022\021\n\rFIL" +
-      "E_RESPONSE\020\004\022\030\n\024FILE_TRANSFER_STATUS\020\005B." +
-      "Z,github.com/PatronC2/Patronobuf/go/patr" +
-      "onobufb\006proto3"
+      "extcallback_unix\030\021 \001(\003\022\031\n\021transportproto" +
+      "col\030\022 \001(\t\"\231\001\n\025ConfigurationResponse\022\014\n\004u" +
+      "uid\030\001 \001(\t\022\020\n\010serverip\030\002 \001(\t\022\022\n\nserverpor" +
+      "t\030\003 \001(\t\022\031\n\021callbackfrequency\030\004 \001(\t\022\026\n\016ca" +
+      "llbackjitter\030\005 \001(\t\022\031\n\021transportprotocol\030" +
+      "\006 \001(\t\"\036\n\016CommandRequest\022\014\n\004uuid\030\001 \001(\t\"X\n" +
+      "\017CommandResponse\022\014\n\004uuid\030\001 \001(\t\022\023\n\013comman" +
+      "dtype\030\002 \001(\t\022\021\n\tcommandid\030\003 \001(\t\022\017\n\007comman" +
+      "d\030\004 \001(\t\"W\n\024CommandStatusRequest\022\014\n\004uuid\030" +
+      "\001 \001(\t\022\021\n\tcommandid\030\002 \001(\t\022\016\n\006result\030\003 \001(\t" +
+      "\022\016\n\006output\030\004 \001(\t\"%\n\025CommandStatusRespons" +
+      "e\022\014\n\004uuid\030\001 \001(\t\")\n\013KeysRequest\022\014\n\004uuid\030\001" +
+      " \001(\t\022\014\n\004keys\030\002 \001(\t\"\034\n\014KeysResponse\022\014\n\004uu" +
+      "id\030\001 \001(\t\"\033\n\013FileRequest\022\014\n\004uuid\030\001 \001(\t\"c\n" +
+      "\014FileResponse\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 " +
+      "\001(\t\022\024\n\014transfertype\030\003 \001(\t\022\020\n\010filepath\030\004 " +
+      "\001(\t\022\r\n\005chunk\030\005 \001(\014\"o\n\014FileToServer\022\016\n\006fi" +
+      "leid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014transfertype" +
+      "\030\003 \001(\t\022\014\n\004path\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022\r\n\005" +
+      "chunk\030\006 \001(\014\":\n\032FileTransferStatusRespons" +
+      "e\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\"!\n\003Tag\022\013" +
+      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t*i\n\013RequestTyp" +
+      "e\022\021\n\rCONFIGURATION\020\000\022\013\n\007COMMAND\020\001\022\022\n\016COM" +
+      "MAND_STATUS\020\002\022\010\n\004KEYS\020\003\022\010\n\004FILE\020\004\022\022\n\016FIL" +
+      "E_TO_SERVER\020\005*\235\001\n\014ResponseType\022\032\n\026CONFIG" +
+      "URATION_RESPONSE\020\000\022\024\n\020COMMAND_RESPONSE\020\001" +
+      "\022\033\n\027COMMAND_STATUS_RESPONSE\020\002\022\021\n\rKEYS_RE" +
+      "SPONSE\020\003\022\021\n\rFILE_RESPONSE\020\004\022\030\n\024FILE_TRAN" +
+      "SFER_STATUS\020\005B.Z,github.com/PatronC2/Pat" +
+      "ronobuf/go/patronobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -17526,13 +17827,13 @@ public final class Agents {
     internal_static_patronobuf_ConfigurationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_ConfigurationRequest_descriptor,
-        new java.lang.String[] { "Uuid", "Username", "Hostname", "Ostype", "Arch", "Osbuild", "Cpus", "Memory", "Agentip", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", "Masterkey", "Status", "Tags", "NextcallbackUnix", });
+        new java.lang.String[] { "Uuid", "Username", "Hostname", "Ostype", "Arch", "Osbuild", "Cpus", "Memory", "Agentip", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", "Masterkey", "Status", "Tags", "NextcallbackUnix", "Transportprotocol", });
     internal_static_patronobuf_ConfigurationResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_patronobuf_ConfigurationResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_ConfigurationResponse_descriptor,
-        new java.lang.String[] { "Uuid", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", });
+        new java.lang.String[] { "Uuid", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", "Transportprotocol", });
     internal_static_patronobuf_CommandRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_patronobuf_CommandRequest_fieldAccessorTable = new

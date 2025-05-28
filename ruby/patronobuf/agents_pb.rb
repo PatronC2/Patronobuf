@@ -45,6 +45,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :status, :string, 15
       repeated :tags, :message, 16, "patronobuf.Tag"
       optional :nextcallback_unix, :int64, 17
+      optional :transportprotocol, :string, 18
     end
     add_message "patronobuf.ConfigurationResponse" do
       optional :uuid, :string, 1
@@ -52,6 +53,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :serverport, :string, 3
       optional :callbackfrequency, :string, 4
       optional :callbackjitter, :string, 5
+      optional :transportprotocol, :string, 6
     end
     add_message "patronobuf.CommandRequest" do
       optional :uuid, :string, 1
