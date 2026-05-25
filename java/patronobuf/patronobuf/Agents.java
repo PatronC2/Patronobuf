@@ -9391,30 +9391,6 @@ public final class Agents {
         getServerportBytes();
 
     /**
-     * <code>string callbackfrequency = 4;</code>
-     * @return The callbackfrequency.
-     */
-    java.lang.String getCallbackfrequency();
-    /**
-     * <code>string callbackfrequency = 4;</code>
-     * @return The bytes for callbackfrequency.
-     */
-    com.google.protobuf.ByteString
-        getCallbackfrequencyBytes();
-
-    /**
-     * <code>string callbackjitter = 5;</code>
-     * @return The callbackjitter.
-     */
-    java.lang.String getCallbackjitter();
-    /**
-     * <code>string callbackjitter = 5;</code>
-     * @return The bytes for callbackjitter.
-     */
-    com.google.protobuf.ByteString
-        getCallbackjitterBytes();
-
-    /**
      * <code>string transportprotocol = 6;</code>
      * @return The transportprotocol.
      */
@@ -9425,6 +9401,12 @@ public final class Agents {
      */
     com.google.protobuf.ByteString
         getTransportprotocolBytes();
+
+    /**
+     * <code>int64 sleep_seconds = 7;</code>
+     * @return The sleepSeconds.
+     */
+    long getSleepSeconds();
   }
   /**
    * Protobuf type {@code patronobuf.ConfigurationResponse}
@@ -9441,8 +9423,6 @@ public final class Agents {
     private ConfigurationResponse() {
       serverip_ = "";
       serverport_ = "";
-      callbackfrequency_ = "";
-      callbackjitter_ = "";
       transportprotocol_ = "";
     }
 
@@ -9488,22 +9468,15 @@ public final class Agents {
               serverport_ = s;
               break;
             }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              callbackfrequency_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              callbackjitter_ = s;
-              break;
-            }
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
               transportprotocol_ = s;
+              break;
+            }
+            case 56: {
+
+              sleepSeconds_ = input.readInt64();
               break;
             }
             default: {
@@ -9616,82 +9589,6 @@ public final class Agents {
       }
     }
 
-    public static final int CALLBACKFREQUENCY_FIELD_NUMBER = 4;
-    private volatile java.lang.Object callbackfrequency_;
-    /**
-     * <code>string callbackfrequency = 4;</code>
-     * @return The callbackfrequency.
-     */
-    @java.lang.Override
-    public java.lang.String getCallbackfrequency() {
-      java.lang.Object ref = callbackfrequency_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        callbackfrequency_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string callbackfrequency = 4;</code>
-     * @return The bytes for callbackfrequency.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCallbackfrequencyBytes() {
-      java.lang.Object ref = callbackfrequency_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        callbackfrequency_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CALLBACKJITTER_FIELD_NUMBER = 5;
-    private volatile java.lang.Object callbackjitter_;
-    /**
-     * <code>string callbackjitter = 5;</code>
-     * @return The callbackjitter.
-     */
-    @java.lang.Override
-    public java.lang.String getCallbackjitter() {
-      java.lang.Object ref = callbackjitter_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        callbackjitter_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string callbackjitter = 5;</code>
-     * @return The bytes for callbackjitter.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCallbackjitterBytes() {
-      java.lang.Object ref = callbackjitter_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        callbackjitter_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     public static final int TRANSPORTPROTOCOL_FIELD_NUMBER = 6;
     private volatile java.lang.Object transportprotocol_;
     /**
@@ -9730,6 +9627,17 @@ public final class Agents {
       }
     }
 
+    public static final int SLEEP_SECONDS_FIELD_NUMBER = 7;
+    private long sleepSeconds_;
+    /**
+     * <code>int64 sleep_seconds = 7;</code>
+     * @return The sleepSeconds.
+     */
+    @java.lang.Override
+    public long getSleepSeconds() {
+      return sleepSeconds_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -9750,14 +9658,11 @@ public final class Agents {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverport_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, serverport_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackfrequency_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, callbackfrequency_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackjitter_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, callbackjitter_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transportprotocol_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, transportprotocol_);
+      }
+      if (sleepSeconds_ != 0L) {
+        output.writeInt64(7, sleepSeconds_);
       }
       unknownFields.writeTo(output);
     }
@@ -9774,14 +9679,12 @@ public final class Agents {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverport_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, serverport_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackfrequency_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, callbackfrequency_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackjitter_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, callbackjitter_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transportprotocol_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, transportprotocol_);
+      }
+      if (sleepSeconds_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, sleepSeconds_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9802,12 +9705,10 @@ public final class Agents {
           .equals(other.getServerip())) return false;
       if (!getServerport()
           .equals(other.getServerport())) return false;
-      if (!getCallbackfrequency()
-          .equals(other.getCallbackfrequency())) return false;
-      if (!getCallbackjitter()
-          .equals(other.getCallbackjitter())) return false;
       if (!getTransportprotocol()
           .equals(other.getTransportprotocol())) return false;
+      if (getSleepSeconds()
+          != other.getSleepSeconds()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -9823,12 +9724,11 @@ public final class Agents {
       hash = (53 * hash) + getServerip().hashCode();
       hash = (37 * hash) + SERVERPORT_FIELD_NUMBER;
       hash = (53 * hash) + getServerport().hashCode();
-      hash = (37 * hash) + CALLBACKFREQUENCY_FIELD_NUMBER;
-      hash = (53 * hash) + getCallbackfrequency().hashCode();
-      hash = (37 * hash) + CALLBACKJITTER_FIELD_NUMBER;
-      hash = (53 * hash) + getCallbackjitter().hashCode();
       hash = (37 * hash) + TRANSPORTPROTOCOL_FIELD_NUMBER;
       hash = (53 * hash) + getTransportprotocol().hashCode();
+      hash = (37 * hash) + SLEEP_SECONDS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSleepSeconds());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -9966,11 +9866,9 @@ public final class Agents {
 
         serverport_ = "";
 
-        callbackfrequency_ = "";
-
-        callbackjitter_ = "";
-
         transportprotocol_ = "";
+
+        sleepSeconds_ = 0L;
 
         return this;
       }
@@ -10000,9 +9898,8 @@ public final class Agents {
         patronobuf.Agents.ConfigurationResponse result = new patronobuf.Agents.ConfigurationResponse(this);
         result.serverip_ = serverip_;
         result.serverport_ = serverport_;
-        result.callbackfrequency_ = callbackfrequency_;
-        result.callbackjitter_ = callbackjitter_;
         result.transportprotocol_ = transportprotocol_;
+        result.sleepSeconds_ = sleepSeconds_;
         onBuilt();
         return result;
       }
@@ -10059,17 +9956,12 @@ public final class Agents {
           serverport_ = other.serverport_;
           onChanged();
         }
-        if (!other.getCallbackfrequency().isEmpty()) {
-          callbackfrequency_ = other.callbackfrequency_;
-          onChanged();
-        }
-        if (!other.getCallbackjitter().isEmpty()) {
-          callbackjitter_ = other.callbackjitter_;
-          onChanged();
-        }
         if (!other.getTransportprotocol().isEmpty()) {
           transportprotocol_ = other.transportprotocol_;
           onChanged();
+        }
+        if (other.getSleepSeconds() != 0L) {
+          setSleepSeconds(other.getSleepSeconds());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -10252,158 +10144,6 @@ public final class Agents {
         return this;
       }
 
-      private java.lang.Object callbackfrequency_ = "";
-      /**
-       * <code>string callbackfrequency = 4;</code>
-       * @return The callbackfrequency.
-       */
-      public java.lang.String getCallbackfrequency() {
-        java.lang.Object ref = callbackfrequency_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          callbackfrequency_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string callbackfrequency = 4;</code>
-       * @return The bytes for callbackfrequency.
-       */
-      public com.google.protobuf.ByteString
-          getCallbackfrequencyBytes() {
-        java.lang.Object ref = callbackfrequency_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          callbackfrequency_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string callbackfrequency = 4;</code>
-       * @param value The callbackfrequency to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCallbackfrequency(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        callbackfrequency_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string callbackfrequency = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCallbackfrequency() {
-        
-        callbackfrequency_ = getDefaultInstance().getCallbackfrequency();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string callbackfrequency = 4;</code>
-       * @param value The bytes for callbackfrequency to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCallbackfrequencyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        callbackfrequency_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object callbackjitter_ = "";
-      /**
-       * <code>string callbackjitter = 5;</code>
-       * @return The callbackjitter.
-       */
-      public java.lang.String getCallbackjitter() {
-        java.lang.Object ref = callbackjitter_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          callbackjitter_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string callbackjitter = 5;</code>
-       * @return The bytes for callbackjitter.
-       */
-      public com.google.protobuf.ByteString
-          getCallbackjitterBytes() {
-        java.lang.Object ref = callbackjitter_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          callbackjitter_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string callbackjitter = 5;</code>
-       * @param value The callbackjitter to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCallbackjitter(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        callbackjitter_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string callbackjitter = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCallbackjitter() {
-        
-        callbackjitter_ = getDefaultInstance().getCallbackjitter();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string callbackjitter = 5;</code>
-       * @param value The bytes for callbackjitter to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCallbackjitterBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        callbackjitter_ = value;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object transportprotocol_ = "";
       /**
        * <code>string transportprotocol = 6;</code>
@@ -10476,6 +10216,37 @@ public final class Agents {
   checkByteStringIsUtf8(value);
         
         transportprotocol_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long sleepSeconds_ ;
+      /**
+       * <code>int64 sleep_seconds = 7;</code>
+       * @return The sleepSeconds.
+       */
+      @java.lang.Override
+      public long getSleepSeconds() {
+        return sleepSeconds_;
+      }
+      /**
+       * <code>int64 sleep_seconds = 7;</code>
+       * @param value The sleepSeconds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSleepSeconds(long value) {
+        
+        sleepSeconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 sleep_seconds = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSleepSeconds() {
+        
+        sleepSeconds_ = 0L;
         onChanged();
         return this;
       }
@@ -19479,36 +19250,35 @@ public final class Agents {
       "\005 \001(\t\022\021\n\tmasterkey\030\006 \001(\t\022\016\n\006status\030\007 \001(\t" +
       "\022\035\n\004tags\030\010 \003(\0132\017.patronobuf.Tag\022\031\n\021nextc" +
       "allback_unix\030\t \001(\003\022\031\n\021transportprotocol\030" +
-      "\n \001(\t\"\213\001\n\025ConfigurationResponse\022\020\n\010serve" +
-      "rip\030\002 \001(\t\022\022\n\nserverport\030\003 \001(\t\022\031\n\021callbac" +
-      "kfrequency\030\004 \001(\t\022\026\n\016callbackjitter\030\005 \001(\t" +
-      "\022\031\n\021transportprotocol\030\006 \001(\t\"\036\n\016CommandRe" +
-      "quest\022\014\n\004uuid\030\001 \001(\t\"X\n\017CommandResponse\022\014" +
-      "\n\004uuid\030\001 \001(\t\022\023\n\013commandtype\030\002 \001(\t\022\021\n\tcom" +
-      "mandid\030\003 \001(\t\022\017\n\007command\030\004 \001(\t\"W\n\024Command" +
-      "StatusRequest\022\014\n\004uuid\030\001 \001(\t\022\021\n\tcommandid" +
-      "\030\002 \001(\t\022\016\n\006result\030\003 \001(\t\022\016\n\006output\030\004 \001(\t\"%" +
-      "\n\025CommandStatusResponse\022\014\n\004uuid\030\001 \001(\t\")\n" +
-      "\013KeysRequest\022\014\n\004uuid\030\001 \001(\t\022\014\n\004keys\030\002 \001(\t" +
-      "\"\034\n\014KeysResponse\022\014\n\004uuid\030\001 \001(\t\"\033\n\013FileRe" +
-      "quest\022\014\n\004uuid\030\001 \001(\t\"c\n\014FileResponse\022\016\n\006f" +
-      "ileid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014transfertyp" +
-      "e\030\003 \001(\t\022\020\n\010filepath\030\004 \001(\t\022\r\n\005chunk\030\005 \001(\014" +
-      "\"o\n\014FileToServer\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid" +
-      "\030\002 \001(\t\022\024\n\014transfertype\030\003 \001(\t\022\014\n\004path\030\004 \001" +
-      "(\t\022\016\n\006status\030\005 \001(\t\022\r\n\005chunk\030\006 \001(\014\":\n\032Fil" +
-      "eTransferStatusResponse\022\016\n\006fileid\030\001 \001(\t\022" +
-      "\014\n\004uuid\030\002 \001(\t\"!\n\003Tag\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
-      "ue\030\002 \001(\t*v\n\013RequestType\022\013\n\007STARTUP\020\000\022\021\n\r" +
-      "CONFIGURATION\020\001\022\013\n\007COMMAND\020\002\022\022\n\016COMMAND_" +
-      "STATUS\020\003\022\010\n\004KEYS\020\004\022\010\n\004FILE\020\005\022\022\n\016FILE_TO_" +
-      "SERVER\020\006*\263\001\n\014ResponseType\022\024\n\020STARTUP_RES" +
-      "PONSE\020\000\022\032\n\026CONFIGURATION_RESPONSE\020\001\022\024\n\020C" +
-      "OMMAND_RESPONSE\020\002\022\033\n\027COMMAND_STATUS_RESP" +
-      "ONSE\020\003\022\021\n\rKEYS_RESPONSE\020\004\022\021\n\rFILE_RESPON" +
-      "SE\020\005\022\030\n\024FILE_TRANSFER_STATUS\020\006B.Z,github" +
-      ".com/PatronC2/Patronobuf/go/patronobufb\006" +
-      "proto3"
+      "\n \001(\t\"o\n\025ConfigurationResponse\022\020\n\010server" +
+      "ip\030\002 \001(\t\022\022\n\nserverport\030\003 \001(\t\022\031\n\021transpor" +
+      "tprotocol\030\006 \001(\t\022\025\n\rsleep_seconds\030\007 \001(\003\"\036" +
+      "\n\016CommandRequest\022\014\n\004uuid\030\001 \001(\t\"X\n\017Comman" +
+      "dResponse\022\014\n\004uuid\030\001 \001(\t\022\023\n\013commandtype\030\002" +
+      " \001(\t\022\021\n\tcommandid\030\003 \001(\t\022\017\n\007command\030\004 \001(\t" +
+      "\"W\n\024CommandStatusRequest\022\014\n\004uuid\030\001 \001(\t\022\021" +
+      "\n\tcommandid\030\002 \001(\t\022\016\n\006result\030\003 \001(\t\022\016\n\006out" +
+      "put\030\004 \001(\t\"%\n\025CommandStatusResponse\022\014\n\004uu" +
+      "id\030\001 \001(\t\")\n\013KeysRequest\022\014\n\004uuid\030\001 \001(\t\022\014\n" +
+      "\004keys\030\002 \001(\t\"\034\n\014KeysResponse\022\014\n\004uuid\030\001 \001(" +
+      "\t\"\033\n\013FileRequest\022\014\n\004uuid\030\001 \001(\t\"c\n\014FileRe" +
+      "sponse\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014" +
+      "transfertype\030\003 \001(\t\022\020\n\010filepath\030\004 \001(\t\022\r\n\005" +
+      "chunk\030\005 \001(\014\"o\n\014FileToServer\022\016\n\006fileid\030\001 " +
+      "\001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014transfertype\030\003 \001(\t\022" +
+      "\014\n\004path\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022\r\n\005chunk\030\006" +
+      " \001(\014\":\n\032FileTransferStatusResponse\022\016\n\006fi" +
+      "leid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\"!\n\003Tag\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\t*v\n\013RequestType\022\013\n\007ST" +
+      "ARTUP\020\000\022\021\n\rCONFIGURATION\020\001\022\013\n\007COMMAND\020\002\022" +
+      "\022\n\016COMMAND_STATUS\020\003\022\010\n\004KEYS\020\004\022\010\n\004FILE\020\005\022" +
+      "\022\n\016FILE_TO_SERVER\020\006*\263\001\n\014ResponseType\022\024\n\020" +
+      "STARTUP_RESPONSE\020\000\022\032\n\026CONFIGURATION_RESP" +
+      "ONSE\020\001\022\024\n\020COMMAND_RESPONSE\020\002\022\033\n\027COMMAND_" +
+      "STATUS_RESPONSE\020\003\022\021\n\rKEYS_RESPONSE\020\004\022\021\n\r" +
+      "FILE_RESPONSE\020\005\022\030\n\024FILE_TRANSFER_STATUS\020" +
+      "\006B.Z,github.com/PatronC2/Patronobuf/go/p" +
+      "atronobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -19549,7 +19319,7 @@ public final class Agents {
     internal_static_patronobuf_ConfigurationResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_ConfigurationResponse_descriptor,
-        new java.lang.String[] { "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", "Transportprotocol", });
+        new java.lang.String[] { "Serverip", "Serverport", "Transportprotocol", "SleepSeconds", });
     internal_static_patronobuf_CommandRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_patronobuf_CommandRequest_fieldAccessorTable = new

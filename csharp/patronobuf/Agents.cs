@@ -55,33 +55,32 @@ namespace Patronobuf {
             "CRIWCg5jYWxsYmFja2ppdHRlchgFIAEoCRIRCgltYXN0ZXJrZXkYBiABKAkS",
             "DgoGc3RhdHVzGAcgASgJEh0KBHRhZ3MYCCADKAsyDy5wYXRyb25vYnVmLlRh",
             "ZxIZChFuZXh0Y2FsbGJhY2tfdW5peBgJIAEoAxIZChF0cmFuc3BvcnRwcm90",
-            "b2NvbBgKIAEoCSKLAQoVQ29uZmlndXJhdGlvblJlc3BvbnNlEhAKCHNlcnZl",
-            "cmlwGAIgASgJEhIKCnNlcnZlcnBvcnQYAyABKAkSGQoRY2FsbGJhY2tmcmVx",
-            "dWVuY3kYBCABKAkSFgoOY2FsbGJhY2tqaXR0ZXIYBSABKAkSGQoRdHJhbnNw",
-            "b3J0cHJvdG9jb2wYBiABKAkiHgoOQ29tbWFuZFJlcXVlc3QSDAoEdXVpZBgB",
-            "IAEoCSJYCg9Db21tYW5kUmVzcG9uc2USDAoEdXVpZBgBIAEoCRITCgtjb21t",
-            "YW5kdHlwZRgCIAEoCRIRCgljb21tYW5kaWQYAyABKAkSDwoHY29tbWFuZBgE",
-            "IAEoCSJXChRDb21tYW5kU3RhdHVzUmVxdWVzdBIMCgR1dWlkGAEgASgJEhEK",
-            "CWNvbW1hbmRpZBgCIAEoCRIOCgZyZXN1bHQYAyABKAkSDgoGb3V0cHV0GAQg",
-            "ASgJIiUKFUNvbW1hbmRTdGF0dXNSZXNwb25zZRIMCgR1dWlkGAEgASgJIikK",
-            "C0tleXNSZXF1ZXN0EgwKBHV1aWQYASABKAkSDAoEa2V5cxgCIAEoCSIcCgxL",
-            "ZXlzUmVzcG9uc2USDAoEdXVpZBgBIAEoCSIbCgtGaWxlUmVxdWVzdBIMCgR1",
-            "dWlkGAEgASgJImMKDEZpbGVSZXNwb25zZRIOCgZmaWxlaWQYASABKAkSDAoE",
-            "dXVpZBgCIAEoCRIUCgx0cmFuc2ZlcnR5cGUYAyABKAkSEAoIZmlsZXBhdGgY",
-            "BCABKAkSDQoFY2h1bmsYBSABKAwibwoMRmlsZVRvU2VydmVyEg4KBmZpbGVp",
-            "ZBgBIAEoCRIMCgR1dWlkGAIgASgJEhQKDHRyYW5zZmVydHlwZRgDIAEoCRIM",
-            "CgRwYXRoGAQgASgJEg4KBnN0YXR1cxgFIAEoCRINCgVjaHVuaxgGIAEoDCI6",
-            "ChpGaWxlVHJhbnNmZXJTdGF0dXNSZXNwb25zZRIOCgZmaWxlaWQYASABKAkS",
-            "DAoEdXVpZBgCIAEoCSIhCgNUYWcSCwoDa2V5GAEgASgJEg0KBXZhbHVlGAIg",
-            "ASgJKnYKC1JlcXVlc3RUeXBlEgsKB1NUQVJUVVAQABIRCg1DT05GSUdVUkFU",
-            "SU9OEAESCwoHQ09NTUFORBACEhIKDkNPTU1BTkRfU1RBVFVTEAMSCAoES0VZ",
-            "UxAEEggKBEZJTEUQBRISCg5GSUxFX1RPX1NFUlZFUhAGKrMBCgxSZXNwb25z",
-            "ZVR5cGUSFAoQU1RBUlRVUF9SRVNQT05TRRAAEhoKFkNPTkZJR1VSQVRJT05f",
-            "UkVTUE9OU0UQARIUChBDT01NQU5EX1JFU1BPTlNFEAISGwoXQ09NTUFORF9T",
-            "VEFUVVNfUkVTUE9OU0UQAxIRCg1LRVlTX1JFU1BPTlNFEAQSEQoNRklMRV9S",
-            "RVNQT05TRRAFEhgKFEZJTEVfVFJBTlNGRVJfU1RBVFVTEAZCLlosZ2l0aHVi",
-            "LmNvbS9QYXRyb25DMi9QYXRyb25vYnVmL2dvL3BhdHJvbm9idWZiBnByb3Rv",
-            "Mw=="));
+            "b2NvbBgKIAEoCSJvChVDb25maWd1cmF0aW9uUmVzcG9uc2USEAoIc2VydmVy",
+            "aXAYAiABKAkSEgoKc2VydmVycG9ydBgDIAEoCRIZChF0cmFuc3BvcnRwcm90",
+            "b2NvbBgGIAEoCRIVCg1zbGVlcF9zZWNvbmRzGAcgASgDIh4KDkNvbW1hbmRS",
+            "ZXF1ZXN0EgwKBHV1aWQYASABKAkiWAoPQ29tbWFuZFJlc3BvbnNlEgwKBHV1",
+            "aWQYASABKAkSEwoLY29tbWFuZHR5cGUYAiABKAkSEQoJY29tbWFuZGlkGAMg",
+            "ASgJEg8KB2NvbW1hbmQYBCABKAkiVwoUQ29tbWFuZFN0YXR1c1JlcXVlc3QS",
+            "DAoEdXVpZBgBIAEoCRIRCgljb21tYW5kaWQYAiABKAkSDgoGcmVzdWx0GAMg",
+            "ASgJEg4KBm91dHB1dBgEIAEoCSIlChVDb21tYW5kU3RhdHVzUmVzcG9uc2US",
+            "DAoEdXVpZBgBIAEoCSIpCgtLZXlzUmVxdWVzdBIMCgR1dWlkGAEgASgJEgwK",
+            "BGtleXMYAiABKAkiHAoMS2V5c1Jlc3BvbnNlEgwKBHV1aWQYASABKAkiGwoL",
+            "RmlsZVJlcXVlc3QSDAoEdXVpZBgBIAEoCSJjCgxGaWxlUmVzcG9uc2USDgoG",
+            "ZmlsZWlkGAEgASgJEgwKBHV1aWQYAiABKAkSFAoMdHJhbnNmZXJ0eXBlGAMg",
+            "ASgJEhAKCGZpbGVwYXRoGAQgASgJEg0KBWNodW5rGAUgASgMIm8KDEZpbGVU",
+            "b1NlcnZlchIOCgZmaWxlaWQYASABKAkSDAoEdXVpZBgCIAEoCRIUCgx0cmFu",
+            "c2ZlcnR5cGUYAyABKAkSDAoEcGF0aBgEIAEoCRIOCgZzdGF0dXMYBSABKAkS",
+            "DQoFY2h1bmsYBiABKAwiOgoaRmlsZVRyYW5zZmVyU3RhdHVzUmVzcG9uc2US",
+            "DgoGZmlsZWlkGAEgASgJEgwKBHV1aWQYAiABKAkiIQoDVGFnEgsKA2tleRgB",
+            "IAEoCRINCgV2YWx1ZRgCIAEoCSp2CgtSZXF1ZXN0VHlwZRILCgdTVEFSVFVQ",
+            "EAASEQoNQ09ORklHVVJBVElPThABEgsKB0NPTU1BTkQQAhISCg5DT01NQU5E",
+            "X1NUQVRVUxADEggKBEtFWVMQBBIICgRGSUxFEAUSEgoORklMRV9UT19TRVJW",
+            "RVIQBiqzAQoMUmVzcG9uc2VUeXBlEhQKEFNUQVJUVVBfUkVTUE9OU0UQABIa",
+            "ChZDT05GSUdVUkFUSU9OX1JFU1BPTlNFEAESFAoQQ09NTUFORF9SRVNQT05T",
+            "RRACEhsKF0NPTU1BTkRfU1RBVFVTX1JFU1BPTlNFEAMSEQoNS0VZU19SRVNQ",
+            "T05TRRAEEhEKDUZJTEVfUkVTUE9OU0UQBRIYChRGSUxFX1RSQU5TRkVSX1NU",
+            "QVRVUxAGQi5aLGdpdGh1Yi5jb20vUGF0cm9uQzIvUGF0cm9ub2J1Zi9nby9w",
+            "YXRyb25vYnVmYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Patronobuf.RequestType), typeof(global::Patronobuf.ResponseType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -90,7 +89,7 @@ namespace Patronobuf {
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.StartupRequest), global::Patronobuf.StartupRequest.Parser, new[]{ "Filepath", "Username", "Hostname", "Ostype", "Arch", "Osbuild", "Cpus", "Memory", "Agentip", "Capabilities" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.StartupResponse), global::Patronobuf.StartupResponse.Parser, new[]{ "Uuid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.ConfigurationRequest), global::Patronobuf.ConfigurationRequest.Parser, new[]{ "Uuid", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", "Masterkey", "Status", "Tags", "NextcallbackUnix", "Transportprotocol" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.ConfigurationResponse), global::Patronobuf.ConfigurationResponse.Parser, new[]{ "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", "Transportprotocol" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.ConfigurationResponse), global::Patronobuf.ConfigurationResponse.Parser, new[]{ "Serverip", "Serverport", "Transportprotocol", "SleepSeconds" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.CommandRequest), global::Patronobuf.CommandRequest.Parser, new[]{ "Uuid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.CommandResponse), global::Patronobuf.CommandResponse.Parser, new[]{ "Uuid", "Commandtype", "Commandid", "Command" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.CommandStatusRequest), global::Patronobuf.CommandStatusRequest.Parser, new[]{ "Uuid", "Commandid", "Result", "Output" }, null, null, null, null),
@@ -2552,9 +2551,8 @@ namespace Patronobuf {
     public ConfigurationResponse(ConfigurationResponse other) : this() {
       serverip_ = other.serverip_;
       serverport_ = other.serverport_;
-      callbackfrequency_ = other.callbackfrequency_;
-      callbackjitter_ = other.callbackjitter_;
       transportprotocol_ = other.transportprotocol_;
+      sleepSeconds_ = other.sleepSeconds_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2588,30 +2586,6 @@ namespace Patronobuf {
       }
     }
 
-    /// <summary>Field number for the "callbackfrequency" field.</summary>
-    public const int CallbackfrequencyFieldNumber = 4;
-    private string callbackfrequency_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Callbackfrequency {
-      get { return callbackfrequency_; }
-      set {
-        callbackfrequency_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "callbackjitter" field.</summary>
-    public const int CallbackjitterFieldNumber = 5;
-    private string callbackjitter_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Callbackjitter {
-      get { return callbackjitter_; }
-      set {
-        callbackjitter_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     /// <summary>Field number for the "transportprotocol" field.</summary>
     public const int TransportprotocolFieldNumber = 6;
     private string transportprotocol_ = "";
@@ -2621,6 +2595,18 @@ namespace Patronobuf {
       get { return transportprotocol_; }
       set {
         transportprotocol_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "sleep_seconds" field.</summary>
+    public const int SleepSecondsFieldNumber = 7;
+    private long sleepSeconds_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long SleepSeconds {
+      get { return sleepSeconds_; }
+      set {
+        sleepSeconds_ = value;
       }
     }
 
@@ -2641,9 +2627,8 @@ namespace Patronobuf {
       }
       if (Serverip != other.Serverip) return false;
       if (Serverport != other.Serverport) return false;
-      if (Callbackfrequency != other.Callbackfrequency) return false;
-      if (Callbackjitter != other.Callbackjitter) return false;
       if (Transportprotocol != other.Transportprotocol) return false;
+      if (SleepSeconds != other.SleepSeconds) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2653,9 +2638,8 @@ namespace Patronobuf {
       int hash = 1;
       if (Serverip.Length != 0) hash ^= Serverip.GetHashCode();
       if (Serverport.Length != 0) hash ^= Serverport.GetHashCode();
-      if (Callbackfrequency.Length != 0) hash ^= Callbackfrequency.GetHashCode();
-      if (Callbackjitter.Length != 0) hash ^= Callbackjitter.GetHashCode();
       if (Transportprotocol.Length != 0) hash ^= Transportprotocol.GetHashCode();
+      if (SleepSeconds != 0L) hash ^= SleepSeconds.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2682,17 +2666,13 @@ namespace Patronobuf {
         output.WriteRawTag(26);
         output.WriteString(Serverport);
       }
-      if (Callbackfrequency.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Callbackfrequency);
-      }
-      if (Callbackjitter.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteString(Callbackjitter);
-      }
       if (Transportprotocol.Length != 0) {
         output.WriteRawTag(50);
         output.WriteString(Transportprotocol);
+      }
+      if (SleepSeconds != 0L) {
+        output.WriteRawTag(56);
+        output.WriteInt64(SleepSeconds);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2712,17 +2692,13 @@ namespace Patronobuf {
         output.WriteRawTag(26);
         output.WriteString(Serverport);
       }
-      if (Callbackfrequency.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Callbackfrequency);
-      }
-      if (Callbackjitter.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteString(Callbackjitter);
-      }
       if (Transportprotocol.Length != 0) {
         output.WriteRawTag(50);
         output.WriteString(Transportprotocol);
+      }
+      if (SleepSeconds != 0L) {
+        output.WriteRawTag(56);
+        output.WriteInt64(SleepSeconds);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -2740,14 +2716,11 @@ namespace Patronobuf {
       if (Serverport.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Serverport);
       }
-      if (Callbackfrequency.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Callbackfrequency);
-      }
-      if (Callbackjitter.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Callbackjitter);
-      }
       if (Transportprotocol.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Transportprotocol);
+      }
+      if (SleepSeconds != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(SleepSeconds);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2767,14 +2740,11 @@ namespace Patronobuf {
       if (other.Serverport.Length != 0) {
         Serverport = other.Serverport;
       }
-      if (other.Callbackfrequency.Length != 0) {
-        Callbackfrequency = other.Callbackfrequency;
-      }
-      if (other.Callbackjitter.Length != 0) {
-        Callbackjitter = other.Callbackjitter;
-      }
       if (other.Transportprotocol.Length != 0) {
         Transportprotocol = other.Transportprotocol;
+      }
+      if (other.SleepSeconds != 0L) {
+        SleepSeconds = other.SleepSeconds;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2799,16 +2769,12 @@ namespace Patronobuf {
             Serverport = input.ReadString();
             break;
           }
-          case 34: {
-            Callbackfrequency = input.ReadString();
-            break;
-          }
-          case 42: {
-            Callbackjitter = input.ReadString();
-            break;
-          }
           case 50: {
             Transportprotocol = input.ReadString();
+            break;
+          }
+          case 56: {
+            SleepSeconds = input.ReadInt64();
             break;
           }
         }
@@ -2834,16 +2800,12 @@ namespace Patronobuf {
             Serverport = input.ReadString();
             break;
           }
-          case 34: {
-            Callbackfrequency = input.ReadString();
-            break;
-          }
-          case 42: {
-            Callbackjitter = input.ReadString();
-            break;
-          }
           case 50: {
             Transportprotocol = input.ReadString();
+            break;
+          }
+          case 56: {
+            SleepSeconds = input.ReadInt64();
             break;
           }
         }

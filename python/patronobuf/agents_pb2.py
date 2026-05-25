@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0c\x61gents.proto\x12\npatronobuf\"\x96\x03\n\x07Request\x12%\n\x04type\x18\x01 \x01(\x0e\x32\x17.patronobuf.RequestType\x12-\n\x07startup\x18\x02 \x01(\x0b\x32\x1a.patronobuf.StartupRequestH\x00\x12\x39\n\rconfiguration\x18\x03 \x01(\x0b\x32 .patronobuf.ConfigurationRequestH\x00\x12-\n\x07\x63ommand\x18\x04 \x01(\x0b\x32\x1a.patronobuf.CommandRequestH\x00\x12:\n\x0e\x63ommand_status\x18\x05 \x01(\x0b\x32 .patronobuf.CommandStatusRequestH\x00\x12\'\n\x04keys\x18\x06 \x01(\x0b\x32\x17.patronobuf.KeysRequestH\x00\x12\'\n\x04\x66ile\x18\x07 \x01(\x0b\x32\x17.patronobuf.FileRequestH\x00\x12\x32\n\x0e\x66ile_to_server\x18\x08 \x01(\x0b\x32\x18.patronobuf.FileToServerH\x00\x42\t\n\x07payload\"\xf1\x03\n\x08Response\x12&\n\x04type\x18\x01 \x01(\x0e\x32\x18.patronobuf.ResponseType\x12\x37\n\x10startup_response\x18\x02 \x01(\x0b\x32\x1b.patronobuf.StartupResponseH\x00\x12\x43\n\x16\x63onfiguration_response\x18\x03 \x01(\x0b\x32!.patronobuf.ConfigurationResponseH\x00\x12\x37\n\x10\x63ommand_response\x18\x04 \x01(\x0b\x32\x1b.patronobuf.CommandResponseH\x00\x12\x44\n\x17\x63ommand_status_response\x18\x05 \x01(\x0b\x32!.patronobuf.CommandStatusResponseH\x00\x12\x31\n\rkeys_response\x18\x06 \x01(\x0b\x32\x18.patronobuf.KeysResponseH\x00\x12\x31\n\rfile_response\x18\x07 \x01(\x0b\x32\x18.patronobuf.FileResponseH\x00\x12O\n\x1d\x66ile_transfer_status_response\x18\x08 \x01(\x0b\x32&.patronobuf.FileTransferStatusResponseH\x00\x42\t\n\x07payload\"\xba\x01\n\x0eStartupRequest\x12\x10\n\x08\x66ilepath\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x10\n\x08hostname\x18\x03 \x01(\t\x12\x0e\n\x06ostype\x18\x04 \x01(\t\x12\x0c\n\x04\x61rch\x18\x05 \x01(\t\x12\x0f\n\x07osbuild\x18\x06 \x01(\t\x12\x0c\n\x04\x63pus\x18\x07 \x01(\t\x12\x0e\n\x06memory\x18\x08 \x01(\t\x12\x0f\n\x07\x61gentip\x18\t \x01(\t\x12\x14\n\x0c\x63\x61pabilities\x18\n \x03(\t\"\x1f\n\x0fStartupResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"\xf5\x01\n\x14\x43onfigurationRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x10\n\x08serverip\x18\x02 \x01(\t\x12\x12\n\nserverport\x18\x03 \x01(\t\x12\x19\n\x11\x63\x61llbackfrequency\x18\x04 \x01(\t\x12\x16\n\x0e\x63\x61llbackjitter\x18\x05 \x01(\t\x12\x11\n\tmasterkey\x18\x06 \x01(\t\x12\x0e\n\x06status\x18\x07 \x01(\t\x12\x1d\n\x04tags\x18\x08 \x03(\x0b\x32\x0f.patronobuf.Tag\x12\x19\n\x11nextcallback_unix\x18\t \x01(\x03\x12\x19\n\x11transportprotocol\x18\n \x01(\t\"\x8b\x01\n\x15\x43onfigurationResponse\x12\x10\n\x08serverip\x18\x02 \x01(\t\x12\x12\n\nserverport\x18\x03 \x01(\t\x12\x19\n\x11\x63\x61llbackfrequency\x18\x04 \x01(\t\x12\x16\n\x0e\x63\x61llbackjitter\x18\x05 \x01(\t\x12\x19\n\x11transportprotocol\x18\x06 \x01(\t\"\x1e\n\x0e\x43ommandRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"X\n\x0f\x43ommandResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x13\n\x0b\x63ommandtype\x18\x02 \x01(\t\x12\x11\n\tcommandid\x18\x03 \x01(\t\x12\x0f\n\x07\x63ommand\x18\x04 \x01(\t\"W\n\x14\x43ommandStatusRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\tcommandid\x18\x02 \x01(\t\x12\x0e\n\x06result\x18\x03 \x01(\t\x12\x0e\n\x06output\x18\x04 \x01(\t\"%\n\x15\x43ommandStatusResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\")\n\x0bKeysRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04keys\x18\x02 \x01(\t\"\x1c\n\x0cKeysResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"\x1b\n\x0b\x46ileRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"c\n\x0c\x46ileResponse\x12\x0e\n\x06\x66ileid\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12\x14\n\x0ctransfertype\x18\x03 \x01(\t\x12\x10\n\x08\x66ilepath\x18\x04 \x01(\t\x12\r\n\x05\x63hunk\x18\x05 \x01(\x0c\"o\n\x0c\x46ileToServer\x12\x0e\n\x06\x66ileid\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12\x14\n\x0ctransfertype\x18\x03 \x01(\t\x12\x0c\n\x04path\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12\r\n\x05\x63hunk\x18\x06 \x01(\x0c\":\n\x1a\x46ileTransferStatusResponse\x12\x0e\n\x06\x66ileid\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\"!\n\x03Tag\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t*v\n\x0bRequestType\x12\x0b\n\x07STARTUP\x10\x00\x12\x11\n\rCONFIGURATION\x10\x01\x12\x0b\n\x07\x43OMMAND\x10\x02\x12\x12\n\x0e\x43OMMAND_STATUS\x10\x03\x12\x08\n\x04KEYS\x10\x04\x12\x08\n\x04\x46ILE\x10\x05\x12\x12\n\x0e\x46ILE_TO_SERVER\x10\x06*\xb3\x01\n\x0cResponseType\x12\x14\n\x10STARTUP_RESPONSE\x10\x00\x12\x1a\n\x16\x43ONFIGURATION_RESPONSE\x10\x01\x12\x14\n\x10\x43OMMAND_RESPONSE\x10\x02\x12\x1b\n\x17\x43OMMAND_STATUS_RESPONSE\x10\x03\x12\x11\n\rKEYS_RESPONSE\x10\x04\x12\x11\n\rFILE_RESPONSE\x10\x05\x12\x18\n\x14\x46ILE_TRANSFER_STATUS\x10\x06\x42.Z,github.com/PatronC2/Patronobuf/go/patronobufb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0c\x61gents.proto\x12\npatronobuf\"\x96\x03\n\x07Request\x12%\n\x04type\x18\x01 \x01(\x0e\x32\x17.patronobuf.RequestType\x12-\n\x07startup\x18\x02 \x01(\x0b\x32\x1a.patronobuf.StartupRequestH\x00\x12\x39\n\rconfiguration\x18\x03 \x01(\x0b\x32 .patronobuf.ConfigurationRequestH\x00\x12-\n\x07\x63ommand\x18\x04 \x01(\x0b\x32\x1a.patronobuf.CommandRequestH\x00\x12:\n\x0e\x63ommand_status\x18\x05 \x01(\x0b\x32 .patronobuf.CommandStatusRequestH\x00\x12\'\n\x04keys\x18\x06 \x01(\x0b\x32\x17.patronobuf.KeysRequestH\x00\x12\'\n\x04\x66ile\x18\x07 \x01(\x0b\x32\x17.patronobuf.FileRequestH\x00\x12\x32\n\x0e\x66ile_to_server\x18\x08 \x01(\x0b\x32\x18.patronobuf.FileToServerH\x00\x42\t\n\x07payload\"\xf1\x03\n\x08Response\x12&\n\x04type\x18\x01 \x01(\x0e\x32\x18.patronobuf.ResponseType\x12\x37\n\x10startup_response\x18\x02 \x01(\x0b\x32\x1b.patronobuf.StartupResponseH\x00\x12\x43\n\x16\x63onfiguration_response\x18\x03 \x01(\x0b\x32!.patronobuf.ConfigurationResponseH\x00\x12\x37\n\x10\x63ommand_response\x18\x04 \x01(\x0b\x32\x1b.patronobuf.CommandResponseH\x00\x12\x44\n\x17\x63ommand_status_response\x18\x05 \x01(\x0b\x32!.patronobuf.CommandStatusResponseH\x00\x12\x31\n\rkeys_response\x18\x06 \x01(\x0b\x32\x18.patronobuf.KeysResponseH\x00\x12\x31\n\rfile_response\x18\x07 \x01(\x0b\x32\x18.patronobuf.FileResponseH\x00\x12O\n\x1d\x66ile_transfer_status_response\x18\x08 \x01(\x0b\x32&.patronobuf.FileTransferStatusResponseH\x00\x42\t\n\x07payload\"\xba\x01\n\x0eStartupRequest\x12\x10\n\x08\x66ilepath\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x10\n\x08hostname\x18\x03 \x01(\t\x12\x0e\n\x06ostype\x18\x04 \x01(\t\x12\x0c\n\x04\x61rch\x18\x05 \x01(\t\x12\x0f\n\x07osbuild\x18\x06 \x01(\t\x12\x0c\n\x04\x63pus\x18\x07 \x01(\t\x12\x0e\n\x06memory\x18\x08 \x01(\t\x12\x0f\n\x07\x61gentip\x18\t \x01(\t\x12\x14\n\x0c\x63\x61pabilities\x18\n \x03(\t\"\x1f\n\x0fStartupResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"\xf5\x01\n\x14\x43onfigurationRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x10\n\x08serverip\x18\x02 \x01(\t\x12\x12\n\nserverport\x18\x03 \x01(\t\x12\x19\n\x11\x63\x61llbackfrequency\x18\x04 \x01(\t\x12\x16\n\x0e\x63\x61llbackjitter\x18\x05 \x01(\t\x12\x11\n\tmasterkey\x18\x06 \x01(\t\x12\x0e\n\x06status\x18\x07 \x01(\t\x12\x1d\n\x04tags\x18\x08 \x03(\x0b\x32\x0f.patronobuf.Tag\x12\x19\n\x11nextcallback_unix\x18\t \x01(\x03\x12\x19\n\x11transportprotocol\x18\n \x01(\t\"o\n\x15\x43onfigurationResponse\x12\x10\n\x08serverip\x18\x02 \x01(\t\x12\x12\n\nserverport\x18\x03 \x01(\t\x12\x19\n\x11transportprotocol\x18\x06 \x01(\t\x12\x15\n\rsleep_seconds\x18\x07 \x01(\x03\"\x1e\n\x0e\x43ommandRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"X\n\x0f\x43ommandResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x13\n\x0b\x63ommandtype\x18\x02 \x01(\t\x12\x11\n\tcommandid\x18\x03 \x01(\t\x12\x0f\n\x07\x63ommand\x18\x04 \x01(\t\"W\n\x14\x43ommandStatusRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\tcommandid\x18\x02 \x01(\t\x12\x0e\n\x06result\x18\x03 \x01(\t\x12\x0e\n\x06output\x18\x04 \x01(\t\"%\n\x15\x43ommandStatusResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\")\n\x0bKeysRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04keys\x18\x02 \x01(\t\"\x1c\n\x0cKeysResponse\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"\x1b\n\x0b\x46ileRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"c\n\x0c\x46ileResponse\x12\x0e\n\x06\x66ileid\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12\x14\n\x0ctransfertype\x18\x03 \x01(\t\x12\x10\n\x08\x66ilepath\x18\x04 \x01(\t\x12\r\n\x05\x63hunk\x18\x05 \x01(\x0c\"o\n\x0c\x46ileToServer\x12\x0e\n\x06\x66ileid\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\x12\x14\n\x0ctransfertype\x18\x03 \x01(\t\x12\x0c\n\x04path\x18\x04 \x01(\t\x12\x0e\n\x06status\x18\x05 \x01(\t\x12\r\n\x05\x63hunk\x18\x06 \x01(\x0c\":\n\x1a\x46ileTransferStatusResponse\x12\x0e\n\x06\x66ileid\x18\x01 \x01(\t\x12\x0c\n\x04uuid\x18\x02 \x01(\t\"!\n\x03Tag\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t*v\n\x0bRequestType\x12\x0b\n\x07STARTUP\x10\x00\x12\x11\n\rCONFIGURATION\x10\x01\x12\x0b\n\x07\x43OMMAND\x10\x02\x12\x12\n\x0e\x43OMMAND_STATUS\x10\x03\x12\x08\n\x04KEYS\x10\x04\x12\x08\n\x04\x46ILE\x10\x05\x12\x12\n\x0e\x46ILE_TO_SERVER\x10\x06*\xb3\x01\n\x0cResponseType\x12\x14\n\x10STARTUP_RESPONSE\x10\x00\x12\x1a\n\x16\x43ONFIGURATION_RESPONSE\x10\x01\x12\x14\n\x10\x43OMMAND_RESPONSE\x10\x02\x12\x1b\n\x17\x43OMMAND_STATUS_RESPONSE\x10\x03\x12\x11\n\rKEYS_RESPONSE\x10\x04\x12\x11\n\rFILE_RESPONSE\x10\x05\x12\x18\n\x14\x46ILE_TRANSFER_STATUS\x10\x06\x42.Z,github.com/PatronC2/Patronobuf/go/patronobufb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'agents_pb2', globals())
@@ -21,10 +21,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z,github.com/PatronC2/Patronobuf/go/patronobuf'
-  _REQUESTTYPE._serialized_start=2210
-  _REQUESTTYPE._serialized_end=2328
-  _RESPONSETYPE._serialized_start=2331
-  _RESPONSETYPE._serialized_end=2510
+  _REQUESTTYPE._serialized_start=2181
+  _REQUESTTYPE._serialized_end=2299
+  _RESPONSETYPE._serialized_start=2302
+  _RESPONSETYPE._serialized_end=2481
   _REQUEST._serialized_start=29
   _REQUEST._serialized_end=435
   _RESPONSE._serialized_start=438
@@ -35,28 +35,28 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _STARTUPRESPONSE._serialized_end=1157
   _CONFIGURATIONREQUEST._serialized_start=1160
   _CONFIGURATIONREQUEST._serialized_end=1405
-  _CONFIGURATIONRESPONSE._serialized_start=1408
-  _CONFIGURATIONRESPONSE._serialized_end=1547
-  _COMMANDREQUEST._serialized_start=1549
-  _COMMANDREQUEST._serialized_end=1579
-  _COMMANDRESPONSE._serialized_start=1581
-  _COMMANDRESPONSE._serialized_end=1669
-  _COMMANDSTATUSREQUEST._serialized_start=1671
-  _COMMANDSTATUSREQUEST._serialized_end=1758
-  _COMMANDSTATUSRESPONSE._serialized_start=1760
-  _COMMANDSTATUSRESPONSE._serialized_end=1797
-  _KEYSREQUEST._serialized_start=1799
-  _KEYSREQUEST._serialized_end=1840
-  _KEYSRESPONSE._serialized_start=1842
-  _KEYSRESPONSE._serialized_end=1870
-  _FILEREQUEST._serialized_start=1872
-  _FILEREQUEST._serialized_end=1899
-  _FILERESPONSE._serialized_start=1901
-  _FILERESPONSE._serialized_end=2000
-  _FILETOSERVER._serialized_start=2002
-  _FILETOSERVER._serialized_end=2113
-  _FILETRANSFERSTATUSRESPONSE._serialized_start=2115
-  _FILETRANSFERSTATUSRESPONSE._serialized_end=2173
-  _TAG._serialized_start=2175
-  _TAG._serialized_end=2208
+  _CONFIGURATIONRESPONSE._serialized_start=1407
+  _CONFIGURATIONRESPONSE._serialized_end=1518
+  _COMMANDREQUEST._serialized_start=1520
+  _COMMANDREQUEST._serialized_end=1550
+  _COMMANDRESPONSE._serialized_start=1552
+  _COMMANDRESPONSE._serialized_end=1640
+  _COMMANDSTATUSREQUEST._serialized_start=1642
+  _COMMANDSTATUSREQUEST._serialized_end=1729
+  _COMMANDSTATUSRESPONSE._serialized_start=1731
+  _COMMANDSTATUSRESPONSE._serialized_end=1768
+  _KEYSREQUEST._serialized_start=1770
+  _KEYSREQUEST._serialized_end=1811
+  _KEYSRESPONSE._serialized_start=1813
+  _KEYSRESPONSE._serialized_end=1841
+  _FILEREQUEST._serialized_start=1843
+  _FILEREQUEST._serialized_end=1870
+  _FILERESPONSE._serialized_start=1872
+  _FILERESPONSE._serialized_end=1971
+  _FILETOSERVER._serialized_start=1973
+  _FILETOSERVER._serialized_end=2084
+  _FILETRANSFERSTATUSRESPONSE._serialized_start=2086
+  _FILETRANSFERSTATUSRESPONSE._serialized_end=2144
+  _TAG._serialized_start=2146
+  _TAG._serialized_end=2179
 # @@protoc_insertion_point(module_scope)

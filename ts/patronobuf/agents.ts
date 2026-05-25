@@ -185,9 +185,8 @@ export interface ConfigurationRequest {
 export interface ConfigurationResponse {
   serverip: string;
   serverport: string;
-  callbackfrequency: string;
-  callbackjitter: string;
   transportprotocol: string;
+  sleepSeconds: number;
 }
 
 export interface CommandRequest {
@@ -905,7 +904,7 @@ export const ConfigurationRequest = {
 };
 
 function createBaseConfigurationResponse(): ConfigurationResponse {
-  return { serverip: "", serverport: "", callbackfrequency: "", callbackjitter: "", transportprotocol: "" };
+  return { serverip: "", serverport: "", transportprotocol: "", sleepSeconds: 0 };
 }
 
 export const ConfigurationResponse = {
@@ -916,14 +915,11 @@ export const ConfigurationResponse = {
     if (message.serverport !== "") {
       writer.uint32(26).string(message.serverport);
     }
-    if (message.callbackfrequency !== "") {
-      writer.uint32(34).string(message.callbackfrequency);
-    }
-    if (message.callbackjitter !== "") {
-      writer.uint32(42).string(message.callbackjitter);
-    }
     if (message.transportprotocol !== "") {
       writer.uint32(50).string(message.transportprotocol);
+    }
+    if (message.sleepSeconds !== 0) {
+      writer.uint32(56).int64(message.sleepSeconds);
     }
     return writer;
   },
@@ -941,14 +937,11 @@ export const ConfigurationResponse = {
         case 3:
           message.serverport = reader.string();
           break;
-        case 4:
-          message.callbackfrequency = reader.string();
-          break;
-        case 5:
-          message.callbackjitter = reader.string();
-          break;
         case 6:
           message.transportprotocol = reader.string();
+          break;
+        case 7:
+          message.sleepSeconds = longToNumber(reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -962,9 +955,8 @@ export const ConfigurationResponse = {
     return {
       serverip: isSet(object.serverip) ? String(object.serverip) : "",
       serverport: isSet(object.serverport) ? String(object.serverport) : "",
-      callbackfrequency: isSet(object.callbackfrequency) ? String(object.callbackfrequency) : "",
-      callbackjitter: isSet(object.callbackjitter) ? String(object.callbackjitter) : "",
       transportprotocol: isSet(object.transportprotocol) ? String(object.transportprotocol) : "",
+      sleepSeconds: isSet(object.sleepSeconds) ? Number(object.sleepSeconds) : 0,
     };
   },
 
@@ -972,9 +964,8 @@ export const ConfigurationResponse = {
     const obj: any = {};
     message.serverip !== undefined && (obj.serverip = message.serverip);
     message.serverport !== undefined && (obj.serverport = message.serverport);
-    message.callbackfrequency !== undefined && (obj.callbackfrequency = message.callbackfrequency);
-    message.callbackjitter !== undefined && (obj.callbackjitter = message.callbackjitter);
     message.transportprotocol !== undefined && (obj.transportprotocol = message.transportprotocol);
+    message.sleepSeconds !== undefined && (obj.sleepSeconds = Math.round(message.sleepSeconds));
     return obj;
   },
 
@@ -986,9 +977,8 @@ export const ConfigurationResponse = {
     const message = createBaseConfigurationResponse();
     message.serverip = object.serverip ?? "";
     message.serverport = object.serverport ?? "";
-    message.callbackfrequency = object.callbackfrequency ?? "";
-    message.callbackjitter = object.callbackjitter ?? "";
     message.transportprotocol = object.transportprotocol ?? "";
+    message.sleepSeconds = object.sleepSeconds ?? 0;
     return message;
   },
 };

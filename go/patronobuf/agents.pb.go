@@ -763,9 +763,8 @@ type ConfigurationResponse struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
 	Serverip          string                 `protobuf:"bytes,2,opt,name=serverip,proto3" json:"serverip,omitempty"`
 	Serverport        string                 `protobuf:"bytes,3,opt,name=serverport,proto3" json:"serverport,omitempty"`
-	Callbackfrequency string                 `protobuf:"bytes,4,opt,name=callbackfrequency,proto3" json:"callbackfrequency,omitempty"`
-	Callbackjitter    string                 `protobuf:"bytes,5,opt,name=callbackjitter,proto3" json:"callbackjitter,omitempty"`
 	Transportprotocol string                 `protobuf:"bytes,6,opt,name=transportprotocol,proto3" json:"transportprotocol,omitempty"`
+	SleepSeconds      int64                  `protobuf:"varint,7,opt,name=sleep_seconds,json=sleepSeconds,proto3" json:"sleep_seconds,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -814,25 +813,18 @@ func (x *ConfigurationResponse) GetServerport() string {
 	return ""
 }
 
-func (x *ConfigurationResponse) GetCallbackfrequency() string {
-	if x != nil {
-		return x.Callbackfrequency
-	}
-	return ""
-}
-
-func (x *ConfigurationResponse) GetCallbackjitter() string {
-	if x != nil {
-		return x.Callbackjitter
-	}
-	return ""
-}
-
 func (x *ConfigurationResponse) GetTransportprotocol() string {
 	if x != nil {
 		return x.Transportprotocol
 	}
 	return ""
+}
+
+func (x *ConfigurationResponse) GetSleepSeconds() int64 {
+	if x != nil {
+		return x.SleepSeconds
+	}
+	return 0
 }
 
 type CommandRequest struct {
@@ -1516,15 +1508,14 @@ const file_agents_proto_rawDesc = "" +
 	"\x04tags\x18\b \x03(\v2\x0f.patronobuf.TagR\x04tags\x12+\n" +
 	"\x11nextcallback_unix\x18\t \x01(\x03R\x10nextcallbackUnix\x12,\n" +
 	"\x11transportprotocol\x18\n" +
-	" \x01(\tR\x11transportprotocol\"\xd7\x01\n" +
+	" \x01(\tR\x11transportprotocol\"\xa6\x01\n" +
 	"\x15ConfigurationResponse\x12\x1a\n" +
 	"\bserverip\x18\x02 \x01(\tR\bserverip\x12\x1e\n" +
 	"\n" +
 	"serverport\x18\x03 \x01(\tR\n" +
 	"serverport\x12,\n" +
-	"\x11callbackfrequency\x18\x04 \x01(\tR\x11callbackfrequency\x12&\n" +
-	"\x0ecallbackjitter\x18\x05 \x01(\tR\x0ecallbackjitter\x12,\n" +
-	"\x11transportprotocol\x18\x06 \x01(\tR\x11transportprotocol\"$\n" +
+	"\x11transportprotocol\x18\x06 \x01(\tR\x11transportprotocol\x12#\n" +
+	"\rsleep_seconds\x18\a \x01(\x03R\fsleepSeconds\"$\n" +
 	"\x0eCommandRequest\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\"\x7f\n" +
 	"\x0fCommandResponse\x12\x12\n" +

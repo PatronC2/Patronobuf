@@ -2455,9 +2455,8 @@ proto.patronobuf.ConfigurationResponse.toObject = function(includeInstance, msg)
   var f, obj = {
     serverip: jspb.Message.getFieldWithDefault(msg, 2, ""),
     serverport: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    callbackfrequency: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    callbackjitter: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    transportprotocol: jspb.Message.getFieldWithDefault(msg, 6, "")
+    transportprotocol: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    sleepSeconds: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -2502,17 +2501,13 @@ proto.patronobuf.ConfigurationResponse.deserializeBinaryFromReader = function(ms
       var value = /** @type {string} */ (reader.readString());
       msg.setServerport(value);
       break;
-    case 4:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setCallbackfrequency(value);
-      break;
-    case 5:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setCallbackjitter(value);
-      break;
     case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.setTransportprotocol(value);
+      break;
+    case 7:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setSleepSeconds(value);
       break;
     default:
       reader.skipField();
@@ -2557,24 +2552,17 @@ proto.patronobuf.ConfigurationResponse.serializeBinaryToWriter = function(messag
       f
     );
   }
-  f = message.getCallbackfrequency();
-  if (f.length > 0) {
-    writer.writeString(
-      4,
-      f
-    );
-  }
-  f = message.getCallbackjitter();
-  if (f.length > 0) {
-    writer.writeString(
-      5,
-      f
-    );
-  }
   f = message.getTransportprotocol();
   if (f.length > 0) {
     writer.writeString(
       6,
+      f
+    );
+  }
+  f = message.getSleepSeconds();
+  if (f !== 0) {
+    writer.writeInt64(
+      7,
       f
     );
   }
@@ -2618,42 +2606,6 @@ proto.patronobuf.ConfigurationResponse.prototype.setServerport = function(value)
 
 
 /**
- * optional string callbackfrequency = 4;
- * @return {string}
- */
-proto.patronobuf.ConfigurationResponse.prototype.getCallbackfrequency = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.patronobuf.ConfigurationResponse} returns this
- */
-proto.patronobuf.ConfigurationResponse.prototype.setCallbackfrequency = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
-};
-
-
-/**
- * optional string callbackjitter = 5;
- * @return {string}
- */
-proto.patronobuf.ConfigurationResponse.prototype.getCallbackjitter = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.patronobuf.ConfigurationResponse} returns this
- */
-proto.patronobuf.ConfigurationResponse.prototype.setCallbackjitter = function(value) {
-  return jspb.Message.setProto3StringField(this, 5, value);
-};
-
-
-/**
  * optional string transportprotocol = 6;
  * @return {string}
  */
@@ -2668,6 +2620,24 @@ proto.patronobuf.ConfigurationResponse.prototype.getTransportprotocol = function
  */
 proto.patronobuf.ConfigurationResponse.prototype.setTransportprotocol = function(value) {
   return jspb.Message.setProto3StringField(this, 6, value);
+};
+
+
+/**
+ * optional int64 sleep_seconds = 7;
+ * @return {number}
+ */
+proto.patronobuf.ConfigurationResponse.prototype.getSleepSeconds = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.patronobuf.ConfigurationResponse} returns this
+ */
+proto.patronobuf.ConfigurationResponse.prototype.setSleepSeconds = function(value) {
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 

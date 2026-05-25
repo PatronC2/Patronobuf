@@ -84,9 +84,8 @@ message ConfigurationRequest {
 message ConfigurationResponse {
   string serverip = 2;
   string serverport = 3;
-  string callbackfrequency = 4;
-  string callbackjitter = 5;
   string transportprotocol = 6;
+  int64 sleep_seconds = 7;
 }
 
 message CommandRequest {
