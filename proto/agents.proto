@@ -4,33 +4,36 @@ package patronobuf;
 option go_package = "github.com/PatronC2/Patronobuf/go/patronobuf";
 
 enum RequestType {
-  CONFIGURATION = 0;
-  COMMAND = 1;
-  COMMAND_STATUS = 2;
-  KEYS = 3;
-  FILE = 4;
-  FILE_TO_SERVER = 5;
+  STARTUP = 0;
+  CONFIGURATION = 1;
+  COMMAND = 2;
+  COMMAND_STATUS = 3;
+  KEYS = 4;
+  FILE = 5;
+  FILE_TO_SERVER = 6;
 }
 
 enum ResponseType {
-  CONFIGURATION_RESPONSE = 0;
-  COMMAND_RESPONSE = 1;
-  COMMAND_STATUS_RESPONSE = 2;
-  KEYS_RESPONSE = 3;
-  FILE_RESPONSE = 4;
-  FILE_TRANSFER_STATUS = 5;
+  STARTUP_RESPONSE = 0;
+  CONFIGURATION_RESPONSE = 1;
+  COMMAND_RESPONSE = 2;
+  COMMAND_STATUS_RESPONSE = 3;
+  KEYS_RESPONSE = 4;
+  FILE_RESPONSE = 5;
+  FILE_TRANSFER_STATUS = 6;
 }
 
 message Request {
   RequestType type = 1;
 
   oneof payload {
-    ConfigurationRequest configuration = 2;
-    CommandRequest command = 3;
-    CommandStatusRequest command_status = 4;
-    KeysRequest keys = 5;
-    FileRequest file = 6;
-    FileToServer file_to_server = 7;
+    StartupRequest startup = 2;
+    ConfigurationRequest configuration = 3;
+    CommandRequest command = 4;
+    CommandStatusRequest command_status = 5;
+    KeysRequest keys = 6;
+    FileRequest file = 7;
+    FileToServer file_to_server = 8;
   }
 }
 
@@ -38,17 +41,18 @@ message Response {
   ResponseType type = 1;
 
   oneof payload {
-    ConfigurationResponse configuration_response = 2;
-    CommandResponse command_response = 3;
-    CommandStatusResponse command_status_response = 4;
-    KeysResponse keys_response = 5;
-    FileResponse file_response = 6;
-    FileTransferStatusResponse file_transfer_status_response = 7;
+    StartupResponse startup_response = 2;
+    ConfigurationResponse configuration_response = 3;
+    CommandResponse command_response = 4;
+    CommandStatusResponse command_status_response = 5;
+    KeysResponse keys_response = 6;
+    FileResponse file_response = 7;
+    FileTransferStatusResponse file_transfer_status_response = 8;
   }
 }
 
-message ConfigurationRequest {
-  string uuid = 1;
+message StartupRequest {
+  string filepath = 1;
   string username = 2;
   string hostname = 3;
   string ostype = 4;
@@ -57,24 +61,31 @@ message ConfigurationRequest {
   string cpus = 7;
   string memory = 8;
   string agentip = 9;
-  string serverip = 10;
-  string serverport = 11;
-  string callbackfrequency = 12;
-  string callbackjitter = 13;
-  string masterkey = 14;
-  string status = 15;
-  repeated Tag tags = 16;
-  int64 nextcallback_unix = 17;
-  string transportprotocol = 18;
+  repeated string capabilities = 10;
 }
 
-message ConfigurationResponse {
+message StartupResponse {
+  string uuid = 1;
+}
+
+message ConfigurationRequest {
   string uuid = 1;
   string serverip = 2;
   string serverport = 3;
   string callbackfrequency = 4;
   string callbackjitter = 5;
+  string masterkey = 6;
+  string status = 7;
+  repeated Tag tags = 8;
+  int64 nextcallback_unix = 9;
+  string transportprotocol = 10;
+}
+
+message ConfigurationResponse {
+  string serverip = 2;
+  string serverport = 3;
   string transportprotocol = 6;
+  int64 sleep_seconds = 7;
 }
 
 message CommandRequest {

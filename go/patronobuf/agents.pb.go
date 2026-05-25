@@ -24,31 +24,34 @@ const (
 type RequestType int32
 
 const (
-	RequestType_CONFIGURATION  RequestType = 0
-	RequestType_COMMAND        RequestType = 1
-	RequestType_COMMAND_STATUS RequestType = 2
-	RequestType_KEYS           RequestType = 3
-	RequestType_FILE           RequestType = 4
-	RequestType_FILE_TO_SERVER RequestType = 5
+	RequestType_STARTUP        RequestType = 0
+	RequestType_CONFIGURATION  RequestType = 1
+	RequestType_COMMAND        RequestType = 2
+	RequestType_COMMAND_STATUS RequestType = 3
+	RequestType_KEYS           RequestType = 4
+	RequestType_FILE           RequestType = 5
+	RequestType_FILE_TO_SERVER RequestType = 6
 )
 
 // Enum value maps for RequestType.
 var (
 	RequestType_name = map[int32]string{
-		0: "CONFIGURATION",
-		1: "COMMAND",
-		2: "COMMAND_STATUS",
-		3: "KEYS",
-		4: "FILE",
-		5: "FILE_TO_SERVER",
+		0: "STARTUP",
+		1: "CONFIGURATION",
+		2: "COMMAND",
+		3: "COMMAND_STATUS",
+		4: "KEYS",
+		5: "FILE",
+		6: "FILE_TO_SERVER",
 	}
 	RequestType_value = map[string]int32{
-		"CONFIGURATION":  0,
-		"COMMAND":        1,
-		"COMMAND_STATUS": 2,
-		"KEYS":           3,
-		"FILE":           4,
-		"FILE_TO_SERVER": 5,
+		"STARTUP":        0,
+		"CONFIGURATION":  1,
+		"COMMAND":        2,
+		"COMMAND_STATUS": 3,
+		"KEYS":           4,
+		"FILE":           5,
+		"FILE_TO_SERVER": 6,
 	}
 )
 
@@ -82,31 +85,34 @@ func (RequestType) EnumDescriptor() ([]byte, []int) {
 type ResponseType int32
 
 const (
-	ResponseType_CONFIGURATION_RESPONSE  ResponseType = 0
-	ResponseType_COMMAND_RESPONSE        ResponseType = 1
-	ResponseType_COMMAND_STATUS_RESPONSE ResponseType = 2
-	ResponseType_KEYS_RESPONSE           ResponseType = 3
-	ResponseType_FILE_RESPONSE           ResponseType = 4
-	ResponseType_FILE_TRANSFER_STATUS    ResponseType = 5
+	ResponseType_STARTUP_RESPONSE        ResponseType = 0
+	ResponseType_CONFIGURATION_RESPONSE  ResponseType = 1
+	ResponseType_COMMAND_RESPONSE        ResponseType = 2
+	ResponseType_COMMAND_STATUS_RESPONSE ResponseType = 3
+	ResponseType_KEYS_RESPONSE           ResponseType = 4
+	ResponseType_FILE_RESPONSE           ResponseType = 5
+	ResponseType_FILE_TRANSFER_STATUS    ResponseType = 6
 )
 
 // Enum value maps for ResponseType.
 var (
 	ResponseType_name = map[int32]string{
-		0: "CONFIGURATION_RESPONSE",
-		1: "COMMAND_RESPONSE",
-		2: "COMMAND_STATUS_RESPONSE",
-		3: "KEYS_RESPONSE",
-		4: "FILE_RESPONSE",
-		5: "FILE_TRANSFER_STATUS",
+		0: "STARTUP_RESPONSE",
+		1: "CONFIGURATION_RESPONSE",
+		2: "COMMAND_RESPONSE",
+		3: "COMMAND_STATUS_RESPONSE",
+		4: "KEYS_RESPONSE",
+		5: "FILE_RESPONSE",
+		6: "FILE_TRANSFER_STATUS",
 	}
 	ResponseType_value = map[string]int32{
-		"CONFIGURATION_RESPONSE":  0,
-		"COMMAND_RESPONSE":        1,
-		"COMMAND_STATUS_RESPONSE": 2,
-		"KEYS_RESPONSE":           3,
-		"FILE_RESPONSE":           4,
-		"FILE_TRANSFER_STATUS":    5,
+		"STARTUP_RESPONSE":        0,
+		"CONFIGURATION_RESPONSE":  1,
+		"COMMAND_RESPONSE":        2,
+		"COMMAND_STATUS_RESPONSE": 3,
+		"KEYS_RESPONSE":           4,
+		"FILE_RESPONSE":           5,
+		"FILE_TRANSFER_STATUS":    6,
 	}
 )
 
@@ -142,6 +148,7 @@ type Request struct {
 	Type  RequestType            `protobuf:"varint,1,opt,name=type,proto3,enum=patronobuf.RequestType" json:"type,omitempty"`
 	// Types that are valid to be assigned to Payload:
 	//
+	//	*Request_Startup
 	//	*Request_Configuration
 	//	*Request_Command
 	//	*Request_CommandStatus
@@ -187,12 +194,21 @@ func (x *Request) GetType() RequestType {
 	if x != nil {
 		return x.Type
 	}
-	return RequestType_CONFIGURATION
+	return RequestType_STARTUP
 }
 
 func (x *Request) GetPayload() isRequest_Payload {
 	if x != nil {
 		return x.Payload
+	}
+	return nil
+}
+
+func (x *Request) GetStartup() *StartupRequest {
+	if x != nil {
+		if x, ok := x.Payload.(*Request_Startup); ok {
+			return x.Startup
+		}
 	}
 	return nil
 }
@@ -255,29 +271,35 @@ type isRequest_Payload interface {
 	isRequest_Payload()
 }
 
+type Request_Startup struct {
+	Startup *StartupRequest `protobuf:"bytes,2,opt,name=startup,proto3,oneof"`
+}
+
 type Request_Configuration struct {
-	Configuration *ConfigurationRequest `protobuf:"bytes,2,opt,name=configuration,proto3,oneof"`
+	Configuration *ConfigurationRequest `protobuf:"bytes,3,opt,name=configuration,proto3,oneof"`
 }
 
 type Request_Command struct {
-	Command *CommandRequest `protobuf:"bytes,3,opt,name=command,proto3,oneof"`
+	Command *CommandRequest `protobuf:"bytes,4,opt,name=command,proto3,oneof"`
 }
 
 type Request_CommandStatus struct {
-	CommandStatus *CommandStatusRequest `protobuf:"bytes,4,opt,name=command_status,json=commandStatus,proto3,oneof"`
+	CommandStatus *CommandStatusRequest `protobuf:"bytes,5,opt,name=command_status,json=commandStatus,proto3,oneof"`
 }
 
 type Request_Keys struct {
-	Keys *KeysRequest `protobuf:"bytes,5,opt,name=keys,proto3,oneof"`
+	Keys *KeysRequest `protobuf:"bytes,6,opt,name=keys,proto3,oneof"`
 }
 
 type Request_File struct {
-	File *FileRequest `protobuf:"bytes,6,opt,name=file,proto3,oneof"`
+	File *FileRequest `protobuf:"bytes,7,opt,name=file,proto3,oneof"`
 }
 
 type Request_FileToServer struct {
-	FileToServer *FileToServer `protobuf:"bytes,7,opt,name=file_to_server,json=fileToServer,proto3,oneof"`
+	FileToServer *FileToServer `protobuf:"bytes,8,opt,name=file_to_server,json=fileToServer,proto3,oneof"`
 }
+
+func (*Request_Startup) isRequest_Payload() {}
 
 func (*Request_Configuration) isRequest_Payload() {}
 
@@ -296,6 +318,7 @@ type Response struct {
 	Type  ResponseType           `protobuf:"varint,1,opt,name=type,proto3,enum=patronobuf.ResponseType" json:"type,omitempty"`
 	// Types that are valid to be assigned to Payload:
 	//
+	//	*Response_StartupResponse
 	//	*Response_ConfigurationResponse
 	//	*Response_CommandResponse
 	//	*Response_CommandStatusResponse
@@ -341,12 +364,21 @@ func (x *Response) GetType() ResponseType {
 	if x != nil {
 		return x.Type
 	}
-	return ResponseType_CONFIGURATION_RESPONSE
+	return ResponseType_STARTUP_RESPONSE
 }
 
 func (x *Response) GetPayload() isResponse_Payload {
 	if x != nil {
 		return x.Payload
+	}
+	return nil
+}
+
+func (x *Response) GetStartupResponse() *StartupResponse {
+	if x != nil {
+		if x, ok := x.Payload.(*Response_StartupResponse); ok {
+			return x.StartupResponse
+		}
 	}
 	return nil
 }
@@ -409,29 +441,35 @@ type isResponse_Payload interface {
 	isResponse_Payload()
 }
 
+type Response_StartupResponse struct {
+	StartupResponse *StartupResponse `protobuf:"bytes,2,opt,name=startup_response,json=startupResponse,proto3,oneof"`
+}
+
 type Response_ConfigurationResponse struct {
-	ConfigurationResponse *ConfigurationResponse `protobuf:"bytes,2,opt,name=configuration_response,json=configurationResponse,proto3,oneof"`
+	ConfigurationResponse *ConfigurationResponse `protobuf:"bytes,3,opt,name=configuration_response,json=configurationResponse,proto3,oneof"`
 }
 
 type Response_CommandResponse struct {
-	CommandResponse *CommandResponse `protobuf:"bytes,3,opt,name=command_response,json=commandResponse,proto3,oneof"`
+	CommandResponse *CommandResponse `protobuf:"bytes,4,opt,name=command_response,json=commandResponse,proto3,oneof"`
 }
 
 type Response_CommandStatusResponse struct {
-	CommandStatusResponse *CommandStatusResponse `protobuf:"bytes,4,opt,name=command_status_response,json=commandStatusResponse,proto3,oneof"`
+	CommandStatusResponse *CommandStatusResponse `protobuf:"bytes,5,opt,name=command_status_response,json=commandStatusResponse,proto3,oneof"`
 }
 
 type Response_KeysResponse struct {
-	KeysResponse *KeysResponse `protobuf:"bytes,5,opt,name=keys_response,json=keysResponse,proto3,oneof"`
+	KeysResponse *KeysResponse `protobuf:"bytes,6,opt,name=keys_response,json=keysResponse,proto3,oneof"`
 }
 
 type Response_FileResponse struct {
-	FileResponse *FileResponse `protobuf:"bytes,6,opt,name=file_response,json=fileResponse,proto3,oneof"`
+	FileResponse *FileResponse `protobuf:"bytes,7,opt,name=file_response,json=fileResponse,proto3,oneof"`
 }
 
 type Response_FileTransferStatusResponse struct {
-	FileTransferStatusResponse *FileTransferStatusResponse `protobuf:"bytes,7,opt,name=file_transfer_status_response,json=fileTransferStatusResponse,proto3,oneof"`
+	FileTransferStatusResponse *FileTransferStatusResponse `protobuf:"bytes,8,opt,name=file_transfer_status_response,json=fileTransferStatusResponse,proto3,oneof"`
 }
+
+func (*Response_StartupResponse) isResponse_Payload() {}
 
 func (*Response_ConfigurationResponse) isResponse_Payload() {}
 
@@ -445,33 +483,185 @@ func (*Response_FileResponse) isResponse_Payload() {}
 
 func (*Response_FileTransferStatusResponse) isResponse_Payload() {}
 
+type StartupRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Filepath      string                 `protobuf:"bytes,1,opt,name=filepath,proto3" json:"filepath,omitempty"`
+	Username      string                 `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
+	Hostname      string                 `protobuf:"bytes,3,opt,name=hostname,proto3" json:"hostname,omitempty"`
+	Ostype        string                 `protobuf:"bytes,4,opt,name=ostype,proto3" json:"ostype,omitempty"`
+	Arch          string                 `protobuf:"bytes,5,opt,name=arch,proto3" json:"arch,omitempty"`
+	Osbuild       string                 `protobuf:"bytes,6,opt,name=osbuild,proto3" json:"osbuild,omitempty"`
+	Cpus          string                 `protobuf:"bytes,7,opt,name=cpus,proto3" json:"cpus,omitempty"`
+	Memory        string                 `protobuf:"bytes,8,opt,name=memory,proto3" json:"memory,omitempty"`
+	Agentip       string                 `protobuf:"bytes,9,opt,name=agentip,proto3" json:"agentip,omitempty"`
+	Capabilities  []string               `protobuf:"bytes,10,rep,name=capabilities,proto3" json:"capabilities,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartupRequest) Reset() {
+	*x = StartupRequest{}
+	mi := &file_agents_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartupRequest) ProtoMessage() {}
+
+func (x *StartupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_agents_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartupRequest.ProtoReflect.Descriptor instead.
+func (*StartupRequest) Descriptor() ([]byte, []int) {
+	return file_agents_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *StartupRequest) GetFilepath() string {
+	if x != nil {
+		return x.Filepath
+	}
+	return ""
+}
+
+func (x *StartupRequest) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *StartupRequest) GetHostname() string {
+	if x != nil {
+		return x.Hostname
+	}
+	return ""
+}
+
+func (x *StartupRequest) GetOstype() string {
+	if x != nil {
+		return x.Ostype
+	}
+	return ""
+}
+
+func (x *StartupRequest) GetArch() string {
+	if x != nil {
+		return x.Arch
+	}
+	return ""
+}
+
+func (x *StartupRequest) GetOsbuild() string {
+	if x != nil {
+		return x.Osbuild
+	}
+	return ""
+}
+
+func (x *StartupRequest) GetCpus() string {
+	if x != nil {
+		return x.Cpus
+	}
+	return ""
+}
+
+func (x *StartupRequest) GetMemory() string {
+	if x != nil {
+		return x.Memory
+	}
+	return ""
+}
+
+func (x *StartupRequest) GetAgentip() string {
+	if x != nil {
+		return x.Agentip
+	}
+	return ""
+}
+
+func (x *StartupRequest) GetCapabilities() []string {
+	if x != nil {
+		return x.Capabilities
+	}
+	return nil
+}
+
+type StartupResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartupResponse) Reset() {
+	*x = StartupResponse{}
+	mi := &file_agents_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartupResponse) ProtoMessage() {}
+
+func (x *StartupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_agents_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartupResponse.ProtoReflect.Descriptor instead.
+func (*StartupResponse) Descriptor() ([]byte, []int) {
+	return file_agents_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *StartupResponse) GetUuid() string {
+	if x != nil {
+		return x.Uuid
+	}
+	return ""
+}
+
 type ConfigurationRequest struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
 	Uuid              string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
-	Username          string                 `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
-	Hostname          string                 `protobuf:"bytes,3,opt,name=hostname,proto3" json:"hostname,omitempty"`
-	Ostype            string                 `protobuf:"bytes,4,opt,name=ostype,proto3" json:"ostype,omitempty"`
-	Arch              string                 `protobuf:"bytes,5,opt,name=arch,proto3" json:"arch,omitempty"`
-	Osbuild           string                 `protobuf:"bytes,6,opt,name=osbuild,proto3" json:"osbuild,omitempty"`
-	Cpus              string                 `protobuf:"bytes,7,opt,name=cpus,proto3" json:"cpus,omitempty"`
-	Memory            string                 `protobuf:"bytes,8,opt,name=memory,proto3" json:"memory,omitempty"`
-	Agentip           string                 `protobuf:"bytes,9,opt,name=agentip,proto3" json:"agentip,omitempty"`
-	Serverip          string                 `protobuf:"bytes,10,opt,name=serverip,proto3" json:"serverip,omitempty"`
-	Serverport        string                 `protobuf:"bytes,11,opt,name=serverport,proto3" json:"serverport,omitempty"`
-	Callbackfrequency string                 `protobuf:"bytes,12,opt,name=callbackfrequency,proto3" json:"callbackfrequency,omitempty"`
-	Callbackjitter    string                 `protobuf:"bytes,13,opt,name=callbackjitter,proto3" json:"callbackjitter,omitempty"`
-	Masterkey         string                 `protobuf:"bytes,14,opt,name=masterkey,proto3" json:"masterkey,omitempty"`
-	Status            string                 `protobuf:"bytes,15,opt,name=status,proto3" json:"status,omitempty"`
-	Tags              []*Tag                 `protobuf:"bytes,16,rep,name=tags,proto3" json:"tags,omitempty"`
-	NextcallbackUnix  int64                  `protobuf:"varint,17,opt,name=nextcallback_unix,json=nextcallbackUnix,proto3" json:"nextcallback_unix,omitempty"`
-	Transportprotocol string                 `protobuf:"bytes,18,opt,name=transportprotocol,proto3" json:"transportprotocol,omitempty"`
+	Serverip          string                 `protobuf:"bytes,2,opt,name=serverip,proto3" json:"serverip,omitempty"`
+	Serverport        string                 `protobuf:"bytes,3,opt,name=serverport,proto3" json:"serverport,omitempty"`
+	Callbackfrequency string                 `protobuf:"bytes,4,opt,name=callbackfrequency,proto3" json:"callbackfrequency,omitempty"`
+	Callbackjitter    string                 `protobuf:"bytes,5,opt,name=callbackjitter,proto3" json:"callbackjitter,omitempty"`
+	Masterkey         string                 `protobuf:"bytes,6,opt,name=masterkey,proto3" json:"masterkey,omitempty"`
+	Status            string                 `protobuf:"bytes,7,opt,name=status,proto3" json:"status,omitempty"`
+	Tags              []*Tag                 `protobuf:"bytes,8,rep,name=tags,proto3" json:"tags,omitempty"`
+	NextcallbackUnix  int64                  `protobuf:"varint,9,opt,name=nextcallback_unix,json=nextcallbackUnix,proto3" json:"nextcallback_unix,omitempty"`
+	Transportprotocol string                 `protobuf:"bytes,10,opt,name=transportprotocol,proto3" json:"transportprotocol,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
 
 func (x *ConfigurationRequest) Reset() {
 	*x = ConfigurationRequest{}
-	mi := &file_agents_proto_msgTypes[2]
+	mi := &file_agents_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -483,7 +673,7 @@ func (x *ConfigurationRequest) String() string {
 func (*ConfigurationRequest) ProtoMessage() {}
 
 func (x *ConfigurationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[2]
+	mi := &file_agents_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -496,68 +686,12 @@ func (x *ConfigurationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConfigurationRequest.ProtoReflect.Descriptor instead.
 func (*ConfigurationRequest) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{2}
+	return file_agents_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ConfigurationRequest) GetUuid() string {
 	if x != nil {
 		return x.Uuid
-	}
-	return ""
-}
-
-func (x *ConfigurationRequest) GetUsername() string {
-	if x != nil {
-		return x.Username
-	}
-	return ""
-}
-
-func (x *ConfigurationRequest) GetHostname() string {
-	if x != nil {
-		return x.Hostname
-	}
-	return ""
-}
-
-func (x *ConfigurationRequest) GetOstype() string {
-	if x != nil {
-		return x.Ostype
-	}
-	return ""
-}
-
-func (x *ConfigurationRequest) GetArch() string {
-	if x != nil {
-		return x.Arch
-	}
-	return ""
-}
-
-func (x *ConfigurationRequest) GetOsbuild() string {
-	if x != nil {
-		return x.Osbuild
-	}
-	return ""
-}
-
-func (x *ConfigurationRequest) GetCpus() string {
-	if x != nil {
-		return x.Cpus
-	}
-	return ""
-}
-
-func (x *ConfigurationRequest) GetMemory() string {
-	if x != nil {
-		return x.Memory
-	}
-	return ""
-}
-
-func (x *ConfigurationRequest) GetAgentip() string {
-	if x != nil {
-		return x.Agentip
 	}
 	return ""
 }
@@ -627,19 +761,17 @@ func (x *ConfigurationRequest) GetTransportprotocol() string {
 
 type ConfigurationResponse struct {
 	state             protoimpl.MessageState `protogen:"open.v1"`
-	Uuid              string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
 	Serverip          string                 `protobuf:"bytes,2,opt,name=serverip,proto3" json:"serverip,omitempty"`
 	Serverport        string                 `protobuf:"bytes,3,opt,name=serverport,proto3" json:"serverport,omitempty"`
-	Callbackfrequency string                 `protobuf:"bytes,4,opt,name=callbackfrequency,proto3" json:"callbackfrequency,omitempty"`
-	Callbackjitter    string                 `protobuf:"bytes,5,opt,name=callbackjitter,proto3" json:"callbackjitter,omitempty"`
 	Transportprotocol string                 `protobuf:"bytes,6,opt,name=transportprotocol,proto3" json:"transportprotocol,omitempty"`
+	SleepSeconds      int64                  `protobuf:"varint,7,opt,name=sleep_seconds,json=sleepSeconds,proto3" json:"sleep_seconds,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
 
 func (x *ConfigurationResponse) Reset() {
 	*x = ConfigurationResponse{}
-	mi := &file_agents_proto_msgTypes[3]
+	mi := &file_agents_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -651,7 +783,7 @@ func (x *ConfigurationResponse) String() string {
 func (*ConfigurationResponse) ProtoMessage() {}
 
 func (x *ConfigurationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[3]
+	mi := &file_agents_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -664,14 +796,7 @@ func (x *ConfigurationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConfigurationResponse.ProtoReflect.Descriptor instead.
 func (*ConfigurationResponse) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *ConfigurationResponse) GetUuid() string {
-	if x != nil {
-		return x.Uuid
-	}
-	return ""
+	return file_agents_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ConfigurationResponse) GetServerip() string {
@@ -688,25 +813,18 @@ func (x *ConfigurationResponse) GetServerport() string {
 	return ""
 }
 
-func (x *ConfigurationResponse) GetCallbackfrequency() string {
-	if x != nil {
-		return x.Callbackfrequency
-	}
-	return ""
-}
-
-func (x *ConfigurationResponse) GetCallbackjitter() string {
-	if x != nil {
-		return x.Callbackjitter
-	}
-	return ""
-}
-
 func (x *ConfigurationResponse) GetTransportprotocol() string {
 	if x != nil {
 		return x.Transportprotocol
 	}
 	return ""
+}
+
+func (x *ConfigurationResponse) GetSleepSeconds() int64 {
+	if x != nil {
+		return x.SleepSeconds
+	}
+	return 0
 }
 
 type CommandRequest struct {
@@ -718,7 +836,7 @@ type CommandRequest struct {
 
 func (x *CommandRequest) Reset() {
 	*x = CommandRequest{}
-	mi := &file_agents_proto_msgTypes[4]
+	mi := &file_agents_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -730,7 +848,7 @@ func (x *CommandRequest) String() string {
 func (*CommandRequest) ProtoMessage() {}
 
 func (x *CommandRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[4]
+	mi := &file_agents_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -743,7 +861,7 @@ func (x *CommandRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommandRequest.ProtoReflect.Descriptor instead.
 func (*CommandRequest) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{4}
+	return file_agents_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CommandRequest) GetUuid() string {
@@ -765,7 +883,7 @@ type CommandResponse struct {
 
 func (x *CommandResponse) Reset() {
 	*x = CommandResponse{}
-	mi := &file_agents_proto_msgTypes[5]
+	mi := &file_agents_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -777,7 +895,7 @@ func (x *CommandResponse) String() string {
 func (*CommandResponse) ProtoMessage() {}
 
 func (x *CommandResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[5]
+	mi := &file_agents_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -790,7 +908,7 @@ func (x *CommandResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommandResponse.ProtoReflect.Descriptor instead.
 func (*CommandResponse) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{5}
+	return file_agents_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CommandResponse) GetUuid() string {
@@ -833,7 +951,7 @@ type CommandStatusRequest struct {
 
 func (x *CommandStatusRequest) Reset() {
 	*x = CommandStatusRequest{}
-	mi := &file_agents_proto_msgTypes[6]
+	mi := &file_agents_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -845,7 +963,7 @@ func (x *CommandStatusRequest) String() string {
 func (*CommandStatusRequest) ProtoMessage() {}
 
 func (x *CommandStatusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[6]
+	mi := &file_agents_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -858,7 +976,7 @@ func (x *CommandStatusRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommandStatusRequest.ProtoReflect.Descriptor instead.
 func (*CommandStatusRequest) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{6}
+	return file_agents_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CommandStatusRequest) GetUuid() string {
@@ -898,7 +1016,7 @@ type CommandStatusResponse struct {
 
 func (x *CommandStatusResponse) Reset() {
 	*x = CommandStatusResponse{}
-	mi := &file_agents_proto_msgTypes[7]
+	mi := &file_agents_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -910,7 +1028,7 @@ func (x *CommandStatusResponse) String() string {
 func (*CommandStatusResponse) ProtoMessage() {}
 
 func (x *CommandStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[7]
+	mi := &file_agents_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -923,7 +1041,7 @@ func (x *CommandStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommandStatusResponse.ProtoReflect.Descriptor instead.
 func (*CommandStatusResponse) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{7}
+	return file_agents_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CommandStatusResponse) GetUuid() string {
@@ -943,7 +1061,7 @@ type KeysRequest struct {
 
 func (x *KeysRequest) Reset() {
 	*x = KeysRequest{}
-	mi := &file_agents_proto_msgTypes[8]
+	mi := &file_agents_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -955,7 +1073,7 @@ func (x *KeysRequest) String() string {
 func (*KeysRequest) ProtoMessage() {}
 
 func (x *KeysRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[8]
+	mi := &file_agents_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -968,7 +1086,7 @@ func (x *KeysRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use KeysRequest.ProtoReflect.Descriptor instead.
 func (*KeysRequest) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{8}
+	return file_agents_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *KeysRequest) GetUuid() string {
@@ -994,7 +1112,7 @@ type KeysResponse struct {
 
 func (x *KeysResponse) Reset() {
 	*x = KeysResponse{}
-	mi := &file_agents_proto_msgTypes[9]
+	mi := &file_agents_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1006,7 +1124,7 @@ func (x *KeysResponse) String() string {
 func (*KeysResponse) ProtoMessage() {}
 
 func (x *KeysResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[9]
+	mi := &file_agents_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1019,7 +1137,7 @@ func (x *KeysResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use KeysResponse.ProtoReflect.Descriptor instead.
 func (*KeysResponse) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{9}
+	return file_agents_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *KeysResponse) GetUuid() string {
@@ -1038,7 +1156,7 @@ type FileRequest struct {
 
 func (x *FileRequest) Reset() {
 	*x = FileRequest{}
-	mi := &file_agents_proto_msgTypes[10]
+	mi := &file_agents_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1050,7 +1168,7 @@ func (x *FileRequest) String() string {
 func (*FileRequest) ProtoMessage() {}
 
 func (x *FileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[10]
+	mi := &file_agents_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1063,7 +1181,7 @@ func (x *FileRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FileRequest.ProtoReflect.Descriptor instead.
 func (*FileRequest) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{10}
+	return file_agents_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *FileRequest) GetUuid() string {
@@ -1086,7 +1204,7 @@ type FileResponse struct {
 
 func (x *FileResponse) Reset() {
 	*x = FileResponse{}
-	mi := &file_agents_proto_msgTypes[11]
+	mi := &file_agents_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1098,7 +1216,7 @@ func (x *FileResponse) String() string {
 func (*FileResponse) ProtoMessage() {}
 
 func (x *FileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[11]
+	mi := &file_agents_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1111,7 +1229,7 @@ func (x *FileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FileResponse.ProtoReflect.Descriptor instead.
 func (*FileResponse) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{11}
+	return file_agents_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *FileResponse) GetFileid() string {
@@ -1163,7 +1281,7 @@ type FileToServer struct {
 
 func (x *FileToServer) Reset() {
 	*x = FileToServer{}
-	mi := &file_agents_proto_msgTypes[12]
+	mi := &file_agents_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1175,7 +1293,7 @@ func (x *FileToServer) String() string {
 func (*FileToServer) ProtoMessage() {}
 
 func (x *FileToServer) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[12]
+	mi := &file_agents_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1188,7 +1306,7 @@ func (x *FileToServer) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FileToServer.ProtoReflect.Descriptor instead.
 func (*FileToServer) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{12}
+	return file_agents_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *FileToServer) GetFileid() string {
@@ -1243,7 +1361,7 @@ type FileTransferStatusResponse struct {
 
 func (x *FileTransferStatusResponse) Reset() {
 	*x = FileTransferStatusResponse{}
-	mi := &file_agents_proto_msgTypes[13]
+	mi := &file_agents_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1255,7 +1373,7 @@ func (x *FileTransferStatusResponse) String() string {
 func (*FileTransferStatusResponse) ProtoMessage() {}
 
 func (x *FileTransferStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[13]
+	mi := &file_agents_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1268,7 +1386,7 @@ func (x *FileTransferStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FileTransferStatusResponse.ProtoReflect.Descriptor instead.
 func (*FileTransferStatusResponse) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{13}
+	return file_agents_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *FileTransferStatusResponse) GetFileid() string {
@@ -1295,7 +1413,7 @@ type Tag struct {
 
 func (x *Tag) Reset() {
 	*x = Tag{}
-	mi := &file_agents_proto_msgTypes[14]
+	mi := &file_agents_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1307,7 +1425,7 @@ func (x *Tag) String() string {
 func (*Tag) ProtoMessage() {}
 
 func (x *Tag) ProtoReflect() protoreflect.Message {
-	mi := &file_agents_proto_msgTypes[14]
+	mi := &file_agents_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1320,7 +1438,7 @@ func (x *Tag) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Tag.ProtoReflect.Descriptor instead.
 func (*Tag) Descriptor() ([]byte, []int) {
-	return file_agents_proto_rawDescGZIP(), []int{14}
+	return file_agents_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *Tag) GetKey() string {
@@ -1342,27 +1460,29 @@ var File_agents_proto protoreflect.FileDescriptor
 const file_agents_proto_rawDesc = "" +
 	"\n" +
 	"\fagents.proto\x12\n" +
-	"patronobuf\"\xae\x03\n" +
+	"patronobuf\"\xe6\x03\n" +
 	"\aRequest\x12+\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x17.patronobuf.RequestTypeR\x04type\x12H\n" +
-	"\rconfiguration\x18\x02 \x01(\v2 .patronobuf.ConfigurationRequestH\x00R\rconfiguration\x126\n" +
-	"\acommand\x18\x03 \x01(\v2\x1a.patronobuf.CommandRequestH\x00R\acommand\x12I\n" +
-	"\x0ecommand_status\x18\x04 \x01(\v2 .patronobuf.CommandStatusRequestH\x00R\rcommandStatus\x12-\n" +
-	"\x04keys\x18\x05 \x01(\v2\x17.patronobuf.KeysRequestH\x00R\x04keys\x12-\n" +
-	"\x04file\x18\x06 \x01(\v2\x17.patronobuf.FileRequestH\x00R\x04file\x12@\n" +
-	"\x0efile_to_server\x18\a \x01(\v2\x18.patronobuf.FileToServerH\x00R\ffileToServerB\t\n" +
-	"\apayload\"\xb5\x04\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x17.patronobuf.RequestTypeR\x04type\x126\n" +
+	"\astartup\x18\x02 \x01(\v2\x1a.patronobuf.StartupRequestH\x00R\astartup\x12H\n" +
+	"\rconfiguration\x18\x03 \x01(\v2 .patronobuf.ConfigurationRequestH\x00R\rconfiguration\x126\n" +
+	"\acommand\x18\x04 \x01(\v2\x1a.patronobuf.CommandRequestH\x00R\acommand\x12I\n" +
+	"\x0ecommand_status\x18\x05 \x01(\v2 .patronobuf.CommandStatusRequestH\x00R\rcommandStatus\x12-\n" +
+	"\x04keys\x18\x06 \x01(\v2\x17.patronobuf.KeysRequestH\x00R\x04keys\x12-\n" +
+	"\x04file\x18\a \x01(\v2\x17.patronobuf.FileRequestH\x00R\x04file\x12@\n" +
+	"\x0efile_to_server\x18\b \x01(\v2\x18.patronobuf.FileToServerH\x00R\ffileToServerB\t\n" +
+	"\apayload\"\xff\x04\n" +
 	"\bResponse\x12,\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x18.patronobuf.ResponseTypeR\x04type\x12Z\n" +
-	"\x16configuration_response\x18\x02 \x01(\v2!.patronobuf.ConfigurationResponseH\x00R\x15configurationResponse\x12H\n" +
-	"\x10command_response\x18\x03 \x01(\v2\x1b.patronobuf.CommandResponseH\x00R\x0fcommandResponse\x12[\n" +
-	"\x17command_status_response\x18\x04 \x01(\v2!.patronobuf.CommandStatusResponseH\x00R\x15commandStatusResponse\x12?\n" +
-	"\rkeys_response\x18\x05 \x01(\v2\x18.patronobuf.KeysResponseH\x00R\fkeysResponse\x12?\n" +
-	"\rfile_response\x18\x06 \x01(\v2\x18.patronobuf.FileResponseH\x00R\ffileResponse\x12k\n" +
-	"\x1dfile_transfer_status_response\x18\a \x01(\v2&.patronobuf.FileTransferStatusResponseH\x00R\x1afileTransferStatusResponseB\t\n" +
-	"\apayload\"\xb6\x04\n" +
-	"\x14ConfigurationRequest\x12\x12\n" +
-	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1a\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x18.patronobuf.ResponseTypeR\x04type\x12H\n" +
+	"\x10startup_response\x18\x02 \x01(\v2\x1b.patronobuf.StartupResponseH\x00R\x0fstartupResponse\x12Z\n" +
+	"\x16configuration_response\x18\x03 \x01(\v2!.patronobuf.ConfigurationResponseH\x00R\x15configurationResponse\x12H\n" +
+	"\x10command_response\x18\x04 \x01(\v2\x1b.patronobuf.CommandResponseH\x00R\x0fcommandResponse\x12[\n" +
+	"\x17command_status_response\x18\x05 \x01(\v2!.patronobuf.CommandStatusResponseH\x00R\x15commandStatusResponse\x12?\n" +
+	"\rkeys_response\x18\x06 \x01(\v2\x18.patronobuf.KeysResponseH\x00R\fkeysResponse\x12?\n" +
+	"\rfile_response\x18\a \x01(\v2\x18.patronobuf.FileResponseH\x00R\ffileResponse\x12k\n" +
+	"\x1dfile_transfer_status_response\x18\b \x01(\v2&.patronobuf.FileTransferStatusResponseH\x00R\x1afileTransferStatusResponseB\t\n" +
+	"\apayload\"\x94\x02\n" +
+	"\x0eStartupRequest\x12\x1a\n" +
+	"\bfilepath\x18\x01 \x01(\tR\bfilepath\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x1a\n" +
 	"\bhostname\x18\x03 \x01(\tR\bhostname\x12\x16\n" +
 	"\x06ostype\x18\x04 \x01(\tR\x06ostype\x12\x12\n" +
@@ -1370,28 +1490,32 @@ const file_agents_proto_rawDesc = "" +
 	"\aosbuild\x18\x06 \x01(\tR\aosbuild\x12\x12\n" +
 	"\x04cpus\x18\a \x01(\tR\x04cpus\x12\x16\n" +
 	"\x06memory\x18\b \x01(\tR\x06memory\x12\x18\n" +
-	"\aagentip\x18\t \x01(\tR\aagentip\x12\x1a\n" +
-	"\bserverip\x18\n" +
-	" \x01(\tR\bserverip\x12\x1e\n" +
-	"\n" +
-	"serverport\x18\v \x01(\tR\n" +
-	"serverport\x12,\n" +
-	"\x11callbackfrequency\x18\f \x01(\tR\x11callbackfrequency\x12&\n" +
-	"\x0ecallbackjitter\x18\r \x01(\tR\x0ecallbackjitter\x12\x1c\n" +
-	"\tmasterkey\x18\x0e \x01(\tR\tmasterkey\x12\x16\n" +
-	"\x06status\x18\x0f \x01(\tR\x06status\x12#\n" +
-	"\x04tags\x18\x10 \x03(\v2\x0f.patronobuf.TagR\x04tags\x12+\n" +
-	"\x11nextcallback_unix\x18\x11 \x01(\x03R\x10nextcallbackUnix\x12,\n" +
-	"\x11transportprotocol\x18\x12 \x01(\tR\x11transportprotocol\"\xeb\x01\n" +
-	"\x15ConfigurationResponse\x12\x12\n" +
+	"\aagentip\x18\t \x01(\tR\aagentip\x12\"\n" +
+	"\fcapabilities\x18\n" +
+	" \x03(\tR\fcapabilities\"%\n" +
+	"\x0fStartupResponse\x12\x12\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\"\xf2\x02\n" +
+	"\x14ConfigurationRequest\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1a\n" +
 	"\bserverip\x18\x02 \x01(\tR\bserverip\x12\x1e\n" +
 	"\n" +
 	"serverport\x18\x03 \x01(\tR\n" +
 	"serverport\x12,\n" +
 	"\x11callbackfrequency\x18\x04 \x01(\tR\x11callbackfrequency\x12&\n" +
-	"\x0ecallbackjitter\x18\x05 \x01(\tR\x0ecallbackjitter\x12,\n" +
-	"\x11transportprotocol\x18\x06 \x01(\tR\x11transportprotocol\"$\n" +
+	"\x0ecallbackjitter\x18\x05 \x01(\tR\x0ecallbackjitter\x12\x1c\n" +
+	"\tmasterkey\x18\x06 \x01(\tR\tmasterkey\x12\x16\n" +
+	"\x06status\x18\a \x01(\tR\x06status\x12#\n" +
+	"\x04tags\x18\b \x03(\v2\x0f.patronobuf.TagR\x04tags\x12+\n" +
+	"\x11nextcallback_unix\x18\t \x01(\x03R\x10nextcallbackUnix\x12,\n" +
+	"\x11transportprotocol\x18\n" +
+	" \x01(\tR\x11transportprotocol\"\xa6\x01\n" +
+	"\x15ConfigurationResponse\x12\x1a\n" +
+	"\bserverip\x18\x02 \x01(\tR\bserverip\x12\x1e\n" +
+	"\n" +
+	"serverport\x18\x03 \x01(\tR\n" +
+	"serverport\x12,\n" +
+	"\x11transportprotocol\x18\x06 \x01(\tR\x11transportprotocol\x12#\n" +
+	"\rsleep_seconds\x18\a \x01(\x03R\fsleepSeconds\"$\n" +
 	"\x0eCommandRequest\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\"\x7f\n" +
 	"\x0fCommandResponse\x12\x12\n" +
@@ -1431,21 +1555,23 @@ const file_agents_proto_rawDesc = "" +
 	"\x04uuid\x18\x02 \x01(\tR\x04uuid\"-\n" +
 	"\x03Tag\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value*i\n" +
-	"\vRequestType\x12\x11\n" +
-	"\rCONFIGURATION\x10\x00\x12\v\n" +
-	"\aCOMMAND\x10\x01\x12\x12\n" +
-	"\x0eCOMMAND_STATUS\x10\x02\x12\b\n" +
-	"\x04KEYS\x10\x03\x12\b\n" +
-	"\x04FILE\x10\x04\x12\x12\n" +
-	"\x0eFILE_TO_SERVER\x10\x05*\x9d\x01\n" +
-	"\fResponseType\x12\x1a\n" +
-	"\x16CONFIGURATION_RESPONSE\x10\x00\x12\x14\n" +
-	"\x10COMMAND_RESPONSE\x10\x01\x12\x1b\n" +
-	"\x17COMMAND_STATUS_RESPONSE\x10\x02\x12\x11\n" +
-	"\rKEYS_RESPONSE\x10\x03\x12\x11\n" +
-	"\rFILE_RESPONSE\x10\x04\x12\x18\n" +
-	"\x14FILE_TRANSFER_STATUS\x10\x05B.Z,github.com/PatronC2/Patronobuf/go/patronobufb\x06proto3"
+	"\x05value\x18\x02 \x01(\tR\x05value*v\n" +
+	"\vRequestType\x12\v\n" +
+	"\aSTARTUP\x10\x00\x12\x11\n" +
+	"\rCONFIGURATION\x10\x01\x12\v\n" +
+	"\aCOMMAND\x10\x02\x12\x12\n" +
+	"\x0eCOMMAND_STATUS\x10\x03\x12\b\n" +
+	"\x04KEYS\x10\x04\x12\b\n" +
+	"\x04FILE\x10\x05\x12\x12\n" +
+	"\x0eFILE_TO_SERVER\x10\x06*\xb3\x01\n" +
+	"\fResponseType\x12\x14\n" +
+	"\x10STARTUP_RESPONSE\x10\x00\x12\x1a\n" +
+	"\x16CONFIGURATION_RESPONSE\x10\x01\x12\x14\n" +
+	"\x10COMMAND_RESPONSE\x10\x02\x12\x1b\n" +
+	"\x17COMMAND_STATUS_RESPONSE\x10\x03\x12\x11\n" +
+	"\rKEYS_RESPONSE\x10\x04\x12\x11\n" +
+	"\rFILE_RESPONSE\x10\x05\x12\x18\n" +
+	"\x14FILE_TRANSFER_STATUS\x10\x06B.Z,github.com/PatronC2/Patronobuf/go/patronobufb\x06proto3"
 
 var (
 	file_agents_proto_rawDescOnce sync.Once
@@ -1460,47 +1586,51 @@ func file_agents_proto_rawDescGZIP() []byte {
 }
 
 var file_agents_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_agents_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_agents_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
 var file_agents_proto_goTypes = []any{
 	(RequestType)(0),                   // 0: patronobuf.RequestType
 	(ResponseType)(0),                  // 1: patronobuf.ResponseType
 	(*Request)(nil),                    // 2: patronobuf.Request
 	(*Response)(nil),                   // 3: patronobuf.Response
-	(*ConfigurationRequest)(nil),       // 4: patronobuf.ConfigurationRequest
-	(*ConfigurationResponse)(nil),      // 5: patronobuf.ConfigurationResponse
-	(*CommandRequest)(nil),             // 6: patronobuf.CommandRequest
-	(*CommandResponse)(nil),            // 7: patronobuf.CommandResponse
-	(*CommandStatusRequest)(nil),       // 8: patronobuf.CommandStatusRequest
-	(*CommandStatusResponse)(nil),      // 9: patronobuf.CommandStatusResponse
-	(*KeysRequest)(nil),                // 10: patronobuf.KeysRequest
-	(*KeysResponse)(nil),               // 11: patronobuf.KeysResponse
-	(*FileRequest)(nil),                // 12: patronobuf.FileRequest
-	(*FileResponse)(nil),               // 13: patronobuf.FileResponse
-	(*FileToServer)(nil),               // 14: patronobuf.FileToServer
-	(*FileTransferStatusResponse)(nil), // 15: patronobuf.FileTransferStatusResponse
-	(*Tag)(nil),                        // 16: patronobuf.Tag
+	(*StartupRequest)(nil),             // 4: patronobuf.StartupRequest
+	(*StartupResponse)(nil),            // 5: patronobuf.StartupResponse
+	(*ConfigurationRequest)(nil),       // 6: patronobuf.ConfigurationRequest
+	(*ConfigurationResponse)(nil),      // 7: patronobuf.ConfigurationResponse
+	(*CommandRequest)(nil),             // 8: patronobuf.CommandRequest
+	(*CommandResponse)(nil),            // 9: patronobuf.CommandResponse
+	(*CommandStatusRequest)(nil),       // 10: patronobuf.CommandStatusRequest
+	(*CommandStatusResponse)(nil),      // 11: patronobuf.CommandStatusResponse
+	(*KeysRequest)(nil),                // 12: patronobuf.KeysRequest
+	(*KeysResponse)(nil),               // 13: patronobuf.KeysResponse
+	(*FileRequest)(nil),                // 14: patronobuf.FileRequest
+	(*FileResponse)(nil),               // 15: patronobuf.FileResponse
+	(*FileToServer)(nil),               // 16: patronobuf.FileToServer
+	(*FileTransferStatusResponse)(nil), // 17: patronobuf.FileTransferStatusResponse
+	(*Tag)(nil),                        // 18: patronobuf.Tag
 }
 var file_agents_proto_depIdxs = []int32{
 	0,  // 0: patronobuf.Request.type:type_name -> patronobuf.RequestType
-	4,  // 1: patronobuf.Request.configuration:type_name -> patronobuf.ConfigurationRequest
-	6,  // 2: patronobuf.Request.command:type_name -> patronobuf.CommandRequest
-	8,  // 3: patronobuf.Request.command_status:type_name -> patronobuf.CommandStatusRequest
-	10, // 4: patronobuf.Request.keys:type_name -> patronobuf.KeysRequest
-	12, // 5: patronobuf.Request.file:type_name -> patronobuf.FileRequest
-	14, // 6: patronobuf.Request.file_to_server:type_name -> patronobuf.FileToServer
-	1,  // 7: patronobuf.Response.type:type_name -> patronobuf.ResponseType
-	5,  // 8: patronobuf.Response.configuration_response:type_name -> patronobuf.ConfigurationResponse
-	7,  // 9: patronobuf.Response.command_response:type_name -> patronobuf.CommandResponse
-	9,  // 10: patronobuf.Response.command_status_response:type_name -> patronobuf.CommandStatusResponse
-	11, // 11: patronobuf.Response.keys_response:type_name -> patronobuf.KeysResponse
-	13, // 12: patronobuf.Response.file_response:type_name -> patronobuf.FileResponse
-	15, // 13: patronobuf.Response.file_transfer_status_response:type_name -> patronobuf.FileTransferStatusResponse
-	16, // 14: patronobuf.ConfigurationRequest.tags:type_name -> patronobuf.Tag
-	15, // [15:15] is the sub-list for method output_type
-	15, // [15:15] is the sub-list for method input_type
-	15, // [15:15] is the sub-list for extension type_name
-	15, // [15:15] is the sub-list for extension extendee
-	0,  // [0:15] is the sub-list for field type_name
+	4,  // 1: patronobuf.Request.startup:type_name -> patronobuf.StartupRequest
+	6,  // 2: patronobuf.Request.configuration:type_name -> patronobuf.ConfigurationRequest
+	8,  // 3: patronobuf.Request.command:type_name -> patronobuf.CommandRequest
+	10, // 4: patronobuf.Request.command_status:type_name -> patronobuf.CommandStatusRequest
+	12, // 5: patronobuf.Request.keys:type_name -> patronobuf.KeysRequest
+	14, // 6: patronobuf.Request.file:type_name -> patronobuf.FileRequest
+	16, // 7: patronobuf.Request.file_to_server:type_name -> patronobuf.FileToServer
+	1,  // 8: patronobuf.Response.type:type_name -> patronobuf.ResponseType
+	5,  // 9: patronobuf.Response.startup_response:type_name -> patronobuf.StartupResponse
+	7,  // 10: patronobuf.Response.configuration_response:type_name -> patronobuf.ConfigurationResponse
+	9,  // 11: patronobuf.Response.command_response:type_name -> patronobuf.CommandResponse
+	11, // 12: patronobuf.Response.command_status_response:type_name -> patronobuf.CommandStatusResponse
+	13, // 13: patronobuf.Response.keys_response:type_name -> patronobuf.KeysResponse
+	15, // 14: patronobuf.Response.file_response:type_name -> patronobuf.FileResponse
+	17, // 15: patronobuf.Response.file_transfer_status_response:type_name -> patronobuf.FileTransferStatusResponse
+	18, // 16: patronobuf.ConfigurationRequest.tags:type_name -> patronobuf.Tag
+	17, // [17:17] is the sub-list for method output_type
+	17, // [17:17] is the sub-list for method input_type
+	17, // [17:17] is the sub-list for extension type_name
+	17, // [17:17] is the sub-list for extension extendee
+	0,  // [0:17] is the sub-list for field type_name
 }
 
 func init() { file_agents_proto_init() }
@@ -1509,6 +1639,7 @@ func file_agents_proto_init() {
 		return
 	}
 	file_agents_proto_msgTypes[0].OneofWrappers = []any{
+		(*Request_Startup)(nil),
 		(*Request_Configuration)(nil),
 		(*Request_Command)(nil),
 		(*Request_CommandStatus)(nil),
@@ -1517,6 +1648,7 @@ func file_agents_proto_init() {
 		(*Request_FileToServer)(nil),
 	}
 	file_agents_proto_msgTypes[1].OneofWrappers = []any{
+		(*Response_StartupResponse)(nil),
 		(*Response_ConfigurationResponse)(nil),
 		(*Response_CommandResponse)(nil),
 		(*Response_CommandStatusResponse)(nil),
@@ -1530,7 +1662,7 @@ func file_agents_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_agents_proto_rawDesc), len(file_agents_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   15,
+			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
