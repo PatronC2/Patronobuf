@@ -226,22 +226,25 @@ export interface CommandStatusResponse {
 }
 
 export interface BoFExecuteRequest {
-  /** Agent UUID */
+  /** Agent UUID to execute on */
   uuid: string;
-  /** Compiled BOF binary (Windows) or ELF (Linux) */
-  bofPayload: Uint8Array;
   /** "windows" or "linux" */
   platform: string;
-  /** Function name to call in BOF (e.g., "go") */
+  /** Function name in BOF (e.g., "go") */
   functionName: string;
+  /** Compiled BOF binary */
+  payload: Uint8Array;
 }
 
 export interface BoFExecuteResponse {
+  /** Agent UUID */
   uuid: string;
+  /** Function that was executed */
+  functionName: string;
+  /** Whether execution succeeded */
   success: boolean;
-  /** Output from BeaconPrintf or similar */
+  /** Output from BOF execution */
   output: string;
-  error: string;
 }
 
 export interface KeysRequest {
@@ -1308,7 +1311,7 @@ export const CommandStatusResponse = {
 };
 
 function createBaseBoFExecuteRequest(): BoFExecuteRequest {
-  return { uuid: "", bofPayload: new Uint8Array(), platform: "", functionName: "" };
+  return { uuid: "", platform: "", functionName: "", payload: new Uint8Array() };
 }
 
 export const BoFExecuteRequest = {
@@ -1316,14 +1319,14 @@ export const BoFExecuteRequest = {
     if (message.uuid !== "") {
       writer.uint32(10).string(message.uuid);
     }
-    if (message.bofPayload.length !== 0) {
-      writer.uint32(18).bytes(message.bofPayload);
-    }
     if (message.platform !== "") {
-      writer.uint32(26).string(message.platform);
+      writer.uint32(18).string(message.platform);
     }
     if (message.functionName !== "") {
-      writer.uint32(34).string(message.functionName);
+      writer.uint32(26).string(message.functionName);
+    }
+    if (message.payload.length !== 0) {
+      writer.uint32(34).bytes(message.payload);
     }
     return writer;
   },
@@ -1339,13 +1342,13 @@ export const BoFExecuteRequest = {
           message.uuid = reader.string();
           break;
         case 2:
-          message.bofPayload = reader.bytes();
-          break;
-        case 3:
           message.platform = reader.string();
           break;
-        case 4:
+        case 3:
           message.functionName = reader.string();
+          break;
+        case 4:
+          message.payload = reader.bytes();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1358,19 +1361,19 @@ export const BoFExecuteRequest = {
   fromJSON(object: any): BoFExecuteRequest {
     return {
       uuid: isSet(object.uuid) ? String(object.uuid) : "",
-      bofPayload: isSet(object.bofPayload) ? bytesFromBase64(object.bofPayload) : new Uint8Array(),
       platform: isSet(object.platform) ? String(object.platform) : "",
       functionName: isSet(object.functionName) ? String(object.functionName) : "",
+      payload: isSet(object.payload) ? bytesFromBase64(object.payload) : new Uint8Array(),
     };
   },
 
   toJSON(message: BoFExecuteRequest): unknown {
     const obj: any = {};
     message.uuid !== undefined && (obj.uuid = message.uuid);
-    message.bofPayload !== undefined &&
-      (obj.bofPayload = base64FromBytes(message.bofPayload !== undefined ? message.bofPayload : new Uint8Array()));
     message.platform !== undefined && (obj.platform = message.platform);
     message.functionName !== undefined && (obj.functionName = message.functionName);
+    message.payload !== undefined &&
+      (obj.payload = base64FromBytes(message.payload !== undefined ? message.payload : new Uint8Array()));
     return obj;
   },
 
@@ -1381,15 +1384,15 @@ export const BoFExecuteRequest = {
   fromPartial<I extends Exact<DeepPartial<BoFExecuteRequest>, I>>(object: I): BoFExecuteRequest {
     const message = createBaseBoFExecuteRequest();
     message.uuid = object.uuid ?? "";
-    message.bofPayload = object.bofPayload ?? new Uint8Array();
     message.platform = object.platform ?? "";
     message.functionName = object.functionName ?? "";
+    message.payload = object.payload ?? new Uint8Array();
     return message;
   },
 };
 
 function createBaseBoFExecuteResponse(): BoFExecuteResponse {
-  return { uuid: "", success: false, output: "", error: "" };
+  return { uuid: "", functionName: "", success: false, output: "" };
 }
 
 export const BoFExecuteResponse = {
@@ -1397,14 +1400,14 @@ export const BoFExecuteResponse = {
     if (message.uuid !== "") {
       writer.uint32(10).string(message.uuid);
     }
+    if (message.functionName !== "") {
+      writer.uint32(18).string(message.functionName);
+    }
     if (message.success === true) {
-      writer.uint32(16).bool(message.success);
+      writer.uint32(24).bool(message.success);
     }
     if (message.output !== "") {
-      writer.uint32(26).string(message.output);
-    }
-    if (message.error !== "") {
-      writer.uint32(34).string(message.error);
+      writer.uint32(34).string(message.output);
     }
     return writer;
   },
@@ -1420,13 +1423,13 @@ export const BoFExecuteResponse = {
           message.uuid = reader.string();
           break;
         case 2:
-          message.success = reader.bool();
+          message.functionName = reader.string();
           break;
         case 3:
-          message.output = reader.string();
+          message.success = reader.bool();
           break;
         case 4:
-          message.error = reader.string();
+          message.output = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -1439,18 +1442,18 @@ export const BoFExecuteResponse = {
   fromJSON(object: any): BoFExecuteResponse {
     return {
       uuid: isSet(object.uuid) ? String(object.uuid) : "",
+      functionName: isSet(object.functionName) ? String(object.functionName) : "",
       success: isSet(object.success) ? Boolean(object.success) : false,
       output: isSet(object.output) ? String(object.output) : "",
-      error: isSet(object.error) ? String(object.error) : "",
     };
   },
 
   toJSON(message: BoFExecuteResponse): unknown {
     const obj: any = {};
     message.uuid !== undefined && (obj.uuid = message.uuid);
+    message.functionName !== undefined && (obj.functionName = message.functionName);
     message.success !== undefined && (obj.success = message.success);
     message.output !== undefined && (obj.output = message.output);
-    message.error !== undefined && (obj.error = message.error);
     return obj;
   },
 
@@ -1461,9 +1464,9 @@ export const BoFExecuteResponse = {
   fromPartial<I extends Exact<DeepPartial<BoFExecuteResponse>, I>>(object: I): BoFExecuteResponse {
     const message = createBaseBoFExecuteResponse();
     message.uuid = object.uuid ?? "";
+    message.functionName = object.functionName ?? "";
     message.success = object.success ?? false;
     message.output = object.output ?? "";
-    message.error = object.error ?? "";
     return message;
   },
 };

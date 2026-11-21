@@ -13967,7 +13967,7 @@ public final class Agents {
 
     /**
      * <pre>
-     * Agent UUID
+     * Agent UUID to execute on
      * </pre>
      *
      * <code>string uuid = 1;</code>
@@ -13976,7 +13976,7 @@ public final class Agents {
     java.lang.String getUuid();
     /**
      * <pre>
-     * Agent UUID
+     * Agent UUID to execute on
      * </pre>
      *
      * <code>string uuid = 1;</code>
@@ -13987,20 +13987,10 @@ public final class Agents {
 
     /**
      * <pre>
-     * Compiled BOF binary (Windows) or ELF (Linux)
-     * </pre>
-     *
-     * <code>bytes bof_payload = 2;</code>
-     * @return The bofPayload.
-     */
-    com.google.protobuf.ByteString getBofPayload();
-
-    /**
-     * <pre>
      * "windows" or "linux"
      * </pre>
      *
-     * <code>string platform = 3;</code>
+     * <code>string platform = 2;</code>
      * @return The platform.
      */
     java.lang.String getPlatform();
@@ -14009,7 +13999,7 @@ public final class Agents {
      * "windows" or "linux"
      * </pre>
      *
-     * <code>string platform = 3;</code>
+     * <code>string platform = 2;</code>
      * @return The bytes for platform.
      */
     com.google.protobuf.ByteString
@@ -14017,23 +14007,33 @@ public final class Agents {
 
     /**
      * <pre>
-     * Function name to call in BOF (e.g., "go")
+     * Function name in BOF (e.g., "go")
      * </pre>
      *
-     * <code>string function_name = 4;</code>
+     * <code>string function_name = 3;</code>
      * @return The functionName.
      */
     java.lang.String getFunctionName();
     /**
      * <pre>
-     * Function name to call in BOF (e.g., "go")
+     * Function name in BOF (e.g., "go")
      * </pre>
      *
-     * <code>string function_name = 4;</code>
+     * <code>string function_name = 3;</code>
      * @return The bytes for functionName.
      */
     com.google.protobuf.ByteString
         getFunctionNameBytes();
+
+    /**
+     * <pre>
+     * Compiled BOF binary
+     * </pre>
+     *
+     * <code>bytes payload = 4;</code>
+     * @return The payload.
+     */
+    com.google.protobuf.ByteString getPayload();
   }
   /**
    * Protobuf type {@code patronobuf.BoFExecuteRequest}
@@ -14049,9 +14049,9 @@ public final class Agents {
     }
     private BoFExecuteRequest() {
       uuid_ = "";
-      bofPayload_ = com.google.protobuf.ByteString.EMPTY;
       platform_ = "";
       functionName_ = "";
+      payload_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -14091,20 +14091,20 @@ public final class Agents {
               break;
             }
             case 18: {
-
-              bofPayload_ = input.readBytes();
-              break;
-            }
-            case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
               platform_ = s;
               break;
             }
-            case 34: {
+            case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
               functionName_ = s;
+              break;
+            }
+            case 34: {
+
+              payload_ = input.readBytes();
               break;
             }
             default: {
@@ -14145,7 +14145,7 @@ public final class Agents {
     private volatile java.lang.Object uuid_;
     /**
      * <pre>
-     * Agent UUID
+     * Agent UUID to execute on
      * </pre>
      *
      * <code>string uuid = 1;</code>
@@ -14166,7 +14166,7 @@ public final class Agents {
     }
     /**
      * <pre>
-     * Agent UUID
+     * Agent UUID to execute on
      * </pre>
      *
      * <code>string uuid = 1;</code>
@@ -14187,29 +14187,14 @@ public final class Agents {
       }
     }
 
-    public static final int BOF_PAYLOAD_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString bofPayload_;
-    /**
-     * <pre>
-     * Compiled BOF binary (Windows) or ELF (Linux)
-     * </pre>
-     *
-     * <code>bytes bof_payload = 2;</code>
-     * @return The bofPayload.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString getBofPayload() {
-      return bofPayload_;
-    }
-
-    public static final int PLATFORM_FIELD_NUMBER = 3;
+    public static final int PLATFORM_FIELD_NUMBER = 2;
     private volatile java.lang.Object platform_;
     /**
      * <pre>
      * "windows" or "linux"
      * </pre>
      *
-     * <code>string platform = 3;</code>
+     * <code>string platform = 2;</code>
      * @return The platform.
      */
     @java.lang.Override
@@ -14230,7 +14215,7 @@ public final class Agents {
      * "windows" or "linux"
      * </pre>
      *
-     * <code>string platform = 3;</code>
+     * <code>string platform = 2;</code>
      * @return The bytes for platform.
      */
     @java.lang.Override
@@ -14248,14 +14233,14 @@ public final class Agents {
       }
     }
 
-    public static final int FUNCTION_NAME_FIELD_NUMBER = 4;
+    public static final int FUNCTION_NAME_FIELD_NUMBER = 3;
     private volatile java.lang.Object functionName_;
     /**
      * <pre>
-     * Function name to call in BOF (e.g., "go")
+     * Function name in BOF (e.g., "go")
      * </pre>
      *
-     * <code>string function_name = 4;</code>
+     * <code>string function_name = 3;</code>
      * @return The functionName.
      */
     @java.lang.Override
@@ -14273,10 +14258,10 @@ public final class Agents {
     }
     /**
      * <pre>
-     * Function name to call in BOF (e.g., "go")
+     * Function name in BOF (e.g., "go")
      * </pre>
      *
-     * <code>string function_name = 4;</code>
+     * <code>string function_name = 3;</code>
      * @return The bytes for functionName.
      */
     @java.lang.Override
@@ -14292,6 +14277,21 @@ public final class Agents {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int PAYLOAD_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString payload_;
+    /**
+     * <pre>
+     * Compiled BOF binary
+     * </pre>
+     *
+     * <code>bytes payload = 4;</code>
+     * @return The payload.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getPayload() {
+      return payload_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14311,14 +14311,14 @@ public final class Agents {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
       }
-      if (!bofPayload_.isEmpty()) {
-        output.writeBytes(2, bofPayload_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(platform_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, platform_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, platform_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(functionName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, functionName_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, functionName_);
+      }
+      if (!payload_.isEmpty()) {
+        output.writeBytes(4, payload_);
       }
       unknownFields.writeTo(output);
     }
@@ -14332,15 +14332,15 @@ public final class Agents {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
       }
-      if (!bofPayload_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, bofPayload_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(platform_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, platform_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, platform_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(functionName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, functionName_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, functionName_);
+      }
+      if (!payload_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, payload_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14359,12 +14359,12 @@ public final class Agents {
 
       if (!getUuid()
           .equals(other.getUuid())) return false;
-      if (!getBofPayload()
-          .equals(other.getBofPayload())) return false;
       if (!getPlatform()
           .equals(other.getPlatform())) return false;
       if (!getFunctionName()
           .equals(other.getFunctionName())) return false;
+      if (!getPayload()
+          .equals(other.getPayload())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -14378,12 +14378,12 @@ public final class Agents {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + UUID_FIELD_NUMBER;
       hash = (53 * hash) + getUuid().hashCode();
-      hash = (37 * hash) + BOF_PAYLOAD_FIELD_NUMBER;
-      hash = (53 * hash) + getBofPayload().hashCode();
       hash = (37 * hash) + PLATFORM_FIELD_NUMBER;
       hash = (53 * hash) + getPlatform().hashCode();
       hash = (37 * hash) + FUNCTION_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getFunctionName().hashCode();
+      hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
+      hash = (53 * hash) + getPayload().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14519,11 +14519,11 @@ public final class Agents {
         super.clear();
         uuid_ = "";
 
-        bofPayload_ = com.google.protobuf.ByteString.EMPTY;
-
         platform_ = "";
 
         functionName_ = "";
+
+        payload_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
       }
@@ -14552,9 +14552,9 @@ public final class Agents {
       public patronobuf.Agents.BoFExecuteRequest buildPartial() {
         patronobuf.Agents.BoFExecuteRequest result = new patronobuf.Agents.BoFExecuteRequest(this);
         result.uuid_ = uuid_;
-        result.bofPayload_ = bofPayload_;
         result.platform_ = platform_;
         result.functionName_ = functionName_;
+        result.payload_ = payload_;
         onBuilt();
         return result;
       }
@@ -14607,9 +14607,6 @@ public final class Agents {
           uuid_ = other.uuid_;
           onChanged();
         }
-        if (other.getBofPayload() != com.google.protobuf.ByteString.EMPTY) {
-          setBofPayload(other.getBofPayload());
-        }
         if (!other.getPlatform().isEmpty()) {
           platform_ = other.platform_;
           onChanged();
@@ -14617,6 +14614,9 @@ public final class Agents {
         if (!other.getFunctionName().isEmpty()) {
           functionName_ = other.functionName_;
           onChanged();
+        }
+        if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
+          setPayload(other.getPayload());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -14650,7 +14650,7 @@ public final class Agents {
       private java.lang.Object uuid_ = "";
       /**
        * <pre>
-       * Agent UUID
+       * Agent UUID to execute on
        * </pre>
        *
        * <code>string uuid = 1;</code>
@@ -14670,7 +14670,7 @@ public final class Agents {
       }
       /**
        * <pre>
-       * Agent UUID
+       * Agent UUID to execute on
        * </pre>
        *
        * <code>string uuid = 1;</code>
@@ -14691,7 +14691,7 @@ public final class Agents {
       }
       /**
        * <pre>
-       * Agent UUID
+       * Agent UUID to execute on
        * </pre>
        *
        * <code>string uuid = 1;</code>
@@ -14710,7 +14710,7 @@ public final class Agents {
       }
       /**
        * <pre>
-       * Agent UUID
+       * Agent UUID to execute on
        * </pre>
        *
        * <code>string uuid = 1;</code>
@@ -14724,7 +14724,7 @@ public final class Agents {
       }
       /**
        * <pre>
-       * Agent UUID
+       * Agent UUID to execute on
        * </pre>
        *
        * <code>string uuid = 1;</code>
@@ -14743,59 +14743,13 @@ public final class Agents {
         return this;
       }
 
-      private com.google.protobuf.ByteString bofPayload_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <pre>
-       * Compiled BOF binary (Windows) or ELF (Linux)
-       * </pre>
-       *
-       * <code>bytes bof_payload = 2;</code>
-       * @return The bofPayload.
-       */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getBofPayload() {
-        return bofPayload_;
-      }
-      /**
-       * <pre>
-       * Compiled BOF binary (Windows) or ELF (Linux)
-       * </pre>
-       *
-       * <code>bytes bof_payload = 2;</code>
-       * @param value The bofPayload to set.
-       * @return This builder for chaining.
-       */
-      public Builder setBofPayload(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        bofPayload_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Compiled BOF binary (Windows) or ELF (Linux)
-       * </pre>
-       *
-       * <code>bytes bof_payload = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearBofPayload() {
-        
-        bofPayload_ = getDefaultInstance().getBofPayload();
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object platform_ = "";
       /**
        * <pre>
        * "windows" or "linux"
        * </pre>
        *
-       * <code>string platform = 3;</code>
+       * <code>string platform = 2;</code>
        * @return The platform.
        */
       public java.lang.String getPlatform() {
@@ -14815,7 +14769,7 @@ public final class Agents {
        * "windows" or "linux"
        * </pre>
        *
-       * <code>string platform = 3;</code>
+       * <code>string platform = 2;</code>
        * @return The bytes for platform.
        */
       public com.google.protobuf.ByteString
@@ -14836,7 +14790,7 @@ public final class Agents {
        * "windows" or "linux"
        * </pre>
        *
-       * <code>string platform = 3;</code>
+       * <code>string platform = 2;</code>
        * @param value The platform to set.
        * @return This builder for chaining.
        */
@@ -14855,7 +14809,7 @@ public final class Agents {
        * "windows" or "linux"
        * </pre>
        *
-       * <code>string platform = 3;</code>
+       * <code>string platform = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearPlatform() {
@@ -14869,7 +14823,7 @@ public final class Agents {
        * "windows" or "linux"
        * </pre>
        *
-       * <code>string platform = 3;</code>
+       * <code>string platform = 2;</code>
        * @param value The bytes for platform to set.
        * @return This builder for chaining.
        */
@@ -14888,10 +14842,10 @@ public final class Agents {
       private java.lang.Object functionName_ = "";
       /**
        * <pre>
-       * Function name to call in BOF (e.g., "go")
+       * Function name in BOF (e.g., "go")
        * </pre>
        *
-       * <code>string function_name = 4;</code>
+       * <code>string function_name = 3;</code>
        * @return The functionName.
        */
       public java.lang.String getFunctionName() {
@@ -14908,10 +14862,10 @@ public final class Agents {
       }
       /**
        * <pre>
-       * Function name to call in BOF (e.g., "go")
+       * Function name in BOF (e.g., "go")
        * </pre>
        *
-       * <code>string function_name = 4;</code>
+       * <code>string function_name = 3;</code>
        * @return The bytes for functionName.
        */
       public com.google.protobuf.ByteString
@@ -14929,10 +14883,10 @@ public final class Agents {
       }
       /**
        * <pre>
-       * Function name to call in BOF (e.g., "go")
+       * Function name in BOF (e.g., "go")
        * </pre>
        *
-       * <code>string function_name = 4;</code>
+       * <code>string function_name = 3;</code>
        * @param value The functionName to set.
        * @return This builder for chaining.
        */
@@ -14948,10 +14902,10 @@ public final class Agents {
       }
       /**
        * <pre>
-       * Function name to call in BOF (e.g., "go")
+       * Function name in BOF (e.g., "go")
        * </pre>
        *
-       * <code>string function_name = 4;</code>
+       * <code>string function_name = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearFunctionName() {
@@ -14962,10 +14916,10 @@ public final class Agents {
       }
       /**
        * <pre>
-       * Function name to call in BOF (e.g., "go")
+       * Function name in BOF (e.g., "go")
        * </pre>
        *
-       * <code>string function_name = 4;</code>
+       * <code>string function_name = 3;</code>
        * @param value The bytes for functionName to set.
        * @return This builder for chaining.
        */
@@ -14977,6 +14931,52 @@ public final class Agents {
   checkByteStringIsUtf8(value);
         
         functionName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * Compiled BOF binary
+       * </pre>
+       *
+       * <code>bytes payload = 4;</code>
+       * @return The payload.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getPayload() {
+        return payload_;
+      }
+      /**
+       * <pre>
+       * Compiled BOF binary
+       * </pre>
+       *
+       * <code>bytes payload = 4;</code>
+       * @param value The payload to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPayload(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        payload_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Compiled BOF binary
+       * </pre>
+       *
+       * <code>bytes payload = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPayload() {
+        
+        payload_ = getDefaultInstance().getPayload();
         onChanged();
         return this;
       }
@@ -15038,11 +15038,19 @@ public final class Agents {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * Agent UUID
+     * </pre>
+     *
      * <code>string uuid = 1;</code>
      * @return The uuid.
      */
     java.lang.String getUuid();
     /**
+     * <pre>
+     * Agent UUID
+     * </pre>
+     *
      * <code>string uuid = 1;</code>
      * @return The bytes for uuid.
      */
@@ -15050,42 +15058,54 @@ public final class Agents {
         getUuidBytes();
 
     /**
-     * <code>bool success = 2;</code>
+     * <pre>
+     * Function that was executed
+     * </pre>
+     *
+     * <code>string function_name = 2;</code>
+     * @return The functionName.
+     */
+    java.lang.String getFunctionName();
+    /**
+     * <pre>
+     * Function that was executed
+     * </pre>
+     *
+     * <code>string function_name = 2;</code>
+     * @return The bytes for functionName.
+     */
+    com.google.protobuf.ByteString
+        getFunctionNameBytes();
+
+    /**
+     * <pre>
+     * Whether execution succeeded
+     * </pre>
+     *
+     * <code>bool success = 3;</code>
      * @return The success.
      */
     boolean getSuccess();
 
     /**
      * <pre>
-     * Output from BeaconPrintf or similar
+     * Output from BOF execution
      * </pre>
      *
-     * <code>string output = 3;</code>
+     * <code>string output = 4;</code>
      * @return The output.
      */
     java.lang.String getOutput();
     /**
      * <pre>
-     * Output from BeaconPrintf or similar
+     * Output from BOF execution
      * </pre>
      *
-     * <code>string output = 3;</code>
+     * <code>string output = 4;</code>
      * @return The bytes for output.
      */
     com.google.protobuf.ByteString
         getOutputBytes();
-
-    /**
-     * <code>string error = 4;</code>
-     * @return The error.
-     */
-    java.lang.String getError();
-    /**
-     * <code>string error = 4;</code>
-     * @return The bytes for error.
-     */
-    com.google.protobuf.ByteString
-        getErrorBytes();
   }
   /**
    * Protobuf type {@code patronobuf.BoFExecuteResponse}
@@ -15101,8 +15121,8 @@ public final class Agents {
     }
     private BoFExecuteResponse() {
       uuid_ = "";
+      functionName_ = "";
       output_ = "";
-      error_ = "";
     }
 
     @java.lang.Override
@@ -15141,21 +15161,21 @@ public final class Agents {
               uuid_ = s;
               break;
             }
-            case 16: {
-
-              success_ = input.readBool();
-              break;
-            }
-            case 26: {
+            case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              output_ = s;
+              functionName_ = s;
+              break;
+            }
+            case 24: {
+
+              success_ = input.readBool();
               break;
             }
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              error_ = s;
+              output_ = s;
               break;
             }
             default: {
@@ -15195,6 +15215,10 @@ public final class Agents {
     public static final int UUID_FIELD_NUMBER = 1;
     private volatile java.lang.Object uuid_;
     /**
+     * <pre>
+     * Agent UUID
+     * </pre>
+     *
      * <code>string uuid = 1;</code>
      * @return The uuid.
      */
@@ -15212,6 +15236,10 @@ public final class Agents {
       }
     }
     /**
+     * <pre>
+     * Agent UUID
+     * </pre>
+     *
      * <code>string uuid = 1;</code>
      * @return The bytes for uuid.
      */
@@ -15230,10 +15258,60 @@ public final class Agents {
       }
     }
 
-    public static final int SUCCESS_FIELD_NUMBER = 2;
+    public static final int FUNCTION_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object functionName_;
+    /**
+     * <pre>
+     * Function that was executed
+     * </pre>
+     *
+     * <code>string function_name = 2;</code>
+     * @return The functionName.
+     */
+    @java.lang.Override
+    public java.lang.String getFunctionName() {
+      java.lang.Object ref = functionName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        functionName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Function that was executed
+     * </pre>
+     *
+     * <code>string function_name = 2;</code>
+     * @return The bytes for functionName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFunctionNameBytes() {
+      java.lang.Object ref = functionName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        functionName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SUCCESS_FIELD_NUMBER = 3;
     private boolean success_;
     /**
-     * <code>bool success = 2;</code>
+     * <pre>
+     * Whether execution succeeded
+     * </pre>
+     *
+     * <code>bool success = 3;</code>
      * @return The success.
      */
     @java.lang.Override
@@ -15241,14 +15319,14 @@ public final class Agents {
       return success_;
     }
 
-    public static final int OUTPUT_FIELD_NUMBER = 3;
+    public static final int OUTPUT_FIELD_NUMBER = 4;
     private volatile java.lang.Object output_;
     /**
      * <pre>
-     * Output from BeaconPrintf or similar
+     * Output from BOF execution
      * </pre>
      *
-     * <code>string output = 3;</code>
+     * <code>string output = 4;</code>
      * @return The output.
      */
     @java.lang.Override
@@ -15266,10 +15344,10 @@ public final class Agents {
     }
     /**
      * <pre>
-     * Output from BeaconPrintf or similar
+     * Output from BOF execution
      * </pre>
      *
-     * <code>string output = 3;</code>
+     * <code>string output = 4;</code>
      * @return The bytes for output.
      */
     @java.lang.Override
@@ -15281,44 +15359,6 @@ public final class Agents {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         output_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ERROR_FIELD_NUMBER = 4;
-    private volatile java.lang.Object error_;
-    /**
-     * <code>string error = 4;</code>
-     * @return The error.
-     */
-    @java.lang.Override
-    public java.lang.String getError() {
-      java.lang.Object ref = error_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        error_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string error = 4;</code>
-     * @return The bytes for error.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getErrorBytes() {
-      java.lang.Object ref = error_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        error_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -15342,14 +15382,14 @@ public final class Agents {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(functionName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, functionName_);
+      }
       if (success_ != false) {
-        output.writeBool(2, success_);
+        output.writeBool(3, success_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(output_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, output_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, error_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, output_);
       }
       unknownFields.writeTo(output);
     }
@@ -15363,15 +15403,15 @@ public final class Agents {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(functionName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, functionName_);
+      }
       if (success_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, success_);
+          .computeBoolSize(3, success_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(output_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, output_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, error_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, output_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -15390,12 +15430,12 @@ public final class Agents {
 
       if (!getUuid()
           .equals(other.getUuid())) return false;
+      if (!getFunctionName()
+          .equals(other.getFunctionName())) return false;
       if (getSuccess()
           != other.getSuccess()) return false;
       if (!getOutput()
           .equals(other.getOutput())) return false;
-      if (!getError()
-          .equals(other.getError())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -15409,13 +15449,13 @@ public final class Agents {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + UUID_FIELD_NUMBER;
       hash = (53 * hash) + getUuid().hashCode();
+      hash = (37 * hash) + FUNCTION_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFunctionName().hashCode();
       hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getSuccess());
       hash = (37 * hash) + OUTPUT_FIELD_NUMBER;
       hash = (53 * hash) + getOutput().hashCode();
-      hash = (37 * hash) + ERROR_FIELD_NUMBER;
-      hash = (53 * hash) + getError().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -15551,11 +15591,11 @@ public final class Agents {
         super.clear();
         uuid_ = "";
 
+        functionName_ = "";
+
         success_ = false;
 
         output_ = "";
-
-        error_ = "";
 
         return this;
       }
@@ -15584,9 +15624,9 @@ public final class Agents {
       public patronobuf.Agents.BoFExecuteResponse buildPartial() {
         patronobuf.Agents.BoFExecuteResponse result = new patronobuf.Agents.BoFExecuteResponse(this);
         result.uuid_ = uuid_;
+        result.functionName_ = functionName_;
         result.success_ = success_;
         result.output_ = output_;
-        result.error_ = error_;
         onBuilt();
         return result;
       }
@@ -15639,15 +15679,15 @@ public final class Agents {
           uuid_ = other.uuid_;
           onChanged();
         }
+        if (!other.getFunctionName().isEmpty()) {
+          functionName_ = other.functionName_;
+          onChanged();
+        }
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
         if (!other.getOutput().isEmpty()) {
           output_ = other.output_;
-          onChanged();
-        }
-        if (!other.getError().isEmpty()) {
-          error_ = other.error_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -15681,6 +15721,10 @@ public final class Agents {
 
       private java.lang.Object uuid_ = "";
       /**
+       * <pre>
+       * Agent UUID
+       * </pre>
+       *
        * <code>string uuid = 1;</code>
        * @return The uuid.
        */
@@ -15697,6 +15741,10 @@ public final class Agents {
         }
       }
       /**
+       * <pre>
+       * Agent UUID
+       * </pre>
+       *
        * <code>string uuid = 1;</code>
        * @return The bytes for uuid.
        */
@@ -15714,6 +15762,10 @@ public final class Agents {
         }
       }
       /**
+       * <pre>
+       * Agent UUID
+       * </pre>
+       *
        * <code>string uuid = 1;</code>
        * @param value The uuid to set.
        * @return This builder for chaining.
@@ -15729,6 +15781,10 @@ public final class Agents {
         return this;
       }
       /**
+       * <pre>
+       * Agent UUID
+       * </pre>
+       *
        * <code>string uuid = 1;</code>
        * @return This builder for chaining.
        */
@@ -15739,6 +15795,10 @@ public final class Agents {
         return this;
       }
       /**
+       * <pre>
+       * Agent UUID
+       * </pre>
+       *
        * <code>string uuid = 1;</code>
        * @param value The bytes for uuid to set.
        * @return This builder for chaining.
@@ -15755,9 +15815,109 @@ public final class Agents {
         return this;
       }
 
+      private java.lang.Object functionName_ = "";
+      /**
+       * <pre>
+       * Function that was executed
+       * </pre>
+       *
+       * <code>string function_name = 2;</code>
+       * @return The functionName.
+       */
+      public java.lang.String getFunctionName() {
+        java.lang.Object ref = functionName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          functionName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Function that was executed
+       * </pre>
+       *
+       * <code>string function_name = 2;</code>
+       * @return The bytes for functionName.
+       */
+      public com.google.protobuf.ByteString
+          getFunctionNameBytes() {
+        java.lang.Object ref = functionName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          functionName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Function that was executed
+       * </pre>
+       *
+       * <code>string function_name = 2;</code>
+       * @param value The functionName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFunctionName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        functionName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Function that was executed
+       * </pre>
+       *
+       * <code>string function_name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFunctionName() {
+        
+        functionName_ = getDefaultInstance().getFunctionName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Function that was executed
+       * </pre>
+       *
+       * <code>string function_name = 2;</code>
+       * @param value The bytes for functionName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFunctionNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        functionName_ = value;
+        onChanged();
+        return this;
+      }
+
       private boolean success_ ;
       /**
-       * <code>bool success = 2;</code>
+       * <pre>
+       * Whether execution succeeded
+       * </pre>
+       *
+       * <code>bool success = 3;</code>
        * @return The success.
        */
       @java.lang.Override
@@ -15765,7 +15925,11 @@ public final class Agents {
         return success_;
       }
       /**
-       * <code>bool success = 2;</code>
+       * <pre>
+       * Whether execution succeeded
+       * </pre>
+       *
+       * <code>bool success = 3;</code>
        * @param value The success to set.
        * @return This builder for chaining.
        */
@@ -15776,7 +15940,11 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>bool success = 2;</code>
+       * <pre>
+       * Whether execution succeeded
+       * </pre>
+       *
+       * <code>bool success = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearSuccess() {
@@ -15789,10 +15957,10 @@ public final class Agents {
       private java.lang.Object output_ = "";
       /**
        * <pre>
-       * Output from BeaconPrintf or similar
+       * Output from BOF execution
        * </pre>
        *
-       * <code>string output = 3;</code>
+       * <code>string output = 4;</code>
        * @return The output.
        */
       public java.lang.String getOutput() {
@@ -15809,10 +15977,10 @@ public final class Agents {
       }
       /**
        * <pre>
-       * Output from BeaconPrintf or similar
+       * Output from BOF execution
        * </pre>
        *
-       * <code>string output = 3;</code>
+       * <code>string output = 4;</code>
        * @return The bytes for output.
        */
       public com.google.protobuf.ByteString
@@ -15830,10 +15998,10 @@ public final class Agents {
       }
       /**
        * <pre>
-       * Output from BeaconPrintf or similar
+       * Output from BOF execution
        * </pre>
        *
-       * <code>string output = 3;</code>
+       * <code>string output = 4;</code>
        * @param value The output to set.
        * @return This builder for chaining.
        */
@@ -15849,10 +16017,10 @@ public final class Agents {
       }
       /**
        * <pre>
-       * Output from BeaconPrintf or similar
+       * Output from BOF execution
        * </pre>
        *
-       * <code>string output = 3;</code>
+       * <code>string output = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearOutput() {
@@ -15863,10 +16031,10 @@ public final class Agents {
       }
       /**
        * <pre>
-       * Output from BeaconPrintf or similar
+       * Output from BOF execution
        * </pre>
        *
-       * <code>string output = 3;</code>
+       * <code>string output = 4;</code>
        * @param value The bytes for output to set.
        * @return This builder for chaining.
        */
@@ -15878,82 +16046,6 @@ public final class Agents {
   checkByteStringIsUtf8(value);
         
         output_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object error_ = "";
-      /**
-       * <code>string error = 4;</code>
-       * @return The error.
-       */
-      public java.lang.String getError() {
-        java.lang.Object ref = error_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          error_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string error = 4;</code>
-       * @return The bytes for error.
-       */
-      public com.google.protobuf.ByteString
-          getErrorBytes() {
-        java.lang.Object ref = error_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          error_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string error = 4;</code>
-       * @param value The error to set.
-       * @return This builder for chaining.
-       */
-      public Builder setError(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        error_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string error = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearError() {
-        
-        error_ = getDefaultInstance().getError();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string error = 4;</code>
-       * @param value The bytes for error to set.
-       * @return This builder for chaining.
-       */
-      public Builder setErrorBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        error_ = value;
         onChanged();
         return this;
       }
@@ -21799,31 +21891,32 @@ public final class Agents {
       "\n\024CommandStatusRequest\022\014\n\004uuid\030\001 \001(\t\022\021\n\t" +
       "commandid\030\002 \001(\t\022\016\n\006result\030\003 \001(\t\022\016\n\006outpu" +
       "t\030\004 \001(\t\"%\n\025CommandStatusResponse\022\014\n\004uuid" +
-      "\030\001 \001(\t\"_\n\021BoFExecuteRequest\022\014\n\004uuid\030\001 \001(" +
-      "\t\022\023\n\013bof_payload\030\002 \001(\014\022\020\n\010platform\030\003 \001(\t" +
-      "\022\025\n\rfunction_name\030\004 \001(\t\"R\n\022BoFExecuteRes" +
-      "ponse\022\014\n\004uuid\030\001 \001(\t\022\017\n\007success\030\002 \001(\010\022\016\n\006" +
-      "output\030\003 \001(\t\022\r\n\005error\030\004 \001(\t\")\n\013KeysReque" +
-      "st\022\014\n\004uuid\030\001 \001(\t\022\014\n\004keys\030\002 \001(\t\"\034\n\014KeysRe" +
-      "sponse\022\014\n\004uuid\030\001 \001(\t\"\033\n\013FileRequest\022\014\n\004u" +
-      "uid\030\001 \001(\t\"c\n\014FileResponse\022\016\n\006fileid\030\001 \001(" +
-      "\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014transfertype\030\003 \001(\t\022\020\n" +
-      "\010filepath\030\004 \001(\t\022\r\n\005chunk\030\005 \001(\014\"o\n\014FileTo" +
-      "Server\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014" +
-      "transfertype\030\003 \001(\t\022\014\n\004path\030\004 \001(\t\022\016\n\006stat" +
-      "us\030\005 \001(\t\022\r\n\005chunk\030\006 \001(\014\":\n\032FileTransferS" +
-      "tatusResponse\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 " +
-      "\001(\t\"!\n\003Tag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t*\207" +
-      "\001\n\013RequestType\022\013\n\007STARTUP\020\000\022\021\n\rCONFIGURA" +
-      "TION\020\001\022\013\n\007COMMAND\020\002\022\022\n\016COMMAND_STATUS\020\003\022" +
-      "\010\n\004KEYS\020\004\022\010\n\004FILE\020\005\022\022\n\016FILE_TO_SERVER\020\006\022" +
-      "\017\n\013BOF_EXECUTE\020\007*\315\001\n\014ResponseType\022\024\n\020STA" +
-      "RTUP_RESPONSE\020\000\022\032\n\026CONFIGURATION_RESPONS" +
-      "E\020\001\022\024\n\020COMMAND_RESPONSE\020\002\022\033\n\027COMMAND_STA" +
-      "TUS_RESPONSE\020\003\022\021\n\rKEYS_RESPONSE\020\004\022\021\n\rFIL" +
-      "E_RESPONSE\020\005\022\030\n\024FILE_TRANSFER_STATUS\020\006\022\030" +
-      "\n\024BOF_EXECUTE_RESPONSE\020\007B.Z,github.com/P" +
-      "atronC2/Patronobuf/go/patronobufb\006proto3"
+      "\030\001 \001(\t\"[\n\021BoFExecuteRequest\022\014\n\004uuid\030\001 \001(" +
+      "\t\022\020\n\010platform\030\002 \001(\t\022\025\n\rfunction_name\030\003 \001" +
+      "(\t\022\017\n\007payload\030\004 \001(\014\"Z\n\022BoFExecuteRespons" +
+      "e\022\014\n\004uuid\030\001 \001(\t\022\025\n\rfunction_name\030\002 \001(\t\022\017" +
+      "\n\007success\030\003 \001(\010\022\016\n\006output\030\004 \001(\t\")\n\013KeysR" +
+      "equest\022\014\n\004uuid\030\001 \001(\t\022\014\n\004keys\030\002 \001(\t\"\034\n\014Ke" +
+      "ysResponse\022\014\n\004uuid\030\001 \001(\t\"\033\n\013FileRequest\022" +
+      "\014\n\004uuid\030\001 \001(\t\"c\n\014FileResponse\022\016\n\006fileid\030" +
+      "\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014transfertype\030\003 \001(" +
+      "\t\022\020\n\010filepath\030\004 \001(\t\022\r\n\005chunk\030\005 \001(\014\"o\n\014Fi" +
+      "leToServer\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t" +
+      "\022\024\n\014transfertype\030\003 \001(\t\022\014\n\004path\030\004 \001(\t\022\016\n\006" +
+      "status\030\005 \001(\t\022\r\n\005chunk\030\006 \001(\014\":\n\032FileTrans" +
+      "ferStatusResponse\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uui" +
+      "d\030\002 \001(\t\"!\n\003Tag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
+      "(\t*\207\001\n\013RequestType\022\013\n\007STARTUP\020\000\022\021\n\rCONFI" +
+      "GURATION\020\001\022\013\n\007COMMAND\020\002\022\022\n\016COMMAND_STATU" +
+      "S\020\003\022\010\n\004KEYS\020\004\022\010\n\004FILE\020\005\022\022\n\016FILE_TO_SERVE" +
+      "R\020\006\022\017\n\013BOF_EXECUTE\020\007*\315\001\n\014ResponseType\022\024\n" +
+      "\020STARTUP_RESPONSE\020\000\022\032\n\026CONFIGURATION_RES" +
+      "PONSE\020\001\022\024\n\020COMMAND_RESPONSE\020\002\022\033\n\027COMMAND" +
+      "_STATUS_RESPONSE\020\003\022\021\n\rKEYS_RESPONSE\020\004\022\021\n" +
+      "\rFILE_RESPONSE\020\005\022\030\n\024FILE_TRANSFER_STATUS" +
+      "\020\006\022\030\n\024BOF_EXECUTE_RESPONSE\020\007B.Z,github.c" +
+      "om/PatronC2/Patronobuf/go/patronobufb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -21894,13 +21987,13 @@ public final class Agents {
     internal_static_patronobuf_BoFExecuteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_BoFExecuteRequest_descriptor,
-        new java.lang.String[] { "Uuid", "BofPayload", "Platform", "FunctionName", });
+        new java.lang.String[] { "Uuid", "Platform", "FunctionName", "Payload", });
     internal_static_patronobuf_BoFExecuteResponse_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_patronobuf_BoFExecuteResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_BoFExecuteResponse_descriptor,
-        new java.lang.String[] { "Uuid", "Success", "Output", "Error", });
+        new java.lang.String[] { "Uuid", "FunctionName", "Success", "Output", });
     internal_static_patronobuf_KeysRequest_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_patronobuf_KeysRequest_fieldAccessorTable = new

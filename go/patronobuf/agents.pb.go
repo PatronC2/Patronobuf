@@ -1091,10 +1091,10 @@ func (x *CommandStatusResponse) GetUuid() string {
 
 type BoFExecuteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`                                     // Agent UUID
-	BofPayload    []byte                 `protobuf:"bytes,2,opt,name=bof_payload,json=bofPayload,proto3" json:"bof_payload,omitempty"`       // Compiled BOF binary (Windows) or ELF (Linux)
-	Platform      string                 `protobuf:"bytes,3,opt,name=platform,proto3" json:"platform,omitempty"`                             // "windows" or "linux"
-	FunctionName  string                 `protobuf:"bytes,4,opt,name=function_name,json=functionName,proto3" json:"function_name,omitempty"` // Function name to call in BOF (e.g., "go")
+	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`                                     // Agent UUID to execute on
+	Platform      string                 `protobuf:"bytes,2,opt,name=platform,proto3" json:"platform,omitempty"`                             // "windows" or "linux"
+	FunctionName  string                 `protobuf:"bytes,3,opt,name=function_name,json=functionName,proto3" json:"function_name,omitempty"` // Function name in BOF (e.g., "go")
+	Payload       []byte                 `protobuf:"bytes,4,opt,name=payload,proto3" json:"payload,omitempty"`                               // Compiled BOF binary
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1136,13 +1136,6 @@ func (x *BoFExecuteRequest) GetUuid() string {
 	return ""
 }
 
-func (x *BoFExecuteRequest) GetBofPayload() []byte {
-	if x != nil {
-		return x.BofPayload
-	}
-	return nil
-}
-
 func (x *BoFExecuteRequest) GetPlatform() string {
 	if x != nil {
 		return x.Platform
@@ -1157,12 +1150,19 @@ func (x *BoFExecuteRequest) GetFunctionName() string {
 	return ""
 }
 
+func (x *BoFExecuteRequest) GetPayload() []byte {
+	if x != nil {
+		return x.Payload
+	}
+	return nil
+}
+
 type BoFExecuteResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
-	Success       bool                   `protobuf:"varint,2,opt,name=success,proto3" json:"success,omitempty"`
-	Output        string                 `protobuf:"bytes,3,opt,name=output,proto3" json:"output,omitempty"` // Output from BeaconPrintf or similar
-	Error         string                 `protobuf:"bytes,4,opt,name=error,proto3" json:"error,omitempty"`
+	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`                                     // Agent UUID
+	FunctionName  string                 `protobuf:"bytes,2,opt,name=function_name,json=functionName,proto3" json:"function_name,omitempty"` // Function that was executed
+	Success       bool                   `protobuf:"varint,3,opt,name=success,proto3" json:"success,omitempty"`                              // Whether execution succeeded
+	Output        string                 `protobuf:"bytes,4,opt,name=output,proto3" json:"output,omitempty"`                                 // Output from BOF execution
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1204,6 +1204,13 @@ func (x *BoFExecuteResponse) GetUuid() string {
 	return ""
 }
 
+func (x *BoFExecuteResponse) GetFunctionName() string {
+	if x != nil {
+		return x.FunctionName
+	}
+	return ""
+}
+
 func (x *BoFExecuteResponse) GetSuccess() bool {
 	if x != nil {
 		return x.Success
@@ -1214,13 +1221,6 @@ func (x *BoFExecuteResponse) GetSuccess() bool {
 func (x *BoFExecuteResponse) GetOutput() string {
 	if x != nil {
 		return x.Output
-	}
-	return ""
-}
-
-func (x *BoFExecuteResponse) GetError() string {
-	if x != nil {
-		return x.Error
 	}
 	return ""
 }
@@ -1706,18 +1706,17 @@ const file_agents_proto_rawDesc = "" +
 	"\x06result\x18\x03 \x01(\tR\x06result\x12\x16\n" +
 	"\x06output\x18\x04 \x01(\tR\x06output\"+\n" +
 	"\x15CommandStatusResponse\x12\x12\n" +
-	"\x04uuid\x18\x01 \x01(\tR\x04uuid\"\x89\x01\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\"\x82\x01\n" +
 	"\x11BoFExecuteRequest\x12\x12\n" +
-	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1f\n" +
-	"\vbof_payload\x18\x02 \x01(\fR\n" +
-	"bofPayload\x12\x1a\n" +
-	"\bplatform\x18\x03 \x01(\tR\bplatform\x12#\n" +
-	"\rfunction_name\x18\x04 \x01(\tR\ffunctionName\"p\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1a\n" +
+	"\bplatform\x18\x02 \x01(\tR\bplatform\x12#\n" +
+	"\rfunction_name\x18\x03 \x01(\tR\ffunctionName\x12\x18\n" +
+	"\apayload\x18\x04 \x01(\fR\apayload\"\x7f\n" +
 	"\x12BoFExecuteResponse\x12\x12\n" +
-	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x18\n" +
-	"\asuccess\x18\x02 \x01(\bR\asuccess\x12\x16\n" +
-	"\x06output\x18\x03 \x01(\tR\x06output\x12\x14\n" +
-	"\x05error\x18\x04 \x01(\tR\x05error\"5\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12#\n" +
+	"\rfunction_name\x18\x02 \x01(\tR\ffunctionName\x12\x18\n" +
+	"\asuccess\x18\x03 \x01(\bR\asuccess\x12\x16\n" +
+	"\x06output\x18\x04 \x01(\tR\x06output\"5\n" +
 	"\vKeysRequest\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x12\n" +
 	"\x04keys\x18\x02 \x01(\tR\x04keys\"\"\n" +

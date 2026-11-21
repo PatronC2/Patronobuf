@@ -3522,9 +3522,9 @@ proto.patronobuf.BoFExecuteRequest.prototype.toObject = function(opt_includeInst
 proto.patronobuf.BoFExecuteRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     uuid: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    bofPayload: msg.getBofPayload_asB64(),
-    platform: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    functionName: jspb.Message.getFieldWithDefault(msg, 4, "")
+    platform: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    functionName: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    payload: msg.getPayload_asB64()
   };
 
   if (includeInstance) {
@@ -3566,16 +3566,16 @@ proto.patronobuf.BoFExecuteRequest.deserializeBinaryFromReader = function(msg, r
       msg.setUuid(value);
       break;
     case 2:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setBofPayload(value);
-      break;
-    case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setPlatform(value);
       break;
-    case 4:
+    case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setFunctionName(value);
+      break;
+    case 4:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setPayload(value);
       break;
     default:
       reader.skipField();
@@ -3613,23 +3613,23 @@ proto.patronobuf.BoFExecuteRequest.serializeBinaryToWriter = function(message, w
       f
     );
   }
-  f = message.getBofPayload_asU8();
-  if (f.length > 0) {
-    writer.writeBytes(
-      2,
-      f
-    );
-  }
   f = message.getPlatform();
   if (f.length > 0) {
     writer.writeString(
-      3,
+      2,
       f
     );
   }
   f = message.getFunctionName();
   if (f.length > 0) {
     writer.writeString(
+      3,
+      f
+    );
+  }
+  f = message.getPayload_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
       4,
       f
     );
@@ -3656,53 +3656,11 @@ proto.patronobuf.BoFExecuteRequest.prototype.setUuid = function(value) {
 
 
 /**
- * optional bytes bof_payload = 2;
- * @return {!(string|Uint8Array)}
- */
-proto.patronobuf.BoFExecuteRequest.prototype.getBofPayload = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * optional bytes bof_payload = 2;
- * This is a type-conversion wrapper around `getBofPayload()`
- * @return {string}
- */
-proto.patronobuf.BoFExecuteRequest.prototype.getBofPayload_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getBofPayload()));
-};
-
-
-/**
- * optional bytes bof_payload = 2;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getBofPayload()`
- * @return {!Uint8Array}
- */
-proto.patronobuf.BoFExecuteRequest.prototype.getBofPayload_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getBofPayload()));
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
- * @return {!proto.patronobuf.BoFExecuteRequest} returns this
- */
-proto.patronobuf.BoFExecuteRequest.prototype.setBofPayload = function(value) {
-  return jspb.Message.setProto3BytesField(this, 2, value);
-};
-
-
-/**
- * optional string platform = 3;
+ * optional string platform = 2;
  * @return {string}
  */
 proto.patronobuf.BoFExecuteRequest.prototype.getPlatform = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
@@ -3711,16 +3669,16 @@ proto.patronobuf.BoFExecuteRequest.prototype.getPlatform = function() {
  * @return {!proto.patronobuf.BoFExecuteRequest} returns this
  */
 proto.patronobuf.BoFExecuteRequest.prototype.setPlatform = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * optional string function_name = 4;
+ * optional string function_name = 3;
  * @return {string}
  */
 proto.patronobuf.BoFExecuteRequest.prototype.getFunctionName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
@@ -3729,7 +3687,49 @@ proto.patronobuf.BoFExecuteRequest.prototype.getFunctionName = function() {
  * @return {!proto.patronobuf.BoFExecuteRequest} returns this
  */
 proto.patronobuf.BoFExecuteRequest.prototype.setFunctionName = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional bytes payload = 4;
+ * @return {!(string|Uint8Array)}
+ */
+proto.patronobuf.BoFExecuteRequest.prototype.getPayload = function() {
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * optional bytes payload = 4;
+ * This is a type-conversion wrapper around `getPayload()`
+ * @return {string}
+ */
+proto.patronobuf.BoFExecuteRequest.prototype.getPayload_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getPayload()));
+};
+
+
+/**
+ * optional bytes payload = 4;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getPayload()`
+ * @return {!Uint8Array}
+ */
+proto.patronobuf.BoFExecuteRequest.prototype.getPayload_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getPayload()));
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.patronobuf.BoFExecuteRequest} returns this
+ */
+proto.patronobuf.BoFExecuteRequest.prototype.setPayload = function(value) {
+  return jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
@@ -3766,9 +3766,9 @@ proto.patronobuf.BoFExecuteResponse.prototype.toObject = function(opt_includeIns
 proto.patronobuf.BoFExecuteResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     uuid: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    success: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
-    output: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    error: jspb.Message.getFieldWithDefault(msg, 4, "")
+    functionName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    success: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
+    output: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -3810,16 +3810,16 @@ proto.patronobuf.BoFExecuteResponse.deserializeBinaryFromReader = function(msg, 
       msg.setUuid(value);
       break;
     case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setFunctionName(value);
+      break;
+    case 3:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setSuccess(value);
       break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setOutput(value);
-      break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setError(value);
+      msg.setOutput(value);
       break;
     default:
       reader.skipField();
@@ -3857,21 +3857,21 @@ proto.patronobuf.BoFExecuteResponse.serializeBinaryToWriter = function(message, 
       f
     );
   }
-  f = message.getSuccess();
-  if (f) {
-    writer.writeBool(
+  f = message.getFunctionName();
+  if (f.length > 0) {
+    writer.writeString(
       2,
       f
     );
   }
-  f = message.getOutput();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getSuccess();
+  if (f) {
+    writer.writeBool(
       3,
       f
     );
   }
-  f = message.getError();
+  f = message.getOutput();
   if (f.length > 0) {
     writer.writeString(
       4,
@@ -3900,11 +3900,29 @@ proto.patronobuf.BoFExecuteResponse.prototype.setUuid = function(value) {
 
 
 /**
- * optional bool success = 2;
+ * optional string function_name = 2;
+ * @return {string}
+ */
+proto.patronobuf.BoFExecuteResponse.prototype.getFunctionName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.patronobuf.BoFExecuteResponse} returns this
+ */
+proto.patronobuf.BoFExecuteResponse.prototype.setFunctionName = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional bool success = 3;
  * @return {boolean}
  */
 proto.patronobuf.BoFExecuteResponse.prototype.getSuccess = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 2, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 3, false));
 };
 
 
@@ -3913,33 +3931,15 @@ proto.patronobuf.BoFExecuteResponse.prototype.getSuccess = function() {
  * @return {!proto.patronobuf.BoFExecuteResponse} returns this
  */
 proto.patronobuf.BoFExecuteResponse.prototype.setSuccess = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 2, value);
+  return jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
 
 /**
- * optional string output = 3;
+ * optional string output = 4;
  * @return {string}
  */
 proto.patronobuf.BoFExecuteResponse.prototype.getOutput = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.patronobuf.BoFExecuteResponse} returns this
- */
-proto.patronobuf.BoFExecuteResponse.prototype.setOutput = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
-};
-
-
-/**
- * optional string error = 4;
- * @return {string}
- */
-proto.patronobuf.BoFExecuteResponse.prototype.getError = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
@@ -3948,7 +3948,7 @@ proto.patronobuf.BoFExecuteResponse.prototype.getError = function() {
  * @param {string} value
  * @return {!proto.patronobuf.BoFExecuteResponse} returns this
  */
-proto.patronobuf.BoFExecuteResponse.prototype.setError = function(value) {
+proto.patronobuf.BoFExecuteResponse.prototype.setOutput = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
 

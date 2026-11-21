@@ -84,15 +84,15 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     end
     add_message "patronobuf.BoFExecuteRequest" do
       optional :uuid, :string, 1
-      optional :bof_payload, :bytes, 2
-      optional :platform, :string, 3
-      optional :function_name, :string, 4
+      optional :platform, :string, 2
+      optional :function_name, :string, 3
+      optional :payload, :bytes, 4
     end
     add_message "patronobuf.BoFExecuteResponse" do
       optional :uuid, :string, 1
-      optional :success, :bool, 2
-      optional :output, :string, 3
-      optional :error, :string, 4
+      optional :function_name, :string, 2
+      optional :success, :bool, 3
+      optional :output, :string, 4
     end
     add_message "patronobuf.KeysRequest" do
       optional :uuid, :string, 1
