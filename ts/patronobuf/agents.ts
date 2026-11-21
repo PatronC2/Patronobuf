@@ -12,6 +12,7 @@ export enum RequestType {
   KEYS = 4,
   FILE = 5,
   FILE_TO_SERVER = 6,
+  BOF_EXECUTE = 7,
   UNRECOGNIZED = -1,
 }
 
@@ -38,6 +39,9 @@ export function requestTypeFromJSON(object: any): RequestType {
     case 6:
     case "FILE_TO_SERVER":
       return RequestType.FILE_TO_SERVER;
+    case 7:
+    case "BOF_EXECUTE":
+      return RequestType.BOF_EXECUTE;
     case -1:
     case "UNRECOGNIZED":
     default:
@@ -61,6 +65,8 @@ export function requestTypeToJSON(object: RequestType): string {
       return "FILE";
     case RequestType.FILE_TO_SERVER:
       return "FILE_TO_SERVER";
+    case RequestType.BOF_EXECUTE:
+      return "BOF_EXECUTE";
     case RequestType.UNRECOGNIZED:
     default:
       return "UNRECOGNIZED";
@@ -75,6 +81,7 @@ export enum ResponseType {
   KEYS_RESPONSE = 4,
   FILE_RESPONSE = 5,
   FILE_TRANSFER_STATUS = 6,
+  BOF_EXECUTE_RESPONSE = 7,
   UNRECOGNIZED = -1,
 }
 
@@ -101,6 +108,9 @@ export function responseTypeFromJSON(object: any): ResponseType {
     case 6:
     case "FILE_TRANSFER_STATUS":
       return ResponseType.FILE_TRANSFER_STATUS;
+    case 7:
+    case "BOF_EXECUTE_RESPONSE":
+      return ResponseType.BOF_EXECUTE_RESPONSE;
     case -1:
     case "UNRECOGNIZED":
     default:
@@ -124,6 +134,8 @@ export function responseTypeToJSON(object: ResponseType): string {
       return "FILE_RESPONSE";
     case ResponseType.FILE_TRANSFER_STATUS:
       return "FILE_TRANSFER_STATUS";
+    case ResponseType.BOF_EXECUTE_RESPONSE:
+      return "BOF_EXECUTE_RESPONSE";
     case ResponseType.UNRECOGNIZED:
     default:
       return "UNRECOGNIZED";
@@ -139,6 +151,7 @@ export interface Request {
   keys?: KeysRequest | undefined;
   file?: FileRequest | undefined;
   fileToServer?: FileToServer | undefined;
+  bofExecute?: BoFExecuteRequest | undefined;
 }
 
 export interface Response {
@@ -150,6 +163,7 @@ export interface Response {
   keysResponse?: KeysResponse | undefined;
   fileResponse?: FileResponse | undefined;
   fileTransferStatusResponse?: FileTransferStatusResponse | undefined;
+  bofExecuteResponse?: BoFExecuteResponse | undefined;
 }
 
 export interface StartupRequest {
@@ -211,6 +225,25 @@ export interface CommandStatusResponse {
   uuid: string;
 }
 
+export interface BoFExecuteRequest {
+  /** Agent UUID */
+  uuid: string;
+  /** Compiled BOF binary (Windows) or ELF (Linux) */
+  bofPayload: Uint8Array;
+  /** "windows" or "linux" */
+  platform: string;
+  /** Function name to call in BOF (e.g., "go") */
+  functionName: string;
+}
+
+export interface BoFExecuteResponse {
+  uuid: string;
+  success: boolean;
+  /** Output from BeaconPrintf or similar */
+  output: string;
+  error: string;
+}
+
 export interface KeysRequest {
   uuid: string;
   keys: string;
@@ -261,6 +294,7 @@ function createBaseRequest(): Request {
     keys: undefined,
     file: undefined,
     fileToServer: undefined,
+    bofExecute: undefined,
   };
 }
 
@@ -289,6 +323,9 @@ export const Request = {
     }
     if (message.fileToServer !== undefined) {
       FileToServer.encode(message.fileToServer, writer.uint32(66).fork()).ldelim();
+    }
+    if (message.bofExecute !== undefined) {
+      BoFExecuteRequest.encode(message.bofExecute, writer.uint32(74).fork()).ldelim();
     }
     return writer;
   },
@@ -324,6 +361,9 @@ export const Request = {
         case 8:
           message.fileToServer = FileToServer.decode(reader, reader.uint32());
           break;
+        case 9:
+          message.bofExecute = BoFExecuteRequest.decode(reader, reader.uint32());
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -342,6 +382,7 @@ export const Request = {
       keys: isSet(object.keys) ? KeysRequest.fromJSON(object.keys) : undefined,
       file: isSet(object.file) ? FileRequest.fromJSON(object.file) : undefined,
       fileToServer: isSet(object.fileToServer) ? FileToServer.fromJSON(object.fileToServer) : undefined,
+      bofExecute: isSet(object.bofExecute) ? BoFExecuteRequest.fromJSON(object.bofExecute) : undefined,
     };
   },
 
@@ -360,6 +401,8 @@ export const Request = {
     message.file !== undefined && (obj.file = message.file ? FileRequest.toJSON(message.file) : undefined);
     message.fileToServer !== undefined &&
       (obj.fileToServer = message.fileToServer ? FileToServer.toJSON(message.fileToServer) : undefined);
+    message.bofExecute !== undefined &&
+      (obj.bofExecute = message.bofExecute ? BoFExecuteRequest.toJSON(message.bofExecute) : undefined);
     return obj;
   },
 
@@ -391,6 +434,9 @@ export const Request = {
     message.fileToServer = (object.fileToServer !== undefined && object.fileToServer !== null)
       ? FileToServer.fromPartial(object.fileToServer)
       : undefined;
+    message.bofExecute = (object.bofExecute !== undefined && object.bofExecute !== null)
+      ? BoFExecuteRequest.fromPartial(object.bofExecute)
+      : undefined;
     return message;
   },
 };
@@ -405,6 +451,7 @@ function createBaseResponse(): Response {
     keysResponse: undefined,
     fileResponse: undefined,
     fileTransferStatusResponse: undefined,
+    bofExecuteResponse: undefined,
   };
 }
 
@@ -433,6 +480,9 @@ export const Response = {
     }
     if (message.fileTransferStatusResponse !== undefined) {
       FileTransferStatusResponse.encode(message.fileTransferStatusResponse, writer.uint32(66).fork()).ldelim();
+    }
+    if (message.bofExecuteResponse !== undefined) {
+      BoFExecuteResponse.encode(message.bofExecuteResponse, writer.uint32(74).fork()).ldelim();
     }
     return writer;
   },
@@ -468,6 +518,9 @@ export const Response = {
         case 8:
           message.fileTransferStatusResponse = FileTransferStatusResponse.decode(reader, reader.uint32());
           break;
+        case 9:
+          message.bofExecuteResponse = BoFExecuteResponse.decode(reader, reader.uint32());
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -491,6 +544,9 @@ export const Response = {
       fileResponse: isSet(object.fileResponse) ? FileResponse.fromJSON(object.fileResponse) : undefined,
       fileTransferStatusResponse: isSet(object.fileTransferStatusResponse)
         ? FileTransferStatusResponse.fromJSON(object.fileTransferStatusResponse)
+        : undefined,
+      bofExecuteResponse: isSet(object.bofExecuteResponse)
+        ? BoFExecuteResponse.fromJSON(object.bofExecuteResponse)
         : undefined,
     };
   },
@@ -516,6 +572,9 @@ export const Response = {
       (obj.fileTransferStatusResponse = message.fileTransferStatusResponse
         ? FileTransferStatusResponse.toJSON(message.fileTransferStatusResponse)
         : undefined);
+    message.bofExecuteResponse !== undefined && (obj.bofExecuteResponse = message.bofExecuteResponse
+      ? BoFExecuteResponse.toJSON(message.bofExecuteResponse)
+      : undefined);
     return obj;
   },
 
@@ -550,6 +609,9 @@ export const Response = {
       (object.fileTransferStatusResponse !== undefined && object.fileTransferStatusResponse !== null)
         ? FileTransferStatusResponse.fromPartial(object.fileTransferStatusResponse)
         : undefined;
+    message.bofExecuteResponse = (object.bofExecuteResponse !== undefined && object.bofExecuteResponse !== null)
+      ? BoFExecuteResponse.fromPartial(object.bofExecuteResponse)
+      : undefined;
     return message;
   },
 };
@@ -1241,6 +1303,167 @@ export const CommandStatusResponse = {
   fromPartial<I extends Exact<DeepPartial<CommandStatusResponse>, I>>(object: I): CommandStatusResponse {
     const message = createBaseCommandStatusResponse();
     message.uuid = object.uuid ?? "";
+    return message;
+  },
+};
+
+function createBaseBoFExecuteRequest(): BoFExecuteRequest {
+  return { uuid: "", bofPayload: new Uint8Array(), platform: "", functionName: "" };
+}
+
+export const BoFExecuteRequest = {
+  encode(message: BoFExecuteRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.uuid !== "") {
+      writer.uint32(10).string(message.uuid);
+    }
+    if (message.bofPayload.length !== 0) {
+      writer.uint32(18).bytes(message.bofPayload);
+    }
+    if (message.platform !== "") {
+      writer.uint32(26).string(message.platform);
+    }
+    if (message.functionName !== "") {
+      writer.uint32(34).string(message.functionName);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): BoFExecuteRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseBoFExecuteRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.uuid = reader.string();
+          break;
+        case 2:
+          message.bofPayload = reader.bytes();
+          break;
+        case 3:
+          message.platform = reader.string();
+          break;
+        case 4:
+          message.functionName = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): BoFExecuteRequest {
+    return {
+      uuid: isSet(object.uuid) ? String(object.uuid) : "",
+      bofPayload: isSet(object.bofPayload) ? bytesFromBase64(object.bofPayload) : new Uint8Array(),
+      platform: isSet(object.platform) ? String(object.platform) : "",
+      functionName: isSet(object.functionName) ? String(object.functionName) : "",
+    };
+  },
+
+  toJSON(message: BoFExecuteRequest): unknown {
+    const obj: any = {};
+    message.uuid !== undefined && (obj.uuid = message.uuid);
+    message.bofPayload !== undefined &&
+      (obj.bofPayload = base64FromBytes(message.bofPayload !== undefined ? message.bofPayload : new Uint8Array()));
+    message.platform !== undefined && (obj.platform = message.platform);
+    message.functionName !== undefined && (obj.functionName = message.functionName);
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<BoFExecuteRequest>, I>>(base?: I): BoFExecuteRequest {
+    return BoFExecuteRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<BoFExecuteRequest>, I>>(object: I): BoFExecuteRequest {
+    const message = createBaseBoFExecuteRequest();
+    message.uuid = object.uuid ?? "";
+    message.bofPayload = object.bofPayload ?? new Uint8Array();
+    message.platform = object.platform ?? "";
+    message.functionName = object.functionName ?? "";
+    return message;
+  },
+};
+
+function createBaseBoFExecuteResponse(): BoFExecuteResponse {
+  return { uuid: "", success: false, output: "", error: "" };
+}
+
+export const BoFExecuteResponse = {
+  encode(message: BoFExecuteResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.uuid !== "") {
+      writer.uint32(10).string(message.uuid);
+    }
+    if (message.success === true) {
+      writer.uint32(16).bool(message.success);
+    }
+    if (message.output !== "") {
+      writer.uint32(26).string(message.output);
+    }
+    if (message.error !== "") {
+      writer.uint32(34).string(message.error);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): BoFExecuteResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseBoFExecuteResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.uuid = reader.string();
+          break;
+        case 2:
+          message.success = reader.bool();
+          break;
+        case 3:
+          message.output = reader.string();
+          break;
+        case 4:
+          message.error = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): BoFExecuteResponse {
+    return {
+      uuid: isSet(object.uuid) ? String(object.uuid) : "",
+      success: isSet(object.success) ? Boolean(object.success) : false,
+      output: isSet(object.output) ? String(object.output) : "",
+      error: isSet(object.error) ? String(object.error) : "",
+    };
+  },
+
+  toJSON(message: BoFExecuteResponse): unknown {
+    const obj: any = {};
+    message.uuid !== undefined && (obj.uuid = message.uuid);
+    message.success !== undefined && (obj.success = message.success);
+    message.output !== undefined && (obj.output = message.output);
+    message.error !== undefined && (obj.error = message.error);
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<BoFExecuteResponse>, I>>(base?: I): BoFExecuteResponse {
+    return BoFExecuteResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<BoFExecuteResponse>, I>>(object: I): BoFExecuteResponse {
+    const message = createBaseBoFExecuteResponse();
+    message.uuid = object.uuid ?? "";
+    message.success = object.success ?? false;
+    message.output = object.output ?? "";
+    message.error = object.error ?? "";
     return message;
   },
 };

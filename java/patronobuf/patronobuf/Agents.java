@@ -47,6 +47,10 @@ public final class Agents {
      * <code>FILE_TO_SERVER = 6;</code>
      */
     FILE_TO_SERVER(6),
+    /**
+     * <code>BOF_EXECUTE = 7;</code>
+     */
+    BOF_EXECUTE(7),
     UNRECOGNIZED(-1),
     ;
 
@@ -78,6 +82,10 @@ public final class Agents {
      * <code>FILE_TO_SERVER = 6;</code>
      */
     public static final int FILE_TO_SERVER_VALUE = 6;
+    /**
+     * <code>BOF_EXECUTE = 7;</code>
+     */
+    public static final int BOF_EXECUTE_VALUE = 7;
 
 
     public final int getNumber() {
@@ -111,6 +119,7 @@ public final class Agents {
         case 4: return KEYS;
         case 5: return FILE;
         case 6: return FILE_TO_SERVER;
+        case 7: return BOF_EXECUTE;
         default: return null;
       }
     }
@@ -200,6 +209,10 @@ public final class Agents {
      * <code>FILE_TRANSFER_STATUS = 6;</code>
      */
     FILE_TRANSFER_STATUS(6),
+    /**
+     * <code>BOF_EXECUTE_RESPONSE = 7;</code>
+     */
+    BOF_EXECUTE_RESPONSE(7),
     UNRECOGNIZED(-1),
     ;
 
@@ -231,6 +244,10 @@ public final class Agents {
      * <code>FILE_TRANSFER_STATUS = 6;</code>
      */
     public static final int FILE_TRANSFER_STATUS_VALUE = 6;
+    /**
+     * <code>BOF_EXECUTE_RESPONSE = 7;</code>
+     */
+    public static final int BOF_EXECUTE_RESPONSE_VALUE = 7;
 
 
     public final int getNumber() {
@@ -264,6 +281,7 @@ public final class Agents {
         case 4: return KEYS_RESPONSE;
         case 5: return FILE_RESPONSE;
         case 6: return FILE_TRANSFER_STATUS;
+        case 7: return BOF_EXECUTE_RESPONSE;
         default: return null;
       }
     }
@@ -440,6 +458,21 @@ public final class Agents {
      */
     patronobuf.Agents.FileToServerOrBuilder getFileToServerOrBuilder();
 
+    /**
+     * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+     * @return Whether the bofExecute field is set.
+     */
+    boolean hasBofExecute();
+    /**
+     * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+     * @return The bofExecute.
+     */
+    patronobuf.Agents.BoFExecuteRequest getBofExecute();
+    /**
+     * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+     */
+    patronobuf.Agents.BoFExecuteRequestOrBuilder getBofExecuteOrBuilder();
+
     public patronobuf.Agents.Request.PayloadCase getPayloadCase();
   }
   /**
@@ -592,6 +625,20 @@ public final class Agents {
               payloadCase_ = 8;
               break;
             }
+            case 74: {
+              patronobuf.Agents.BoFExecuteRequest.Builder subBuilder = null;
+              if (payloadCase_ == 9) {
+                subBuilder = ((patronobuf.Agents.BoFExecuteRequest) payload_).toBuilder();
+              }
+              payload_ =
+                  input.readMessage(patronobuf.Agents.BoFExecuteRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((patronobuf.Agents.BoFExecuteRequest) payload_);
+                payload_ = subBuilder.buildPartial();
+              }
+              payloadCase_ = 9;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -638,6 +685,7 @@ public final class Agents {
       KEYS(6),
       FILE(7),
       FILE_TO_SERVER(8),
+      BOF_EXECUTE(9),
       PAYLOAD_NOT_SET(0);
       private final int value;
       private PayloadCase(int value) {
@@ -662,6 +710,7 @@ public final class Agents {
           case 6: return KEYS;
           case 7: return FILE;
           case 8: return FILE_TO_SERVER;
+          case 9: return BOF_EXECUTE;
           case 0: return PAYLOAD_NOT_SET;
           default: return null;
         }
@@ -913,6 +962,37 @@ public final class Agents {
       return patronobuf.Agents.FileToServer.getDefaultInstance();
     }
 
+    public static final int BOF_EXECUTE_FIELD_NUMBER = 9;
+    /**
+     * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+     * @return Whether the bofExecute field is set.
+     */
+    @java.lang.Override
+    public boolean hasBofExecute() {
+      return payloadCase_ == 9;
+    }
+    /**
+     * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+     * @return The bofExecute.
+     */
+    @java.lang.Override
+    public patronobuf.Agents.BoFExecuteRequest getBofExecute() {
+      if (payloadCase_ == 9) {
+         return (patronobuf.Agents.BoFExecuteRequest) payload_;
+      }
+      return patronobuf.Agents.BoFExecuteRequest.getDefaultInstance();
+    }
+    /**
+     * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+     */
+    @java.lang.Override
+    public patronobuf.Agents.BoFExecuteRequestOrBuilder getBofExecuteOrBuilder() {
+      if (payloadCase_ == 9) {
+         return (patronobuf.Agents.BoFExecuteRequest) payload_;
+      }
+      return patronobuf.Agents.BoFExecuteRequest.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -950,6 +1030,9 @@ public final class Agents {
       }
       if (payloadCase_ == 8) {
         output.writeMessage(8, (patronobuf.Agents.FileToServer) payload_);
+      }
+      if (payloadCase_ == 9) {
+        output.writeMessage(9, (patronobuf.Agents.BoFExecuteRequest) payload_);
       }
       unknownFields.writeTo(output);
     }
@@ -991,6 +1074,10 @@ public final class Agents {
       if (payloadCase_ == 8) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, (patronobuf.Agents.FileToServer) payload_);
+      }
+      if (payloadCase_ == 9) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, (patronobuf.Agents.BoFExecuteRequest) payload_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1038,6 +1125,10 @@ public final class Agents {
           if (!getFileToServer()
               .equals(other.getFileToServer())) return false;
           break;
+        case 9:
+          if (!getBofExecute()
+              .equals(other.getBofExecute())) return false;
+          break;
         case 0:
         default:
       }
@@ -1082,6 +1173,10 @@ public final class Agents {
         case 8:
           hash = (37 * hash) + FILE_TO_SERVER_FIELD_NUMBER;
           hash = (53 * hash) + getFileToServer().hashCode();
+          break;
+        case 9:
+          hash = (37 * hash) + BOF_EXECUTE_FIELD_NUMBER;
+          hash = (53 * hash) + getBofExecute().hashCode();
           break;
         case 0:
         default:
@@ -1299,6 +1394,13 @@ public final class Agents {
             result.payload_ = fileToServerBuilder_.build();
           }
         }
+        if (payloadCase_ == 9) {
+          if (bofExecuteBuilder_ == null) {
+            result.payload_ = payload_;
+          } else {
+            result.payload_ = bofExecuteBuilder_.build();
+          }
+        }
         result.payloadCase_ = payloadCase_;
         onBuilt();
         return result;
@@ -1378,6 +1480,10 @@ public final class Agents {
           }
           case FILE_TO_SERVER: {
             mergeFileToServer(other.getFileToServer());
+            break;
+          }
+          case BOF_EXECUTE: {
+            mergeBofExecute(other.getBofExecute());
             break;
           }
           case PAYLOAD_NOT_SET: {
@@ -2475,6 +2581,148 @@ public final class Agents {
         onChanged();;
         return fileToServerBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          patronobuf.Agents.BoFExecuteRequest, patronobuf.Agents.BoFExecuteRequest.Builder, patronobuf.Agents.BoFExecuteRequestOrBuilder> bofExecuteBuilder_;
+      /**
+       * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+       * @return Whether the bofExecute field is set.
+       */
+      @java.lang.Override
+      public boolean hasBofExecute() {
+        return payloadCase_ == 9;
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+       * @return The bofExecute.
+       */
+      @java.lang.Override
+      public patronobuf.Agents.BoFExecuteRequest getBofExecute() {
+        if (bofExecuteBuilder_ == null) {
+          if (payloadCase_ == 9) {
+            return (patronobuf.Agents.BoFExecuteRequest) payload_;
+          }
+          return patronobuf.Agents.BoFExecuteRequest.getDefaultInstance();
+        } else {
+          if (payloadCase_ == 9) {
+            return bofExecuteBuilder_.getMessage();
+          }
+          return patronobuf.Agents.BoFExecuteRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+       */
+      public Builder setBofExecute(patronobuf.Agents.BoFExecuteRequest value) {
+        if (bofExecuteBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          payload_ = value;
+          onChanged();
+        } else {
+          bofExecuteBuilder_.setMessage(value);
+        }
+        payloadCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+       */
+      public Builder setBofExecute(
+          patronobuf.Agents.BoFExecuteRequest.Builder builderForValue) {
+        if (bofExecuteBuilder_ == null) {
+          payload_ = builderForValue.build();
+          onChanged();
+        } else {
+          bofExecuteBuilder_.setMessage(builderForValue.build());
+        }
+        payloadCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+       */
+      public Builder mergeBofExecute(patronobuf.Agents.BoFExecuteRequest value) {
+        if (bofExecuteBuilder_ == null) {
+          if (payloadCase_ == 9 &&
+              payload_ != patronobuf.Agents.BoFExecuteRequest.getDefaultInstance()) {
+            payload_ = patronobuf.Agents.BoFExecuteRequest.newBuilder((patronobuf.Agents.BoFExecuteRequest) payload_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            payload_ = value;
+          }
+          onChanged();
+        } else {
+          if (payloadCase_ == 9) {
+            bofExecuteBuilder_.mergeFrom(value);
+          } else {
+            bofExecuteBuilder_.setMessage(value);
+          }
+        }
+        payloadCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+       */
+      public Builder clearBofExecute() {
+        if (bofExecuteBuilder_ == null) {
+          if (payloadCase_ == 9) {
+            payloadCase_ = 0;
+            payload_ = null;
+            onChanged();
+          }
+        } else {
+          if (payloadCase_ == 9) {
+            payloadCase_ = 0;
+            payload_ = null;
+          }
+          bofExecuteBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+       */
+      public patronobuf.Agents.BoFExecuteRequest.Builder getBofExecuteBuilder() {
+        return getBofExecuteFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+       */
+      @java.lang.Override
+      public patronobuf.Agents.BoFExecuteRequestOrBuilder getBofExecuteOrBuilder() {
+        if ((payloadCase_ == 9) && (bofExecuteBuilder_ != null)) {
+          return bofExecuteBuilder_.getMessageOrBuilder();
+        } else {
+          if (payloadCase_ == 9) {
+            return (patronobuf.Agents.BoFExecuteRequest) payload_;
+          }
+          return patronobuf.Agents.BoFExecuteRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteRequest bof_execute = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          patronobuf.Agents.BoFExecuteRequest, patronobuf.Agents.BoFExecuteRequest.Builder, patronobuf.Agents.BoFExecuteRequestOrBuilder> 
+          getBofExecuteFieldBuilder() {
+        if (bofExecuteBuilder_ == null) {
+          if (!(payloadCase_ == 9)) {
+            payload_ = patronobuf.Agents.BoFExecuteRequest.getDefaultInstance();
+          }
+          bofExecuteBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              patronobuf.Agents.BoFExecuteRequest, patronobuf.Agents.BoFExecuteRequest.Builder, patronobuf.Agents.BoFExecuteRequestOrBuilder>(
+                  (patronobuf.Agents.BoFExecuteRequest) payload_,
+                  getParentForChildren(),
+                  isClean());
+          payload_ = null;
+        }
+        payloadCase_ = 9;
+        onChanged();;
+        return bofExecuteBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2648,6 +2896,21 @@ public final class Agents {
      */
     patronobuf.Agents.FileTransferStatusResponseOrBuilder getFileTransferStatusResponseOrBuilder();
 
+    /**
+     * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+     * @return Whether the bofExecuteResponse field is set.
+     */
+    boolean hasBofExecuteResponse();
+    /**
+     * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+     * @return The bofExecuteResponse.
+     */
+    patronobuf.Agents.BoFExecuteResponse getBofExecuteResponse();
+    /**
+     * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+     */
+    patronobuf.Agents.BoFExecuteResponseOrBuilder getBofExecuteResponseOrBuilder();
+
     public patronobuf.Agents.Response.PayloadCase getPayloadCase();
   }
   /**
@@ -2800,6 +3063,20 @@ public final class Agents {
               payloadCase_ = 8;
               break;
             }
+            case 74: {
+              patronobuf.Agents.BoFExecuteResponse.Builder subBuilder = null;
+              if (payloadCase_ == 9) {
+                subBuilder = ((patronobuf.Agents.BoFExecuteResponse) payload_).toBuilder();
+              }
+              payload_ =
+                  input.readMessage(patronobuf.Agents.BoFExecuteResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((patronobuf.Agents.BoFExecuteResponse) payload_);
+                payload_ = subBuilder.buildPartial();
+              }
+              payloadCase_ = 9;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -2846,6 +3123,7 @@ public final class Agents {
       KEYS_RESPONSE(6),
       FILE_RESPONSE(7),
       FILE_TRANSFER_STATUS_RESPONSE(8),
+      BOF_EXECUTE_RESPONSE(9),
       PAYLOAD_NOT_SET(0);
       private final int value;
       private PayloadCase(int value) {
@@ -2870,6 +3148,7 @@ public final class Agents {
           case 6: return KEYS_RESPONSE;
           case 7: return FILE_RESPONSE;
           case 8: return FILE_TRANSFER_STATUS_RESPONSE;
+          case 9: return BOF_EXECUTE_RESPONSE;
           case 0: return PAYLOAD_NOT_SET;
           default: return null;
         }
@@ -3121,6 +3400,37 @@ public final class Agents {
       return patronobuf.Agents.FileTransferStatusResponse.getDefaultInstance();
     }
 
+    public static final int BOF_EXECUTE_RESPONSE_FIELD_NUMBER = 9;
+    /**
+     * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+     * @return Whether the bofExecuteResponse field is set.
+     */
+    @java.lang.Override
+    public boolean hasBofExecuteResponse() {
+      return payloadCase_ == 9;
+    }
+    /**
+     * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+     * @return The bofExecuteResponse.
+     */
+    @java.lang.Override
+    public patronobuf.Agents.BoFExecuteResponse getBofExecuteResponse() {
+      if (payloadCase_ == 9) {
+         return (patronobuf.Agents.BoFExecuteResponse) payload_;
+      }
+      return patronobuf.Agents.BoFExecuteResponse.getDefaultInstance();
+    }
+    /**
+     * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+     */
+    @java.lang.Override
+    public patronobuf.Agents.BoFExecuteResponseOrBuilder getBofExecuteResponseOrBuilder() {
+      if (payloadCase_ == 9) {
+         return (patronobuf.Agents.BoFExecuteResponse) payload_;
+      }
+      return patronobuf.Agents.BoFExecuteResponse.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3158,6 +3468,9 @@ public final class Agents {
       }
       if (payloadCase_ == 8) {
         output.writeMessage(8, (patronobuf.Agents.FileTransferStatusResponse) payload_);
+      }
+      if (payloadCase_ == 9) {
+        output.writeMessage(9, (patronobuf.Agents.BoFExecuteResponse) payload_);
       }
       unknownFields.writeTo(output);
     }
@@ -3199,6 +3512,10 @@ public final class Agents {
       if (payloadCase_ == 8) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, (patronobuf.Agents.FileTransferStatusResponse) payload_);
+      }
+      if (payloadCase_ == 9) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(9, (patronobuf.Agents.BoFExecuteResponse) payload_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3246,6 +3563,10 @@ public final class Agents {
           if (!getFileTransferStatusResponse()
               .equals(other.getFileTransferStatusResponse())) return false;
           break;
+        case 9:
+          if (!getBofExecuteResponse()
+              .equals(other.getBofExecuteResponse())) return false;
+          break;
         case 0:
         default:
       }
@@ -3290,6 +3611,10 @@ public final class Agents {
         case 8:
           hash = (37 * hash) + FILE_TRANSFER_STATUS_RESPONSE_FIELD_NUMBER;
           hash = (53 * hash) + getFileTransferStatusResponse().hashCode();
+          break;
+        case 9:
+          hash = (37 * hash) + BOF_EXECUTE_RESPONSE_FIELD_NUMBER;
+          hash = (53 * hash) + getBofExecuteResponse().hashCode();
           break;
         case 0:
         default:
@@ -3507,6 +3832,13 @@ public final class Agents {
             result.payload_ = fileTransferStatusResponseBuilder_.build();
           }
         }
+        if (payloadCase_ == 9) {
+          if (bofExecuteResponseBuilder_ == null) {
+            result.payload_ = payload_;
+          } else {
+            result.payload_ = bofExecuteResponseBuilder_.build();
+          }
+        }
         result.payloadCase_ = payloadCase_;
         onBuilt();
         return result;
@@ -3586,6 +3918,10 @@ public final class Agents {
           }
           case FILE_TRANSFER_STATUS_RESPONSE: {
             mergeFileTransferStatusResponse(other.getFileTransferStatusResponse());
+            break;
+          }
+          case BOF_EXECUTE_RESPONSE: {
+            mergeBofExecuteResponse(other.getBofExecuteResponse());
             break;
           }
           case PAYLOAD_NOT_SET: {
@@ -4682,6 +5018,148 @@ public final class Agents {
         payloadCase_ = 8;
         onChanged();;
         return fileTransferStatusResponseBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          patronobuf.Agents.BoFExecuteResponse, patronobuf.Agents.BoFExecuteResponse.Builder, patronobuf.Agents.BoFExecuteResponseOrBuilder> bofExecuteResponseBuilder_;
+      /**
+       * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+       * @return Whether the bofExecuteResponse field is set.
+       */
+      @java.lang.Override
+      public boolean hasBofExecuteResponse() {
+        return payloadCase_ == 9;
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+       * @return The bofExecuteResponse.
+       */
+      @java.lang.Override
+      public patronobuf.Agents.BoFExecuteResponse getBofExecuteResponse() {
+        if (bofExecuteResponseBuilder_ == null) {
+          if (payloadCase_ == 9) {
+            return (patronobuf.Agents.BoFExecuteResponse) payload_;
+          }
+          return patronobuf.Agents.BoFExecuteResponse.getDefaultInstance();
+        } else {
+          if (payloadCase_ == 9) {
+            return bofExecuteResponseBuilder_.getMessage();
+          }
+          return patronobuf.Agents.BoFExecuteResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+       */
+      public Builder setBofExecuteResponse(patronobuf.Agents.BoFExecuteResponse value) {
+        if (bofExecuteResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          payload_ = value;
+          onChanged();
+        } else {
+          bofExecuteResponseBuilder_.setMessage(value);
+        }
+        payloadCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+       */
+      public Builder setBofExecuteResponse(
+          patronobuf.Agents.BoFExecuteResponse.Builder builderForValue) {
+        if (bofExecuteResponseBuilder_ == null) {
+          payload_ = builderForValue.build();
+          onChanged();
+        } else {
+          bofExecuteResponseBuilder_.setMessage(builderForValue.build());
+        }
+        payloadCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+       */
+      public Builder mergeBofExecuteResponse(patronobuf.Agents.BoFExecuteResponse value) {
+        if (bofExecuteResponseBuilder_ == null) {
+          if (payloadCase_ == 9 &&
+              payload_ != patronobuf.Agents.BoFExecuteResponse.getDefaultInstance()) {
+            payload_ = patronobuf.Agents.BoFExecuteResponse.newBuilder((patronobuf.Agents.BoFExecuteResponse) payload_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            payload_ = value;
+          }
+          onChanged();
+        } else {
+          if (payloadCase_ == 9) {
+            bofExecuteResponseBuilder_.mergeFrom(value);
+          } else {
+            bofExecuteResponseBuilder_.setMessage(value);
+          }
+        }
+        payloadCase_ = 9;
+        return this;
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+       */
+      public Builder clearBofExecuteResponse() {
+        if (bofExecuteResponseBuilder_ == null) {
+          if (payloadCase_ == 9) {
+            payloadCase_ = 0;
+            payload_ = null;
+            onChanged();
+          }
+        } else {
+          if (payloadCase_ == 9) {
+            payloadCase_ = 0;
+            payload_ = null;
+          }
+          bofExecuteResponseBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+       */
+      public patronobuf.Agents.BoFExecuteResponse.Builder getBofExecuteResponseBuilder() {
+        return getBofExecuteResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+       */
+      @java.lang.Override
+      public patronobuf.Agents.BoFExecuteResponseOrBuilder getBofExecuteResponseOrBuilder() {
+        if ((payloadCase_ == 9) && (bofExecuteResponseBuilder_ != null)) {
+          return bofExecuteResponseBuilder_.getMessageOrBuilder();
+        } else {
+          if (payloadCase_ == 9) {
+            return (patronobuf.Agents.BoFExecuteResponse) payload_;
+          }
+          return patronobuf.Agents.BoFExecuteResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.patronobuf.BoFExecuteResponse bof_execute_response = 9;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          patronobuf.Agents.BoFExecuteResponse, patronobuf.Agents.BoFExecuteResponse.Builder, patronobuf.Agents.BoFExecuteResponseOrBuilder> 
+          getBofExecuteResponseFieldBuilder() {
+        if (bofExecuteResponseBuilder_ == null) {
+          if (!(payloadCase_ == 9)) {
+            payload_ = patronobuf.Agents.BoFExecuteResponse.getDefaultInstance();
+          }
+          bofExecuteResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              patronobuf.Agents.BoFExecuteResponse, patronobuf.Agents.BoFExecuteResponse.Builder, patronobuf.Agents.BoFExecuteResponseOrBuilder>(
+                  (patronobuf.Agents.BoFExecuteResponse) payload_,
+                  getParentForChildren(),
+                  isClean());
+          payload_ = null;
+        }
+        payloadCase_ = 9;
+        onChanged();;
+        return bofExecuteResponseBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -13483,6 +13961,2055 @@ public final class Agents {
 
   }
 
+  public interface BoFExecuteRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:patronobuf.BoFExecuteRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Agent UUID
+     * </pre>
+     *
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    java.lang.String getUuid();
+    /**
+     * <pre>
+     * Agent UUID
+     * </pre>
+     *
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    com.google.protobuf.ByteString
+        getUuidBytes();
+
+    /**
+     * <pre>
+     * Compiled BOF binary (Windows) or ELF (Linux)
+     * </pre>
+     *
+     * <code>bytes bof_payload = 2;</code>
+     * @return The bofPayload.
+     */
+    com.google.protobuf.ByteString getBofPayload();
+
+    /**
+     * <pre>
+     * "windows" or "linux"
+     * </pre>
+     *
+     * <code>string platform = 3;</code>
+     * @return The platform.
+     */
+    java.lang.String getPlatform();
+    /**
+     * <pre>
+     * "windows" or "linux"
+     * </pre>
+     *
+     * <code>string platform = 3;</code>
+     * @return The bytes for platform.
+     */
+    com.google.protobuf.ByteString
+        getPlatformBytes();
+
+    /**
+     * <pre>
+     * Function name to call in BOF (e.g., "go")
+     * </pre>
+     *
+     * <code>string function_name = 4;</code>
+     * @return The functionName.
+     */
+    java.lang.String getFunctionName();
+    /**
+     * <pre>
+     * Function name to call in BOF (e.g., "go")
+     * </pre>
+     *
+     * <code>string function_name = 4;</code>
+     * @return The bytes for functionName.
+     */
+    com.google.protobuf.ByteString
+        getFunctionNameBytes();
+  }
+  /**
+   * Protobuf type {@code patronobuf.BoFExecuteRequest}
+   */
+  public static final class BoFExecuteRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:patronobuf.BoFExecuteRequest)
+      BoFExecuteRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BoFExecuteRequest.newBuilder() to construct.
+    private BoFExecuteRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BoFExecuteRequest() {
+      uuid_ = "";
+      bofPayload_ = com.google.protobuf.ByteString.EMPTY;
+      platform_ = "";
+      functionName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new BoFExecuteRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BoFExecuteRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              uuid_ = s;
+              break;
+            }
+            case 18: {
+
+              bofPayload_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              platform_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              functionName_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return patronobuf.Agents.internal_static_patronobuf_BoFExecuteRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return patronobuf.Agents.internal_static_patronobuf_BoFExecuteRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              patronobuf.Agents.BoFExecuteRequest.class, patronobuf.Agents.BoFExecuteRequest.Builder.class);
+    }
+
+    public static final int UUID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object uuid_;
+    /**
+     * <pre>
+     * Agent UUID
+     * </pre>
+     *
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    @java.lang.Override
+    public java.lang.String getUuid() {
+      java.lang.Object ref = uuid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uuid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Agent UUID
+     * </pre>
+     *
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUuidBytes() {
+      java.lang.Object ref = uuid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uuid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BOF_PAYLOAD_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString bofPayload_;
+    /**
+     * <pre>
+     * Compiled BOF binary (Windows) or ELF (Linux)
+     * </pre>
+     *
+     * <code>bytes bof_payload = 2;</code>
+     * @return The bofPayload.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getBofPayload() {
+      return bofPayload_;
+    }
+
+    public static final int PLATFORM_FIELD_NUMBER = 3;
+    private volatile java.lang.Object platform_;
+    /**
+     * <pre>
+     * "windows" or "linux"
+     * </pre>
+     *
+     * <code>string platform = 3;</code>
+     * @return The platform.
+     */
+    @java.lang.Override
+    public java.lang.String getPlatform() {
+      java.lang.Object ref = platform_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        platform_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * "windows" or "linux"
+     * </pre>
+     *
+     * <code>string platform = 3;</code>
+     * @return The bytes for platform.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPlatformBytes() {
+      java.lang.Object ref = platform_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        platform_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FUNCTION_NAME_FIELD_NUMBER = 4;
+    private volatile java.lang.Object functionName_;
+    /**
+     * <pre>
+     * Function name to call in BOF (e.g., "go")
+     * </pre>
+     *
+     * <code>string function_name = 4;</code>
+     * @return The functionName.
+     */
+    @java.lang.Override
+    public java.lang.String getFunctionName() {
+      java.lang.Object ref = functionName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        functionName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Function name to call in BOF (e.g., "go")
+     * </pre>
+     *
+     * <code>string function_name = 4;</code>
+     * @return The bytes for functionName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFunctionNameBytes() {
+      java.lang.Object ref = functionName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        functionName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
+      }
+      if (!bofPayload_.isEmpty()) {
+        output.writeBytes(2, bofPayload_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(platform_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, platform_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(functionName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, functionName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
+      }
+      if (!bofPayload_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, bofPayload_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(platform_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, platform_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(functionName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, functionName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof patronobuf.Agents.BoFExecuteRequest)) {
+        return super.equals(obj);
+      }
+      patronobuf.Agents.BoFExecuteRequest other = (patronobuf.Agents.BoFExecuteRequest) obj;
+
+      if (!getUuid()
+          .equals(other.getUuid())) return false;
+      if (!getBofPayload()
+          .equals(other.getBofPayload())) return false;
+      if (!getPlatform()
+          .equals(other.getPlatform())) return false;
+      if (!getFunctionName()
+          .equals(other.getFunctionName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + UUID_FIELD_NUMBER;
+      hash = (53 * hash) + getUuid().hashCode();
+      hash = (37 * hash) + BOF_PAYLOAD_FIELD_NUMBER;
+      hash = (53 * hash) + getBofPayload().hashCode();
+      hash = (37 * hash) + PLATFORM_FIELD_NUMBER;
+      hash = (53 * hash) + getPlatform().hashCode();
+      hash = (37 * hash) + FUNCTION_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFunctionName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static patronobuf.Agents.BoFExecuteRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.BoFExecuteRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFExecuteRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.BoFExecuteRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFExecuteRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.BoFExecuteRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFExecuteRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.BoFExecuteRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFExecuteRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.BoFExecuteRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFExecuteRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.BoFExecuteRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(patronobuf.Agents.BoFExecuteRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code patronobuf.BoFExecuteRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:patronobuf.BoFExecuteRequest)
+        patronobuf.Agents.BoFExecuteRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return patronobuf.Agents.internal_static_patronobuf_BoFExecuteRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return patronobuf.Agents.internal_static_patronobuf_BoFExecuteRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                patronobuf.Agents.BoFExecuteRequest.class, patronobuf.Agents.BoFExecuteRequest.Builder.class);
+      }
+
+      // Construct using patronobuf.Agents.BoFExecuteRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        uuid_ = "";
+
+        bofPayload_ = com.google.protobuf.ByteString.EMPTY;
+
+        platform_ = "";
+
+        functionName_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return patronobuf.Agents.internal_static_patronobuf_BoFExecuteRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.BoFExecuteRequest getDefaultInstanceForType() {
+        return patronobuf.Agents.BoFExecuteRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.BoFExecuteRequest build() {
+        patronobuf.Agents.BoFExecuteRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.BoFExecuteRequest buildPartial() {
+        patronobuf.Agents.BoFExecuteRequest result = new patronobuf.Agents.BoFExecuteRequest(this);
+        result.uuid_ = uuid_;
+        result.bofPayload_ = bofPayload_;
+        result.platform_ = platform_;
+        result.functionName_ = functionName_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof patronobuf.Agents.BoFExecuteRequest) {
+          return mergeFrom((patronobuf.Agents.BoFExecuteRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(patronobuf.Agents.BoFExecuteRequest other) {
+        if (other == patronobuf.Agents.BoFExecuteRequest.getDefaultInstance()) return this;
+        if (!other.getUuid().isEmpty()) {
+          uuid_ = other.uuid_;
+          onChanged();
+        }
+        if (other.getBofPayload() != com.google.protobuf.ByteString.EMPTY) {
+          setBofPayload(other.getBofPayload());
+        }
+        if (!other.getPlatform().isEmpty()) {
+          platform_ = other.platform_;
+          onChanged();
+        }
+        if (!other.getFunctionName().isEmpty()) {
+          functionName_ = other.functionName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        patronobuf.Agents.BoFExecuteRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (patronobuf.Agents.BoFExecuteRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object uuid_ = "";
+      /**
+       * <pre>
+       * Agent UUID
+       * </pre>
+       *
+       * <code>string uuid = 1;</code>
+       * @return The uuid.
+       */
+      public java.lang.String getUuid() {
+        java.lang.Object ref = uuid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uuid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Agent UUID
+       * </pre>
+       *
+       * <code>string uuid = 1;</code>
+       * @return The bytes for uuid.
+       */
+      public com.google.protobuf.ByteString
+          getUuidBytes() {
+        java.lang.Object ref = uuid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uuid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Agent UUID
+       * </pre>
+       *
+       * <code>string uuid = 1;</code>
+       * @param value The uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Agent UUID
+       * </pre>
+       *
+       * <code>string uuid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUuid() {
+        
+        uuid_ = getDefaultInstance().getUuid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Agent UUID
+       * </pre>
+       *
+       * <code>string uuid = 1;</code>
+       * @param value The bytes for uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString bofPayload_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * Compiled BOF binary (Windows) or ELF (Linux)
+       * </pre>
+       *
+       * <code>bytes bof_payload = 2;</code>
+       * @return The bofPayload.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getBofPayload() {
+        return bofPayload_;
+      }
+      /**
+       * <pre>
+       * Compiled BOF binary (Windows) or ELF (Linux)
+       * </pre>
+       *
+       * <code>bytes bof_payload = 2;</code>
+       * @param value The bofPayload to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBofPayload(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        bofPayload_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Compiled BOF binary (Windows) or ELF (Linux)
+       * </pre>
+       *
+       * <code>bytes bof_payload = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBofPayload() {
+        
+        bofPayload_ = getDefaultInstance().getBofPayload();
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object platform_ = "";
+      /**
+       * <pre>
+       * "windows" or "linux"
+       * </pre>
+       *
+       * <code>string platform = 3;</code>
+       * @return The platform.
+       */
+      public java.lang.String getPlatform() {
+        java.lang.Object ref = platform_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          platform_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * "windows" or "linux"
+       * </pre>
+       *
+       * <code>string platform = 3;</code>
+       * @return The bytes for platform.
+       */
+      public com.google.protobuf.ByteString
+          getPlatformBytes() {
+        java.lang.Object ref = platform_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          platform_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * "windows" or "linux"
+       * </pre>
+       *
+       * <code>string platform = 3;</code>
+       * @param value The platform to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPlatform(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        platform_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * "windows" or "linux"
+       * </pre>
+       *
+       * <code>string platform = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPlatform() {
+        
+        platform_ = getDefaultInstance().getPlatform();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * "windows" or "linux"
+       * </pre>
+       *
+       * <code>string platform = 3;</code>
+       * @param value The bytes for platform to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPlatformBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        platform_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object functionName_ = "";
+      /**
+       * <pre>
+       * Function name to call in BOF (e.g., "go")
+       * </pre>
+       *
+       * <code>string function_name = 4;</code>
+       * @return The functionName.
+       */
+      public java.lang.String getFunctionName() {
+        java.lang.Object ref = functionName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          functionName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Function name to call in BOF (e.g., "go")
+       * </pre>
+       *
+       * <code>string function_name = 4;</code>
+       * @return The bytes for functionName.
+       */
+      public com.google.protobuf.ByteString
+          getFunctionNameBytes() {
+        java.lang.Object ref = functionName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          functionName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Function name to call in BOF (e.g., "go")
+       * </pre>
+       *
+       * <code>string function_name = 4;</code>
+       * @param value The functionName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFunctionName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        functionName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Function name to call in BOF (e.g., "go")
+       * </pre>
+       *
+       * <code>string function_name = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFunctionName() {
+        
+        functionName_ = getDefaultInstance().getFunctionName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Function name to call in BOF (e.g., "go")
+       * </pre>
+       *
+       * <code>string function_name = 4;</code>
+       * @param value The bytes for functionName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFunctionNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        functionName_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:patronobuf.BoFExecuteRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:patronobuf.BoFExecuteRequest)
+    private static final patronobuf.Agents.BoFExecuteRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new patronobuf.Agents.BoFExecuteRequest();
+    }
+
+    public static patronobuf.Agents.BoFExecuteRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<BoFExecuteRequest>
+        PARSER = new com.google.protobuf.AbstractParser<BoFExecuteRequest>() {
+      @java.lang.Override
+      public BoFExecuteRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BoFExecuteRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BoFExecuteRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BoFExecuteRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public patronobuf.Agents.BoFExecuteRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface BoFExecuteResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:patronobuf.BoFExecuteResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    java.lang.String getUuid();
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    com.google.protobuf.ByteString
+        getUuidBytes();
+
+    /**
+     * <code>bool success = 2;</code>
+     * @return The success.
+     */
+    boolean getSuccess();
+
+    /**
+     * <pre>
+     * Output from BeaconPrintf or similar
+     * </pre>
+     *
+     * <code>string output = 3;</code>
+     * @return The output.
+     */
+    java.lang.String getOutput();
+    /**
+     * <pre>
+     * Output from BeaconPrintf or similar
+     * </pre>
+     *
+     * <code>string output = 3;</code>
+     * @return The bytes for output.
+     */
+    com.google.protobuf.ByteString
+        getOutputBytes();
+
+    /**
+     * <code>string error = 4;</code>
+     * @return The error.
+     */
+    java.lang.String getError();
+    /**
+     * <code>string error = 4;</code>
+     * @return The bytes for error.
+     */
+    com.google.protobuf.ByteString
+        getErrorBytes();
+  }
+  /**
+   * Protobuf type {@code patronobuf.BoFExecuteResponse}
+   */
+  public static final class BoFExecuteResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:patronobuf.BoFExecuteResponse)
+      BoFExecuteResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BoFExecuteResponse.newBuilder() to construct.
+    private BoFExecuteResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BoFExecuteResponse() {
+      uuid_ = "";
+      output_ = "";
+      error_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new BoFExecuteResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BoFExecuteResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              uuid_ = s;
+              break;
+            }
+            case 16: {
+
+              success_ = input.readBool();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              output_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              error_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return patronobuf.Agents.internal_static_patronobuf_BoFExecuteResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return patronobuf.Agents.internal_static_patronobuf_BoFExecuteResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              patronobuf.Agents.BoFExecuteResponse.class, patronobuf.Agents.BoFExecuteResponse.Builder.class);
+    }
+
+    public static final int UUID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object uuid_;
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    @java.lang.Override
+    public java.lang.String getUuid() {
+      java.lang.Object ref = uuid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uuid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUuidBytes() {
+      java.lang.Object ref = uuid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uuid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SUCCESS_FIELD_NUMBER = 2;
+    private boolean success_;
+    /**
+     * <code>bool success = 2;</code>
+     * @return The success.
+     */
+    @java.lang.Override
+    public boolean getSuccess() {
+      return success_;
+    }
+
+    public static final int OUTPUT_FIELD_NUMBER = 3;
+    private volatile java.lang.Object output_;
+    /**
+     * <pre>
+     * Output from BeaconPrintf or similar
+     * </pre>
+     *
+     * <code>string output = 3;</code>
+     * @return The output.
+     */
+    @java.lang.Override
+    public java.lang.String getOutput() {
+      java.lang.Object ref = output_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        output_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Output from BeaconPrintf or similar
+     * </pre>
+     *
+     * <code>string output = 3;</code>
+     * @return The bytes for output.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getOutputBytes() {
+      java.lang.Object ref = output_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        output_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ERROR_FIELD_NUMBER = 4;
+    private volatile java.lang.Object error_;
+    /**
+     * <code>string error = 4;</code>
+     * @return The error.
+     */
+    @java.lang.Override
+    public java.lang.String getError() {
+      java.lang.Object ref = error_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        error_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string error = 4;</code>
+     * @return The bytes for error.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getErrorBytes() {
+      java.lang.Object ref = error_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        error_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
+      }
+      if (success_ != false) {
+        output.writeBool(2, success_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(output_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, output_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, error_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
+      }
+      if (success_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, success_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(output_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, output_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(error_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, error_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof patronobuf.Agents.BoFExecuteResponse)) {
+        return super.equals(obj);
+      }
+      patronobuf.Agents.BoFExecuteResponse other = (patronobuf.Agents.BoFExecuteResponse) obj;
+
+      if (!getUuid()
+          .equals(other.getUuid())) return false;
+      if (getSuccess()
+          != other.getSuccess()) return false;
+      if (!getOutput()
+          .equals(other.getOutput())) return false;
+      if (!getError()
+          .equals(other.getError())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + UUID_FIELD_NUMBER;
+      hash = (53 * hash) + getUuid().hashCode();
+      hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSuccess());
+      hash = (37 * hash) + OUTPUT_FIELD_NUMBER;
+      hash = (53 * hash) + getOutput().hashCode();
+      hash = (37 * hash) + ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + getError().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static patronobuf.Agents.BoFExecuteResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.BoFExecuteResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFExecuteResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.BoFExecuteResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFExecuteResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.BoFExecuteResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFExecuteResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.BoFExecuteResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFExecuteResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.BoFExecuteResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFExecuteResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.BoFExecuteResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(patronobuf.Agents.BoFExecuteResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code patronobuf.BoFExecuteResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:patronobuf.BoFExecuteResponse)
+        patronobuf.Agents.BoFExecuteResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return patronobuf.Agents.internal_static_patronobuf_BoFExecuteResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return patronobuf.Agents.internal_static_patronobuf_BoFExecuteResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                patronobuf.Agents.BoFExecuteResponse.class, patronobuf.Agents.BoFExecuteResponse.Builder.class);
+      }
+
+      // Construct using patronobuf.Agents.BoFExecuteResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        uuid_ = "";
+
+        success_ = false;
+
+        output_ = "";
+
+        error_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return patronobuf.Agents.internal_static_patronobuf_BoFExecuteResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.BoFExecuteResponse getDefaultInstanceForType() {
+        return patronobuf.Agents.BoFExecuteResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.BoFExecuteResponse build() {
+        patronobuf.Agents.BoFExecuteResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.BoFExecuteResponse buildPartial() {
+        patronobuf.Agents.BoFExecuteResponse result = new patronobuf.Agents.BoFExecuteResponse(this);
+        result.uuid_ = uuid_;
+        result.success_ = success_;
+        result.output_ = output_;
+        result.error_ = error_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof patronobuf.Agents.BoFExecuteResponse) {
+          return mergeFrom((patronobuf.Agents.BoFExecuteResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(patronobuf.Agents.BoFExecuteResponse other) {
+        if (other == patronobuf.Agents.BoFExecuteResponse.getDefaultInstance()) return this;
+        if (!other.getUuid().isEmpty()) {
+          uuid_ = other.uuid_;
+          onChanged();
+        }
+        if (other.getSuccess() != false) {
+          setSuccess(other.getSuccess());
+        }
+        if (!other.getOutput().isEmpty()) {
+          output_ = other.output_;
+          onChanged();
+        }
+        if (!other.getError().isEmpty()) {
+          error_ = other.error_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        patronobuf.Agents.BoFExecuteResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (patronobuf.Agents.BoFExecuteResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object uuid_ = "";
+      /**
+       * <code>string uuid = 1;</code>
+       * @return The uuid.
+       */
+      public java.lang.String getUuid() {
+        java.lang.Object ref = uuid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uuid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @return The bytes for uuid.
+       */
+      public com.google.protobuf.ByteString
+          getUuidBytes() {
+        java.lang.Object ref = uuid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uuid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @param value The uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUuid() {
+        
+        uuid_ = getDefaultInstance().getUuid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @param value The bytes for uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean success_ ;
+      /**
+       * <code>bool success = 2;</code>
+       * @return The success.
+       */
+      @java.lang.Override
+      public boolean getSuccess() {
+        return success_;
+      }
+      /**
+       * <code>bool success = 2;</code>
+       * @param value The success to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSuccess(boolean value) {
+        
+        success_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool success = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSuccess() {
+        
+        success_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object output_ = "";
+      /**
+       * <pre>
+       * Output from BeaconPrintf or similar
+       * </pre>
+       *
+       * <code>string output = 3;</code>
+       * @return The output.
+       */
+      public java.lang.String getOutput() {
+        java.lang.Object ref = output_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          output_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Output from BeaconPrintf or similar
+       * </pre>
+       *
+       * <code>string output = 3;</code>
+       * @return The bytes for output.
+       */
+      public com.google.protobuf.ByteString
+          getOutputBytes() {
+        java.lang.Object ref = output_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          output_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Output from BeaconPrintf or similar
+       * </pre>
+       *
+       * <code>string output = 3;</code>
+       * @param value The output to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOutput(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        output_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output from BeaconPrintf or similar
+       * </pre>
+       *
+       * <code>string output = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOutput() {
+        
+        output_ = getDefaultInstance().getOutput();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output from BeaconPrintf or similar
+       * </pre>
+       *
+       * <code>string output = 3;</code>
+       * @param value The bytes for output to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOutputBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        output_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object error_ = "";
+      /**
+       * <code>string error = 4;</code>
+       * @return The error.
+       */
+      public java.lang.String getError() {
+        java.lang.Object ref = error_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          error_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string error = 4;</code>
+       * @return The bytes for error.
+       */
+      public com.google.protobuf.ByteString
+          getErrorBytes() {
+        java.lang.Object ref = error_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          error_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string error = 4;</code>
+       * @param value The error to set.
+       * @return This builder for chaining.
+       */
+      public Builder setError(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        error_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string error = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearError() {
+        
+        error_ = getDefaultInstance().getError();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string error = 4;</code>
+       * @param value The bytes for error to set.
+       * @return This builder for chaining.
+       */
+      public Builder setErrorBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        error_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:patronobuf.BoFExecuteResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:patronobuf.BoFExecuteResponse)
+    private static final patronobuf.Agents.BoFExecuteResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new patronobuf.Agents.BoFExecuteResponse();
+    }
+
+    public static patronobuf.Agents.BoFExecuteResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<BoFExecuteResponse>
+        PARSER = new com.google.protobuf.AbstractParser<BoFExecuteResponse>() {
+      @java.lang.Override
+      public BoFExecuteResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BoFExecuteResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BoFExecuteResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BoFExecuteResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public patronobuf.Agents.BoFExecuteResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface KeysRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:patronobuf.KeysRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -19172,6 +21699,16 @@ public final class Agents {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_patronobuf_CommandStatusResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_patronobuf_BoFExecuteRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_patronobuf_BoFExecuteRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_patronobuf_BoFExecuteResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_patronobuf_BoFExecuteResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_patronobuf_KeysRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -19215,7 +21752,7 @@ public final class Agents {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014agents.proto\022\npatronobuf\"\226\003\n\007Request\022%" +
+      "\n\014agents.proto\022\npatronobuf\"\314\003\n\007Request\022%" +
       "\n\004type\030\001 \001(\0162\027.patronobuf.RequestType\022-\n" +
       "\007startup\030\002 \001(\0132\032.patronobuf.StartupReque" +
       "stH\000\0229\n\rconfiguration\030\003 \001(\0132 .patronobuf" +
@@ -19225,60 +21762,68 @@ public final class Agents {
       "sRequestH\000\022\'\n\004keys\030\006 \001(\0132\027.patronobuf.Ke" +
       "ysRequestH\000\022\'\n\004file\030\007 \001(\0132\027.patronobuf.F" +
       "ileRequestH\000\0222\n\016file_to_server\030\010 \001(\0132\030.p" +
-      "atronobuf.FileToServerH\000B\t\n\007payload\"\361\003\n\010" +
-      "Response\022&\n\004type\030\001 \001(\0162\030.patronobuf.Resp" +
-      "onseType\0227\n\020startup_response\030\002 \001(\0132\033.pat" +
-      "ronobuf.StartupResponseH\000\022C\n\026configurati" +
-      "on_response\030\003 \001(\0132!.patronobuf.Configura" +
-      "tionResponseH\000\0227\n\020command_response\030\004 \001(\013" +
-      "2\033.patronobuf.CommandResponseH\000\022D\n\027comma" +
-      "nd_status_response\030\005 \001(\0132!.patronobuf.Co" +
-      "mmandStatusResponseH\000\0221\n\rkeys_response\030\006" +
-      " \001(\0132\030.patronobuf.KeysResponseH\000\0221\n\rfile" +
-      "_response\030\007 \001(\0132\030.patronobuf.FileRespons" +
-      "eH\000\022O\n\035file_transfer_status_response\030\010 \001" +
-      "(\0132&.patronobuf.FileTransferStatusRespon" +
-      "seH\000B\t\n\007payload\"\272\001\n\016StartupRequest\022\020\n\010fi" +
-      "lepath\030\001 \001(\t\022\020\n\010username\030\002 \001(\t\022\020\n\010hostna" +
-      "me\030\003 \001(\t\022\016\n\006ostype\030\004 \001(\t\022\014\n\004arch\030\005 \001(\t\022\017" +
-      "\n\007osbuild\030\006 \001(\t\022\014\n\004cpus\030\007 \001(\t\022\016\n\006memory\030" +
-      "\010 \001(\t\022\017\n\007agentip\030\t \001(\t\022\024\n\014capabilities\030\n" +
-      " \003(\t\"\037\n\017StartupResponse\022\014\n\004uuid\030\001 \001(\t\"\365\001" +
-      "\n\024ConfigurationRequest\022\014\n\004uuid\030\001 \001(\t\022\020\n\010" +
-      "serverip\030\002 \001(\t\022\022\n\nserverport\030\003 \001(\t\022\031\n\021ca" +
-      "llbackfrequency\030\004 \001(\t\022\026\n\016callbackjitter\030" +
-      "\005 \001(\t\022\021\n\tmasterkey\030\006 \001(\t\022\016\n\006status\030\007 \001(\t" +
-      "\022\035\n\004tags\030\010 \003(\0132\017.patronobuf.Tag\022\031\n\021nextc" +
-      "allback_unix\030\t \001(\003\022\031\n\021transportprotocol\030" +
-      "\n \001(\t\"o\n\025ConfigurationResponse\022\020\n\010server" +
-      "ip\030\002 \001(\t\022\022\n\nserverport\030\003 \001(\t\022\031\n\021transpor" +
-      "tprotocol\030\006 \001(\t\022\025\n\rsleep_seconds\030\007 \001(\003\"\036" +
-      "\n\016CommandRequest\022\014\n\004uuid\030\001 \001(\t\"X\n\017Comman" +
-      "dResponse\022\014\n\004uuid\030\001 \001(\t\022\023\n\013commandtype\030\002" +
-      " \001(\t\022\021\n\tcommandid\030\003 \001(\t\022\017\n\007command\030\004 \001(\t" +
-      "\"W\n\024CommandStatusRequest\022\014\n\004uuid\030\001 \001(\t\022\021" +
-      "\n\tcommandid\030\002 \001(\t\022\016\n\006result\030\003 \001(\t\022\016\n\006out" +
-      "put\030\004 \001(\t\"%\n\025CommandStatusResponse\022\014\n\004uu" +
-      "id\030\001 \001(\t\")\n\013KeysRequest\022\014\n\004uuid\030\001 \001(\t\022\014\n" +
-      "\004keys\030\002 \001(\t\"\034\n\014KeysResponse\022\014\n\004uuid\030\001 \001(" +
-      "\t\"\033\n\013FileRequest\022\014\n\004uuid\030\001 \001(\t\"c\n\014FileRe" +
-      "sponse\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014" +
-      "transfertype\030\003 \001(\t\022\020\n\010filepath\030\004 \001(\t\022\r\n\005" +
-      "chunk\030\005 \001(\014\"o\n\014FileToServer\022\016\n\006fileid\030\001 " +
-      "\001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014transfertype\030\003 \001(\t\022" +
-      "\014\n\004path\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022\r\n\005chunk\030\006" +
-      " \001(\014\":\n\032FileTransferStatusResponse\022\016\n\006fi" +
-      "leid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\"!\n\003Tag\022\013\n\003key\030\001" +
-      " \001(\t\022\r\n\005value\030\002 \001(\t*v\n\013RequestType\022\013\n\007ST" +
-      "ARTUP\020\000\022\021\n\rCONFIGURATION\020\001\022\013\n\007COMMAND\020\002\022" +
-      "\022\n\016COMMAND_STATUS\020\003\022\010\n\004KEYS\020\004\022\010\n\004FILE\020\005\022" +
-      "\022\n\016FILE_TO_SERVER\020\006*\263\001\n\014ResponseType\022\024\n\020" +
-      "STARTUP_RESPONSE\020\000\022\032\n\026CONFIGURATION_RESP" +
-      "ONSE\020\001\022\024\n\020COMMAND_RESPONSE\020\002\022\033\n\027COMMAND_" +
-      "STATUS_RESPONSE\020\003\022\021\n\rKEYS_RESPONSE\020\004\022\021\n\r" +
-      "FILE_RESPONSE\020\005\022\030\n\024FILE_TRANSFER_STATUS\020" +
-      "\006B.Z,github.com/PatronC2/Patronobuf/go/p" +
-      "atronobufb\006proto3"
+      "atronobuf.FileToServerH\000\0224\n\013bof_execute\030" +
+      "\t \001(\0132\035.patronobuf.BoFExecuteRequestH\000B\t" +
+      "\n\007payload\"\261\004\n\010Response\022&\n\004type\030\001 \001(\0162\030.p" +
+      "atronobuf.ResponseType\0227\n\020startup_respon" +
+      "se\030\002 \001(\0132\033.patronobuf.StartupResponseH\000\022" +
+      "C\n\026configuration_response\030\003 \001(\0132!.patron" +
+      "obuf.ConfigurationResponseH\000\0227\n\020command_" +
+      "response\030\004 \001(\0132\033.patronobuf.CommandRespo" +
+      "nseH\000\022D\n\027command_status_response\030\005 \001(\0132!" +
+      ".patronobuf.CommandStatusResponseH\000\0221\n\rk" +
+      "eys_response\030\006 \001(\0132\030.patronobuf.KeysResp" +
+      "onseH\000\0221\n\rfile_response\030\007 \001(\0132\030.patronob" +
+      "uf.FileResponseH\000\022O\n\035file_transfer_statu" +
+      "s_response\030\010 \001(\0132&.patronobuf.FileTransf" +
+      "erStatusResponseH\000\022>\n\024bof_execute_respon" +
+      "se\030\t \001(\0132\036.patronobuf.BoFExecuteResponse" +
+      "H\000B\t\n\007payload\"\272\001\n\016StartupRequest\022\020\n\010file" +
+      "path\030\001 \001(\t\022\020\n\010username\030\002 \001(\t\022\020\n\010hostname" +
+      "\030\003 \001(\t\022\016\n\006ostype\030\004 \001(\t\022\014\n\004arch\030\005 \001(\t\022\017\n\007" +
+      "osbuild\030\006 \001(\t\022\014\n\004cpus\030\007 \001(\t\022\016\n\006memory\030\010 " +
+      "\001(\t\022\017\n\007agentip\030\t \001(\t\022\024\n\014capabilities\030\n \003" +
+      "(\t\"\037\n\017StartupResponse\022\014\n\004uuid\030\001 \001(\t\"\365\001\n\024" +
+      "ConfigurationRequest\022\014\n\004uuid\030\001 \001(\t\022\020\n\010se" +
+      "rverip\030\002 \001(\t\022\022\n\nserverport\030\003 \001(\t\022\031\n\021call" +
+      "backfrequency\030\004 \001(\t\022\026\n\016callbackjitter\030\005 " +
+      "\001(\t\022\021\n\tmasterkey\030\006 \001(\t\022\016\n\006status\030\007 \001(\t\022\035" +
+      "\n\004tags\030\010 \003(\0132\017.patronobuf.Tag\022\031\n\021nextcal" +
+      "lback_unix\030\t \001(\003\022\031\n\021transportprotocol\030\n " +
+      "\001(\t\"o\n\025ConfigurationResponse\022\020\n\010serverip" +
+      "\030\002 \001(\t\022\022\n\nserverport\030\003 \001(\t\022\031\n\021transportp" +
+      "rotocol\030\006 \001(\t\022\025\n\rsleep_seconds\030\007 \001(\003\"\036\n\016" +
+      "CommandRequest\022\014\n\004uuid\030\001 \001(\t\"X\n\017CommandR" +
+      "esponse\022\014\n\004uuid\030\001 \001(\t\022\023\n\013commandtype\030\002 \001" +
+      "(\t\022\021\n\tcommandid\030\003 \001(\t\022\017\n\007command\030\004 \001(\t\"W" +
+      "\n\024CommandStatusRequest\022\014\n\004uuid\030\001 \001(\t\022\021\n\t" +
+      "commandid\030\002 \001(\t\022\016\n\006result\030\003 \001(\t\022\016\n\006outpu" +
+      "t\030\004 \001(\t\"%\n\025CommandStatusResponse\022\014\n\004uuid" +
+      "\030\001 \001(\t\"_\n\021BoFExecuteRequest\022\014\n\004uuid\030\001 \001(" +
+      "\t\022\023\n\013bof_payload\030\002 \001(\014\022\020\n\010platform\030\003 \001(\t" +
+      "\022\025\n\rfunction_name\030\004 \001(\t\"R\n\022BoFExecuteRes" +
+      "ponse\022\014\n\004uuid\030\001 \001(\t\022\017\n\007success\030\002 \001(\010\022\016\n\006" +
+      "output\030\003 \001(\t\022\r\n\005error\030\004 \001(\t\")\n\013KeysReque" +
+      "st\022\014\n\004uuid\030\001 \001(\t\022\014\n\004keys\030\002 \001(\t\"\034\n\014KeysRe" +
+      "sponse\022\014\n\004uuid\030\001 \001(\t\"\033\n\013FileRequest\022\014\n\004u" +
+      "uid\030\001 \001(\t\"c\n\014FileResponse\022\016\n\006fileid\030\001 \001(" +
+      "\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014transfertype\030\003 \001(\t\022\020\n" +
+      "\010filepath\030\004 \001(\t\022\r\n\005chunk\030\005 \001(\014\"o\n\014FileTo" +
+      "Server\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014" +
+      "transfertype\030\003 \001(\t\022\014\n\004path\030\004 \001(\t\022\016\n\006stat" +
+      "us\030\005 \001(\t\022\r\n\005chunk\030\006 \001(\014\":\n\032FileTransferS" +
+      "tatusResponse\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 " +
+      "\001(\t\"!\n\003Tag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t*\207" +
+      "\001\n\013RequestType\022\013\n\007STARTUP\020\000\022\021\n\rCONFIGURA" +
+      "TION\020\001\022\013\n\007COMMAND\020\002\022\022\n\016COMMAND_STATUS\020\003\022" +
+      "\010\n\004KEYS\020\004\022\010\n\004FILE\020\005\022\022\n\016FILE_TO_SERVER\020\006\022" +
+      "\017\n\013BOF_EXECUTE\020\007*\315\001\n\014ResponseType\022\024\n\020STA" +
+      "RTUP_RESPONSE\020\000\022\032\n\026CONFIGURATION_RESPONS" +
+      "E\020\001\022\024\n\020COMMAND_RESPONSE\020\002\022\033\n\027COMMAND_STA" +
+      "TUS_RESPONSE\020\003\022\021\n\rKEYS_RESPONSE\020\004\022\021\n\rFIL" +
+      "E_RESPONSE\020\005\022\030\n\024FILE_TRANSFER_STATUS\020\006\022\030" +
+      "\n\024BOF_EXECUTE_RESPONSE\020\007B.Z,github.com/P" +
+      "atronC2/Patronobuf/go/patronobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -19289,13 +21834,13 @@ public final class Agents {
     internal_static_patronobuf_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_Request_descriptor,
-        new java.lang.String[] { "Type", "Startup", "Configuration", "Command", "CommandStatus", "Keys", "File", "FileToServer", "Payload", });
+        new java.lang.String[] { "Type", "Startup", "Configuration", "Command", "CommandStatus", "Keys", "File", "FileToServer", "BofExecute", "Payload", });
     internal_static_patronobuf_Response_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_patronobuf_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_Response_descriptor,
-        new java.lang.String[] { "Type", "StartupResponse", "ConfigurationResponse", "CommandResponse", "CommandStatusResponse", "KeysResponse", "FileResponse", "FileTransferStatusResponse", "Payload", });
+        new java.lang.String[] { "Type", "StartupResponse", "ConfigurationResponse", "CommandResponse", "CommandStatusResponse", "KeysResponse", "FileResponse", "FileTransferStatusResponse", "BofExecuteResponse", "Payload", });
     internal_static_patronobuf_StartupRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_patronobuf_StartupRequest_fieldAccessorTable = new
@@ -19344,44 +21889,56 @@ public final class Agents {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_CommandStatusResponse_descriptor,
         new java.lang.String[] { "Uuid", });
-    internal_static_patronobuf_KeysRequest_descriptor =
+    internal_static_patronobuf_BoFExecuteRequest_descriptor =
       getDescriptor().getMessageTypes().get(10);
+    internal_static_patronobuf_BoFExecuteRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_patronobuf_BoFExecuteRequest_descriptor,
+        new java.lang.String[] { "Uuid", "BofPayload", "Platform", "FunctionName", });
+    internal_static_patronobuf_BoFExecuteResponse_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_patronobuf_BoFExecuteResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_patronobuf_BoFExecuteResponse_descriptor,
+        new java.lang.String[] { "Uuid", "Success", "Output", "Error", });
+    internal_static_patronobuf_KeysRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
     internal_static_patronobuf_KeysRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_KeysRequest_descriptor,
         new java.lang.String[] { "Uuid", "Keys", });
     internal_static_patronobuf_KeysResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_patronobuf_KeysResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_KeysResponse_descriptor,
         new java.lang.String[] { "Uuid", });
     internal_static_patronobuf_FileRequest_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_patronobuf_FileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_FileRequest_descriptor,
         new java.lang.String[] { "Uuid", });
     internal_static_patronobuf_FileResponse_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_patronobuf_FileResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_FileResponse_descriptor,
         new java.lang.String[] { "Fileid", "Uuid", "Transfertype", "Filepath", "Chunk", });
     internal_static_patronobuf_FileToServer_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_patronobuf_FileToServer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_FileToServer_descriptor,
         new java.lang.String[] { "Fileid", "Uuid", "Transfertype", "Path", "Status", "Chunk", });
     internal_static_patronobuf_FileTransferStatusResponse_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_patronobuf_FileTransferStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_FileTransferStatusResponse_descriptor,
         new java.lang.String[] { "Fileid", "Uuid", });
     internal_static_patronobuf_Tag_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_patronobuf_Tag_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_Tag_descriptor,
