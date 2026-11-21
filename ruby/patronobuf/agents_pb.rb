@@ -84,15 +84,15 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     end
     add_message "patronobuf.BoFExecuteRequest" do
       optional :uuid, :string, 1
-      optional :bof_payload, :bytes, 2
-      optional :platform, :string, 3
-      optional :function_name, :string, 4
+      optional :platform, :string, 2
+      optional :function_name, :string, 3
+      optional :payload, :bytes, 4
     end
     add_message "patronobuf.BoFExecuteResponse" do
       optional :uuid, :string, 1
-      optional :success, :bool, 2
-      optional :output, :string, 3
-      optional :error, :string, 4
+      optional :function_name, :string, 2
+      optional :success, :bool, 3
+      optional :output, :string, 4
     end
     add_message "patronobuf.KeysRequest" do
       optional :uuid, :string, 1
@@ -126,6 +126,14 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "patronobuf.Tag" do
       optional :key, :string, 1
       optional :value, :string, 2
+    end
+    add_message "patronobuf.BoFInfo" do
+      optional :uuid, :string, 1
+      optional :function_name, :string, 2
+      optional :platform, :string, 3
+      optional :description, :string, 4
+      optional :payload, :bytes, 5
+      proto3_optional :uploaded_at, :uint64, 6
     end
     add_enum "patronobuf.RequestType" do
       value :STARTUP, 0
@@ -170,6 +178,7 @@ module Patronobuf
   FileToServer = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.FileToServer").msgclass
   FileTransferStatusResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.FileTransferStatusResponse").msgclass
   Tag = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.Tag").msgclass
+  BoFInfo = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.BoFInfo").msgclass
   RequestType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.RequestType").enummodule
   ResponseType = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.ResponseType").enummodule
 end

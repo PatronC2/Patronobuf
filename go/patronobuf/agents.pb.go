@@ -1091,10 +1091,10 @@ func (x *CommandStatusResponse) GetUuid() string {
 
 type BoFExecuteRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`                                     // Agent UUID
-	BofPayload    []byte                 `protobuf:"bytes,2,opt,name=bof_payload,json=bofPayload,proto3" json:"bof_payload,omitempty"`       // Compiled BOF binary (Windows) or ELF (Linux)
-	Platform      string                 `protobuf:"bytes,3,opt,name=platform,proto3" json:"platform,omitempty"`                             // "windows" or "linux"
-	FunctionName  string                 `protobuf:"bytes,4,opt,name=function_name,json=functionName,proto3" json:"function_name,omitempty"` // Function name to call in BOF (e.g., "go")
+	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`                                     // Agent UUID to execute on
+	Platform      string                 `protobuf:"bytes,2,opt,name=platform,proto3" json:"platform,omitempty"`                             // "windows" or "linux"
+	FunctionName  string                 `protobuf:"bytes,3,opt,name=function_name,json=functionName,proto3" json:"function_name,omitempty"` // Function name in BOF (e.g., "go")
+	Payload       []byte                 `protobuf:"bytes,4,opt,name=payload,proto3" json:"payload,omitempty"`                               // Compiled BOF binary
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1136,13 +1136,6 @@ func (x *BoFExecuteRequest) GetUuid() string {
 	return ""
 }
 
-func (x *BoFExecuteRequest) GetBofPayload() []byte {
-	if x != nil {
-		return x.BofPayload
-	}
-	return nil
-}
-
 func (x *BoFExecuteRequest) GetPlatform() string {
 	if x != nil {
 		return x.Platform
@@ -1157,12 +1150,19 @@ func (x *BoFExecuteRequest) GetFunctionName() string {
 	return ""
 }
 
+func (x *BoFExecuteRequest) GetPayload() []byte {
+	if x != nil {
+		return x.Payload
+	}
+	return nil
+}
+
 type BoFExecuteResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
-	Success       bool                   `protobuf:"varint,2,opt,name=success,proto3" json:"success,omitempty"`
-	Output        string                 `protobuf:"bytes,3,opt,name=output,proto3" json:"output,omitempty"` // Output from BeaconPrintf or similar
-	Error         string                 `protobuf:"bytes,4,opt,name=error,proto3" json:"error,omitempty"`
+	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`                                     // Agent UUID
+	FunctionName  string                 `protobuf:"bytes,2,opt,name=function_name,json=functionName,proto3" json:"function_name,omitempty"` // Function that was executed
+	Success       bool                   `protobuf:"varint,3,opt,name=success,proto3" json:"success,omitempty"`                              // Whether execution succeeded
+	Output        string                 `protobuf:"bytes,4,opt,name=output,proto3" json:"output,omitempty"`                                 // Output from BOF execution
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1204,6 +1204,13 @@ func (x *BoFExecuteResponse) GetUuid() string {
 	return ""
 }
 
+func (x *BoFExecuteResponse) GetFunctionName() string {
+	if x != nil {
+		return x.FunctionName
+	}
+	return ""
+}
+
 func (x *BoFExecuteResponse) GetSuccess() bool {
 	if x != nil {
 		return x.Success
@@ -1214,13 +1221,6 @@ func (x *BoFExecuteResponse) GetSuccess() bool {
 func (x *BoFExecuteResponse) GetOutput() string {
 	if x != nil {
 		return x.Output
-	}
-	return ""
-}
-
-func (x *BoFExecuteResponse) GetError() string {
-	if x != nil {
-		return x.Error
 	}
 	return ""
 }
@@ -1629,6 +1629,90 @@ func (x *Tag) GetValue() string {
 	return ""
 }
 
+type BoFInfo struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Uuid          string                 `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`                                      // Unique identifier for the BOF
+	FunctionName  string                 `protobuf:"bytes,2,opt,name=function_name,json=functionName,proto3" json:"function_name,omitempty"`  // Name of the function to execute
+	Platform      string                 `protobuf:"bytes,3,opt,name=platform,proto3" json:"platform,omitempty"`                              // "windows" or "linux"
+	Description   string                 `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`                        // Human-readable description
+	Payload       []byte                 `protobuf:"bytes,5,opt,name=payload,proto3" json:"payload,omitempty"`                                // Binary BOF payload
+	UploadedAt    *uint64                `protobuf:"varint,6,opt,name=uploaded_at,json=uploadedAt,proto3,oneof" json:"uploaded_at,omitempty"` // Timestamp of upload (Unix epoch)
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BoFInfo) Reset() {
+	*x = BoFInfo{}
+	mi := &file_agents_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BoFInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BoFInfo) ProtoMessage() {}
+
+func (x *BoFInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_agents_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BoFInfo.ProtoReflect.Descriptor instead.
+func (*BoFInfo) Descriptor() ([]byte, []int) {
+	return file_agents_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *BoFInfo) GetUuid() string {
+	if x != nil {
+		return x.Uuid
+	}
+	return ""
+}
+
+func (x *BoFInfo) GetFunctionName() string {
+	if x != nil {
+		return x.FunctionName
+	}
+	return ""
+}
+
+func (x *BoFInfo) GetPlatform() string {
+	if x != nil {
+		return x.Platform
+	}
+	return ""
+}
+
+func (x *BoFInfo) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *BoFInfo) GetPayload() []byte {
+	if x != nil {
+		return x.Payload
+	}
+	return nil
+}
+
+func (x *BoFInfo) GetUploadedAt() uint64 {
+	if x != nil && x.UploadedAt != nil {
+		return *x.UploadedAt
+	}
+	return 0
+}
+
 var File_agents_proto protoreflect.FileDescriptor
 
 const file_agents_proto_rawDesc = "" +
@@ -1706,18 +1790,17 @@ const file_agents_proto_rawDesc = "" +
 	"\x06result\x18\x03 \x01(\tR\x06result\x12\x16\n" +
 	"\x06output\x18\x04 \x01(\tR\x06output\"+\n" +
 	"\x15CommandStatusResponse\x12\x12\n" +
-	"\x04uuid\x18\x01 \x01(\tR\x04uuid\"\x89\x01\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\"\x82\x01\n" +
 	"\x11BoFExecuteRequest\x12\x12\n" +
-	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1f\n" +
-	"\vbof_payload\x18\x02 \x01(\fR\n" +
-	"bofPayload\x12\x1a\n" +
-	"\bplatform\x18\x03 \x01(\tR\bplatform\x12#\n" +
-	"\rfunction_name\x18\x04 \x01(\tR\ffunctionName\"p\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x1a\n" +
+	"\bplatform\x18\x02 \x01(\tR\bplatform\x12#\n" +
+	"\rfunction_name\x18\x03 \x01(\tR\ffunctionName\x12\x18\n" +
+	"\apayload\x18\x04 \x01(\fR\apayload\"\x7f\n" +
 	"\x12BoFExecuteResponse\x12\x12\n" +
-	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x18\n" +
-	"\asuccess\x18\x02 \x01(\bR\asuccess\x12\x16\n" +
-	"\x06output\x18\x03 \x01(\tR\x06output\x12\x14\n" +
-	"\x05error\x18\x04 \x01(\tR\x05error\"5\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12#\n" +
+	"\rfunction_name\x18\x02 \x01(\tR\ffunctionName\x12\x18\n" +
+	"\asuccess\x18\x03 \x01(\bR\asuccess\x12\x16\n" +
+	"\x06output\x18\x04 \x01(\tR\x06output\"5\n" +
 	"\vKeysRequest\x12\x12\n" +
 	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12\x12\n" +
 	"\x04keys\x18\x02 \x01(\tR\x04keys\"\"\n" +
@@ -1743,7 +1826,16 @@ const file_agents_proto_rawDesc = "" +
 	"\x04uuid\x18\x02 \x01(\tR\x04uuid\"-\n" +
 	"\x03Tag\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value*\x87\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value\"\xd0\x01\n" +
+	"\aBoFInfo\x12\x12\n" +
+	"\x04uuid\x18\x01 \x01(\tR\x04uuid\x12#\n" +
+	"\rfunction_name\x18\x02 \x01(\tR\ffunctionName\x12\x1a\n" +
+	"\bplatform\x18\x03 \x01(\tR\bplatform\x12 \n" +
+	"\vdescription\x18\x04 \x01(\tR\vdescription\x12\x18\n" +
+	"\apayload\x18\x05 \x01(\fR\apayload\x12$\n" +
+	"\vuploaded_at\x18\x06 \x01(\x04H\x00R\n" +
+	"uploadedAt\x88\x01\x01B\x0e\n" +
+	"\f_uploaded_at*\x87\x01\n" +
 	"\vRequestType\x12\v\n" +
 	"\aSTARTUP\x10\x00\x12\x11\n" +
 	"\rCONFIGURATION\x10\x01\x12\v\n" +
@@ -1776,7 +1868,7 @@ func file_agents_proto_rawDescGZIP() []byte {
 }
 
 var file_agents_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_agents_proto_msgTypes = make([]protoimpl.MessageInfo, 19)
+var file_agents_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
 var file_agents_proto_goTypes = []any{
 	(RequestType)(0),                   // 0: patronobuf.RequestType
 	(ResponseType)(0),                  // 1: patronobuf.ResponseType
@@ -1799,6 +1891,7 @@ var file_agents_proto_goTypes = []any{
 	(*FileToServer)(nil),               // 18: patronobuf.FileToServer
 	(*FileTransferStatusResponse)(nil), // 19: patronobuf.FileTransferStatusResponse
 	(*Tag)(nil),                        // 20: patronobuf.Tag
+	(*BoFInfo)(nil),                    // 21: patronobuf.BoFInfo
 }
 var file_agents_proto_depIdxs = []int32{
 	0,  // 0: patronobuf.Request.type:type_name -> patronobuf.RequestType
@@ -1852,13 +1945,14 @@ func file_agents_proto_init() {
 		(*Response_FileTransferStatusResponse)(nil),
 		(*Response_BofExecuteResponse)(nil),
 	}
+	file_agents_proto_msgTypes[19].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_agents_proto_rawDesc), len(file_agents_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   19,
+			NumMessages:   20,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
