@@ -115,17 +115,17 @@ message CommandStatusResponse {
 }
 
 message BoFExecuteRequest {
-  string uuid = 1;           // Agent UUID
-  bytes bof_payload = 2;     // Compiled BOF binary (Windows) or ELF (Linux)
-  string platform = 3;       // "windows" or "linux"
-  string function_name = 4;  // Function name to call in BOF (e.g., "go")
+  string uuid = 1;           // Agent UUID to execute on
+  string platform = 2;       // "windows" or "linux"
+  string function_name = 3;  // Function name in BOF (e.g., "go")
+  bytes payload = 4;         // Compiled BOF binary
 }
 
 message BoFExecuteResponse {
-  string uuid = 1;
-  bool success = 2;
-  string output = 3;         // Output from BeaconPrintf or similar
-  string error = 4;
+  string uuid = 1;           // Agent UUID
+  string function_name = 2;  // Function that was executed
+  bool success = 3;          // Whether execution succeeded
+  string output = 4;         // Output from BOF execution
 }
 
 message KeysRequest {
