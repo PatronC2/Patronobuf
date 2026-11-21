@@ -24,68 +24,72 @@ namespace Patronobuf {
     static AgentsReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgxhZ2VudHMucHJvdG8SCnBhdHJvbm9idWYilgMKB1JlcXVlc3QSJQoEdHlw",
-            "ZRgBIAEoDjIXLnBhdHJvbm9idWYuUmVxdWVzdFR5cGUSLQoHc3RhcnR1cBgC",
-            "IAEoCzIaLnBhdHJvbm9idWYuU3RhcnR1cFJlcXVlc3RIABI5Cg1jb25maWd1",
-            "cmF0aW9uGAMgASgLMiAucGF0cm9ub2J1Zi5Db25maWd1cmF0aW9uUmVxdWVz",
-            "dEgAEi0KB2NvbW1hbmQYBCABKAsyGi5wYXRyb25vYnVmLkNvbW1hbmRSZXF1",
-            "ZXN0SAASOgoOY29tbWFuZF9zdGF0dXMYBSABKAsyIC5wYXRyb25vYnVmLkNv",
-            "bW1hbmRTdGF0dXNSZXF1ZXN0SAASJwoEa2V5cxgGIAEoCzIXLnBhdHJvbm9i",
-            "dWYuS2V5c1JlcXVlc3RIABInCgRmaWxlGAcgASgLMhcucGF0cm9ub2J1Zi5G",
-            "aWxlUmVxdWVzdEgAEjIKDmZpbGVfdG9fc2VydmVyGAggASgLMhgucGF0cm9u",
-            "b2J1Zi5GaWxlVG9TZXJ2ZXJIAEIJCgdwYXlsb2FkIvEDCghSZXNwb25zZRIm",
-            "CgR0eXBlGAEgASgOMhgucGF0cm9ub2J1Zi5SZXNwb25zZVR5cGUSNwoQc3Rh",
-            "cnR1cF9yZXNwb25zZRgCIAEoCzIbLnBhdHJvbm9idWYuU3RhcnR1cFJlc3Bv",
-            "bnNlSAASQwoWY29uZmlndXJhdGlvbl9yZXNwb25zZRgDIAEoCzIhLnBhdHJv",
-            "bm9idWYuQ29uZmlndXJhdGlvblJlc3BvbnNlSAASNwoQY29tbWFuZF9yZXNw",
-            "b25zZRgEIAEoCzIbLnBhdHJvbm9idWYuQ29tbWFuZFJlc3BvbnNlSAASRAoX",
-            "Y29tbWFuZF9zdGF0dXNfcmVzcG9uc2UYBSABKAsyIS5wYXRyb25vYnVmLkNv",
-            "bW1hbmRTdGF0dXNSZXNwb25zZUgAEjEKDWtleXNfcmVzcG9uc2UYBiABKAsy",
-            "GC5wYXRyb25vYnVmLktleXNSZXNwb25zZUgAEjEKDWZpbGVfcmVzcG9uc2UY",
-            "ByABKAsyGC5wYXRyb25vYnVmLkZpbGVSZXNwb25zZUgAEk8KHWZpbGVfdHJh",
-            "bnNmZXJfc3RhdHVzX3Jlc3BvbnNlGAggASgLMiYucGF0cm9ub2J1Zi5GaWxl",
-            "VHJhbnNmZXJTdGF0dXNSZXNwb25zZUgAQgkKB3BheWxvYWQiugEKDlN0YXJ0",
-            "dXBSZXF1ZXN0EhAKCGZpbGVwYXRoGAEgASgJEhAKCHVzZXJuYW1lGAIgASgJ",
-            "EhAKCGhvc3RuYW1lGAMgASgJEg4KBm9zdHlwZRgEIAEoCRIMCgRhcmNoGAUg",
-            "ASgJEg8KB29zYnVpbGQYBiABKAkSDAoEY3B1cxgHIAEoCRIOCgZtZW1vcnkY",
-            "CCABKAkSDwoHYWdlbnRpcBgJIAEoCRIUCgxjYXBhYmlsaXRpZXMYCiADKAki",
-            "HwoPU3RhcnR1cFJlc3BvbnNlEgwKBHV1aWQYASABKAki9QEKFENvbmZpZ3Vy",
-            "YXRpb25SZXF1ZXN0EgwKBHV1aWQYASABKAkSEAoIc2VydmVyaXAYAiABKAkS",
-            "EgoKc2VydmVycG9ydBgDIAEoCRIZChFjYWxsYmFja2ZyZXF1ZW5jeRgEIAEo",
-            "CRIWCg5jYWxsYmFja2ppdHRlchgFIAEoCRIRCgltYXN0ZXJrZXkYBiABKAkS",
-            "DgoGc3RhdHVzGAcgASgJEh0KBHRhZ3MYCCADKAsyDy5wYXRyb25vYnVmLlRh",
-            "ZxIZChFuZXh0Y2FsbGJhY2tfdW5peBgJIAEoAxIZChF0cmFuc3BvcnRwcm90",
-            "b2NvbBgKIAEoCSJvChVDb25maWd1cmF0aW9uUmVzcG9uc2USEAoIc2VydmVy",
-            "aXAYAiABKAkSEgoKc2VydmVycG9ydBgDIAEoCRIZChF0cmFuc3BvcnRwcm90",
-            "b2NvbBgGIAEoCRIVCg1zbGVlcF9zZWNvbmRzGAcgASgDIh4KDkNvbW1hbmRS",
-            "ZXF1ZXN0EgwKBHV1aWQYASABKAkiWAoPQ29tbWFuZFJlc3BvbnNlEgwKBHV1",
-            "aWQYASABKAkSEwoLY29tbWFuZHR5cGUYAiABKAkSEQoJY29tbWFuZGlkGAMg",
-            "ASgJEg8KB2NvbW1hbmQYBCABKAkiVwoUQ29tbWFuZFN0YXR1c1JlcXVlc3QS",
-            "DAoEdXVpZBgBIAEoCRIRCgljb21tYW5kaWQYAiABKAkSDgoGcmVzdWx0GAMg",
-            "ASgJEg4KBm91dHB1dBgEIAEoCSIlChVDb21tYW5kU3RhdHVzUmVzcG9uc2US",
-            "DAoEdXVpZBgBIAEoCSIpCgtLZXlzUmVxdWVzdBIMCgR1dWlkGAEgASgJEgwK",
-            "BGtleXMYAiABKAkiHAoMS2V5c1Jlc3BvbnNlEgwKBHV1aWQYASABKAkiGwoL",
-            "RmlsZVJlcXVlc3QSDAoEdXVpZBgBIAEoCSJjCgxGaWxlUmVzcG9uc2USDgoG",
-            "ZmlsZWlkGAEgASgJEgwKBHV1aWQYAiABKAkSFAoMdHJhbnNmZXJ0eXBlGAMg",
-            "ASgJEhAKCGZpbGVwYXRoGAQgASgJEg0KBWNodW5rGAUgASgMIm8KDEZpbGVU",
-            "b1NlcnZlchIOCgZmaWxlaWQYASABKAkSDAoEdXVpZBgCIAEoCRIUCgx0cmFu",
-            "c2ZlcnR5cGUYAyABKAkSDAoEcGF0aBgEIAEoCRIOCgZzdGF0dXMYBSABKAkS",
-            "DQoFY2h1bmsYBiABKAwiOgoaRmlsZVRyYW5zZmVyU3RhdHVzUmVzcG9uc2US",
-            "DgoGZmlsZWlkGAEgASgJEgwKBHV1aWQYAiABKAkiIQoDVGFnEgsKA2tleRgB",
-            "IAEoCRINCgV2YWx1ZRgCIAEoCSp2CgtSZXF1ZXN0VHlwZRILCgdTVEFSVFVQ",
-            "EAASEQoNQ09ORklHVVJBVElPThABEgsKB0NPTU1BTkQQAhISCg5DT01NQU5E",
-            "X1NUQVRVUxADEggKBEtFWVMQBBIICgRGSUxFEAUSEgoORklMRV9UT19TRVJW",
-            "RVIQBiqzAQoMUmVzcG9uc2VUeXBlEhQKEFNUQVJUVVBfUkVTUE9OU0UQABIa",
-            "ChZDT05GSUdVUkFUSU9OX1JFU1BPTlNFEAESFAoQQ09NTUFORF9SRVNQT05T",
-            "RRACEhsKF0NPTU1BTkRfU1RBVFVTX1JFU1BPTlNFEAMSEQoNS0VZU19SRVNQ",
-            "T05TRRAEEhEKDUZJTEVfUkVTUE9OU0UQBRIYChRGSUxFX1RSQU5TRkVSX1NU",
-            "QVRVUxAGQi5aLGdpdGh1Yi5jb20vUGF0cm9uQzIvUGF0cm9ub2J1Zi9nby9w",
-            "YXRyb25vYnVmYgZwcm90bzM="));
+            "CgxhZ2VudHMucHJvdG8SCnBhdHJvbm9idWYinQMKB1JlcXVlc3QSJQoEdHlw",
+            "ZRgBIAEoDjIXLnBhdHJvbm9idWYuUmVxdWVzdFR5cGUSOQoNY29uZmlndXJh",
+            "dGlvbhgCIAEoCzIgLnBhdHJvbm9idWYuQ29uZmlndXJhdGlvblJlcXVlc3RI",
+            "ABItCgdjb21tYW5kGAMgASgLMhoucGF0cm9ub2J1Zi5Db21tYW5kUmVxdWVz",
+            "dEgAEjoKDmNvbW1hbmRfc3RhdHVzGAQgASgLMiAucGF0cm9ub2J1Zi5Db21t",
+            "YW5kU3RhdHVzUmVxdWVzdEgAEicKBGtleXMYBSABKAsyFy5wYXRyb25vYnVm",
+            "LktleXNSZXF1ZXN0SAASJwoEZmlsZRgGIAEoCzIXLnBhdHJvbm9idWYuRmls",
+            "ZVJlcXVlc3RIABIyCg5maWxlX3RvX3NlcnZlchgHIAEoCzIYLnBhdHJvbm9i",
+            "dWYuRmlsZVRvU2VydmVySAASNAoLYm9mX2V4ZWN1dGUYCCABKAsyHS5wYXRy",
+            "b25vYnVmLkJvRkV4ZWN1dGVSZXF1ZXN0SABCCQoHcGF5bG9hZCL4AwoIUmVz",
+            "cG9uc2USJgoEdHlwZRgBIAEoDjIYLnBhdHJvbm9idWYuUmVzcG9uc2VUeXBl",
+            "EkMKFmNvbmZpZ3VyYXRpb25fcmVzcG9uc2UYAiABKAsyIS5wYXRyb25vYnVm",
+            "LkNvbmZpZ3VyYXRpb25SZXNwb25zZUgAEjcKEGNvbW1hbmRfcmVzcG9uc2UY",
+            "AyABKAsyGy5wYXRyb25vYnVmLkNvbW1hbmRSZXNwb25zZUgAEkQKF2NvbW1h",
+            "bmRfc3RhdHVzX3Jlc3BvbnNlGAQgASgLMiEucGF0cm9ub2J1Zi5Db21tYW5k",
+            "U3RhdHVzUmVzcG9uc2VIABIxCg1rZXlzX3Jlc3BvbnNlGAUgASgLMhgucGF0",
+            "cm9ub2J1Zi5LZXlzUmVzcG9uc2VIABIxCg1maWxlX3Jlc3BvbnNlGAYgASgL",
+            "MhgucGF0cm9ub2J1Zi5GaWxlUmVzcG9uc2VIABJPCh1maWxlX3RyYW5zZmVy",
+            "X3N0YXR1c19yZXNwb25zZRgHIAEoCzImLnBhdHJvbm9idWYuRmlsZVRyYW5z",
+            "ZmVyU3RhdHVzUmVzcG9uc2VIABI+ChRib2ZfZXhlY3V0ZV9yZXNwb25zZRgI",
+            "IAEoCzIeLnBhdHJvbm9idWYuQm9GRXhlY3V0ZVJlc3BvbnNlSABCCQoHcGF5",
+            "bG9hZCK6AQoOU3RhcnR1cFJlcXVlc3QSEAoIZmlsZXBhdGgYASABKAkSEAoI",
+            "dXNlcm5hbWUYAiABKAkSEAoIaG9zdG5hbWUYAyABKAkSDgoGb3N0eXBlGAQg",
+            "ASgJEgwKBGFyY2gYBSABKAkSDwoHb3NidWlsZBgGIAEoCRIMCgRjcHVzGAcg",
+            "ASgJEg4KBm1lbW9yeRgIIAEoCRIPCgdhZ2VudGlwGAkgASgJEhQKDGNhcGFi",
+            "aWxpdGllcxgKIAMoCSIfCg9TdGFydHVwUmVzcG9uc2USDAoEdXVpZBgBIAEo",
+            "CSL1AQoUQ29uZmlndXJhdGlvblJlcXVlc3QSDAoEdXVpZBgBIAEoCRIQCghz",
+            "ZXJ2ZXJpcBgCIAEoCRISCgpzZXJ2ZXJwb3J0GAMgASgJEhkKEWNhbGxiYWNr",
+            "ZnJlcXVlbmN5GAQgASgJEhYKDmNhbGxiYWNraml0dGVyGAUgASgJEhEKCW1h",
+            "c3RlcmtleRgGIAEoCRIOCgZzdGF0dXMYByABKAkSHQoEdGFncxgIIAMoCzIP",
+            "LnBhdHJvbm9idWYuVGFnEhkKEW5leHRjYWxsYmFja191bml4GAkgASgDEhkK",
+            "EXRyYW5zcG9ydHByb3RvY29sGAogASgJIm8KFUNvbmZpZ3VyYXRpb25SZXNw",
+            "b25zZRIQCghzZXJ2ZXJpcBgCIAEoCRISCgpzZXJ2ZXJwb3J0GAMgASgJEhkK",
+            "EXRyYW5zcG9ydHByb3RvY29sGAYgASgJEhUKDXNsZWVwX3NlY29uZHMYByAB",
+            "KAMiHgoOQ29tbWFuZFJlcXVlc3QSDAoEdXVpZBgBIAEoCSJYCg9Db21tYW5k",
+            "UmVzcG9uc2USDAoEdXVpZBgBIAEoCRITCgtjb21tYW5kdHlwZRgCIAEoCRIR",
+            "Cgljb21tYW5kaWQYAyABKAkSDwoHY29tbWFuZBgEIAEoCSJXChRDb21tYW5k",
+            "U3RhdHVzUmVxdWVzdBIMCgR1dWlkGAEgASgJEhEKCWNvbW1hbmRpZBgCIAEo",
+            "CRIOCgZyZXN1bHQYAyABKAkSDgoGb3V0cHV0GAQgASgJIiUKFUNvbW1hbmRT",
+            "dGF0dXNSZXNwb25zZRIMCgR1dWlkGAEgASgJIl8KEUJvRkV4ZWN1dGVSZXF1",
+            "ZXN0EgwKBHV1aWQYASABKAkSEwoLYm9mX3BheWxvYWQYAiABKAwSEAoIcGxh",
+            "dGZvcm0YAyABKAkSFQoNZnVuY3Rpb25fbmFtZRgEIAEoCSJSChJCb0ZFeGVj",
+            "dXRlUmVzcG9uc2USDAoEdXVpZBgBIAEoCRIPCgdzdWNjZXNzGAIgASgIEg4K",
+            "Bm91dHB1dBgDIAEoCRINCgVlcnJvchgEIAEoCSIpCgtLZXlzUmVxdWVzdBIM",
+            "CgR1dWlkGAEgASgJEgwKBGtleXMYAiABKAkiHAoMS2V5c1Jlc3BvbnNlEgwK",
+            "BHV1aWQYASABKAkiGwoLRmlsZVJlcXVlc3QSDAoEdXVpZBgBIAEoCSJjCgxG",
+            "aWxlUmVzcG9uc2USDgoGZmlsZWlkGAEgASgJEgwKBHV1aWQYAiABKAkSFAoM",
+            "dHJhbnNmZXJ0eXBlGAMgASgJEhAKCGZpbGVwYXRoGAQgASgJEg0KBWNodW5r",
+            "GAUgASgMIm8KDEZpbGVUb1NlcnZlchIOCgZmaWxlaWQYASABKAkSDAoEdXVp",
+            "ZBgCIAEoCRIUCgx0cmFuc2ZlcnR5cGUYAyABKAkSDAoEcGF0aBgEIAEoCRIO",
+            "CgZzdGF0dXMYBSABKAkSDQoFY2h1bmsYBiABKAwiOgoaRmlsZVRyYW5zZmVy",
+            "U3RhdHVzUmVzcG9uc2USDgoGZmlsZWlkGAEgASgJEgwKBHV1aWQYAiABKAki",
+            "IQoDVGFnEgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCSp6CgtSZXF1ZXN0",
+            "VHlwZRIRCg1DT05GSUdVUkFUSU9OEAASCwoHQ09NTUFORBABEhIKDkNPTU1B",
+            "TkRfU1RBVFVTEAISCAoES0VZUxADEggKBEZJTEUQBBISCg5GSUxFX1RPX1NF",
+            "UlZFUhAFEg8KC0JPRl9FWEVDVVRFEAYqtwEKDFJlc3BvbnNlVHlwZRIaChZD",
+            "T05GSUdVUkFUSU9OX1JFU1BPTlNFEAASFAoQQ09NTUFORF9SRVNQT05TRRAB",
+            "EhsKF0NPTU1BTkRfU1RBVFVTX1JFU1BPTlNFEAISEQoNS0VZU19SRVNQT05T",
+            "RRADEhEKDUZJTEVfUkVTUE9OU0UQBBIYChRGSUxFX1RSQU5TRkVSX1NUQVRV",
+            "UxAFEhgKFEJPRl9FWEVDVVRFX1JFU1BPTlNFEAZCLlosZ2l0aHViLmNvbS9Q",
+            "YXRyb25DMi9QYXRyb25vYnVmL2dvL3BhdHJvbm9idWZiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Patronobuf.RequestType), typeof(global::Patronobuf.ResponseType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.Request), global::Patronobuf.Request.Parser, new[]{ "Type", "Startup", "Configuration", "Command", "CommandStatus", "Keys", "File", "FileToServer" }, new[]{ "Payload" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.Response), global::Patronobuf.Response.Parser, new[]{ "Type", "StartupResponse", "ConfigurationResponse", "CommandResponse", "CommandStatusResponse", "KeysResponse", "FileResponse", "FileTransferStatusResponse" }, new[]{ "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.Request), global::Patronobuf.Request.Parser, new[]{ "Type", "Configuration", "Command", "CommandStatus", "Keys", "File", "FileToServer", "BofExecute" }, new[]{ "Payload" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.Response), global::Patronobuf.Response.Parser, new[]{ "Type", "ConfigurationResponse", "CommandResponse", "CommandStatusResponse", "KeysResponse", "FileResponse", "FileTransferStatusResponse", "BofExecuteResponse" }, new[]{ "Payload" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.StartupRequest), global::Patronobuf.StartupRequest.Parser, new[]{ "Filepath", "Username", "Hostname", "Ostype", "Arch", "Osbuild", "Cpus", "Memory", "Agentip", "Capabilities" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.StartupResponse), global::Patronobuf.StartupResponse.Parser, new[]{ "Uuid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.ConfigurationRequest), global::Patronobuf.ConfigurationRequest.Parser, new[]{ "Uuid", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", "Masterkey", "Status", "Tags", "NextcallbackUnix", "Transportprotocol" }, null, null, null, null),
@@ -94,6 +98,8 @@ namespace Patronobuf {
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.CommandResponse), global::Patronobuf.CommandResponse.Parser, new[]{ "Uuid", "Commandtype", "Commandid", "Command" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.CommandStatusRequest), global::Patronobuf.CommandStatusRequest.Parser, new[]{ "Uuid", "Commandid", "Result", "Output" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.CommandStatusResponse), global::Patronobuf.CommandStatusResponse.Parser, new[]{ "Uuid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.BoFExecuteRequest), global::Patronobuf.BoFExecuteRequest.Parser, new[]{ "Uuid", "BofPayload", "Platform", "FunctionName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.BoFExecuteResponse), global::Patronobuf.BoFExecuteResponse.Parser, new[]{ "Uuid", "Success", "Output", "Error" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.KeysRequest), global::Patronobuf.KeysRequest.Parser, new[]{ "Uuid", "Keys" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.KeysResponse), global::Patronobuf.KeysResponse.Parser, new[]{ "Uuid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.FileRequest), global::Patronobuf.FileRequest.Parser, new[]{ "Uuid" }, null, null, null, null),
@@ -108,23 +114,23 @@ namespace Patronobuf {
   }
   #region Enums
   public enum RequestType {
-    [pbr::OriginalName("STARTUP")] Startup = 0,
-    [pbr::OriginalName("CONFIGURATION")] Configuration = 1,
-    [pbr::OriginalName("COMMAND")] Command = 2,
-    [pbr::OriginalName("COMMAND_STATUS")] CommandStatus = 3,
-    [pbr::OriginalName("KEYS")] Keys = 4,
-    [pbr::OriginalName("FILE")] File = 5,
-    [pbr::OriginalName("FILE_TO_SERVER")] FileToServer = 6,
+    [pbr::OriginalName("CONFIGURATION")] Configuration = 0,
+    [pbr::OriginalName("COMMAND")] Command = 1,
+    [pbr::OriginalName("COMMAND_STATUS")] CommandStatus = 2,
+    [pbr::OriginalName("KEYS")] Keys = 3,
+    [pbr::OriginalName("FILE")] File = 4,
+    [pbr::OriginalName("FILE_TO_SERVER")] FileToServer = 5,
+    [pbr::OriginalName("BOF_EXECUTE")] BofExecute = 6,
   }
 
   public enum ResponseType {
-    [pbr::OriginalName("STARTUP_RESPONSE")] StartupResponse = 0,
-    [pbr::OriginalName("CONFIGURATION_RESPONSE")] ConfigurationResponse = 1,
-    [pbr::OriginalName("COMMAND_RESPONSE")] CommandResponse = 2,
-    [pbr::OriginalName("COMMAND_STATUS_RESPONSE")] CommandStatusResponse = 3,
-    [pbr::OriginalName("KEYS_RESPONSE")] KeysResponse = 4,
-    [pbr::OriginalName("FILE_RESPONSE")] FileResponse = 5,
-    [pbr::OriginalName("FILE_TRANSFER_STATUS")] FileTransferStatus = 6,
+    [pbr::OriginalName("CONFIGURATION_RESPONSE")] ConfigurationResponse = 0,
+    [pbr::OriginalName("COMMAND_RESPONSE")] CommandResponse = 1,
+    [pbr::OriginalName("COMMAND_STATUS_RESPONSE")] CommandStatusResponse = 2,
+    [pbr::OriginalName("KEYS_RESPONSE")] KeysResponse = 3,
+    [pbr::OriginalName("FILE_RESPONSE")] FileResponse = 4,
+    [pbr::OriginalName("FILE_TRANSFER_STATUS")] FileTransferStatus = 5,
+    [pbr::OriginalName("BOF_EXECUTE_RESPONSE")] BofExecuteResponse = 6,
   }
 
   #endregion
@@ -166,9 +172,6 @@ namespace Patronobuf {
     public Request(Request other) : this() {
       type_ = other.type_;
       switch (other.PayloadCase) {
-        case PayloadOneofCase.Startup:
-          Startup = other.Startup.Clone();
-          break;
         case PayloadOneofCase.Configuration:
           Configuration = other.Configuration.Clone();
           break;
@@ -187,6 +190,9 @@ namespace Patronobuf {
         case PayloadOneofCase.FileToServer:
           FileToServer = other.FileToServer.Clone();
           break;
+        case PayloadOneofCase.BofExecute:
+          BofExecute = other.BofExecute.Clone();
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -200,7 +206,7 @@ namespace Patronobuf {
 
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private global::Patronobuf.RequestType type_ = global::Patronobuf.RequestType.Startup;
+    private global::Patronobuf.RequestType type_ = global::Patronobuf.RequestType.Configuration;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.RequestType Type {
@@ -210,20 +216,8 @@ namespace Patronobuf {
       }
     }
 
-    /// <summary>Field number for the "startup" field.</summary>
-    public const int StartupFieldNumber = 2;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Patronobuf.StartupRequest Startup {
-      get { return payloadCase_ == PayloadOneofCase.Startup ? (global::Patronobuf.StartupRequest) payload_ : null; }
-      set {
-        payload_ = value;
-        payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.Startup;
-      }
-    }
-
     /// <summary>Field number for the "configuration" field.</summary>
-    public const int ConfigurationFieldNumber = 3;
+    public const int ConfigurationFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.ConfigurationRequest Configuration {
@@ -235,7 +229,7 @@ namespace Patronobuf {
     }
 
     /// <summary>Field number for the "command" field.</summary>
-    public const int CommandFieldNumber = 4;
+    public const int CommandFieldNumber = 3;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.CommandRequest Command {
@@ -247,7 +241,7 @@ namespace Patronobuf {
     }
 
     /// <summary>Field number for the "command_status" field.</summary>
-    public const int CommandStatusFieldNumber = 5;
+    public const int CommandStatusFieldNumber = 4;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.CommandStatusRequest CommandStatus {
@@ -259,7 +253,7 @@ namespace Patronobuf {
     }
 
     /// <summary>Field number for the "keys" field.</summary>
-    public const int KeysFieldNumber = 6;
+    public const int KeysFieldNumber = 5;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.KeysRequest Keys {
@@ -271,7 +265,7 @@ namespace Patronobuf {
     }
 
     /// <summary>Field number for the "file" field.</summary>
-    public const int FileFieldNumber = 7;
+    public const int FileFieldNumber = 6;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.FileRequest File {
@@ -283,7 +277,7 @@ namespace Patronobuf {
     }
 
     /// <summary>Field number for the "file_to_server" field.</summary>
-    public const int FileToServerFieldNumber = 8;
+    public const int FileToServerFieldNumber = 7;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.FileToServer FileToServer {
@@ -294,17 +288,29 @@ namespace Patronobuf {
       }
     }
 
+    /// <summary>Field number for the "bof_execute" field.</summary>
+    public const int BofExecuteFieldNumber = 8;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Patronobuf.BoFExecuteRequest BofExecute {
+      get { return payloadCase_ == PayloadOneofCase.BofExecute ? (global::Patronobuf.BoFExecuteRequest) payload_ : null; }
+      set {
+        payload_ = value;
+        payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.BofExecute;
+      }
+    }
+
     private object payload_;
     /// <summary>Enum of possible cases for the "payload" oneof.</summary>
     public enum PayloadOneofCase {
       None = 0,
-      Startup = 2,
-      Configuration = 3,
-      Command = 4,
-      CommandStatus = 5,
-      Keys = 6,
-      File = 7,
-      FileToServer = 8,
+      Configuration = 2,
+      Command = 3,
+      CommandStatus = 4,
+      Keys = 5,
+      File = 6,
+      FileToServer = 7,
+      BofExecute = 8,
     }
     private PayloadOneofCase payloadCase_ = PayloadOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -336,13 +342,13 @@ namespace Patronobuf {
         return true;
       }
       if (Type != other.Type) return false;
-      if (!object.Equals(Startup, other.Startup)) return false;
       if (!object.Equals(Configuration, other.Configuration)) return false;
       if (!object.Equals(Command, other.Command)) return false;
       if (!object.Equals(CommandStatus, other.CommandStatus)) return false;
       if (!object.Equals(Keys, other.Keys)) return false;
       if (!object.Equals(File, other.File)) return false;
       if (!object.Equals(FileToServer, other.FileToServer)) return false;
+      if (!object.Equals(BofExecute, other.BofExecute)) return false;
       if (PayloadCase != other.PayloadCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -351,14 +357,14 @@ namespace Patronobuf {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Type != global::Patronobuf.RequestType.Startup) hash ^= Type.GetHashCode();
-      if (payloadCase_ == PayloadOneofCase.Startup) hash ^= Startup.GetHashCode();
+      if (Type != global::Patronobuf.RequestType.Configuration) hash ^= Type.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.Configuration) hash ^= Configuration.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.Command) hash ^= Command.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.CommandStatus) hash ^= CommandStatus.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.Keys) hash ^= Keys.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.File) hash ^= File.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.FileToServer) hash ^= FileToServer.GetHashCode();
+      if (payloadCase_ == PayloadOneofCase.BofExecute) hash ^= BofExecute.GetHashCode();
       hash ^= (int) payloadCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -378,37 +384,37 @@ namespace Patronobuf {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Type != global::Patronobuf.RequestType.Startup) {
+      if (Type != global::Patronobuf.RequestType.Configuration) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
-      if (payloadCase_ == PayloadOneofCase.Startup) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Startup);
-      }
       if (payloadCase_ == PayloadOneofCase.Configuration) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteMessage(Configuration);
       }
       if (payloadCase_ == PayloadOneofCase.Command) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(26);
         output.WriteMessage(Command);
       }
       if (payloadCase_ == PayloadOneofCase.CommandStatus) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(34);
         output.WriteMessage(CommandStatus);
       }
       if (payloadCase_ == PayloadOneofCase.Keys) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(42);
         output.WriteMessage(Keys);
       }
       if (payloadCase_ == PayloadOneofCase.File) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(50);
         output.WriteMessage(File);
       }
       if (payloadCase_ == PayloadOneofCase.FileToServer) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(58);
         output.WriteMessage(FileToServer);
+      }
+      if (payloadCase_ == PayloadOneofCase.BofExecute) {
+        output.WriteRawTag(66);
+        output.WriteMessage(BofExecute);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -420,37 +426,37 @@ namespace Patronobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Type != global::Patronobuf.RequestType.Startup) {
+      if (Type != global::Patronobuf.RequestType.Configuration) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
-      if (payloadCase_ == PayloadOneofCase.Startup) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Startup);
-      }
       if (payloadCase_ == PayloadOneofCase.Configuration) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteMessage(Configuration);
       }
       if (payloadCase_ == PayloadOneofCase.Command) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(26);
         output.WriteMessage(Command);
       }
       if (payloadCase_ == PayloadOneofCase.CommandStatus) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(34);
         output.WriteMessage(CommandStatus);
       }
       if (payloadCase_ == PayloadOneofCase.Keys) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(42);
         output.WriteMessage(Keys);
       }
       if (payloadCase_ == PayloadOneofCase.File) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(50);
         output.WriteMessage(File);
       }
       if (payloadCase_ == PayloadOneofCase.FileToServer) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(58);
         output.WriteMessage(FileToServer);
+      }
+      if (payloadCase_ == PayloadOneofCase.BofExecute) {
+        output.WriteRawTag(66);
+        output.WriteMessage(BofExecute);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -462,11 +468,8 @@ namespace Patronobuf {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Type != global::Patronobuf.RequestType.Startup) {
+      if (Type != global::Patronobuf.RequestType.Configuration) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
-      }
-      if (payloadCase_ == PayloadOneofCase.Startup) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Startup);
       }
       if (payloadCase_ == PayloadOneofCase.Configuration) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Configuration);
@@ -486,6 +489,9 @@ namespace Patronobuf {
       if (payloadCase_ == PayloadOneofCase.FileToServer) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(FileToServer);
       }
+      if (payloadCase_ == PayloadOneofCase.BofExecute) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BofExecute);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -498,16 +504,10 @@ namespace Patronobuf {
       if (other == null) {
         return;
       }
-      if (other.Type != global::Patronobuf.RequestType.Startup) {
+      if (other.Type != global::Patronobuf.RequestType.Configuration) {
         Type = other.Type;
       }
       switch (other.PayloadCase) {
-        case PayloadOneofCase.Startup:
-          if (Startup == null) {
-            Startup = new global::Patronobuf.StartupRequest();
-          }
-          Startup.MergeFrom(other.Startup);
-          break;
         case PayloadOneofCase.Configuration:
           if (Configuration == null) {
             Configuration = new global::Patronobuf.ConfigurationRequest();
@@ -544,6 +544,12 @@ namespace Patronobuf {
           }
           FileToServer.MergeFrom(other.FileToServer);
           break;
+        case PayloadOneofCase.BofExecute:
+          if (BofExecute == null) {
+            BofExecute = new global::Patronobuf.BoFExecuteRequest();
+          }
+          BofExecute.MergeFrom(other.BofExecute);
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -566,15 +572,6 @@ namespace Patronobuf {
             break;
           }
           case 18: {
-            global::Patronobuf.StartupRequest subBuilder = new global::Patronobuf.StartupRequest();
-            if (payloadCase_ == PayloadOneofCase.Startup) {
-              subBuilder.MergeFrom(Startup);
-            }
-            input.ReadMessage(subBuilder);
-            Startup = subBuilder;
-            break;
-          }
-          case 26: {
             global::Patronobuf.ConfigurationRequest subBuilder = new global::Patronobuf.ConfigurationRequest();
             if (payloadCase_ == PayloadOneofCase.Configuration) {
               subBuilder.MergeFrom(Configuration);
@@ -583,7 +580,7 @@ namespace Patronobuf {
             Configuration = subBuilder;
             break;
           }
-          case 34: {
+          case 26: {
             global::Patronobuf.CommandRequest subBuilder = new global::Patronobuf.CommandRequest();
             if (payloadCase_ == PayloadOneofCase.Command) {
               subBuilder.MergeFrom(Command);
@@ -592,7 +589,7 @@ namespace Patronobuf {
             Command = subBuilder;
             break;
           }
-          case 42: {
+          case 34: {
             global::Patronobuf.CommandStatusRequest subBuilder = new global::Patronobuf.CommandStatusRequest();
             if (payloadCase_ == PayloadOneofCase.CommandStatus) {
               subBuilder.MergeFrom(CommandStatus);
@@ -601,7 +598,7 @@ namespace Patronobuf {
             CommandStatus = subBuilder;
             break;
           }
-          case 50: {
+          case 42: {
             global::Patronobuf.KeysRequest subBuilder = new global::Patronobuf.KeysRequest();
             if (payloadCase_ == PayloadOneofCase.Keys) {
               subBuilder.MergeFrom(Keys);
@@ -610,7 +607,7 @@ namespace Patronobuf {
             Keys = subBuilder;
             break;
           }
-          case 58: {
+          case 50: {
             global::Patronobuf.FileRequest subBuilder = new global::Patronobuf.FileRequest();
             if (payloadCase_ == PayloadOneofCase.File) {
               subBuilder.MergeFrom(File);
@@ -619,13 +616,22 @@ namespace Patronobuf {
             File = subBuilder;
             break;
           }
-          case 66: {
+          case 58: {
             global::Patronobuf.FileToServer subBuilder = new global::Patronobuf.FileToServer();
             if (payloadCase_ == PayloadOneofCase.FileToServer) {
               subBuilder.MergeFrom(FileToServer);
             }
             input.ReadMessage(subBuilder);
             FileToServer = subBuilder;
+            break;
+          }
+          case 66: {
+            global::Patronobuf.BoFExecuteRequest subBuilder = new global::Patronobuf.BoFExecuteRequest();
+            if (payloadCase_ == PayloadOneofCase.BofExecute) {
+              subBuilder.MergeFrom(BofExecute);
+            }
+            input.ReadMessage(subBuilder);
+            BofExecute = subBuilder;
             break;
           }
         }
@@ -648,15 +654,6 @@ namespace Patronobuf {
             break;
           }
           case 18: {
-            global::Patronobuf.StartupRequest subBuilder = new global::Patronobuf.StartupRequest();
-            if (payloadCase_ == PayloadOneofCase.Startup) {
-              subBuilder.MergeFrom(Startup);
-            }
-            input.ReadMessage(subBuilder);
-            Startup = subBuilder;
-            break;
-          }
-          case 26: {
             global::Patronobuf.ConfigurationRequest subBuilder = new global::Patronobuf.ConfigurationRequest();
             if (payloadCase_ == PayloadOneofCase.Configuration) {
               subBuilder.MergeFrom(Configuration);
@@ -665,7 +662,7 @@ namespace Patronobuf {
             Configuration = subBuilder;
             break;
           }
-          case 34: {
+          case 26: {
             global::Patronobuf.CommandRequest subBuilder = new global::Patronobuf.CommandRequest();
             if (payloadCase_ == PayloadOneofCase.Command) {
               subBuilder.MergeFrom(Command);
@@ -674,7 +671,7 @@ namespace Patronobuf {
             Command = subBuilder;
             break;
           }
-          case 42: {
+          case 34: {
             global::Patronobuf.CommandStatusRequest subBuilder = new global::Patronobuf.CommandStatusRequest();
             if (payloadCase_ == PayloadOneofCase.CommandStatus) {
               subBuilder.MergeFrom(CommandStatus);
@@ -683,7 +680,7 @@ namespace Patronobuf {
             CommandStatus = subBuilder;
             break;
           }
-          case 50: {
+          case 42: {
             global::Patronobuf.KeysRequest subBuilder = new global::Patronobuf.KeysRequest();
             if (payloadCase_ == PayloadOneofCase.Keys) {
               subBuilder.MergeFrom(Keys);
@@ -692,7 +689,7 @@ namespace Patronobuf {
             Keys = subBuilder;
             break;
           }
-          case 58: {
+          case 50: {
             global::Patronobuf.FileRequest subBuilder = new global::Patronobuf.FileRequest();
             if (payloadCase_ == PayloadOneofCase.File) {
               subBuilder.MergeFrom(File);
@@ -701,13 +698,22 @@ namespace Patronobuf {
             File = subBuilder;
             break;
           }
-          case 66: {
+          case 58: {
             global::Patronobuf.FileToServer subBuilder = new global::Patronobuf.FileToServer();
             if (payloadCase_ == PayloadOneofCase.FileToServer) {
               subBuilder.MergeFrom(FileToServer);
             }
             input.ReadMessage(subBuilder);
             FileToServer = subBuilder;
+            break;
+          }
+          case 66: {
+            global::Patronobuf.BoFExecuteRequest subBuilder = new global::Patronobuf.BoFExecuteRequest();
+            if (payloadCase_ == PayloadOneofCase.BofExecute) {
+              subBuilder.MergeFrom(BofExecute);
+            }
+            input.ReadMessage(subBuilder);
+            BofExecute = subBuilder;
             break;
           }
         }
@@ -753,9 +759,6 @@ namespace Patronobuf {
     public Response(Response other) : this() {
       type_ = other.type_;
       switch (other.PayloadCase) {
-        case PayloadOneofCase.StartupResponse:
-          StartupResponse = other.StartupResponse.Clone();
-          break;
         case PayloadOneofCase.ConfigurationResponse:
           ConfigurationResponse = other.ConfigurationResponse.Clone();
           break;
@@ -774,6 +777,9 @@ namespace Patronobuf {
         case PayloadOneofCase.FileTransferStatusResponse:
           FileTransferStatusResponse = other.FileTransferStatusResponse.Clone();
           break;
+        case PayloadOneofCase.BofExecuteResponse:
+          BofExecuteResponse = other.BofExecuteResponse.Clone();
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -787,7 +793,7 @@ namespace Patronobuf {
 
     /// <summary>Field number for the "type" field.</summary>
     public const int TypeFieldNumber = 1;
-    private global::Patronobuf.ResponseType type_ = global::Patronobuf.ResponseType.StartupResponse;
+    private global::Patronobuf.ResponseType type_ = global::Patronobuf.ResponseType.ConfigurationResponse;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.ResponseType Type {
@@ -797,20 +803,8 @@ namespace Patronobuf {
       }
     }
 
-    /// <summary>Field number for the "startup_response" field.</summary>
-    public const int StartupResponseFieldNumber = 2;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Patronobuf.StartupResponse StartupResponse {
-      get { return payloadCase_ == PayloadOneofCase.StartupResponse ? (global::Patronobuf.StartupResponse) payload_ : null; }
-      set {
-        payload_ = value;
-        payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.StartupResponse;
-      }
-    }
-
     /// <summary>Field number for the "configuration_response" field.</summary>
-    public const int ConfigurationResponseFieldNumber = 3;
+    public const int ConfigurationResponseFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.ConfigurationResponse ConfigurationResponse {
@@ -822,7 +816,7 @@ namespace Patronobuf {
     }
 
     /// <summary>Field number for the "command_response" field.</summary>
-    public const int CommandResponseFieldNumber = 4;
+    public const int CommandResponseFieldNumber = 3;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.CommandResponse CommandResponse {
@@ -834,7 +828,7 @@ namespace Patronobuf {
     }
 
     /// <summary>Field number for the "command_status_response" field.</summary>
-    public const int CommandStatusResponseFieldNumber = 5;
+    public const int CommandStatusResponseFieldNumber = 4;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.CommandStatusResponse CommandStatusResponse {
@@ -846,7 +840,7 @@ namespace Patronobuf {
     }
 
     /// <summary>Field number for the "keys_response" field.</summary>
-    public const int KeysResponseFieldNumber = 6;
+    public const int KeysResponseFieldNumber = 5;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.KeysResponse KeysResponse {
@@ -858,7 +852,7 @@ namespace Patronobuf {
     }
 
     /// <summary>Field number for the "file_response" field.</summary>
-    public const int FileResponseFieldNumber = 7;
+    public const int FileResponseFieldNumber = 6;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.FileResponse FileResponse {
@@ -870,7 +864,7 @@ namespace Patronobuf {
     }
 
     /// <summary>Field number for the "file_transfer_status_response" field.</summary>
-    public const int FileTransferStatusResponseFieldNumber = 8;
+    public const int FileTransferStatusResponseFieldNumber = 7;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Patronobuf.FileTransferStatusResponse FileTransferStatusResponse {
@@ -881,17 +875,29 @@ namespace Patronobuf {
       }
     }
 
+    /// <summary>Field number for the "bof_execute_response" field.</summary>
+    public const int BofExecuteResponseFieldNumber = 8;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Patronobuf.BoFExecuteResponse BofExecuteResponse {
+      get { return payloadCase_ == PayloadOneofCase.BofExecuteResponse ? (global::Patronobuf.BoFExecuteResponse) payload_ : null; }
+      set {
+        payload_ = value;
+        payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.BofExecuteResponse;
+      }
+    }
+
     private object payload_;
     /// <summary>Enum of possible cases for the "payload" oneof.</summary>
     public enum PayloadOneofCase {
       None = 0,
-      StartupResponse = 2,
-      ConfigurationResponse = 3,
-      CommandResponse = 4,
-      CommandStatusResponse = 5,
-      KeysResponse = 6,
-      FileResponse = 7,
-      FileTransferStatusResponse = 8,
+      ConfigurationResponse = 2,
+      CommandResponse = 3,
+      CommandStatusResponse = 4,
+      KeysResponse = 5,
+      FileResponse = 6,
+      FileTransferStatusResponse = 7,
+      BofExecuteResponse = 8,
     }
     private PayloadOneofCase payloadCase_ = PayloadOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -923,13 +929,13 @@ namespace Patronobuf {
         return true;
       }
       if (Type != other.Type) return false;
-      if (!object.Equals(StartupResponse, other.StartupResponse)) return false;
       if (!object.Equals(ConfigurationResponse, other.ConfigurationResponse)) return false;
       if (!object.Equals(CommandResponse, other.CommandResponse)) return false;
       if (!object.Equals(CommandStatusResponse, other.CommandStatusResponse)) return false;
       if (!object.Equals(KeysResponse, other.KeysResponse)) return false;
       if (!object.Equals(FileResponse, other.FileResponse)) return false;
       if (!object.Equals(FileTransferStatusResponse, other.FileTransferStatusResponse)) return false;
+      if (!object.Equals(BofExecuteResponse, other.BofExecuteResponse)) return false;
       if (PayloadCase != other.PayloadCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -938,14 +944,14 @@ namespace Patronobuf {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Type != global::Patronobuf.ResponseType.StartupResponse) hash ^= Type.GetHashCode();
-      if (payloadCase_ == PayloadOneofCase.StartupResponse) hash ^= StartupResponse.GetHashCode();
+      if (Type != global::Patronobuf.ResponseType.ConfigurationResponse) hash ^= Type.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.ConfigurationResponse) hash ^= ConfigurationResponse.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.CommandResponse) hash ^= CommandResponse.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.CommandStatusResponse) hash ^= CommandStatusResponse.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.KeysResponse) hash ^= KeysResponse.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.FileResponse) hash ^= FileResponse.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.FileTransferStatusResponse) hash ^= FileTransferStatusResponse.GetHashCode();
+      if (payloadCase_ == PayloadOneofCase.BofExecuteResponse) hash ^= BofExecuteResponse.GetHashCode();
       hash ^= (int) payloadCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -965,37 +971,37 @@ namespace Patronobuf {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Type != global::Patronobuf.ResponseType.StartupResponse) {
+      if (Type != global::Patronobuf.ResponseType.ConfigurationResponse) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
-      if (payloadCase_ == PayloadOneofCase.StartupResponse) {
-        output.WriteRawTag(18);
-        output.WriteMessage(StartupResponse);
-      }
       if (payloadCase_ == PayloadOneofCase.ConfigurationResponse) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteMessage(ConfigurationResponse);
       }
       if (payloadCase_ == PayloadOneofCase.CommandResponse) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(26);
         output.WriteMessage(CommandResponse);
       }
       if (payloadCase_ == PayloadOneofCase.CommandStatusResponse) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(34);
         output.WriteMessage(CommandStatusResponse);
       }
       if (payloadCase_ == PayloadOneofCase.KeysResponse) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(42);
         output.WriteMessage(KeysResponse);
       }
       if (payloadCase_ == PayloadOneofCase.FileResponse) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(50);
         output.WriteMessage(FileResponse);
       }
       if (payloadCase_ == PayloadOneofCase.FileTransferStatusResponse) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(58);
         output.WriteMessage(FileTransferStatusResponse);
+      }
+      if (payloadCase_ == PayloadOneofCase.BofExecuteResponse) {
+        output.WriteRawTag(66);
+        output.WriteMessage(BofExecuteResponse);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1007,37 +1013,37 @@ namespace Patronobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Type != global::Patronobuf.ResponseType.StartupResponse) {
+      if (Type != global::Patronobuf.ResponseType.ConfigurationResponse) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Type);
       }
-      if (payloadCase_ == PayloadOneofCase.StartupResponse) {
-        output.WriteRawTag(18);
-        output.WriteMessage(StartupResponse);
-      }
       if (payloadCase_ == PayloadOneofCase.ConfigurationResponse) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(18);
         output.WriteMessage(ConfigurationResponse);
       }
       if (payloadCase_ == PayloadOneofCase.CommandResponse) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(26);
         output.WriteMessage(CommandResponse);
       }
       if (payloadCase_ == PayloadOneofCase.CommandStatusResponse) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(34);
         output.WriteMessage(CommandStatusResponse);
       }
       if (payloadCase_ == PayloadOneofCase.KeysResponse) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(42);
         output.WriteMessage(KeysResponse);
       }
       if (payloadCase_ == PayloadOneofCase.FileResponse) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(50);
         output.WriteMessage(FileResponse);
       }
       if (payloadCase_ == PayloadOneofCase.FileTransferStatusResponse) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(58);
         output.WriteMessage(FileTransferStatusResponse);
+      }
+      if (payloadCase_ == PayloadOneofCase.BofExecuteResponse) {
+        output.WriteRawTag(66);
+        output.WriteMessage(BofExecuteResponse);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1049,11 +1055,8 @@ namespace Patronobuf {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Type != global::Patronobuf.ResponseType.StartupResponse) {
+      if (Type != global::Patronobuf.ResponseType.ConfigurationResponse) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
-      }
-      if (payloadCase_ == PayloadOneofCase.StartupResponse) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StartupResponse);
       }
       if (payloadCase_ == PayloadOneofCase.ConfigurationResponse) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ConfigurationResponse);
@@ -1073,6 +1076,9 @@ namespace Patronobuf {
       if (payloadCase_ == PayloadOneofCase.FileTransferStatusResponse) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(FileTransferStatusResponse);
       }
+      if (payloadCase_ == PayloadOneofCase.BofExecuteResponse) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BofExecuteResponse);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1085,16 +1091,10 @@ namespace Patronobuf {
       if (other == null) {
         return;
       }
-      if (other.Type != global::Patronobuf.ResponseType.StartupResponse) {
+      if (other.Type != global::Patronobuf.ResponseType.ConfigurationResponse) {
         Type = other.Type;
       }
       switch (other.PayloadCase) {
-        case PayloadOneofCase.StartupResponse:
-          if (StartupResponse == null) {
-            StartupResponse = new global::Patronobuf.StartupResponse();
-          }
-          StartupResponse.MergeFrom(other.StartupResponse);
-          break;
         case PayloadOneofCase.ConfigurationResponse:
           if (ConfigurationResponse == null) {
             ConfigurationResponse = new global::Patronobuf.ConfigurationResponse();
@@ -1131,6 +1131,12 @@ namespace Patronobuf {
           }
           FileTransferStatusResponse.MergeFrom(other.FileTransferStatusResponse);
           break;
+        case PayloadOneofCase.BofExecuteResponse:
+          if (BofExecuteResponse == null) {
+            BofExecuteResponse = new global::Patronobuf.BoFExecuteResponse();
+          }
+          BofExecuteResponse.MergeFrom(other.BofExecuteResponse);
+          break;
       }
 
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1153,15 +1159,6 @@ namespace Patronobuf {
             break;
           }
           case 18: {
-            global::Patronobuf.StartupResponse subBuilder = new global::Patronobuf.StartupResponse();
-            if (payloadCase_ == PayloadOneofCase.StartupResponse) {
-              subBuilder.MergeFrom(StartupResponse);
-            }
-            input.ReadMessage(subBuilder);
-            StartupResponse = subBuilder;
-            break;
-          }
-          case 26: {
             global::Patronobuf.ConfigurationResponse subBuilder = new global::Patronobuf.ConfigurationResponse();
             if (payloadCase_ == PayloadOneofCase.ConfigurationResponse) {
               subBuilder.MergeFrom(ConfigurationResponse);
@@ -1170,7 +1167,7 @@ namespace Patronobuf {
             ConfigurationResponse = subBuilder;
             break;
           }
-          case 34: {
+          case 26: {
             global::Patronobuf.CommandResponse subBuilder = new global::Patronobuf.CommandResponse();
             if (payloadCase_ == PayloadOneofCase.CommandResponse) {
               subBuilder.MergeFrom(CommandResponse);
@@ -1179,7 +1176,7 @@ namespace Patronobuf {
             CommandResponse = subBuilder;
             break;
           }
-          case 42: {
+          case 34: {
             global::Patronobuf.CommandStatusResponse subBuilder = new global::Patronobuf.CommandStatusResponse();
             if (payloadCase_ == PayloadOneofCase.CommandStatusResponse) {
               subBuilder.MergeFrom(CommandStatusResponse);
@@ -1188,7 +1185,7 @@ namespace Patronobuf {
             CommandStatusResponse = subBuilder;
             break;
           }
-          case 50: {
+          case 42: {
             global::Patronobuf.KeysResponse subBuilder = new global::Patronobuf.KeysResponse();
             if (payloadCase_ == PayloadOneofCase.KeysResponse) {
               subBuilder.MergeFrom(KeysResponse);
@@ -1197,7 +1194,7 @@ namespace Patronobuf {
             KeysResponse = subBuilder;
             break;
           }
-          case 58: {
+          case 50: {
             global::Patronobuf.FileResponse subBuilder = new global::Patronobuf.FileResponse();
             if (payloadCase_ == PayloadOneofCase.FileResponse) {
               subBuilder.MergeFrom(FileResponse);
@@ -1206,13 +1203,22 @@ namespace Patronobuf {
             FileResponse = subBuilder;
             break;
           }
-          case 66: {
+          case 58: {
             global::Patronobuf.FileTransferStatusResponse subBuilder = new global::Patronobuf.FileTransferStatusResponse();
             if (payloadCase_ == PayloadOneofCase.FileTransferStatusResponse) {
               subBuilder.MergeFrom(FileTransferStatusResponse);
             }
             input.ReadMessage(subBuilder);
             FileTransferStatusResponse = subBuilder;
+            break;
+          }
+          case 66: {
+            global::Patronobuf.BoFExecuteResponse subBuilder = new global::Patronobuf.BoFExecuteResponse();
+            if (payloadCase_ == PayloadOneofCase.BofExecuteResponse) {
+              subBuilder.MergeFrom(BofExecuteResponse);
+            }
+            input.ReadMessage(subBuilder);
+            BofExecuteResponse = subBuilder;
             break;
           }
         }
@@ -1235,15 +1241,6 @@ namespace Patronobuf {
             break;
           }
           case 18: {
-            global::Patronobuf.StartupResponse subBuilder = new global::Patronobuf.StartupResponse();
-            if (payloadCase_ == PayloadOneofCase.StartupResponse) {
-              subBuilder.MergeFrom(StartupResponse);
-            }
-            input.ReadMessage(subBuilder);
-            StartupResponse = subBuilder;
-            break;
-          }
-          case 26: {
             global::Patronobuf.ConfigurationResponse subBuilder = new global::Patronobuf.ConfigurationResponse();
             if (payloadCase_ == PayloadOneofCase.ConfigurationResponse) {
               subBuilder.MergeFrom(ConfigurationResponse);
@@ -1252,7 +1249,7 @@ namespace Patronobuf {
             ConfigurationResponse = subBuilder;
             break;
           }
-          case 34: {
+          case 26: {
             global::Patronobuf.CommandResponse subBuilder = new global::Patronobuf.CommandResponse();
             if (payloadCase_ == PayloadOneofCase.CommandResponse) {
               subBuilder.MergeFrom(CommandResponse);
@@ -1261,7 +1258,7 @@ namespace Patronobuf {
             CommandResponse = subBuilder;
             break;
           }
-          case 42: {
+          case 34: {
             global::Patronobuf.CommandStatusResponse subBuilder = new global::Patronobuf.CommandStatusResponse();
             if (payloadCase_ == PayloadOneofCase.CommandStatusResponse) {
               subBuilder.MergeFrom(CommandStatusResponse);
@@ -1270,7 +1267,7 @@ namespace Patronobuf {
             CommandStatusResponse = subBuilder;
             break;
           }
-          case 50: {
+          case 42: {
             global::Patronobuf.KeysResponse subBuilder = new global::Patronobuf.KeysResponse();
             if (payloadCase_ == PayloadOneofCase.KeysResponse) {
               subBuilder.MergeFrom(KeysResponse);
@@ -1279,7 +1276,7 @@ namespace Patronobuf {
             KeysResponse = subBuilder;
             break;
           }
-          case 58: {
+          case 50: {
             global::Patronobuf.FileResponse subBuilder = new global::Patronobuf.FileResponse();
             if (payloadCase_ == PayloadOneofCase.FileResponse) {
               subBuilder.MergeFrom(FileResponse);
@@ -1288,13 +1285,22 @@ namespace Patronobuf {
             FileResponse = subBuilder;
             break;
           }
-          case 66: {
+          case 58: {
             global::Patronobuf.FileTransferStatusResponse subBuilder = new global::Patronobuf.FileTransferStatusResponse();
             if (payloadCase_ == PayloadOneofCase.FileTransferStatusResponse) {
               subBuilder.MergeFrom(FileTransferStatusResponse);
             }
             input.ReadMessage(subBuilder);
             FileTransferStatusResponse = subBuilder;
+            break;
+          }
+          case 66: {
+            global::Patronobuf.BoFExecuteResponse subBuilder = new global::Patronobuf.BoFExecuteResponse();
+            if (payloadCase_ == PayloadOneofCase.BofExecuteResponse) {
+              subBuilder.MergeFrom(BofExecuteResponse);
+            }
+            input.ReadMessage(subBuilder);
+            BofExecuteResponse = subBuilder;
             break;
           }
         }
@@ -3793,6 +3799,621 @@ namespace Patronobuf {
 
   }
 
+  public sealed partial class BoFExecuteRequest : pb::IMessage<BoFExecuteRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<BoFExecuteRequest> _parser = new pb::MessageParser<BoFExecuteRequest>(() => new BoFExecuteRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<BoFExecuteRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[10]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public BoFExecuteRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public BoFExecuteRequest(BoFExecuteRequest other) : this() {
+      uuid_ = other.uuid_;
+      bofPayload_ = other.bofPayload_;
+      platform_ = other.platform_;
+      functionName_ = other.functionName_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public BoFExecuteRequest Clone() {
+      return new BoFExecuteRequest(this);
+    }
+
+    /// <summary>Field number for the "uuid" field.</summary>
+    public const int UuidFieldNumber = 1;
+    private string uuid_ = "";
+    /// <summary>
+    /// Agent UUID
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Uuid {
+      get { return uuid_; }
+      set {
+        uuid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "bof_payload" field.</summary>
+    public const int BofPayloadFieldNumber = 2;
+    private pb::ByteString bofPayload_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Compiled BOF binary (Windows) or ELF (Linux)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString BofPayload {
+      get { return bofPayload_; }
+      set {
+        bofPayload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "platform" field.</summary>
+    public const int PlatformFieldNumber = 3;
+    private string platform_ = "";
+    /// <summary>
+    /// "windows" or "linux"
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Platform {
+      get { return platform_; }
+      set {
+        platform_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "function_name" field.</summary>
+    public const int FunctionNameFieldNumber = 4;
+    private string functionName_ = "";
+    /// <summary>
+    /// Function name to call in BOF (e.g., "go")
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string FunctionName {
+      get { return functionName_; }
+      set {
+        functionName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as BoFExecuteRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(BoFExecuteRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Uuid != other.Uuid) return false;
+      if (BofPayload != other.BofPayload) return false;
+      if (Platform != other.Platform) return false;
+      if (FunctionName != other.FunctionName) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Uuid.Length != 0) hash ^= Uuid.GetHashCode();
+      if (BofPayload.Length != 0) hash ^= BofPayload.GetHashCode();
+      if (Platform.Length != 0) hash ^= Platform.GetHashCode();
+      if (FunctionName.Length != 0) hash ^= FunctionName.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Uuid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Uuid);
+      }
+      if (BofPayload.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(BofPayload);
+      }
+      if (Platform.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Platform);
+      }
+      if (FunctionName.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(FunctionName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Uuid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Uuid);
+      }
+      if (BofPayload.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(BofPayload);
+      }
+      if (Platform.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Platform);
+      }
+      if (FunctionName.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(FunctionName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Uuid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Uuid);
+      }
+      if (BofPayload.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(BofPayload);
+      }
+      if (Platform.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Platform);
+      }
+      if (FunctionName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(FunctionName);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(BoFExecuteRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Uuid.Length != 0) {
+        Uuid = other.Uuid;
+      }
+      if (other.BofPayload.Length != 0) {
+        BofPayload = other.BofPayload;
+      }
+      if (other.Platform.Length != 0) {
+        Platform = other.Platform;
+      }
+      if (other.FunctionName.Length != 0) {
+        FunctionName = other.FunctionName;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 18: {
+            BofPayload = input.ReadBytes();
+            break;
+          }
+          case 26: {
+            Platform = input.ReadString();
+            break;
+          }
+          case 34: {
+            FunctionName = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 18: {
+            BofPayload = input.ReadBytes();
+            break;
+          }
+          case 26: {
+            Platform = input.ReadString();
+            break;
+          }
+          case 34: {
+            FunctionName = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class BoFExecuteResponse : pb::IMessage<BoFExecuteResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<BoFExecuteResponse> _parser = new pb::MessageParser<BoFExecuteResponse>(() => new BoFExecuteResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<BoFExecuteResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public BoFExecuteResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public BoFExecuteResponse(BoFExecuteResponse other) : this() {
+      uuid_ = other.uuid_;
+      success_ = other.success_;
+      output_ = other.output_;
+      error_ = other.error_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public BoFExecuteResponse Clone() {
+      return new BoFExecuteResponse(this);
+    }
+
+    /// <summary>Field number for the "uuid" field.</summary>
+    public const int UuidFieldNumber = 1;
+    private string uuid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Uuid {
+      get { return uuid_; }
+      set {
+        uuid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "success" field.</summary>
+    public const int SuccessFieldNumber = 2;
+    private bool success_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Success {
+      get { return success_; }
+      set {
+        success_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "output" field.</summary>
+    public const int OutputFieldNumber = 3;
+    private string output_ = "";
+    /// <summary>
+    /// Output from BeaconPrintf or similar
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Output {
+      get { return output_; }
+      set {
+        output_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "error" field.</summary>
+    public const int ErrorFieldNumber = 4;
+    private string error_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Error {
+      get { return error_; }
+      set {
+        error_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as BoFExecuteResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(BoFExecuteResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Uuid != other.Uuid) return false;
+      if (Success != other.Success) return false;
+      if (Output != other.Output) return false;
+      if (Error != other.Error) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Uuid.Length != 0) hash ^= Uuid.GetHashCode();
+      if (Success != false) hash ^= Success.GetHashCode();
+      if (Output.Length != 0) hash ^= Output.GetHashCode();
+      if (Error.Length != 0) hash ^= Error.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Uuid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Uuid);
+      }
+      if (Success != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(Success);
+      }
+      if (Output.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Output);
+      }
+      if (Error.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Error);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Uuid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Uuid);
+      }
+      if (Success != false) {
+        output.WriteRawTag(16);
+        output.WriteBool(Success);
+      }
+      if (Output.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Output);
+      }
+      if (Error.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Error);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Uuid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Uuid);
+      }
+      if (Success != false) {
+        size += 1 + 1;
+      }
+      if (Output.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Output);
+      }
+      if (Error.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Error);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(BoFExecuteResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Uuid.Length != 0) {
+        Uuid = other.Uuid;
+      }
+      if (other.Success != false) {
+        Success = other.Success;
+      }
+      if (other.Output.Length != 0) {
+        Output = other.Output;
+      }
+      if (other.Error.Length != 0) {
+        Error = other.Error;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 16: {
+            Success = input.ReadBool();
+            break;
+          }
+          case 26: {
+            Output = input.ReadString();
+            break;
+          }
+          case 34: {
+            Error = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 16: {
+            Success = input.ReadBool();
+            break;
+          }
+          case 26: {
+            Output = input.ReadString();
+            break;
+          }
+          case 34: {
+            Error = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class KeysRequest : pb::IMessage<KeysRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3807,7 +4428,7 @@ namespace Patronobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[10]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4033,7 +4654,7 @@ namespace Patronobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[11]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4222,7 +4843,7 @@ namespace Patronobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[12]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4411,7 +5032,7 @@ namespace Patronobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[13]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4748,7 +5369,7 @@ namespace Patronobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[14]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5122,7 +5743,7 @@ namespace Patronobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[15]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5348,7 +5969,7 @@ namespace Patronobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[16]; }
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

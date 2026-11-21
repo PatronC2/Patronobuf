@@ -5,39 +5,39 @@ import * as _m0 from "protobufjs/minimal";
 export const protobufPackage = "patronobuf";
 
 export enum RequestType {
-  STARTUP = 0,
-  CONFIGURATION = 1,
-  COMMAND = 2,
-  COMMAND_STATUS = 3,
-  KEYS = 4,
-  FILE = 5,
-  FILE_TO_SERVER = 6,
+  CONFIGURATION = 0,
+  COMMAND = 1,
+  COMMAND_STATUS = 2,
+  KEYS = 3,
+  FILE = 4,
+  FILE_TO_SERVER = 5,
+  BOF_EXECUTE = 6,
   UNRECOGNIZED = -1,
 }
 
 export function requestTypeFromJSON(object: any): RequestType {
   switch (object) {
     case 0:
-    case "STARTUP":
-      return RequestType.STARTUP;
-    case 1:
     case "CONFIGURATION":
       return RequestType.CONFIGURATION;
-    case 2:
+    case 1:
     case "COMMAND":
       return RequestType.COMMAND;
-    case 3:
+    case 2:
     case "COMMAND_STATUS":
       return RequestType.COMMAND_STATUS;
-    case 4:
+    case 3:
     case "KEYS":
       return RequestType.KEYS;
-    case 5:
+    case 4:
     case "FILE":
       return RequestType.FILE;
-    case 6:
+    case 5:
     case "FILE_TO_SERVER":
       return RequestType.FILE_TO_SERVER;
+    case 6:
+    case "BOF_EXECUTE":
+      return RequestType.BOF_EXECUTE;
     case -1:
     case "UNRECOGNIZED":
     default:
@@ -47,8 +47,6 @@ export function requestTypeFromJSON(object: any): RequestType {
 
 export function requestTypeToJSON(object: RequestType): string {
   switch (object) {
-    case RequestType.STARTUP:
-      return "STARTUP";
     case RequestType.CONFIGURATION:
       return "CONFIGURATION";
     case RequestType.COMMAND:
@@ -61,6 +59,8 @@ export function requestTypeToJSON(object: RequestType): string {
       return "FILE";
     case RequestType.FILE_TO_SERVER:
       return "FILE_TO_SERVER";
+    case RequestType.BOF_EXECUTE:
+      return "BOF_EXECUTE";
     case RequestType.UNRECOGNIZED:
     default:
       return "UNRECOGNIZED";
@@ -68,39 +68,39 @@ export function requestTypeToJSON(object: RequestType): string {
 }
 
 export enum ResponseType {
-  STARTUP_RESPONSE = 0,
-  CONFIGURATION_RESPONSE = 1,
-  COMMAND_RESPONSE = 2,
-  COMMAND_STATUS_RESPONSE = 3,
-  KEYS_RESPONSE = 4,
-  FILE_RESPONSE = 5,
-  FILE_TRANSFER_STATUS = 6,
+  CONFIGURATION_RESPONSE = 0,
+  COMMAND_RESPONSE = 1,
+  COMMAND_STATUS_RESPONSE = 2,
+  KEYS_RESPONSE = 3,
+  FILE_RESPONSE = 4,
+  FILE_TRANSFER_STATUS = 5,
+  BOF_EXECUTE_RESPONSE = 6,
   UNRECOGNIZED = -1,
 }
 
 export function responseTypeFromJSON(object: any): ResponseType {
   switch (object) {
     case 0:
-    case "STARTUP_RESPONSE":
-      return ResponseType.STARTUP_RESPONSE;
-    case 1:
     case "CONFIGURATION_RESPONSE":
       return ResponseType.CONFIGURATION_RESPONSE;
-    case 2:
+    case 1:
     case "COMMAND_RESPONSE":
       return ResponseType.COMMAND_RESPONSE;
-    case 3:
+    case 2:
     case "COMMAND_STATUS_RESPONSE":
       return ResponseType.COMMAND_STATUS_RESPONSE;
-    case 4:
+    case 3:
     case "KEYS_RESPONSE":
       return ResponseType.KEYS_RESPONSE;
-    case 5:
+    case 4:
     case "FILE_RESPONSE":
       return ResponseType.FILE_RESPONSE;
-    case 6:
+    case 5:
     case "FILE_TRANSFER_STATUS":
       return ResponseType.FILE_TRANSFER_STATUS;
+    case 6:
+    case "BOF_EXECUTE_RESPONSE":
+      return ResponseType.BOF_EXECUTE_RESPONSE;
     case -1:
     case "UNRECOGNIZED":
     default:
@@ -110,8 +110,6 @@ export function responseTypeFromJSON(object: any): ResponseType {
 
 export function responseTypeToJSON(object: ResponseType): string {
   switch (object) {
-    case ResponseType.STARTUP_RESPONSE:
-      return "STARTUP_RESPONSE";
     case ResponseType.CONFIGURATION_RESPONSE:
       return "CONFIGURATION_RESPONSE";
     case ResponseType.COMMAND_RESPONSE:
@@ -124,6 +122,8 @@ export function responseTypeToJSON(object: ResponseType): string {
       return "FILE_RESPONSE";
     case ResponseType.FILE_TRANSFER_STATUS:
       return "FILE_TRANSFER_STATUS";
+    case ResponseType.BOF_EXECUTE_RESPONSE:
+      return "BOF_EXECUTE_RESPONSE";
     case ResponseType.UNRECOGNIZED:
     default:
       return "UNRECOGNIZED";
@@ -132,24 +132,24 @@ export function responseTypeToJSON(object: ResponseType): string {
 
 export interface Request {
   type: RequestType;
-  startup?: StartupRequest | undefined;
   configuration?: ConfigurationRequest | undefined;
   command?: CommandRequest | undefined;
   commandStatus?: CommandStatusRequest | undefined;
   keys?: KeysRequest | undefined;
   file?: FileRequest | undefined;
   fileToServer?: FileToServer | undefined;
+  bofExecute?: BoFExecuteRequest | undefined;
 }
 
 export interface Response {
   type: ResponseType;
-  startupResponse?: StartupResponse | undefined;
   configurationResponse?: ConfigurationResponse | undefined;
   commandResponse?: CommandResponse | undefined;
   commandStatusResponse?: CommandStatusResponse | undefined;
   keysResponse?: KeysResponse | undefined;
   fileResponse?: FileResponse | undefined;
   fileTransferStatusResponse?: FileTransferStatusResponse | undefined;
+  bofExecuteResponse?: BoFExecuteResponse | undefined;
 }
 
 export interface StartupRequest {
@@ -211,6 +211,25 @@ export interface CommandStatusResponse {
   uuid: string;
 }
 
+export interface BoFExecuteRequest {
+  /** Agent UUID */
+  uuid: string;
+  /** Compiled BOF binary (Windows) or ELF (Linux) */
+  bofPayload: Uint8Array;
+  /** "windows" or "linux" */
+  platform: string;
+  /** Function name to call in BOF (e.g., "go") */
+  functionName: string;
+}
+
+export interface BoFExecuteResponse {
+  uuid: string;
+  success: boolean;
+  /** Output from BeaconPrintf or similar */
+  output: string;
+  error: string;
+}
+
 export interface KeysRequest {
   uuid: string;
   keys: string;
@@ -254,13 +273,13 @@ export interface Tag {
 function createBaseRequest(): Request {
   return {
     type: 0,
-    startup: undefined,
     configuration: undefined,
     command: undefined,
     commandStatus: undefined,
     keys: undefined,
     file: undefined,
     fileToServer: undefined,
+    bofExecute: undefined,
   };
 }
 
@@ -269,26 +288,26 @@ export const Request = {
     if (message.type !== 0) {
       writer.uint32(8).int32(message.type);
     }
-    if (message.startup !== undefined) {
-      StartupRequest.encode(message.startup, writer.uint32(18).fork()).ldelim();
-    }
     if (message.configuration !== undefined) {
-      ConfigurationRequest.encode(message.configuration, writer.uint32(26).fork()).ldelim();
+      ConfigurationRequest.encode(message.configuration, writer.uint32(18).fork()).ldelim();
     }
     if (message.command !== undefined) {
-      CommandRequest.encode(message.command, writer.uint32(34).fork()).ldelim();
+      CommandRequest.encode(message.command, writer.uint32(26).fork()).ldelim();
     }
     if (message.commandStatus !== undefined) {
-      CommandStatusRequest.encode(message.commandStatus, writer.uint32(42).fork()).ldelim();
+      CommandStatusRequest.encode(message.commandStatus, writer.uint32(34).fork()).ldelim();
     }
     if (message.keys !== undefined) {
-      KeysRequest.encode(message.keys, writer.uint32(50).fork()).ldelim();
+      KeysRequest.encode(message.keys, writer.uint32(42).fork()).ldelim();
     }
     if (message.file !== undefined) {
-      FileRequest.encode(message.file, writer.uint32(58).fork()).ldelim();
+      FileRequest.encode(message.file, writer.uint32(50).fork()).ldelim();
     }
     if (message.fileToServer !== undefined) {
-      FileToServer.encode(message.fileToServer, writer.uint32(66).fork()).ldelim();
+      FileToServer.encode(message.fileToServer, writer.uint32(58).fork()).ldelim();
+    }
+    if (message.bofExecute !== undefined) {
+      BoFExecuteRequest.encode(message.bofExecute, writer.uint32(66).fork()).ldelim();
     }
     return writer;
   },
@@ -304,25 +323,25 @@ export const Request = {
           message.type = reader.int32() as any;
           break;
         case 2:
-          message.startup = StartupRequest.decode(reader, reader.uint32());
-          break;
-        case 3:
           message.configuration = ConfigurationRequest.decode(reader, reader.uint32());
           break;
-        case 4:
+        case 3:
           message.command = CommandRequest.decode(reader, reader.uint32());
           break;
-        case 5:
+        case 4:
           message.commandStatus = CommandStatusRequest.decode(reader, reader.uint32());
           break;
-        case 6:
+        case 5:
           message.keys = KeysRequest.decode(reader, reader.uint32());
           break;
-        case 7:
+        case 6:
           message.file = FileRequest.decode(reader, reader.uint32());
           break;
-        case 8:
+        case 7:
           message.fileToServer = FileToServer.decode(reader, reader.uint32());
+          break;
+        case 8:
+          message.bofExecute = BoFExecuteRequest.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -335,21 +354,19 @@ export const Request = {
   fromJSON(object: any): Request {
     return {
       type: isSet(object.type) ? requestTypeFromJSON(object.type) : 0,
-      startup: isSet(object.startup) ? StartupRequest.fromJSON(object.startup) : undefined,
       configuration: isSet(object.configuration) ? ConfigurationRequest.fromJSON(object.configuration) : undefined,
       command: isSet(object.command) ? CommandRequest.fromJSON(object.command) : undefined,
       commandStatus: isSet(object.commandStatus) ? CommandStatusRequest.fromJSON(object.commandStatus) : undefined,
       keys: isSet(object.keys) ? KeysRequest.fromJSON(object.keys) : undefined,
       file: isSet(object.file) ? FileRequest.fromJSON(object.file) : undefined,
       fileToServer: isSet(object.fileToServer) ? FileToServer.fromJSON(object.fileToServer) : undefined,
+      bofExecute: isSet(object.bofExecute) ? BoFExecuteRequest.fromJSON(object.bofExecute) : undefined,
     };
   },
 
   toJSON(message: Request): unknown {
     const obj: any = {};
     message.type !== undefined && (obj.type = requestTypeToJSON(message.type));
-    message.startup !== undefined &&
-      (obj.startup = message.startup ? StartupRequest.toJSON(message.startup) : undefined);
     message.configuration !== undefined &&
       (obj.configuration = message.configuration ? ConfigurationRequest.toJSON(message.configuration) : undefined);
     message.command !== undefined &&
@@ -360,6 +377,8 @@ export const Request = {
     message.file !== undefined && (obj.file = message.file ? FileRequest.toJSON(message.file) : undefined);
     message.fileToServer !== undefined &&
       (obj.fileToServer = message.fileToServer ? FileToServer.toJSON(message.fileToServer) : undefined);
+    message.bofExecute !== undefined &&
+      (obj.bofExecute = message.bofExecute ? BoFExecuteRequest.toJSON(message.bofExecute) : undefined);
     return obj;
   },
 
@@ -370,9 +389,6 @@ export const Request = {
   fromPartial<I extends Exact<DeepPartial<Request>, I>>(object: I): Request {
     const message = createBaseRequest();
     message.type = object.type ?? 0;
-    message.startup = (object.startup !== undefined && object.startup !== null)
-      ? StartupRequest.fromPartial(object.startup)
-      : undefined;
     message.configuration = (object.configuration !== undefined && object.configuration !== null)
       ? ConfigurationRequest.fromPartial(object.configuration)
       : undefined;
@@ -391,6 +407,9 @@ export const Request = {
     message.fileToServer = (object.fileToServer !== undefined && object.fileToServer !== null)
       ? FileToServer.fromPartial(object.fileToServer)
       : undefined;
+    message.bofExecute = (object.bofExecute !== undefined && object.bofExecute !== null)
+      ? BoFExecuteRequest.fromPartial(object.bofExecute)
+      : undefined;
     return message;
   },
 };
@@ -398,13 +417,13 @@ export const Request = {
 function createBaseResponse(): Response {
   return {
     type: 0,
-    startupResponse: undefined,
     configurationResponse: undefined,
     commandResponse: undefined,
     commandStatusResponse: undefined,
     keysResponse: undefined,
     fileResponse: undefined,
     fileTransferStatusResponse: undefined,
+    bofExecuteResponse: undefined,
   };
 }
 
@@ -413,26 +432,26 @@ export const Response = {
     if (message.type !== 0) {
       writer.uint32(8).int32(message.type);
     }
-    if (message.startupResponse !== undefined) {
-      StartupResponse.encode(message.startupResponse, writer.uint32(18).fork()).ldelim();
-    }
     if (message.configurationResponse !== undefined) {
-      ConfigurationResponse.encode(message.configurationResponse, writer.uint32(26).fork()).ldelim();
+      ConfigurationResponse.encode(message.configurationResponse, writer.uint32(18).fork()).ldelim();
     }
     if (message.commandResponse !== undefined) {
-      CommandResponse.encode(message.commandResponse, writer.uint32(34).fork()).ldelim();
+      CommandResponse.encode(message.commandResponse, writer.uint32(26).fork()).ldelim();
     }
     if (message.commandStatusResponse !== undefined) {
-      CommandStatusResponse.encode(message.commandStatusResponse, writer.uint32(42).fork()).ldelim();
+      CommandStatusResponse.encode(message.commandStatusResponse, writer.uint32(34).fork()).ldelim();
     }
     if (message.keysResponse !== undefined) {
-      KeysResponse.encode(message.keysResponse, writer.uint32(50).fork()).ldelim();
+      KeysResponse.encode(message.keysResponse, writer.uint32(42).fork()).ldelim();
     }
     if (message.fileResponse !== undefined) {
-      FileResponse.encode(message.fileResponse, writer.uint32(58).fork()).ldelim();
+      FileResponse.encode(message.fileResponse, writer.uint32(50).fork()).ldelim();
     }
     if (message.fileTransferStatusResponse !== undefined) {
-      FileTransferStatusResponse.encode(message.fileTransferStatusResponse, writer.uint32(66).fork()).ldelim();
+      FileTransferStatusResponse.encode(message.fileTransferStatusResponse, writer.uint32(58).fork()).ldelim();
+    }
+    if (message.bofExecuteResponse !== undefined) {
+      BoFExecuteResponse.encode(message.bofExecuteResponse, writer.uint32(66).fork()).ldelim();
     }
     return writer;
   },
@@ -448,25 +467,25 @@ export const Response = {
           message.type = reader.int32() as any;
           break;
         case 2:
-          message.startupResponse = StartupResponse.decode(reader, reader.uint32());
-          break;
-        case 3:
           message.configurationResponse = ConfigurationResponse.decode(reader, reader.uint32());
           break;
-        case 4:
+        case 3:
           message.commandResponse = CommandResponse.decode(reader, reader.uint32());
           break;
-        case 5:
+        case 4:
           message.commandStatusResponse = CommandStatusResponse.decode(reader, reader.uint32());
           break;
-        case 6:
+        case 5:
           message.keysResponse = KeysResponse.decode(reader, reader.uint32());
           break;
-        case 7:
+        case 6:
           message.fileResponse = FileResponse.decode(reader, reader.uint32());
           break;
-        case 8:
+        case 7:
           message.fileTransferStatusResponse = FileTransferStatusResponse.decode(reader, reader.uint32());
+          break;
+        case 8:
+          message.bofExecuteResponse = BoFExecuteResponse.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -479,7 +498,6 @@ export const Response = {
   fromJSON(object: any): Response {
     return {
       type: isSet(object.type) ? responseTypeFromJSON(object.type) : 0,
-      startupResponse: isSet(object.startupResponse) ? StartupResponse.fromJSON(object.startupResponse) : undefined,
       configurationResponse: isSet(object.configurationResponse)
         ? ConfigurationResponse.fromJSON(object.configurationResponse)
         : undefined,
@@ -492,14 +510,15 @@ export const Response = {
       fileTransferStatusResponse: isSet(object.fileTransferStatusResponse)
         ? FileTransferStatusResponse.fromJSON(object.fileTransferStatusResponse)
         : undefined,
+      bofExecuteResponse: isSet(object.bofExecuteResponse)
+        ? BoFExecuteResponse.fromJSON(object.bofExecuteResponse)
+        : undefined,
     };
   },
 
   toJSON(message: Response): unknown {
     const obj: any = {};
     message.type !== undefined && (obj.type = responseTypeToJSON(message.type));
-    message.startupResponse !== undefined &&
-      (obj.startupResponse = message.startupResponse ? StartupResponse.toJSON(message.startupResponse) : undefined);
     message.configurationResponse !== undefined && (obj.configurationResponse = message.configurationResponse
       ? ConfigurationResponse.toJSON(message.configurationResponse)
       : undefined);
@@ -516,6 +535,9 @@ export const Response = {
       (obj.fileTransferStatusResponse = message.fileTransferStatusResponse
         ? FileTransferStatusResponse.toJSON(message.fileTransferStatusResponse)
         : undefined);
+    message.bofExecuteResponse !== undefined && (obj.bofExecuteResponse = message.bofExecuteResponse
+      ? BoFExecuteResponse.toJSON(message.bofExecuteResponse)
+      : undefined);
     return obj;
   },
 
@@ -526,9 +548,6 @@ export const Response = {
   fromPartial<I extends Exact<DeepPartial<Response>, I>>(object: I): Response {
     const message = createBaseResponse();
     message.type = object.type ?? 0;
-    message.startupResponse = (object.startupResponse !== undefined && object.startupResponse !== null)
-      ? StartupResponse.fromPartial(object.startupResponse)
-      : undefined;
     message.configurationResponse =
       (object.configurationResponse !== undefined && object.configurationResponse !== null)
         ? ConfigurationResponse.fromPartial(object.configurationResponse)
@@ -550,6 +569,9 @@ export const Response = {
       (object.fileTransferStatusResponse !== undefined && object.fileTransferStatusResponse !== null)
         ? FileTransferStatusResponse.fromPartial(object.fileTransferStatusResponse)
         : undefined;
+    message.bofExecuteResponse = (object.bofExecuteResponse !== undefined && object.bofExecuteResponse !== null)
+      ? BoFExecuteResponse.fromPartial(object.bofExecuteResponse)
+      : undefined;
     return message;
   },
 };
@@ -1241,6 +1263,167 @@ export const CommandStatusResponse = {
   fromPartial<I extends Exact<DeepPartial<CommandStatusResponse>, I>>(object: I): CommandStatusResponse {
     const message = createBaseCommandStatusResponse();
     message.uuid = object.uuid ?? "";
+    return message;
+  },
+};
+
+function createBaseBoFExecuteRequest(): BoFExecuteRequest {
+  return { uuid: "", bofPayload: new Uint8Array(), platform: "", functionName: "" };
+}
+
+export const BoFExecuteRequest = {
+  encode(message: BoFExecuteRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.uuid !== "") {
+      writer.uint32(10).string(message.uuid);
+    }
+    if (message.bofPayload.length !== 0) {
+      writer.uint32(18).bytes(message.bofPayload);
+    }
+    if (message.platform !== "") {
+      writer.uint32(26).string(message.platform);
+    }
+    if (message.functionName !== "") {
+      writer.uint32(34).string(message.functionName);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): BoFExecuteRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseBoFExecuteRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.uuid = reader.string();
+          break;
+        case 2:
+          message.bofPayload = reader.bytes();
+          break;
+        case 3:
+          message.platform = reader.string();
+          break;
+        case 4:
+          message.functionName = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): BoFExecuteRequest {
+    return {
+      uuid: isSet(object.uuid) ? String(object.uuid) : "",
+      bofPayload: isSet(object.bofPayload) ? bytesFromBase64(object.bofPayload) : new Uint8Array(),
+      platform: isSet(object.platform) ? String(object.platform) : "",
+      functionName: isSet(object.functionName) ? String(object.functionName) : "",
+    };
+  },
+
+  toJSON(message: BoFExecuteRequest): unknown {
+    const obj: any = {};
+    message.uuid !== undefined && (obj.uuid = message.uuid);
+    message.bofPayload !== undefined &&
+      (obj.bofPayload = base64FromBytes(message.bofPayload !== undefined ? message.bofPayload : new Uint8Array()));
+    message.platform !== undefined && (obj.platform = message.platform);
+    message.functionName !== undefined && (obj.functionName = message.functionName);
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<BoFExecuteRequest>, I>>(base?: I): BoFExecuteRequest {
+    return BoFExecuteRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<BoFExecuteRequest>, I>>(object: I): BoFExecuteRequest {
+    const message = createBaseBoFExecuteRequest();
+    message.uuid = object.uuid ?? "";
+    message.bofPayload = object.bofPayload ?? new Uint8Array();
+    message.platform = object.platform ?? "";
+    message.functionName = object.functionName ?? "";
+    return message;
+  },
+};
+
+function createBaseBoFExecuteResponse(): BoFExecuteResponse {
+  return { uuid: "", success: false, output: "", error: "" };
+}
+
+export const BoFExecuteResponse = {
+  encode(message: BoFExecuteResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.uuid !== "") {
+      writer.uint32(10).string(message.uuid);
+    }
+    if (message.success === true) {
+      writer.uint32(16).bool(message.success);
+    }
+    if (message.output !== "") {
+      writer.uint32(26).string(message.output);
+    }
+    if (message.error !== "") {
+      writer.uint32(34).string(message.error);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): BoFExecuteResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseBoFExecuteResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.uuid = reader.string();
+          break;
+        case 2:
+          message.success = reader.bool();
+          break;
+        case 3:
+          message.output = reader.string();
+          break;
+        case 4:
+          message.error = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): BoFExecuteResponse {
+    return {
+      uuid: isSet(object.uuid) ? String(object.uuid) : "",
+      success: isSet(object.success) ? Boolean(object.success) : false,
+      output: isSet(object.output) ? String(object.output) : "",
+      error: isSet(object.error) ? String(object.error) : "",
+    };
+  },
+
+  toJSON(message: BoFExecuteResponse): unknown {
+    const obj: any = {};
+    message.uuid !== undefined && (obj.uuid = message.uuid);
+    message.success !== undefined && (obj.success = message.success);
+    message.output !== undefined && (obj.output = message.output);
+    message.error !== undefined && (obj.error = message.error);
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<BoFExecuteResponse>, I>>(base?: I): BoFExecuteResponse {
+    return BoFExecuteResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<BoFExecuteResponse>, I>>(object: I): BoFExecuteResponse {
+    const message = createBaseBoFExecuteResponse();
+    message.uuid = object.uuid ?? "";
+    message.success = object.success ?? false;
+    message.output = object.output ?? "";
+    message.error = object.error ?? "";
     return message;
   },
 };

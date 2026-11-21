@@ -8,25 +8,25 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "patronobuf.Request" do
       optional :type, :enum, 1, "patronobuf.RequestType"
       oneof :payload do
-        optional :startup, :message, 2, "patronobuf.StartupRequest"
-        optional :configuration, :message, 3, "patronobuf.ConfigurationRequest"
-        optional :command, :message, 4, "patronobuf.CommandRequest"
-        optional :command_status, :message, 5, "patronobuf.CommandStatusRequest"
-        optional :keys, :message, 6, "patronobuf.KeysRequest"
-        optional :file, :message, 7, "patronobuf.FileRequest"
-        optional :file_to_server, :message, 8, "patronobuf.FileToServer"
+        optional :configuration, :message, 2, "patronobuf.ConfigurationRequest"
+        optional :command, :message, 3, "patronobuf.CommandRequest"
+        optional :command_status, :message, 4, "patronobuf.CommandStatusRequest"
+        optional :keys, :message, 5, "patronobuf.KeysRequest"
+        optional :file, :message, 6, "patronobuf.FileRequest"
+        optional :file_to_server, :message, 7, "patronobuf.FileToServer"
+        optional :bof_execute, :message, 8, "patronobuf.BoFExecuteRequest"
       end
     end
     add_message "patronobuf.Response" do
       optional :type, :enum, 1, "patronobuf.ResponseType"
       oneof :payload do
-        optional :startup_response, :message, 2, "patronobuf.StartupResponse"
-        optional :configuration_response, :message, 3, "patronobuf.ConfigurationResponse"
-        optional :command_response, :message, 4, "patronobuf.CommandResponse"
-        optional :command_status_response, :message, 5, "patronobuf.CommandStatusResponse"
-        optional :keys_response, :message, 6, "patronobuf.KeysResponse"
-        optional :file_response, :message, 7, "patronobuf.FileResponse"
-        optional :file_transfer_status_response, :message, 8, "patronobuf.FileTransferStatusResponse"
+        optional :configuration_response, :message, 2, "patronobuf.ConfigurationResponse"
+        optional :command_response, :message, 3, "patronobuf.CommandResponse"
+        optional :command_status_response, :message, 4, "patronobuf.CommandStatusResponse"
+        optional :keys_response, :message, 5, "patronobuf.KeysResponse"
+        optional :file_response, :message, 6, "patronobuf.FileResponse"
+        optional :file_transfer_status_response, :message, 7, "patronobuf.FileTransferStatusResponse"
+        optional :bof_execute_response, :message, 8, "patronobuf.BoFExecuteResponse"
       end
     end
     add_message "patronobuf.StartupRequest" do
@@ -80,6 +80,18 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "patronobuf.CommandStatusResponse" do
       optional :uuid, :string, 1
     end
+    add_message "patronobuf.BoFExecuteRequest" do
+      optional :uuid, :string, 1
+      optional :bof_payload, :bytes, 2
+      optional :platform, :string, 3
+      optional :function_name, :string, 4
+    end
+    add_message "patronobuf.BoFExecuteResponse" do
+      optional :uuid, :string, 1
+      optional :success, :bool, 2
+      optional :output, :string, 3
+      optional :error, :string, 4
+    end
     add_message "patronobuf.KeysRequest" do
       optional :uuid, :string, 1
       optional :keys, :string, 2
@@ -114,22 +126,22 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :value, :string, 2
     end
     add_enum "patronobuf.RequestType" do
-      value :STARTUP, 0
-      value :CONFIGURATION, 1
-      value :COMMAND, 2
-      value :COMMAND_STATUS, 3
-      value :KEYS, 4
-      value :FILE, 5
-      value :FILE_TO_SERVER, 6
+      value :CONFIGURATION, 0
+      value :COMMAND, 1
+      value :COMMAND_STATUS, 2
+      value :KEYS, 3
+      value :FILE, 4
+      value :FILE_TO_SERVER, 5
+      value :BOF_EXECUTE, 6
     end
     add_enum "patronobuf.ResponseType" do
-      value :STARTUP_RESPONSE, 0
-      value :CONFIGURATION_RESPONSE, 1
-      value :COMMAND_RESPONSE, 2
-      value :COMMAND_STATUS_RESPONSE, 3
-      value :KEYS_RESPONSE, 4
-      value :FILE_RESPONSE, 5
-      value :FILE_TRANSFER_STATUS, 6
+      value :CONFIGURATION_RESPONSE, 0
+      value :COMMAND_RESPONSE, 1
+      value :COMMAND_STATUS_RESPONSE, 2
+      value :KEYS_RESPONSE, 3
+      value :FILE_RESPONSE, 4
+      value :FILE_TRANSFER_STATUS, 5
+      value :BOF_EXECUTE_RESPONSE, 6
     end
   end
 end
@@ -145,6 +157,8 @@ module Patronobuf
   CommandResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.CommandResponse").msgclass
   CommandStatusRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.CommandStatusRequest").msgclass
   CommandStatusResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.CommandStatusResponse").msgclass
+  BoFExecuteRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.BoFExecuteRequest").msgclass
+  BoFExecuteResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.BoFExecuteResponse").msgclass
   KeysRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.KeysRequest").msgclass
   KeysResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.KeysResponse").msgclass
   FileRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.FileRequest").msgclass
