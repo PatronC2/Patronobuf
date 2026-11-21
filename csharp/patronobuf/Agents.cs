@@ -79,16 +79,19 @@ namespace Patronobuf {
             "KAkSDAoEcGF0aBgEIAEoCRIOCgZzdGF0dXMYBSABKAkSDQoFY2h1bmsYBiAB",
             "KAwiOgoaRmlsZVRyYW5zZmVyU3RhdHVzUmVzcG9uc2USDgoGZmlsZWlkGAEg",
             "ASgJEgwKBHV1aWQYAiABKAkiIQoDVGFnEgsKA2tleRgBIAEoCRINCgV2YWx1",
-            "ZRgCIAEoCSqHAQoLUmVxdWVzdFR5cGUSCwoHU1RBUlRVUBAAEhEKDUNPTkZJ",
-            "R1VSQVRJT04QARILCgdDT01NQU5EEAISEgoOQ09NTUFORF9TVEFUVVMQAxII",
-            "CgRLRVlTEAQSCAoERklMRRAFEhIKDkZJTEVfVE9fU0VSVkVSEAYSDwoLQk9G",
-            "X0VYRUNVVEUQByrNAQoMUmVzcG9uc2VUeXBlEhQKEFNUQVJUVVBfUkVTUE9O",
-            "U0UQABIaChZDT05GSUdVUkFUSU9OX1JFU1BPTlNFEAESFAoQQ09NTUFORF9S",
-            "RVNQT05TRRACEhsKF0NPTU1BTkRfU1RBVFVTX1JFU1BPTlNFEAMSEQoNS0VZ",
-            "U19SRVNQT05TRRAEEhEKDUZJTEVfUkVTUE9OU0UQBRIYChRGSUxFX1RSQU5T",
-            "RkVSX1NUQVRVUxAGEhgKFEJPRl9FWEVDVVRFX1JFU1BPTlNFEAdCLlosZ2l0",
-            "aHViLmNvbS9QYXRyb25DMi9QYXRyb25vYnVmL2dvL3BhdHJvbm9idWZiBnBy",
-            "b3RvMw=="));
+            "ZRgCIAEoCSKQAQoHQm9GSW5mbxIMCgR1dWlkGAEgASgJEhUKDWZ1bmN0aW9u",
+            "X25hbWUYAiABKAkSEAoIcGxhdGZvcm0YAyABKAkSEwoLZGVzY3JpcHRpb24Y",
+            "BCABKAkSDwoHcGF5bG9hZBgFIAEoDBIYCgt1cGxvYWRlZF9hdBgGIAEoBEgA",
+            "iAEBQg4KDF91cGxvYWRlZF9hdCqHAQoLUmVxdWVzdFR5cGUSCwoHU1RBUlRV",
+            "UBAAEhEKDUNPTkZJR1VSQVRJT04QARILCgdDT01NQU5EEAISEgoOQ09NTUFO",
+            "RF9TVEFUVVMQAxIICgRLRVlTEAQSCAoERklMRRAFEhIKDkZJTEVfVE9fU0VS",
+            "VkVSEAYSDwoLQk9GX0VYRUNVVEUQByrNAQoMUmVzcG9uc2VUeXBlEhQKEFNU",
+            "QVJUVVBfUkVTUE9OU0UQABIaChZDT05GSUdVUkFUSU9OX1JFU1BPTlNFEAES",
+            "FAoQQ09NTUFORF9SRVNQT05TRRACEhsKF0NPTU1BTkRfU1RBVFVTX1JFU1BP",
+            "TlNFEAMSEQoNS0VZU19SRVNQT05TRRAEEhEKDUZJTEVfUkVTUE9OU0UQBRIY",
+            "ChRGSUxFX1RSQU5TRkVSX1NUQVRVUxAGEhgKFEJPRl9FWEVDVVRFX1JFU1BP",
+            "TlNFEAdCLlosZ2l0aHViLmNvbS9QYXRyb25DMi9QYXRyb25vYnVmL2dvL3Bh",
+            "dHJvbm9idWZiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Patronobuf.RequestType), typeof(global::Patronobuf.ResponseType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -110,7 +113,8 @@ namespace Patronobuf {
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.FileResponse), global::Patronobuf.FileResponse.Parser, new[]{ "Fileid", "Uuid", "Transfertype", "Filepath", "Chunk" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.FileToServer), global::Patronobuf.FileToServer.Parser, new[]{ "Fileid", "Uuid", "Transfertype", "Path", "Status", "Chunk" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.FileTransferStatusResponse), global::Patronobuf.FileTransferStatusResponse.Parser, new[]{ "Fileid", "Uuid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.Tag), global::Patronobuf.Tag.Parser, new[]{ "Key", "Value" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.Tag), global::Patronobuf.Tag.Parser, new[]{ "Key", "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Patronobuf.BoFInfo), global::Patronobuf.BoFInfo.Parser, new[]{ "Uuid", "FunctionName", "Platform", "Description", "Payload", "UploadedAt" }, new[]{ "UploadedAt" }, null, null, null)
           }));
     }
     #endregion
@@ -6293,6 +6297,413 @@ namespace Patronobuf {
           }
           case 18: {
             Value = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class BoFInfo : pb::IMessage<BoFInfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<BoFInfo> _parser = new pb::MessageParser<BoFInfo>(() => new BoFInfo());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<BoFInfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Patronobuf.AgentsReflection.Descriptor.MessageTypes[19]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public BoFInfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public BoFInfo(BoFInfo other) : this() {
+      _hasBits0 = other._hasBits0;
+      uuid_ = other.uuid_;
+      functionName_ = other.functionName_;
+      platform_ = other.platform_;
+      description_ = other.description_;
+      payload_ = other.payload_;
+      uploadedAt_ = other.uploadedAt_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public BoFInfo Clone() {
+      return new BoFInfo(this);
+    }
+
+    /// <summary>Field number for the "uuid" field.</summary>
+    public const int UuidFieldNumber = 1;
+    private string uuid_ = "";
+    /// <summary>
+    /// Unique identifier for the BOF
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Uuid {
+      get { return uuid_; }
+      set {
+        uuid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "function_name" field.</summary>
+    public const int FunctionNameFieldNumber = 2;
+    private string functionName_ = "";
+    /// <summary>
+    /// Name of the function to execute
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string FunctionName {
+      get { return functionName_; }
+      set {
+        functionName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "platform" field.</summary>
+    public const int PlatformFieldNumber = 3;
+    private string platform_ = "";
+    /// <summary>
+    /// "windows" or "linux"
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Platform {
+      get { return platform_; }
+      set {
+        platform_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "description" field.</summary>
+    public const int DescriptionFieldNumber = 4;
+    private string description_ = "";
+    /// <summary>
+    /// Human-readable description
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Description {
+      get { return description_; }
+      set {
+        description_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "payload" field.</summary>
+    public const int PayloadFieldNumber = 5;
+    private pb::ByteString payload_ = pb::ByteString.Empty;
+    /// <summary>
+    /// Binary BOF payload
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Payload {
+      get { return payload_; }
+      set {
+        payload_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "uploaded_at" field.</summary>
+    public const int UploadedAtFieldNumber = 6;
+    private ulong uploadedAt_;
+    /// <summary>
+    /// Timestamp of upload (Unix epoch)
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong UploadedAt {
+      get { if ((_hasBits0 & 1) != 0) { return uploadedAt_; } else { return 0UL; } }
+      set {
+        _hasBits0 |= 1;
+        uploadedAt_ = value;
+      }
+    }
+    /// <summary>Gets whether the "uploaded_at" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasUploadedAt {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "uploaded_at" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearUploadedAt() {
+      _hasBits0 &= ~1;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as BoFInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(BoFInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Uuid != other.Uuid) return false;
+      if (FunctionName != other.FunctionName) return false;
+      if (Platform != other.Platform) return false;
+      if (Description != other.Description) return false;
+      if (Payload != other.Payload) return false;
+      if (UploadedAt != other.UploadedAt) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Uuid.Length != 0) hash ^= Uuid.GetHashCode();
+      if (FunctionName.Length != 0) hash ^= FunctionName.GetHashCode();
+      if (Platform.Length != 0) hash ^= Platform.GetHashCode();
+      if (Description.Length != 0) hash ^= Description.GetHashCode();
+      if (Payload.Length != 0) hash ^= Payload.GetHashCode();
+      if (HasUploadedAt) hash ^= UploadedAt.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Uuid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Uuid);
+      }
+      if (FunctionName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(FunctionName);
+      }
+      if (Platform.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Platform);
+      }
+      if (Description.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Description);
+      }
+      if (Payload.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteBytes(Payload);
+      }
+      if (HasUploadedAt) {
+        output.WriteRawTag(48);
+        output.WriteUInt64(UploadedAt);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Uuid.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Uuid);
+      }
+      if (FunctionName.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(FunctionName);
+      }
+      if (Platform.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Platform);
+      }
+      if (Description.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Description);
+      }
+      if (Payload.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteBytes(Payload);
+      }
+      if (HasUploadedAt) {
+        output.WriteRawTag(48);
+        output.WriteUInt64(UploadedAt);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Uuid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Uuid);
+      }
+      if (FunctionName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(FunctionName);
+      }
+      if (Platform.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Platform);
+      }
+      if (Description.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Description);
+      }
+      if (Payload.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Payload);
+      }
+      if (HasUploadedAt) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(UploadedAt);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(BoFInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Uuid.Length != 0) {
+        Uuid = other.Uuid;
+      }
+      if (other.FunctionName.Length != 0) {
+        FunctionName = other.FunctionName;
+      }
+      if (other.Platform.Length != 0) {
+        Platform = other.Platform;
+      }
+      if (other.Description.Length != 0) {
+        Description = other.Description;
+      }
+      if (other.Payload.Length != 0) {
+        Payload = other.Payload;
+      }
+      if (other.HasUploadedAt) {
+        UploadedAt = other.UploadedAt;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 18: {
+            FunctionName = input.ReadString();
+            break;
+          }
+          case 26: {
+            Platform = input.ReadString();
+            break;
+          }
+          case 34: {
+            Description = input.ReadString();
+            break;
+          }
+          case 42: {
+            Payload = input.ReadBytes();
+            break;
+          }
+          case 48: {
+            UploadedAt = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Uuid = input.ReadString();
+            break;
+          }
+          case 18: {
+            FunctionName = input.ReadString();
+            break;
+          }
+          case 26: {
+            Platform = input.ReadString();
+            break;
+          }
+          case 34: {
+            Description = input.ReadString();
+            break;
+          }
+          case 42: {
+            Payload = input.ReadBytes();
+            break;
+          }
+          case 48: {
+            UploadedAt = input.ReadUInt64();
             break;
           }
         }

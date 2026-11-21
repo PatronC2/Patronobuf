@@ -21740,6 +21740,1402 @@ public final class Agents {
 
   }
 
+  public interface BoFInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:patronobuf.BoFInfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Unique identifier for the BOF
+     * </pre>
+     *
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    java.lang.String getUuid();
+    /**
+     * <pre>
+     * Unique identifier for the BOF
+     * </pre>
+     *
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    com.google.protobuf.ByteString
+        getUuidBytes();
+
+    /**
+     * <pre>
+     * Name of the function to execute
+     * </pre>
+     *
+     * <code>string function_name = 2;</code>
+     * @return The functionName.
+     */
+    java.lang.String getFunctionName();
+    /**
+     * <pre>
+     * Name of the function to execute
+     * </pre>
+     *
+     * <code>string function_name = 2;</code>
+     * @return The bytes for functionName.
+     */
+    com.google.protobuf.ByteString
+        getFunctionNameBytes();
+
+    /**
+     * <pre>
+     * "windows" or "linux"
+     * </pre>
+     *
+     * <code>string platform = 3;</code>
+     * @return The platform.
+     */
+    java.lang.String getPlatform();
+    /**
+     * <pre>
+     * "windows" or "linux"
+     * </pre>
+     *
+     * <code>string platform = 3;</code>
+     * @return The bytes for platform.
+     */
+    com.google.protobuf.ByteString
+        getPlatformBytes();
+
+    /**
+     * <pre>
+     * Human-readable description
+     * </pre>
+     *
+     * <code>string description = 4;</code>
+     * @return The description.
+     */
+    java.lang.String getDescription();
+    /**
+     * <pre>
+     * Human-readable description
+     * </pre>
+     *
+     * <code>string description = 4;</code>
+     * @return The bytes for description.
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+
+    /**
+     * <pre>
+     * Binary BOF payload
+     * </pre>
+     *
+     * <code>bytes payload = 5;</code>
+     * @return The payload.
+     */
+    com.google.protobuf.ByteString getPayload();
+
+    /**
+     * <pre>
+     * Timestamp of upload (Unix epoch)
+     * </pre>
+     *
+     * <code>optional uint64 uploaded_at = 6;</code>
+     * @return Whether the uploadedAt field is set.
+     */
+    boolean hasUploadedAt();
+    /**
+     * <pre>
+     * Timestamp of upload (Unix epoch)
+     * </pre>
+     *
+     * <code>optional uint64 uploaded_at = 6;</code>
+     * @return The uploadedAt.
+     */
+    long getUploadedAt();
+  }
+  /**
+   * Protobuf type {@code patronobuf.BoFInfo}
+   */
+  public static final class BoFInfo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:patronobuf.BoFInfo)
+      BoFInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BoFInfo.newBuilder() to construct.
+    private BoFInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BoFInfo() {
+      uuid_ = "";
+      functionName_ = "";
+      platform_ = "";
+      description_ = "";
+      payload_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new BoFInfo();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BoFInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              uuid_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              functionName_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              platform_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            case 42: {
+
+              payload_ = input.readBytes();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000001;
+              uploadedAt_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return patronobuf.Agents.internal_static_patronobuf_BoFInfo_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return patronobuf.Agents.internal_static_patronobuf_BoFInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              patronobuf.Agents.BoFInfo.class, patronobuf.Agents.BoFInfo.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int UUID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object uuid_;
+    /**
+     * <pre>
+     * Unique identifier for the BOF
+     * </pre>
+     *
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    @java.lang.Override
+    public java.lang.String getUuid() {
+      java.lang.Object ref = uuid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uuid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Unique identifier for the BOF
+     * </pre>
+     *
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUuidBytes() {
+      java.lang.Object ref = uuid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uuid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FUNCTION_NAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object functionName_;
+    /**
+     * <pre>
+     * Name of the function to execute
+     * </pre>
+     *
+     * <code>string function_name = 2;</code>
+     * @return The functionName.
+     */
+    @java.lang.Override
+    public java.lang.String getFunctionName() {
+      java.lang.Object ref = functionName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        functionName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Name of the function to execute
+     * </pre>
+     *
+     * <code>string function_name = 2;</code>
+     * @return The bytes for functionName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFunctionNameBytes() {
+      java.lang.Object ref = functionName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        functionName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PLATFORM_FIELD_NUMBER = 3;
+    private volatile java.lang.Object platform_;
+    /**
+     * <pre>
+     * "windows" or "linux"
+     * </pre>
+     *
+     * <code>string platform = 3;</code>
+     * @return The platform.
+     */
+    @java.lang.Override
+    public java.lang.String getPlatform() {
+      java.lang.Object ref = platform_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        platform_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * "windows" or "linux"
+     * </pre>
+     *
+     * <code>string platform = 3;</code>
+     * @return The bytes for platform.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPlatformBytes() {
+      java.lang.Object ref = platform_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        platform_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 4;
+    private volatile java.lang.Object description_;
+    /**
+     * <pre>
+     * Human-readable description
+     * </pre>
+     *
+     * <code>string description = 4;</code>
+     * @return The description.
+     */
+    @java.lang.Override
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Human-readable description
+     * </pre>
+     *
+     * <code>string description = 4;</code>
+     * @return The bytes for description.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PAYLOAD_FIELD_NUMBER = 5;
+    private com.google.protobuf.ByteString payload_;
+    /**
+     * <pre>
+     * Binary BOF payload
+     * </pre>
+     *
+     * <code>bytes payload = 5;</code>
+     * @return The payload.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getPayload() {
+      return payload_;
+    }
+
+    public static final int UPLOADED_AT_FIELD_NUMBER = 6;
+    private long uploadedAt_;
+    /**
+     * <pre>
+     * Timestamp of upload (Unix epoch)
+     * </pre>
+     *
+     * <code>optional uint64 uploaded_at = 6;</code>
+     * @return Whether the uploadedAt field is set.
+     */
+    @java.lang.Override
+    public boolean hasUploadedAt() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * Timestamp of upload (Unix epoch)
+     * </pre>
+     *
+     * <code>optional uint64 uploaded_at = 6;</code>
+     * @return The uploadedAt.
+     */
+    @java.lang.Override
+    public long getUploadedAt() {
+      return uploadedAt_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(functionName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, functionName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(platform_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, platform_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
+      }
+      if (!payload_.isEmpty()) {
+        output.writeBytes(5, payload_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeUInt64(6, uploadedAt_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(functionName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, functionName_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(platform_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, platform_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
+      }
+      if (!payload_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, payload_);
+      }
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(6, uploadedAt_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof patronobuf.Agents.BoFInfo)) {
+        return super.equals(obj);
+      }
+      patronobuf.Agents.BoFInfo other = (patronobuf.Agents.BoFInfo) obj;
+
+      if (!getUuid()
+          .equals(other.getUuid())) return false;
+      if (!getFunctionName()
+          .equals(other.getFunctionName())) return false;
+      if (!getPlatform()
+          .equals(other.getPlatform())) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+      if (!getPayload()
+          .equals(other.getPayload())) return false;
+      if (hasUploadedAt() != other.hasUploadedAt()) return false;
+      if (hasUploadedAt()) {
+        if (getUploadedAt()
+            != other.getUploadedAt()) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + UUID_FIELD_NUMBER;
+      hash = (53 * hash) + getUuid().hashCode();
+      hash = (37 * hash) + FUNCTION_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFunctionName().hashCode();
+      hash = (37 * hash) + PLATFORM_FIELD_NUMBER;
+      hash = (53 * hash) + getPlatform().hashCode();
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+      hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
+      hash = (53 * hash) + getPayload().hashCode();
+      if (hasUploadedAt()) {
+        hash = (37 * hash) + UPLOADED_AT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUploadedAt());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static patronobuf.Agents.BoFInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.BoFInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.BoFInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.BoFInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.BoFInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.BoFInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static patronobuf.Agents.BoFInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.BoFInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(patronobuf.Agents.BoFInfo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code patronobuf.BoFInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:patronobuf.BoFInfo)
+        patronobuf.Agents.BoFInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return patronobuf.Agents.internal_static_patronobuf_BoFInfo_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return patronobuf.Agents.internal_static_patronobuf_BoFInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                patronobuf.Agents.BoFInfo.class, patronobuf.Agents.BoFInfo.Builder.class);
+      }
+
+      // Construct using patronobuf.Agents.BoFInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        uuid_ = "";
+
+        functionName_ = "";
+
+        platform_ = "";
+
+        description_ = "";
+
+        payload_ = com.google.protobuf.ByteString.EMPTY;
+
+        uploadedAt_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return patronobuf.Agents.internal_static_patronobuf_BoFInfo_descriptor;
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.BoFInfo getDefaultInstanceForType() {
+        return patronobuf.Agents.BoFInfo.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.BoFInfo build() {
+        patronobuf.Agents.BoFInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.BoFInfo buildPartial() {
+        patronobuf.Agents.BoFInfo result = new patronobuf.Agents.BoFInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.uuid_ = uuid_;
+        result.functionName_ = functionName_;
+        result.platform_ = platform_;
+        result.description_ = description_;
+        result.payload_ = payload_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.uploadedAt_ = uploadedAt_;
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof patronobuf.Agents.BoFInfo) {
+          return mergeFrom((patronobuf.Agents.BoFInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(patronobuf.Agents.BoFInfo other) {
+        if (other == patronobuf.Agents.BoFInfo.getDefaultInstance()) return this;
+        if (!other.getUuid().isEmpty()) {
+          uuid_ = other.uuid_;
+          onChanged();
+        }
+        if (!other.getFunctionName().isEmpty()) {
+          functionName_ = other.functionName_;
+          onChanged();
+        }
+        if (!other.getPlatform().isEmpty()) {
+          platform_ = other.platform_;
+          onChanged();
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
+          onChanged();
+        }
+        if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
+          setPayload(other.getPayload());
+        }
+        if (other.hasUploadedAt()) {
+          setUploadedAt(other.getUploadedAt());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        patronobuf.Agents.BoFInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (patronobuf.Agents.BoFInfo) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object uuid_ = "";
+      /**
+       * <pre>
+       * Unique identifier for the BOF
+       * </pre>
+       *
+       * <code>string uuid = 1;</code>
+       * @return The uuid.
+       */
+      public java.lang.String getUuid() {
+        java.lang.Object ref = uuid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uuid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Unique identifier for the BOF
+       * </pre>
+       *
+       * <code>string uuid = 1;</code>
+       * @return The bytes for uuid.
+       */
+      public com.google.protobuf.ByteString
+          getUuidBytes() {
+        java.lang.Object ref = uuid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uuid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Unique identifier for the BOF
+       * </pre>
+       *
+       * <code>string uuid = 1;</code>
+       * @param value The uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Unique identifier for the BOF
+       * </pre>
+       *
+       * <code>string uuid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUuid() {
+        
+        uuid_ = getDefaultInstance().getUuid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Unique identifier for the BOF
+       * </pre>
+       *
+       * <code>string uuid = 1;</code>
+       * @param value The bytes for uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object functionName_ = "";
+      /**
+       * <pre>
+       * Name of the function to execute
+       * </pre>
+       *
+       * <code>string function_name = 2;</code>
+       * @return The functionName.
+       */
+      public java.lang.String getFunctionName() {
+        java.lang.Object ref = functionName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          functionName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Name of the function to execute
+       * </pre>
+       *
+       * <code>string function_name = 2;</code>
+       * @return The bytes for functionName.
+       */
+      public com.google.protobuf.ByteString
+          getFunctionNameBytes() {
+        java.lang.Object ref = functionName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          functionName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Name of the function to execute
+       * </pre>
+       *
+       * <code>string function_name = 2;</code>
+       * @param value The functionName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFunctionName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        functionName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Name of the function to execute
+       * </pre>
+       *
+       * <code>string function_name = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFunctionName() {
+        
+        functionName_ = getDefaultInstance().getFunctionName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Name of the function to execute
+       * </pre>
+       *
+       * <code>string function_name = 2;</code>
+       * @param value The bytes for functionName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFunctionNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        functionName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object platform_ = "";
+      /**
+       * <pre>
+       * "windows" or "linux"
+       * </pre>
+       *
+       * <code>string platform = 3;</code>
+       * @return The platform.
+       */
+      public java.lang.String getPlatform() {
+        java.lang.Object ref = platform_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          platform_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * "windows" or "linux"
+       * </pre>
+       *
+       * <code>string platform = 3;</code>
+       * @return The bytes for platform.
+       */
+      public com.google.protobuf.ByteString
+          getPlatformBytes() {
+        java.lang.Object ref = platform_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          platform_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * "windows" or "linux"
+       * </pre>
+       *
+       * <code>string platform = 3;</code>
+       * @param value The platform to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPlatform(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        platform_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * "windows" or "linux"
+       * </pre>
+       *
+       * <code>string platform = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPlatform() {
+        
+        platform_ = getDefaultInstance().getPlatform();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * "windows" or "linux"
+       * </pre>
+       *
+       * <code>string platform = 3;</code>
+       * @param value The bytes for platform to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPlatformBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        platform_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object description_ = "";
+      /**
+       * <pre>
+       * Human-readable description
+       * </pre>
+       *
+       * <code>string description = 4;</code>
+       * @return The description.
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          description_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Human-readable description
+       * </pre>
+       *
+       * <code>string description = 4;</code>
+       * @return The bytes for description.
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Human-readable description
+       * </pre>
+       *
+       * <code>string description = 4;</code>
+       * @param value The description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescription(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Human-readable description
+       * </pre>
+       *
+       * <code>string description = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDescription() {
+        
+        description_ = getDefaultInstance().getDescription();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Human-readable description
+       * </pre>
+       *
+       * <code>string description = 4;</code>
+       * @param value The bytes for description to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        description_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * Binary BOF payload
+       * </pre>
+       *
+       * <code>bytes payload = 5;</code>
+       * @return The payload.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getPayload() {
+        return payload_;
+      }
+      /**
+       * <pre>
+       * Binary BOF payload
+       * </pre>
+       *
+       * <code>bytes payload = 5;</code>
+       * @param value The payload to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPayload(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        payload_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Binary BOF payload
+       * </pre>
+       *
+       * <code>bytes payload = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPayload() {
+        
+        payload_ = getDefaultInstance().getPayload();
+        onChanged();
+        return this;
+      }
+
+      private long uploadedAt_ ;
+      /**
+       * <pre>
+       * Timestamp of upload (Unix epoch)
+       * </pre>
+       *
+       * <code>optional uint64 uploaded_at = 6;</code>
+       * @return Whether the uploadedAt field is set.
+       */
+      @java.lang.Override
+      public boolean hasUploadedAt() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <pre>
+       * Timestamp of upload (Unix epoch)
+       * </pre>
+       *
+       * <code>optional uint64 uploaded_at = 6;</code>
+       * @return The uploadedAt.
+       */
+      @java.lang.Override
+      public long getUploadedAt() {
+        return uploadedAt_;
+      }
+      /**
+       * <pre>
+       * Timestamp of upload (Unix epoch)
+       * </pre>
+       *
+       * <code>optional uint64 uploaded_at = 6;</code>
+       * @param value The uploadedAt to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUploadedAt(long value) {
+        bitField0_ |= 0x00000001;
+        uploadedAt_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Timestamp of upload (Unix epoch)
+       * </pre>
+       *
+       * <code>optional uint64 uploaded_at = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUploadedAt() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        uploadedAt_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:patronobuf.BoFInfo)
+    }
+
+    // @@protoc_insertion_point(class_scope:patronobuf.BoFInfo)
+    private static final patronobuf.Agents.BoFInfo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new patronobuf.Agents.BoFInfo();
+    }
+
+    public static patronobuf.Agents.BoFInfo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<BoFInfo>
+        PARSER = new com.google.protobuf.AbstractParser<BoFInfo>() {
+      @java.lang.Override
+      public BoFInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BoFInfo(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BoFInfo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BoFInfo> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public patronobuf.Agents.BoFInfo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_patronobuf_Request_descriptor;
   private static final 
@@ -21835,6 +23231,11 @@ public final class Agents {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_patronobuf_Tag_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_patronobuf_BoFInfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_patronobuf_BoFInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -21906,17 +23307,20 @@ public final class Agents {
       "status\030\005 \001(\t\022\r\n\005chunk\030\006 \001(\014\":\n\032FileTrans" +
       "ferStatusResponse\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uui" +
       "d\030\002 \001(\t\"!\n\003Tag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001" +
-      "(\t*\207\001\n\013RequestType\022\013\n\007STARTUP\020\000\022\021\n\rCONFI" +
-      "GURATION\020\001\022\013\n\007COMMAND\020\002\022\022\n\016COMMAND_STATU" +
-      "S\020\003\022\010\n\004KEYS\020\004\022\010\n\004FILE\020\005\022\022\n\016FILE_TO_SERVE" +
-      "R\020\006\022\017\n\013BOF_EXECUTE\020\007*\315\001\n\014ResponseType\022\024\n" +
-      "\020STARTUP_RESPONSE\020\000\022\032\n\026CONFIGURATION_RES" +
-      "PONSE\020\001\022\024\n\020COMMAND_RESPONSE\020\002\022\033\n\027COMMAND" +
-      "_STATUS_RESPONSE\020\003\022\021\n\rKEYS_RESPONSE\020\004\022\021\n" +
-      "\rFILE_RESPONSE\020\005\022\030\n\024FILE_TRANSFER_STATUS" +
-      "\020\006\022\030\n\024BOF_EXECUTE_RESPONSE\020\007B.Z,github.c" +
-      "om/PatronC2/Patronobuf/go/patronobufb\006pr" +
-      "oto3"
+      "(\t\"\220\001\n\007BoFInfo\022\014\n\004uuid\030\001 \001(\t\022\025\n\rfunction" +
+      "_name\030\002 \001(\t\022\020\n\010platform\030\003 \001(\t\022\023\n\013descrip" +
+      "tion\030\004 \001(\t\022\017\n\007payload\030\005 \001(\014\022\030\n\013uploaded_" +
+      "at\030\006 \001(\004H\000\210\001\001B\016\n\014_uploaded_at*\207\001\n\013Reques" +
+      "tType\022\013\n\007STARTUP\020\000\022\021\n\rCONFIGURATION\020\001\022\013\n" +
+      "\007COMMAND\020\002\022\022\n\016COMMAND_STATUS\020\003\022\010\n\004KEYS\020\004" +
+      "\022\010\n\004FILE\020\005\022\022\n\016FILE_TO_SERVER\020\006\022\017\n\013BOF_EX" +
+      "ECUTE\020\007*\315\001\n\014ResponseType\022\024\n\020STARTUP_RESP" +
+      "ONSE\020\000\022\032\n\026CONFIGURATION_RESPONSE\020\001\022\024\n\020CO" +
+      "MMAND_RESPONSE\020\002\022\033\n\027COMMAND_STATUS_RESPO" +
+      "NSE\020\003\022\021\n\rKEYS_RESPONSE\020\004\022\021\n\rFILE_RESPONS" +
+      "E\020\005\022\030\n\024FILE_TRANSFER_STATUS\020\006\022\030\n\024BOF_EXE" +
+      "CUTE_RESPONSE\020\007B.Z,github.com/PatronC2/P" +
+      "atronobuf/go/patronobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -22036,6 +23440,12 @@ public final class Agents {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_Tag_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    internal_static_patronobuf_BoFInfo_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_patronobuf_BoFInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_patronobuf_BoFInfo_descriptor,
+        new java.lang.String[] { "Uuid", "FunctionName", "Platform", "Description", "Payload", "UploadedAt", "UploadedAt", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

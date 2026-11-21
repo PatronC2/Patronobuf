@@ -287,6 +287,21 @@ export interface Tag {
   value: string;
 }
 
+export interface BoFInfo {
+  /** Unique identifier for the BOF */
+  uuid: string;
+  /** Name of the function to execute */
+  functionName: string;
+  /** "windows" or "linux" */
+  platform: string;
+  /** Human-readable description */
+  description: string;
+  /** Binary BOF payload */
+  payload: Uint8Array;
+  /** Timestamp of upload (Unix epoch) */
+  uploadedAt?: number | undefined;
+}
+
 function createBaseRequest(): Request {
   return {
     type: 0,
@@ -1938,6 +1953,112 @@ export const Tag = {
     const message = createBaseTag();
     message.key = object.key ?? "";
     message.value = object.value ?? "";
+    return message;
+  },
+};
+
+function createBaseBoFInfo(): BoFInfo {
+  return {
+    uuid: "",
+    functionName: "",
+    platform: "",
+    description: "",
+    payload: new Uint8Array(),
+    uploadedAt: undefined,
+  };
+}
+
+export const BoFInfo = {
+  encode(message: BoFInfo, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.uuid !== "") {
+      writer.uint32(10).string(message.uuid);
+    }
+    if (message.functionName !== "") {
+      writer.uint32(18).string(message.functionName);
+    }
+    if (message.platform !== "") {
+      writer.uint32(26).string(message.platform);
+    }
+    if (message.description !== "") {
+      writer.uint32(34).string(message.description);
+    }
+    if (message.payload.length !== 0) {
+      writer.uint32(42).bytes(message.payload);
+    }
+    if (message.uploadedAt !== undefined) {
+      writer.uint32(48).uint64(message.uploadedAt);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): BoFInfo {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseBoFInfo();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.uuid = reader.string();
+          break;
+        case 2:
+          message.functionName = reader.string();
+          break;
+        case 3:
+          message.platform = reader.string();
+          break;
+        case 4:
+          message.description = reader.string();
+          break;
+        case 5:
+          message.payload = reader.bytes();
+          break;
+        case 6:
+          message.uploadedAt = longToNumber(reader.uint64() as Long);
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): BoFInfo {
+    return {
+      uuid: isSet(object.uuid) ? String(object.uuid) : "",
+      functionName: isSet(object.functionName) ? String(object.functionName) : "",
+      platform: isSet(object.platform) ? String(object.platform) : "",
+      description: isSet(object.description) ? String(object.description) : "",
+      payload: isSet(object.payload) ? bytesFromBase64(object.payload) : new Uint8Array(),
+      uploadedAt: isSet(object.uploadedAt) ? Number(object.uploadedAt) : undefined,
+    };
+  },
+
+  toJSON(message: BoFInfo): unknown {
+    const obj: any = {};
+    message.uuid !== undefined && (obj.uuid = message.uuid);
+    message.functionName !== undefined && (obj.functionName = message.functionName);
+    message.platform !== undefined && (obj.platform = message.platform);
+    message.description !== undefined && (obj.description = message.description);
+    message.payload !== undefined &&
+      (obj.payload = base64FromBytes(message.payload !== undefined ? message.payload : new Uint8Array()));
+    message.uploadedAt !== undefined && (obj.uploadedAt = Math.round(message.uploadedAt));
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<BoFInfo>, I>>(base?: I): BoFInfo {
+    return BoFInfo.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<BoFInfo>, I>>(object: I): BoFInfo {
+    const message = createBaseBoFInfo();
+    message.uuid = object.uuid ?? "";
+    message.functionName = object.functionName ?? "";
+    message.platform = object.platform ?? "";
+    message.description = object.description ?? "";
+    message.payload = object.payload ?? new Uint8Array();
+    message.uploadedAt = object.uploadedAt ?? undefined;
     return message;
   },
 };
