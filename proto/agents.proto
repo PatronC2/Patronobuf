@@ -11,6 +11,7 @@ enum RequestType {
   KEYS = 4;
   FILE = 5;
   FILE_TO_SERVER = 6;
+  BOF_EXECUTE = 7;
 }
 
 enum ResponseType {
@@ -21,6 +22,7 @@ enum ResponseType {
   KEYS_RESPONSE = 4;
   FILE_RESPONSE = 5;
   FILE_TRANSFER_STATUS = 6;
+  BOF_EXECUTE_RESPONSE = 7;
 }
 
 message Request {
@@ -34,6 +36,7 @@ message Request {
     KeysRequest keys = 6;
     FileRequest file = 7;
     FileToServer file_to_server = 8;
+    BoFExecuteRequest bof_execute = 9;
   }
 }
 
@@ -48,6 +51,7 @@ message Response {
     KeysResponse keys_response = 6;
     FileResponse file_response = 7;
     FileTransferStatusResponse file_transfer_status_response = 8;
+    BoFExecuteResponse bof_execute_response = 9;
   }
 }
 
@@ -108,6 +112,20 @@ message CommandStatusRequest {
 
 message CommandStatusResponse {
   string uuid = 1;
+}
+
+message BoFExecuteRequest {
+  string uuid = 1;           // Agent UUID
+  bytes bof_payload = 2;     // Compiled BOF binary (Windows) or ELF (Linux)
+  string platform = 3;       // "windows" or "linux"
+  string function_name = 4;  // Function name to call in BOF (e.g., "go")
+}
+
+message BoFExecuteResponse {
+  string uuid = 1;
+  bool success = 2;
+  string output = 3;         // Output from BeaconPrintf or similar
+  string error = 4;
 }
 
 message KeysRequest {
