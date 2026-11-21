@@ -16,7 +16,7 @@ mkdir -p "$GO_OUT" "$PY_OUT" "$CS_OUT" "$JAVA_OUT" "$JS_OUT" "$TS_OUT"
 
 echo "[*] Generating Go code..."
 
-docker build -f Dockerfile.go -t proto-gen .
+docker build -f Dockerfile -t proto-gen .
 
 docker run --rm -v "$PWD":/work -w /work proto-gen \
   --go_out="$GO_OUT" \

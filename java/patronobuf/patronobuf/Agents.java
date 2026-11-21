@@ -20,56 +20,64 @@ public final class Agents {
   public enum RequestType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>CONFIGURATION = 0;</code>
+     * <code>STARTUP = 0;</code>
      */
-    CONFIGURATION(0),
+    STARTUP(0),
     /**
-     * <code>COMMAND = 1;</code>
+     * <code>CONFIGURATION = 1;</code>
      */
-    COMMAND(1),
+    CONFIGURATION(1),
     /**
-     * <code>COMMAND_STATUS = 2;</code>
+     * <code>COMMAND = 2;</code>
      */
-    COMMAND_STATUS(2),
+    COMMAND(2),
     /**
-     * <code>KEYS = 3;</code>
+     * <code>COMMAND_STATUS = 3;</code>
      */
-    KEYS(3),
+    COMMAND_STATUS(3),
     /**
-     * <code>FILE = 4;</code>
+     * <code>KEYS = 4;</code>
      */
-    FILE(4),
+    KEYS(4),
     /**
-     * <code>FILE_TO_SERVER = 5;</code>
+     * <code>FILE = 5;</code>
      */
-    FILE_TO_SERVER(5),
+    FILE(5),
+    /**
+     * <code>FILE_TO_SERVER = 6;</code>
+     */
+    FILE_TO_SERVER(6),
     UNRECOGNIZED(-1),
     ;
 
     /**
-     * <code>CONFIGURATION = 0;</code>
+     * <code>STARTUP = 0;</code>
      */
-    public static final int CONFIGURATION_VALUE = 0;
+    public static final int STARTUP_VALUE = 0;
     /**
-     * <code>COMMAND = 1;</code>
+     * <code>CONFIGURATION = 1;</code>
      */
-    public static final int COMMAND_VALUE = 1;
+    public static final int CONFIGURATION_VALUE = 1;
     /**
-     * <code>COMMAND_STATUS = 2;</code>
+     * <code>COMMAND = 2;</code>
      */
-    public static final int COMMAND_STATUS_VALUE = 2;
+    public static final int COMMAND_VALUE = 2;
     /**
-     * <code>KEYS = 3;</code>
+     * <code>COMMAND_STATUS = 3;</code>
      */
-    public static final int KEYS_VALUE = 3;
+    public static final int COMMAND_STATUS_VALUE = 3;
     /**
-     * <code>FILE = 4;</code>
+     * <code>KEYS = 4;</code>
      */
-    public static final int FILE_VALUE = 4;
+    public static final int KEYS_VALUE = 4;
     /**
-     * <code>FILE_TO_SERVER = 5;</code>
+     * <code>FILE = 5;</code>
      */
-    public static final int FILE_TO_SERVER_VALUE = 5;
+    public static final int FILE_VALUE = 5;
+    /**
+     * <code>FILE_TO_SERVER = 6;</code>
+     */
+    public static final int FILE_TO_SERVER_VALUE = 6;
 
 
     public final int getNumber() {
@@ -96,12 +104,13 @@ public final class Agents {
      */
     public static RequestType forNumber(int value) {
       switch (value) {
-        case 0: return CONFIGURATION;
-        case 1: return COMMAND;
-        case 2: return COMMAND_STATUS;
-        case 3: return KEYS;
-        case 4: return FILE;
-        case 5: return FILE_TO_SERVER;
+        case 0: return STARTUP;
+        case 1: return CONFIGURATION;
+        case 2: return COMMAND;
+        case 3: return COMMAND_STATUS;
+        case 4: return KEYS;
+        case 5: return FILE;
+        case 6: return FILE_TO_SERVER;
         default: return null;
       }
     }
@@ -164,56 +173,64 @@ public final class Agents {
   public enum ResponseType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>CONFIGURATION_RESPONSE = 0;</code>
+     * <code>STARTUP_RESPONSE = 0;</code>
      */
-    CONFIGURATION_RESPONSE(0),
+    STARTUP_RESPONSE(0),
     /**
-     * <code>COMMAND_RESPONSE = 1;</code>
+     * <code>CONFIGURATION_RESPONSE = 1;</code>
      */
-    COMMAND_RESPONSE(1),
+    CONFIGURATION_RESPONSE(1),
     /**
-     * <code>COMMAND_STATUS_RESPONSE = 2;</code>
+     * <code>COMMAND_RESPONSE = 2;</code>
      */
-    COMMAND_STATUS_RESPONSE(2),
+    COMMAND_RESPONSE(2),
     /**
-     * <code>KEYS_RESPONSE = 3;</code>
+     * <code>COMMAND_STATUS_RESPONSE = 3;</code>
      */
-    KEYS_RESPONSE(3),
+    COMMAND_STATUS_RESPONSE(3),
     /**
-     * <code>FILE_RESPONSE = 4;</code>
+     * <code>KEYS_RESPONSE = 4;</code>
      */
-    FILE_RESPONSE(4),
+    KEYS_RESPONSE(4),
     /**
-     * <code>FILE_TRANSFER_STATUS = 5;</code>
+     * <code>FILE_RESPONSE = 5;</code>
      */
-    FILE_TRANSFER_STATUS(5),
+    FILE_RESPONSE(5),
+    /**
+     * <code>FILE_TRANSFER_STATUS = 6;</code>
+     */
+    FILE_TRANSFER_STATUS(6),
     UNRECOGNIZED(-1),
     ;
 
     /**
-     * <code>CONFIGURATION_RESPONSE = 0;</code>
+     * <code>STARTUP_RESPONSE = 0;</code>
      */
-    public static final int CONFIGURATION_RESPONSE_VALUE = 0;
+    public static final int STARTUP_RESPONSE_VALUE = 0;
     /**
-     * <code>COMMAND_RESPONSE = 1;</code>
+     * <code>CONFIGURATION_RESPONSE = 1;</code>
      */
-    public static final int COMMAND_RESPONSE_VALUE = 1;
+    public static final int CONFIGURATION_RESPONSE_VALUE = 1;
     /**
-     * <code>COMMAND_STATUS_RESPONSE = 2;</code>
+     * <code>COMMAND_RESPONSE = 2;</code>
      */
-    public static final int COMMAND_STATUS_RESPONSE_VALUE = 2;
+    public static final int COMMAND_RESPONSE_VALUE = 2;
     /**
-     * <code>KEYS_RESPONSE = 3;</code>
+     * <code>COMMAND_STATUS_RESPONSE = 3;</code>
      */
-    public static final int KEYS_RESPONSE_VALUE = 3;
+    public static final int COMMAND_STATUS_RESPONSE_VALUE = 3;
     /**
-     * <code>FILE_RESPONSE = 4;</code>
+     * <code>KEYS_RESPONSE = 4;</code>
      */
-    public static final int FILE_RESPONSE_VALUE = 4;
+    public static final int KEYS_RESPONSE_VALUE = 4;
     /**
-     * <code>FILE_TRANSFER_STATUS = 5;</code>
+     * <code>FILE_RESPONSE = 5;</code>
      */
-    public static final int FILE_TRANSFER_STATUS_VALUE = 5;
+    public static final int FILE_RESPONSE_VALUE = 5;
+    /**
+     * <code>FILE_TRANSFER_STATUS = 6;</code>
+     */
+    public static final int FILE_TRANSFER_STATUS_VALUE = 6;
 
 
     public final int getNumber() {
@@ -240,12 +257,13 @@ public final class Agents {
      */
     public static ResponseType forNumber(int value) {
       switch (value) {
-        case 0: return CONFIGURATION_RESPONSE;
-        case 1: return COMMAND_RESPONSE;
-        case 2: return COMMAND_STATUS_RESPONSE;
-        case 3: return KEYS_RESPONSE;
-        case 4: return FILE_RESPONSE;
-        case 5: return FILE_TRANSFER_STATUS;
+        case 0: return STARTUP_RESPONSE;
+        case 1: return CONFIGURATION_RESPONSE;
+        case 2: return COMMAND_RESPONSE;
+        case 3: return COMMAND_STATUS_RESPONSE;
+        case 4: return KEYS_RESPONSE;
+        case 5: return FILE_RESPONSE;
+        case 6: return FILE_TRANSFER_STATUS;
         default: return null;
       }
     }
@@ -318,92 +336,107 @@ public final class Agents {
     patronobuf.Agents.RequestType getType();
 
     /**
-     * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+     * <code>.patronobuf.StartupRequest startup = 2;</code>
+     * @return Whether the startup field is set.
+     */
+    boolean hasStartup();
+    /**
+     * <code>.patronobuf.StartupRequest startup = 2;</code>
+     * @return The startup.
+     */
+    patronobuf.Agents.StartupRequest getStartup();
+    /**
+     * <code>.patronobuf.StartupRequest startup = 2;</code>
+     */
+    patronobuf.Agents.StartupRequestOrBuilder getStartupOrBuilder();
+
+    /**
+     * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
      * @return Whether the configuration field is set.
      */
     boolean hasConfiguration();
     /**
-     * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+     * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
      * @return The configuration.
      */
     patronobuf.Agents.ConfigurationRequest getConfiguration();
     /**
-     * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+     * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
      */
     patronobuf.Agents.ConfigurationRequestOrBuilder getConfigurationOrBuilder();
 
     /**
-     * <code>.patronobuf.CommandRequest command = 3;</code>
+     * <code>.patronobuf.CommandRequest command = 4;</code>
      * @return Whether the command field is set.
      */
     boolean hasCommand();
     /**
-     * <code>.patronobuf.CommandRequest command = 3;</code>
+     * <code>.patronobuf.CommandRequest command = 4;</code>
      * @return The command.
      */
     patronobuf.Agents.CommandRequest getCommand();
     /**
-     * <code>.patronobuf.CommandRequest command = 3;</code>
+     * <code>.patronobuf.CommandRequest command = 4;</code>
      */
     patronobuf.Agents.CommandRequestOrBuilder getCommandOrBuilder();
 
     /**
-     * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+     * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
      * @return Whether the commandStatus field is set.
      */
     boolean hasCommandStatus();
     /**
-     * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+     * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
      * @return The commandStatus.
      */
     patronobuf.Agents.CommandStatusRequest getCommandStatus();
     /**
-     * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+     * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
      */
     patronobuf.Agents.CommandStatusRequestOrBuilder getCommandStatusOrBuilder();
 
     /**
-     * <code>.patronobuf.KeysRequest keys = 5;</code>
+     * <code>.patronobuf.KeysRequest keys = 6;</code>
      * @return Whether the keys field is set.
      */
     boolean hasKeys();
     /**
-     * <code>.patronobuf.KeysRequest keys = 5;</code>
+     * <code>.patronobuf.KeysRequest keys = 6;</code>
      * @return The keys.
      */
     patronobuf.Agents.KeysRequest getKeys();
     /**
-     * <code>.patronobuf.KeysRequest keys = 5;</code>
+     * <code>.patronobuf.KeysRequest keys = 6;</code>
      */
     patronobuf.Agents.KeysRequestOrBuilder getKeysOrBuilder();
 
     /**
-     * <code>.patronobuf.FileRequest file = 6;</code>
+     * <code>.patronobuf.FileRequest file = 7;</code>
      * @return Whether the file field is set.
      */
     boolean hasFile();
     /**
-     * <code>.patronobuf.FileRequest file = 6;</code>
+     * <code>.patronobuf.FileRequest file = 7;</code>
      * @return The file.
      */
     patronobuf.Agents.FileRequest getFile();
     /**
-     * <code>.patronobuf.FileRequest file = 6;</code>
+     * <code>.patronobuf.FileRequest file = 7;</code>
      */
     patronobuf.Agents.FileRequestOrBuilder getFileOrBuilder();
 
     /**
-     * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+     * <code>.patronobuf.FileToServer file_to_server = 8;</code>
      * @return Whether the fileToServer field is set.
      */
     boolean hasFileToServer();
     /**
-     * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+     * <code>.patronobuf.FileToServer file_to_server = 8;</code>
      * @return The fileToServer.
      */
     patronobuf.Agents.FileToServer getFileToServer();
     /**
-     * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+     * <code>.patronobuf.FileToServer file_to_server = 8;</code>
      */
     patronobuf.Agents.FileToServerOrBuilder getFileToServerOrBuilder();
 
@@ -462,8 +495,22 @@ public final class Agents {
               break;
             }
             case 18: {
-              patronobuf.Agents.ConfigurationRequest.Builder subBuilder = null;
+              patronobuf.Agents.StartupRequest.Builder subBuilder = null;
               if (payloadCase_ == 2) {
+                subBuilder = ((patronobuf.Agents.StartupRequest) payload_).toBuilder();
+              }
+              payload_ =
+                  input.readMessage(patronobuf.Agents.StartupRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((patronobuf.Agents.StartupRequest) payload_);
+                payload_ = subBuilder.buildPartial();
+              }
+              payloadCase_ = 2;
+              break;
+            }
+            case 26: {
+              patronobuf.Agents.ConfigurationRequest.Builder subBuilder = null;
+              if (payloadCase_ == 3) {
                 subBuilder = ((patronobuf.Agents.ConfigurationRequest) payload_).toBuilder();
               }
               payload_ =
@@ -472,12 +519,12 @@ public final class Agents {
                 subBuilder.mergeFrom((patronobuf.Agents.ConfigurationRequest) payload_);
                 payload_ = subBuilder.buildPartial();
               }
-              payloadCase_ = 2;
+              payloadCase_ = 3;
               break;
             }
-            case 26: {
+            case 34: {
               patronobuf.Agents.CommandRequest.Builder subBuilder = null;
-              if (payloadCase_ == 3) {
+              if (payloadCase_ == 4) {
                 subBuilder = ((patronobuf.Agents.CommandRequest) payload_).toBuilder();
               }
               payload_ =
@@ -486,12 +533,12 @@ public final class Agents {
                 subBuilder.mergeFrom((patronobuf.Agents.CommandRequest) payload_);
                 payload_ = subBuilder.buildPartial();
               }
-              payloadCase_ = 3;
+              payloadCase_ = 4;
               break;
             }
-            case 34: {
+            case 42: {
               patronobuf.Agents.CommandStatusRequest.Builder subBuilder = null;
-              if (payloadCase_ == 4) {
+              if (payloadCase_ == 5) {
                 subBuilder = ((patronobuf.Agents.CommandStatusRequest) payload_).toBuilder();
               }
               payload_ =
@@ -500,12 +547,12 @@ public final class Agents {
                 subBuilder.mergeFrom((patronobuf.Agents.CommandStatusRequest) payload_);
                 payload_ = subBuilder.buildPartial();
               }
-              payloadCase_ = 4;
+              payloadCase_ = 5;
               break;
             }
-            case 42: {
+            case 50: {
               patronobuf.Agents.KeysRequest.Builder subBuilder = null;
-              if (payloadCase_ == 5) {
+              if (payloadCase_ == 6) {
                 subBuilder = ((patronobuf.Agents.KeysRequest) payload_).toBuilder();
               }
               payload_ =
@@ -514,12 +561,12 @@ public final class Agents {
                 subBuilder.mergeFrom((patronobuf.Agents.KeysRequest) payload_);
                 payload_ = subBuilder.buildPartial();
               }
-              payloadCase_ = 5;
+              payloadCase_ = 6;
               break;
             }
-            case 50: {
+            case 58: {
               patronobuf.Agents.FileRequest.Builder subBuilder = null;
-              if (payloadCase_ == 6) {
+              if (payloadCase_ == 7) {
                 subBuilder = ((patronobuf.Agents.FileRequest) payload_).toBuilder();
               }
               payload_ =
@@ -528,12 +575,12 @@ public final class Agents {
                 subBuilder.mergeFrom((patronobuf.Agents.FileRequest) payload_);
                 payload_ = subBuilder.buildPartial();
               }
-              payloadCase_ = 6;
+              payloadCase_ = 7;
               break;
             }
-            case 58: {
+            case 66: {
               patronobuf.Agents.FileToServer.Builder subBuilder = null;
-              if (payloadCase_ == 7) {
+              if (payloadCase_ == 8) {
                 subBuilder = ((patronobuf.Agents.FileToServer) payload_).toBuilder();
               }
               payload_ =
@@ -542,7 +589,7 @@ public final class Agents {
                 subBuilder.mergeFrom((patronobuf.Agents.FileToServer) payload_);
                 payload_ = subBuilder.buildPartial();
               }
-              payloadCase_ = 7;
+              payloadCase_ = 8;
               break;
             }
             default: {
@@ -584,12 +631,13 @@ public final class Agents {
     public enum PayloadCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-      CONFIGURATION(2),
-      COMMAND(3),
-      COMMAND_STATUS(4),
-      KEYS(5),
-      FILE(6),
-      FILE_TO_SERVER(7),
+      STARTUP(2),
+      CONFIGURATION(3),
+      COMMAND(4),
+      COMMAND_STATUS(5),
+      KEYS(6),
+      FILE(7),
+      FILE_TO_SERVER(8),
       PAYLOAD_NOT_SET(0);
       private final int value;
       private PayloadCase(int value) {
@@ -607,12 +655,13 @@ public final class Agents {
 
       public static PayloadCase forNumber(int value) {
         switch (value) {
-          case 2: return CONFIGURATION;
-          case 3: return COMMAND;
-          case 4: return COMMAND_STATUS;
-          case 5: return KEYS;
-          case 6: return FILE;
-          case 7: return FILE_TO_SERVER;
+          case 2: return STARTUP;
+          case 3: return CONFIGURATION;
+          case 4: return COMMAND;
+          case 5: return COMMAND_STATUS;
+          case 6: return KEYS;
+          case 7: return FILE;
+          case 8: return FILE_TO_SERVER;
           case 0: return PAYLOAD_NOT_SET;
           default: return null;
         }
@@ -647,187 +696,218 @@ public final class Agents {
       return result == null ? patronobuf.Agents.RequestType.UNRECOGNIZED : result;
     }
 
-    public static final int CONFIGURATION_FIELD_NUMBER = 2;
+    public static final int STARTUP_FIELD_NUMBER = 2;
     /**
-     * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+     * <code>.patronobuf.StartupRequest startup = 2;</code>
+     * @return Whether the startup field is set.
+     */
+    @java.lang.Override
+    public boolean hasStartup() {
+      return payloadCase_ == 2;
+    }
+    /**
+     * <code>.patronobuf.StartupRequest startup = 2;</code>
+     * @return The startup.
+     */
+    @java.lang.Override
+    public patronobuf.Agents.StartupRequest getStartup() {
+      if (payloadCase_ == 2) {
+         return (patronobuf.Agents.StartupRequest) payload_;
+      }
+      return patronobuf.Agents.StartupRequest.getDefaultInstance();
+    }
+    /**
+     * <code>.patronobuf.StartupRequest startup = 2;</code>
+     */
+    @java.lang.Override
+    public patronobuf.Agents.StartupRequestOrBuilder getStartupOrBuilder() {
+      if (payloadCase_ == 2) {
+         return (patronobuf.Agents.StartupRequest) payload_;
+      }
+      return patronobuf.Agents.StartupRequest.getDefaultInstance();
+    }
+
+    public static final int CONFIGURATION_FIELD_NUMBER = 3;
+    /**
+     * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
      * @return Whether the configuration field is set.
      */
     @java.lang.Override
     public boolean hasConfiguration() {
-      return payloadCase_ == 2;
+      return payloadCase_ == 3;
     }
     /**
-     * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+     * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
      * @return The configuration.
      */
     @java.lang.Override
     public patronobuf.Agents.ConfigurationRequest getConfiguration() {
-      if (payloadCase_ == 2) {
+      if (payloadCase_ == 3) {
          return (patronobuf.Agents.ConfigurationRequest) payload_;
       }
       return patronobuf.Agents.ConfigurationRequest.getDefaultInstance();
     }
     /**
-     * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+     * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
      */
     @java.lang.Override
     public patronobuf.Agents.ConfigurationRequestOrBuilder getConfigurationOrBuilder() {
-      if (payloadCase_ == 2) {
+      if (payloadCase_ == 3) {
          return (patronobuf.Agents.ConfigurationRequest) payload_;
       }
       return patronobuf.Agents.ConfigurationRequest.getDefaultInstance();
     }
 
-    public static final int COMMAND_FIELD_NUMBER = 3;
+    public static final int COMMAND_FIELD_NUMBER = 4;
     /**
-     * <code>.patronobuf.CommandRequest command = 3;</code>
+     * <code>.patronobuf.CommandRequest command = 4;</code>
      * @return Whether the command field is set.
      */
     @java.lang.Override
     public boolean hasCommand() {
-      return payloadCase_ == 3;
+      return payloadCase_ == 4;
     }
     /**
-     * <code>.patronobuf.CommandRequest command = 3;</code>
+     * <code>.patronobuf.CommandRequest command = 4;</code>
      * @return The command.
      */
     @java.lang.Override
     public patronobuf.Agents.CommandRequest getCommand() {
-      if (payloadCase_ == 3) {
+      if (payloadCase_ == 4) {
          return (patronobuf.Agents.CommandRequest) payload_;
       }
       return patronobuf.Agents.CommandRequest.getDefaultInstance();
     }
     /**
-     * <code>.patronobuf.CommandRequest command = 3;</code>
+     * <code>.patronobuf.CommandRequest command = 4;</code>
      */
     @java.lang.Override
     public patronobuf.Agents.CommandRequestOrBuilder getCommandOrBuilder() {
-      if (payloadCase_ == 3) {
+      if (payloadCase_ == 4) {
          return (patronobuf.Agents.CommandRequest) payload_;
       }
       return patronobuf.Agents.CommandRequest.getDefaultInstance();
     }
 
-    public static final int COMMAND_STATUS_FIELD_NUMBER = 4;
+    public static final int COMMAND_STATUS_FIELD_NUMBER = 5;
     /**
-     * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+     * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
      * @return Whether the commandStatus field is set.
      */
     @java.lang.Override
     public boolean hasCommandStatus() {
-      return payloadCase_ == 4;
+      return payloadCase_ == 5;
     }
     /**
-     * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+     * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
      * @return The commandStatus.
      */
     @java.lang.Override
     public patronobuf.Agents.CommandStatusRequest getCommandStatus() {
-      if (payloadCase_ == 4) {
+      if (payloadCase_ == 5) {
          return (patronobuf.Agents.CommandStatusRequest) payload_;
       }
       return patronobuf.Agents.CommandStatusRequest.getDefaultInstance();
     }
     /**
-     * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+     * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
      */
     @java.lang.Override
     public patronobuf.Agents.CommandStatusRequestOrBuilder getCommandStatusOrBuilder() {
-      if (payloadCase_ == 4) {
+      if (payloadCase_ == 5) {
          return (patronobuf.Agents.CommandStatusRequest) payload_;
       }
       return patronobuf.Agents.CommandStatusRequest.getDefaultInstance();
     }
 
-    public static final int KEYS_FIELD_NUMBER = 5;
+    public static final int KEYS_FIELD_NUMBER = 6;
     /**
-     * <code>.patronobuf.KeysRequest keys = 5;</code>
+     * <code>.patronobuf.KeysRequest keys = 6;</code>
      * @return Whether the keys field is set.
      */
     @java.lang.Override
     public boolean hasKeys() {
-      return payloadCase_ == 5;
+      return payloadCase_ == 6;
     }
     /**
-     * <code>.patronobuf.KeysRequest keys = 5;</code>
+     * <code>.patronobuf.KeysRequest keys = 6;</code>
      * @return The keys.
      */
     @java.lang.Override
     public patronobuf.Agents.KeysRequest getKeys() {
-      if (payloadCase_ == 5) {
+      if (payloadCase_ == 6) {
          return (patronobuf.Agents.KeysRequest) payload_;
       }
       return patronobuf.Agents.KeysRequest.getDefaultInstance();
     }
     /**
-     * <code>.patronobuf.KeysRequest keys = 5;</code>
+     * <code>.patronobuf.KeysRequest keys = 6;</code>
      */
     @java.lang.Override
     public patronobuf.Agents.KeysRequestOrBuilder getKeysOrBuilder() {
-      if (payloadCase_ == 5) {
+      if (payloadCase_ == 6) {
          return (patronobuf.Agents.KeysRequest) payload_;
       }
       return patronobuf.Agents.KeysRequest.getDefaultInstance();
     }
 
-    public static final int FILE_FIELD_NUMBER = 6;
+    public static final int FILE_FIELD_NUMBER = 7;
     /**
-     * <code>.patronobuf.FileRequest file = 6;</code>
+     * <code>.patronobuf.FileRequest file = 7;</code>
      * @return Whether the file field is set.
      */
     @java.lang.Override
     public boolean hasFile() {
-      return payloadCase_ == 6;
+      return payloadCase_ == 7;
     }
     /**
-     * <code>.patronobuf.FileRequest file = 6;</code>
+     * <code>.patronobuf.FileRequest file = 7;</code>
      * @return The file.
      */
     @java.lang.Override
     public patronobuf.Agents.FileRequest getFile() {
-      if (payloadCase_ == 6) {
+      if (payloadCase_ == 7) {
          return (patronobuf.Agents.FileRequest) payload_;
       }
       return patronobuf.Agents.FileRequest.getDefaultInstance();
     }
     /**
-     * <code>.patronobuf.FileRequest file = 6;</code>
+     * <code>.patronobuf.FileRequest file = 7;</code>
      */
     @java.lang.Override
     public patronobuf.Agents.FileRequestOrBuilder getFileOrBuilder() {
-      if (payloadCase_ == 6) {
+      if (payloadCase_ == 7) {
          return (patronobuf.Agents.FileRequest) payload_;
       }
       return patronobuf.Agents.FileRequest.getDefaultInstance();
     }
 
-    public static final int FILE_TO_SERVER_FIELD_NUMBER = 7;
+    public static final int FILE_TO_SERVER_FIELD_NUMBER = 8;
     /**
-     * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+     * <code>.patronobuf.FileToServer file_to_server = 8;</code>
      * @return Whether the fileToServer field is set.
      */
     @java.lang.Override
     public boolean hasFileToServer() {
-      return payloadCase_ == 7;
+      return payloadCase_ == 8;
     }
     /**
-     * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+     * <code>.patronobuf.FileToServer file_to_server = 8;</code>
      * @return The fileToServer.
      */
     @java.lang.Override
     public patronobuf.Agents.FileToServer getFileToServer() {
-      if (payloadCase_ == 7) {
+      if (payloadCase_ == 8) {
          return (patronobuf.Agents.FileToServer) payload_;
       }
       return patronobuf.Agents.FileToServer.getDefaultInstance();
     }
     /**
-     * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+     * <code>.patronobuf.FileToServer file_to_server = 8;</code>
      */
     @java.lang.Override
     public patronobuf.Agents.FileToServerOrBuilder getFileToServerOrBuilder() {
-      if (payloadCase_ == 7) {
+      if (payloadCase_ == 8) {
          return (patronobuf.Agents.FileToServer) payload_;
       }
       return patronobuf.Agents.FileToServer.getDefaultInstance();
@@ -847,26 +927,29 @@ public final class Agents {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (type_ != patronobuf.Agents.RequestType.CONFIGURATION.getNumber()) {
+      if (type_ != patronobuf.Agents.RequestType.STARTUP.getNumber()) {
         output.writeEnum(1, type_);
       }
       if (payloadCase_ == 2) {
-        output.writeMessage(2, (patronobuf.Agents.ConfigurationRequest) payload_);
+        output.writeMessage(2, (patronobuf.Agents.StartupRequest) payload_);
       }
       if (payloadCase_ == 3) {
-        output.writeMessage(3, (patronobuf.Agents.CommandRequest) payload_);
+        output.writeMessage(3, (patronobuf.Agents.ConfigurationRequest) payload_);
       }
       if (payloadCase_ == 4) {
-        output.writeMessage(4, (patronobuf.Agents.CommandStatusRequest) payload_);
+        output.writeMessage(4, (patronobuf.Agents.CommandRequest) payload_);
       }
       if (payloadCase_ == 5) {
-        output.writeMessage(5, (patronobuf.Agents.KeysRequest) payload_);
+        output.writeMessage(5, (patronobuf.Agents.CommandStatusRequest) payload_);
       }
       if (payloadCase_ == 6) {
-        output.writeMessage(6, (patronobuf.Agents.FileRequest) payload_);
+        output.writeMessage(6, (patronobuf.Agents.KeysRequest) payload_);
       }
       if (payloadCase_ == 7) {
-        output.writeMessage(7, (patronobuf.Agents.FileToServer) payload_);
+        output.writeMessage(7, (patronobuf.Agents.FileRequest) payload_);
+      }
+      if (payloadCase_ == 8) {
+        output.writeMessage(8, (patronobuf.Agents.FileToServer) payload_);
       }
       unknownFields.writeTo(output);
     }
@@ -877,33 +960,37 @@ public final class Agents {
       if (size != -1) return size;
 
       size = 0;
-      if (type_ != patronobuf.Agents.RequestType.CONFIGURATION.getNumber()) {
+      if (type_ != patronobuf.Agents.RequestType.STARTUP.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
       if (payloadCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (patronobuf.Agents.ConfigurationRequest) payload_);
+          .computeMessageSize(2, (patronobuf.Agents.StartupRequest) payload_);
       }
       if (payloadCase_ == 3) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, (patronobuf.Agents.CommandRequest) payload_);
+          .computeMessageSize(3, (patronobuf.Agents.ConfigurationRequest) payload_);
       }
       if (payloadCase_ == 4) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, (patronobuf.Agents.CommandStatusRequest) payload_);
+          .computeMessageSize(4, (patronobuf.Agents.CommandRequest) payload_);
       }
       if (payloadCase_ == 5) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, (patronobuf.Agents.KeysRequest) payload_);
+          .computeMessageSize(5, (patronobuf.Agents.CommandStatusRequest) payload_);
       }
       if (payloadCase_ == 6) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, (patronobuf.Agents.FileRequest) payload_);
+          .computeMessageSize(6, (patronobuf.Agents.KeysRequest) payload_);
       }
       if (payloadCase_ == 7) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, (patronobuf.Agents.FileToServer) payload_);
+          .computeMessageSize(7, (patronobuf.Agents.FileRequest) payload_);
+      }
+      if (payloadCase_ == 8) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, (patronobuf.Agents.FileToServer) payload_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -924,26 +1011,30 @@ public final class Agents {
       if (!getPayloadCase().equals(other.getPayloadCase())) return false;
       switch (payloadCase_) {
         case 2:
+          if (!getStartup()
+              .equals(other.getStartup())) return false;
+          break;
+        case 3:
           if (!getConfiguration()
               .equals(other.getConfiguration())) return false;
           break;
-        case 3:
+        case 4:
           if (!getCommand()
               .equals(other.getCommand())) return false;
           break;
-        case 4:
+        case 5:
           if (!getCommandStatus()
               .equals(other.getCommandStatus())) return false;
           break;
-        case 5:
+        case 6:
           if (!getKeys()
               .equals(other.getKeys())) return false;
           break;
-        case 6:
+        case 7:
           if (!getFile()
               .equals(other.getFile())) return false;
           break;
-        case 7:
+        case 8:
           if (!getFileToServer()
               .equals(other.getFileToServer())) return false;
           break;
@@ -965,26 +1056,30 @@ public final class Agents {
       hash = (53 * hash) + type_;
       switch (payloadCase_) {
         case 2:
+          hash = (37 * hash) + STARTUP_FIELD_NUMBER;
+          hash = (53 * hash) + getStartup().hashCode();
+          break;
+        case 3:
           hash = (37 * hash) + CONFIGURATION_FIELD_NUMBER;
           hash = (53 * hash) + getConfiguration().hashCode();
           break;
-        case 3:
+        case 4:
           hash = (37 * hash) + COMMAND_FIELD_NUMBER;
           hash = (53 * hash) + getCommand().hashCode();
           break;
-        case 4:
+        case 5:
           hash = (37 * hash) + COMMAND_STATUS_FIELD_NUMBER;
           hash = (53 * hash) + getCommandStatus().hashCode();
           break;
-        case 5:
+        case 6:
           hash = (37 * hash) + KEYS_FIELD_NUMBER;
           hash = (53 * hash) + getKeys().hashCode();
           break;
-        case 6:
+        case 7:
           hash = (37 * hash) + FILE_FIELD_NUMBER;
           hash = (53 * hash) + getFile().hashCode();
           break;
-        case 7:
+        case 8:
           hash = (37 * hash) + FILE_TO_SERVER_FIELD_NUMBER;
           hash = (53 * hash) + getFileToServer().hashCode();
           break;
@@ -1156,41 +1251,48 @@ public final class Agents {
         patronobuf.Agents.Request result = new patronobuf.Agents.Request(this);
         result.type_ = type_;
         if (payloadCase_ == 2) {
+          if (startupBuilder_ == null) {
+            result.payload_ = payload_;
+          } else {
+            result.payload_ = startupBuilder_.build();
+          }
+        }
+        if (payloadCase_ == 3) {
           if (configurationBuilder_ == null) {
             result.payload_ = payload_;
           } else {
             result.payload_ = configurationBuilder_.build();
           }
         }
-        if (payloadCase_ == 3) {
+        if (payloadCase_ == 4) {
           if (commandBuilder_ == null) {
             result.payload_ = payload_;
           } else {
             result.payload_ = commandBuilder_.build();
           }
         }
-        if (payloadCase_ == 4) {
+        if (payloadCase_ == 5) {
           if (commandStatusBuilder_ == null) {
             result.payload_ = payload_;
           } else {
             result.payload_ = commandStatusBuilder_.build();
           }
         }
-        if (payloadCase_ == 5) {
+        if (payloadCase_ == 6) {
           if (keysBuilder_ == null) {
             result.payload_ = payload_;
           } else {
             result.payload_ = keysBuilder_.build();
           }
         }
-        if (payloadCase_ == 6) {
+        if (payloadCase_ == 7) {
           if (fileBuilder_ == null) {
             result.payload_ = payload_;
           } else {
             result.payload_ = fileBuilder_.build();
           }
         }
-        if (payloadCase_ == 7) {
+        if (payloadCase_ == 8) {
           if (fileToServerBuilder_ == null) {
             result.payload_ = payload_;
           } else {
@@ -1250,6 +1352,10 @@ public final class Agents {
           setTypeValue(other.getTypeValue());
         }
         switch (other.getPayloadCase()) {
+          case STARTUP: {
+            mergeStartup(other.getStartup());
+            break;
+          }
           case CONFIGURATION: {
             mergeConfiguration(other.getConfiguration());
             break;
@@ -1377,35 +1483,177 @@ public final class Agents {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
+          patronobuf.Agents.StartupRequest, patronobuf.Agents.StartupRequest.Builder, patronobuf.Agents.StartupRequestOrBuilder> startupBuilder_;
+      /**
+       * <code>.patronobuf.StartupRequest startup = 2;</code>
+       * @return Whether the startup field is set.
+       */
+      @java.lang.Override
+      public boolean hasStartup() {
+        return payloadCase_ == 2;
+      }
+      /**
+       * <code>.patronobuf.StartupRequest startup = 2;</code>
+       * @return The startup.
+       */
+      @java.lang.Override
+      public patronobuf.Agents.StartupRequest getStartup() {
+        if (startupBuilder_ == null) {
+          if (payloadCase_ == 2) {
+            return (patronobuf.Agents.StartupRequest) payload_;
+          }
+          return patronobuf.Agents.StartupRequest.getDefaultInstance();
+        } else {
+          if (payloadCase_ == 2) {
+            return startupBuilder_.getMessage();
+          }
+          return patronobuf.Agents.StartupRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.patronobuf.StartupRequest startup = 2;</code>
+       */
+      public Builder setStartup(patronobuf.Agents.StartupRequest value) {
+        if (startupBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          payload_ = value;
+          onChanged();
+        } else {
+          startupBuilder_.setMessage(value);
+        }
+        payloadCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.patronobuf.StartupRequest startup = 2;</code>
+       */
+      public Builder setStartup(
+          patronobuf.Agents.StartupRequest.Builder builderForValue) {
+        if (startupBuilder_ == null) {
+          payload_ = builderForValue.build();
+          onChanged();
+        } else {
+          startupBuilder_.setMessage(builderForValue.build());
+        }
+        payloadCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.patronobuf.StartupRequest startup = 2;</code>
+       */
+      public Builder mergeStartup(patronobuf.Agents.StartupRequest value) {
+        if (startupBuilder_ == null) {
+          if (payloadCase_ == 2 &&
+              payload_ != patronobuf.Agents.StartupRequest.getDefaultInstance()) {
+            payload_ = patronobuf.Agents.StartupRequest.newBuilder((patronobuf.Agents.StartupRequest) payload_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            payload_ = value;
+          }
+          onChanged();
+        } else {
+          if (payloadCase_ == 2) {
+            startupBuilder_.mergeFrom(value);
+          } else {
+            startupBuilder_.setMessage(value);
+          }
+        }
+        payloadCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.patronobuf.StartupRequest startup = 2;</code>
+       */
+      public Builder clearStartup() {
+        if (startupBuilder_ == null) {
+          if (payloadCase_ == 2) {
+            payloadCase_ = 0;
+            payload_ = null;
+            onChanged();
+          }
+        } else {
+          if (payloadCase_ == 2) {
+            payloadCase_ = 0;
+            payload_ = null;
+          }
+          startupBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.patronobuf.StartupRequest startup = 2;</code>
+       */
+      public patronobuf.Agents.StartupRequest.Builder getStartupBuilder() {
+        return getStartupFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.patronobuf.StartupRequest startup = 2;</code>
+       */
+      @java.lang.Override
+      public patronobuf.Agents.StartupRequestOrBuilder getStartupOrBuilder() {
+        if ((payloadCase_ == 2) && (startupBuilder_ != null)) {
+          return startupBuilder_.getMessageOrBuilder();
+        } else {
+          if (payloadCase_ == 2) {
+            return (patronobuf.Agents.StartupRequest) payload_;
+          }
+          return patronobuf.Agents.StartupRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.patronobuf.StartupRequest startup = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          patronobuf.Agents.StartupRequest, patronobuf.Agents.StartupRequest.Builder, patronobuf.Agents.StartupRequestOrBuilder> 
+          getStartupFieldBuilder() {
+        if (startupBuilder_ == null) {
+          if (!(payloadCase_ == 2)) {
+            payload_ = patronobuf.Agents.StartupRequest.getDefaultInstance();
+          }
+          startupBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              patronobuf.Agents.StartupRequest, patronobuf.Agents.StartupRequest.Builder, patronobuf.Agents.StartupRequestOrBuilder>(
+                  (patronobuf.Agents.StartupRequest) payload_,
+                  getParentForChildren(),
+                  isClean());
+          payload_ = null;
+        }
+        payloadCase_ = 2;
+        onChanged();;
+        return startupBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.ConfigurationRequest, patronobuf.Agents.ConfigurationRequest.Builder, patronobuf.Agents.ConfigurationRequestOrBuilder> configurationBuilder_;
       /**
-       * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+       * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
        * @return Whether the configuration field is set.
        */
       @java.lang.Override
       public boolean hasConfiguration() {
-        return payloadCase_ == 2;
+        return payloadCase_ == 3;
       }
       /**
-       * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+       * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
        * @return The configuration.
        */
       @java.lang.Override
       public patronobuf.Agents.ConfigurationRequest getConfiguration() {
         if (configurationBuilder_ == null) {
-          if (payloadCase_ == 2) {
+          if (payloadCase_ == 3) {
             return (patronobuf.Agents.ConfigurationRequest) payload_;
           }
           return patronobuf.Agents.ConfigurationRequest.getDefaultInstance();
         } else {
-          if (payloadCase_ == 2) {
+          if (payloadCase_ == 3) {
             return configurationBuilder_.getMessage();
           }
           return patronobuf.Agents.ConfigurationRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+       * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
        */
       public Builder setConfiguration(patronobuf.Agents.ConfigurationRequest value) {
         if (configurationBuilder_ == null) {
@@ -1417,11 +1665,11 @@ public final class Agents {
         } else {
           configurationBuilder_.setMessage(value);
         }
-        payloadCase_ = 2;
+        payloadCase_ = 3;
         return this;
       }
       /**
-       * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+       * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
        */
       public Builder setConfiguration(
           patronobuf.Agents.ConfigurationRequest.Builder builderForValue) {
@@ -1431,15 +1679,15 @@ public final class Agents {
         } else {
           configurationBuilder_.setMessage(builderForValue.build());
         }
-        payloadCase_ = 2;
+        payloadCase_ = 3;
         return this;
       }
       /**
-       * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+       * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
        */
       public Builder mergeConfiguration(patronobuf.Agents.ConfigurationRequest value) {
         if (configurationBuilder_ == null) {
-          if (payloadCase_ == 2 &&
+          if (payloadCase_ == 3 &&
               payload_ != patronobuf.Agents.ConfigurationRequest.getDefaultInstance()) {
             payload_ = patronobuf.Agents.ConfigurationRequest.newBuilder((patronobuf.Agents.ConfigurationRequest) payload_)
                 .mergeFrom(value).buildPartial();
@@ -1448,27 +1696,27 @@ public final class Agents {
           }
           onChanged();
         } else {
-          if (payloadCase_ == 2) {
+          if (payloadCase_ == 3) {
             configurationBuilder_.mergeFrom(value);
           } else {
             configurationBuilder_.setMessage(value);
           }
         }
-        payloadCase_ = 2;
+        payloadCase_ = 3;
         return this;
       }
       /**
-       * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+       * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
        */
       public Builder clearConfiguration() {
         if (configurationBuilder_ == null) {
-          if (payloadCase_ == 2) {
+          if (payloadCase_ == 3) {
             payloadCase_ = 0;
             payload_ = null;
             onChanged();
           }
         } else {
-          if (payloadCase_ == 2) {
+          if (payloadCase_ == 3) {
             payloadCase_ = 0;
             payload_ = null;
           }
@@ -1477,33 +1725,33 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+       * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
        */
       public patronobuf.Agents.ConfigurationRequest.Builder getConfigurationBuilder() {
         return getConfigurationFieldBuilder().getBuilder();
       }
       /**
-       * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+       * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
        */
       @java.lang.Override
       public patronobuf.Agents.ConfigurationRequestOrBuilder getConfigurationOrBuilder() {
-        if ((payloadCase_ == 2) && (configurationBuilder_ != null)) {
+        if ((payloadCase_ == 3) && (configurationBuilder_ != null)) {
           return configurationBuilder_.getMessageOrBuilder();
         } else {
-          if (payloadCase_ == 2) {
+          if (payloadCase_ == 3) {
             return (patronobuf.Agents.ConfigurationRequest) payload_;
           }
           return patronobuf.Agents.ConfigurationRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.ConfigurationRequest configuration = 2;</code>
+       * <code>.patronobuf.ConfigurationRequest configuration = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.ConfigurationRequest, patronobuf.Agents.ConfigurationRequest.Builder, patronobuf.Agents.ConfigurationRequestOrBuilder> 
           getConfigurationFieldBuilder() {
         if (configurationBuilder_ == null) {
-          if (!(payloadCase_ == 2)) {
+          if (!(payloadCase_ == 3)) {
             payload_ = patronobuf.Agents.ConfigurationRequest.getDefaultInstance();
           }
           configurationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -1513,7 +1761,7 @@ public final class Agents {
                   isClean());
           payload_ = null;
         }
-        payloadCase_ = 2;
+        payloadCase_ = 3;
         onChanged();;
         return configurationBuilder_;
       }
@@ -1521,33 +1769,33 @@ public final class Agents {
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.CommandRequest, patronobuf.Agents.CommandRequest.Builder, patronobuf.Agents.CommandRequestOrBuilder> commandBuilder_;
       /**
-       * <code>.patronobuf.CommandRequest command = 3;</code>
+       * <code>.patronobuf.CommandRequest command = 4;</code>
        * @return Whether the command field is set.
        */
       @java.lang.Override
       public boolean hasCommand() {
-        return payloadCase_ == 3;
+        return payloadCase_ == 4;
       }
       /**
-       * <code>.patronobuf.CommandRequest command = 3;</code>
+       * <code>.patronobuf.CommandRequest command = 4;</code>
        * @return The command.
        */
       @java.lang.Override
       public patronobuf.Agents.CommandRequest getCommand() {
         if (commandBuilder_ == null) {
-          if (payloadCase_ == 3) {
+          if (payloadCase_ == 4) {
             return (patronobuf.Agents.CommandRequest) payload_;
           }
           return patronobuf.Agents.CommandRequest.getDefaultInstance();
         } else {
-          if (payloadCase_ == 3) {
+          if (payloadCase_ == 4) {
             return commandBuilder_.getMessage();
           }
           return patronobuf.Agents.CommandRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.CommandRequest command = 3;</code>
+       * <code>.patronobuf.CommandRequest command = 4;</code>
        */
       public Builder setCommand(patronobuf.Agents.CommandRequest value) {
         if (commandBuilder_ == null) {
@@ -1559,11 +1807,11 @@ public final class Agents {
         } else {
           commandBuilder_.setMessage(value);
         }
-        payloadCase_ = 3;
+        payloadCase_ = 4;
         return this;
       }
       /**
-       * <code>.patronobuf.CommandRequest command = 3;</code>
+       * <code>.patronobuf.CommandRequest command = 4;</code>
        */
       public Builder setCommand(
           patronobuf.Agents.CommandRequest.Builder builderForValue) {
@@ -1573,15 +1821,15 @@ public final class Agents {
         } else {
           commandBuilder_.setMessage(builderForValue.build());
         }
-        payloadCase_ = 3;
+        payloadCase_ = 4;
         return this;
       }
       /**
-       * <code>.patronobuf.CommandRequest command = 3;</code>
+       * <code>.patronobuf.CommandRequest command = 4;</code>
        */
       public Builder mergeCommand(patronobuf.Agents.CommandRequest value) {
         if (commandBuilder_ == null) {
-          if (payloadCase_ == 3 &&
+          if (payloadCase_ == 4 &&
               payload_ != patronobuf.Agents.CommandRequest.getDefaultInstance()) {
             payload_ = patronobuf.Agents.CommandRequest.newBuilder((patronobuf.Agents.CommandRequest) payload_)
                 .mergeFrom(value).buildPartial();
@@ -1590,27 +1838,27 @@ public final class Agents {
           }
           onChanged();
         } else {
-          if (payloadCase_ == 3) {
+          if (payloadCase_ == 4) {
             commandBuilder_.mergeFrom(value);
           } else {
             commandBuilder_.setMessage(value);
           }
         }
-        payloadCase_ = 3;
+        payloadCase_ = 4;
         return this;
       }
       /**
-       * <code>.patronobuf.CommandRequest command = 3;</code>
+       * <code>.patronobuf.CommandRequest command = 4;</code>
        */
       public Builder clearCommand() {
         if (commandBuilder_ == null) {
-          if (payloadCase_ == 3) {
+          if (payloadCase_ == 4) {
             payloadCase_ = 0;
             payload_ = null;
             onChanged();
           }
         } else {
-          if (payloadCase_ == 3) {
+          if (payloadCase_ == 4) {
             payloadCase_ = 0;
             payload_ = null;
           }
@@ -1619,33 +1867,33 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>.patronobuf.CommandRequest command = 3;</code>
+       * <code>.patronobuf.CommandRequest command = 4;</code>
        */
       public patronobuf.Agents.CommandRequest.Builder getCommandBuilder() {
         return getCommandFieldBuilder().getBuilder();
       }
       /**
-       * <code>.patronobuf.CommandRequest command = 3;</code>
+       * <code>.patronobuf.CommandRequest command = 4;</code>
        */
       @java.lang.Override
       public patronobuf.Agents.CommandRequestOrBuilder getCommandOrBuilder() {
-        if ((payloadCase_ == 3) && (commandBuilder_ != null)) {
+        if ((payloadCase_ == 4) && (commandBuilder_ != null)) {
           return commandBuilder_.getMessageOrBuilder();
         } else {
-          if (payloadCase_ == 3) {
+          if (payloadCase_ == 4) {
             return (patronobuf.Agents.CommandRequest) payload_;
           }
           return patronobuf.Agents.CommandRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.CommandRequest command = 3;</code>
+       * <code>.patronobuf.CommandRequest command = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.CommandRequest, patronobuf.Agents.CommandRequest.Builder, patronobuf.Agents.CommandRequestOrBuilder> 
           getCommandFieldBuilder() {
         if (commandBuilder_ == null) {
-          if (!(payloadCase_ == 3)) {
+          if (!(payloadCase_ == 4)) {
             payload_ = patronobuf.Agents.CommandRequest.getDefaultInstance();
           }
           commandBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -1655,7 +1903,7 @@ public final class Agents {
                   isClean());
           payload_ = null;
         }
-        payloadCase_ = 3;
+        payloadCase_ = 4;
         onChanged();;
         return commandBuilder_;
       }
@@ -1663,33 +1911,33 @@ public final class Agents {
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.CommandStatusRequest, patronobuf.Agents.CommandStatusRequest.Builder, patronobuf.Agents.CommandStatusRequestOrBuilder> commandStatusBuilder_;
       /**
-       * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+       * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
        * @return Whether the commandStatus field is set.
        */
       @java.lang.Override
       public boolean hasCommandStatus() {
-        return payloadCase_ == 4;
+        return payloadCase_ == 5;
       }
       /**
-       * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+       * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
        * @return The commandStatus.
        */
       @java.lang.Override
       public patronobuf.Agents.CommandStatusRequest getCommandStatus() {
         if (commandStatusBuilder_ == null) {
-          if (payloadCase_ == 4) {
+          if (payloadCase_ == 5) {
             return (patronobuf.Agents.CommandStatusRequest) payload_;
           }
           return patronobuf.Agents.CommandStatusRequest.getDefaultInstance();
         } else {
-          if (payloadCase_ == 4) {
+          if (payloadCase_ == 5) {
             return commandStatusBuilder_.getMessage();
           }
           return patronobuf.Agents.CommandStatusRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+       * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
        */
       public Builder setCommandStatus(patronobuf.Agents.CommandStatusRequest value) {
         if (commandStatusBuilder_ == null) {
@@ -1701,11 +1949,11 @@ public final class Agents {
         } else {
           commandStatusBuilder_.setMessage(value);
         }
-        payloadCase_ = 4;
+        payloadCase_ = 5;
         return this;
       }
       /**
-       * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+       * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
        */
       public Builder setCommandStatus(
           patronobuf.Agents.CommandStatusRequest.Builder builderForValue) {
@@ -1715,15 +1963,15 @@ public final class Agents {
         } else {
           commandStatusBuilder_.setMessage(builderForValue.build());
         }
-        payloadCase_ = 4;
+        payloadCase_ = 5;
         return this;
       }
       /**
-       * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+       * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
        */
       public Builder mergeCommandStatus(patronobuf.Agents.CommandStatusRequest value) {
         if (commandStatusBuilder_ == null) {
-          if (payloadCase_ == 4 &&
+          if (payloadCase_ == 5 &&
               payload_ != patronobuf.Agents.CommandStatusRequest.getDefaultInstance()) {
             payload_ = patronobuf.Agents.CommandStatusRequest.newBuilder((patronobuf.Agents.CommandStatusRequest) payload_)
                 .mergeFrom(value).buildPartial();
@@ -1732,27 +1980,27 @@ public final class Agents {
           }
           onChanged();
         } else {
-          if (payloadCase_ == 4) {
+          if (payloadCase_ == 5) {
             commandStatusBuilder_.mergeFrom(value);
           } else {
             commandStatusBuilder_.setMessage(value);
           }
         }
-        payloadCase_ = 4;
+        payloadCase_ = 5;
         return this;
       }
       /**
-       * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+       * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
        */
       public Builder clearCommandStatus() {
         if (commandStatusBuilder_ == null) {
-          if (payloadCase_ == 4) {
+          if (payloadCase_ == 5) {
             payloadCase_ = 0;
             payload_ = null;
             onChanged();
           }
         } else {
-          if (payloadCase_ == 4) {
+          if (payloadCase_ == 5) {
             payloadCase_ = 0;
             payload_ = null;
           }
@@ -1761,33 +2009,33 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+       * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
        */
       public patronobuf.Agents.CommandStatusRequest.Builder getCommandStatusBuilder() {
         return getCommandStatusFieldBuilder().getBuilder();
       }
       /**
-       * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+       * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
        */
       @java.lang.Override
       public patronobuf.Agents.CommandStatusRequestOrBuilder getCommandStatusOrBuilder() {
-        if ((payloadCase_ == 4) && (commandStatusBuilder_ != null)) {
+        if ((payloadCase_ == 5) && (commandStatusBuilder_ != null)) {
           return commandStatusBuilder_.getMessageOrBuilder();
         } else {
-          if (payloadCase_ == 4) {
+          if (payloadCase_ == 5) {
             return (patronobuf.Agents.CommandStatusRequest) payload_;
           }
           return patronobuf.Agents.CommandStatusRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.CommandStatusRequest command_status = 4;</code>
+       * <code>.patronobuf.CommandStatusRequest command_status = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.CommandStatusRequest, patronobuf.Agents.CommandStatusRequest.Builder, patronobuf.Agents.CommandStatusRequestOrBuilder> 
           getCommandStatusFieldBuilder() {
         if (commandStatusBuilder_ == null) {
-          if (!(payloadCase_ == 4)) {
+          if (!(payloadCase_ == 5)) {
             payload_ = patronobuf.Agents.CommandStatusRequest.getDefaultInstance();
           }
           commandStatusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -1797,7 +2045,7 @@ public final class Agents {
                   isClean());
           payload_ = null;
         }
-        payloadCase_ = 4;
+        payloadCase_ = 5;
         onChanged();;
         return commandStatusBuilder_;
       }
@@ -1805,33 +2053,33 @@ public final class Agents {
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.KeysRequest, patronobuf.Agents.KeysRequest.Builder, patronobuf.Agents.KeysRequestOrBuilder> keysBuilder_;
       /**
-       * <code>.patronobuf.KeysRequest keys = 5;</code>
+       * <code>.patronobuf.KeysRequest keys = 6;</code>
        * @return Whether the keys field is set.
        */
       @java.lang.Override
       public boolean hasKeys() {
-        return payloadCase_ == 5;
+        return payloadCase_ == 6;
       }
       /**
-       * <code>.patronobuf.KeysRequest keys = 5;</code>
+       * <code>.patronobuf.KeysRequest keys = 6;</code>
        * @return The keys.
        */
       @java.lang.Override
       public patronobuf.Agents.KeysRequest getKeys() {
         if (keysBuilder_ == null) {
-          if (payloadCase_ == 5) {
+          if (payloadCase_ == 6) {
             return (patronobuf.Agents.KeysRequest) payload_;
           }
           return patronobuf.Agents.KeysRequest.getDefaultInstance();
         } else {
-          if (payloadCase_ == 5) {
+          if (payloadCase_ == 6) {
             return keysBuilder_.getMessage();
           }
           return patronobuf.Agents.KeysRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.KeysRequest keys = 5;</code>
+       * <code>.patronobuf.KeysRequest keys = 6;</code>
        */
       public Builder setKeys(patronobuf.Agents.KeysRequest value) {
         if (keysBuilder_ == null) {
@@ -1843,11 +2091,11 @@ public final class Agents {
         } else {
           keysBuilder_.setMessage(value);
         }
-        payloadCase_ = 5;
+        payloadCase_ = 6;
         return this;
       }
       /**
-       * <code>.patronobuf.KeysRequest keys = 5;</code>
+       * <code>.patronobuf.KeysRequest keys = 6;</code>
        */
       public Builder setKeys(
           patronobuf.Agents.KeysRequest.Builder builderForValue) {
@@ -1857,15 +2105,15 @@ public final class Agents {
         } else {
           keysBuilder_.setMessage(builderForValue.build());
         }
-        payloadCase_ = 5;
+        payloadCase_ = 6;
         return this;
       }
       /**
-       * <code>.patronobuf.KeysRequest keys = 5;</code>
+       * <code>.patronobuf.KeysRequest keys = 6;</code>
        */
       public Builder mergeKeys(patronobuf.Agents.KeysRequest value) {
         if (keysBuilder_ == null) {
-          if (payloadCase_ == 5 &&
+          if (payloadCase_ == 6 &&
               payload_ != patronobuf.Agents.KeysRequest.getDefaultInstance()) {
             payload_ = patronobuf.Agents.KeysRequest.newBuilder((patronobuf.Agents.KeysRequest) payload_)
                 .mergeFrom(value).buildPartial();
@@ -1874,27 +2122,27 @@ public final class Agents {
           }
           onChanged();
         } else {
-          if (payloadCase_ == 5) {
+          if (payloadCase_ == 6) {
             keysBuilder_.mergeFrom(value);
           } else {
             keysBuilder_.setMessage(value);
           }
         }
-        payloadCase_ = 5;
+        payloadCase_ = 6;
         return this;
       }
       /**
-       * <code>.patronobuf.KeysRequest keys = 5;</code>
+       * <code>.patronobuf.KeysRequest keys = 6;</code>
        */
       public Builder clearKeys() {
         if (keysBuilder_ == null) {
-          if (payloadCase_ == 5) {
+          if (payloadCase_ == 6) {
             payloadCase_ = 0;
             payload_ = null;
             onChanged();
           }
         } else {
-          if (payloadCase_ == 5) {
+          if (payloadCase_ == 6) {
             payloadCase_ = 0;
             payload_ = null;
           }
@@ -1903,33 +2151,33 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>.patronobuf.KeysRequest keys = 5;</code>
+       * <code>.patronobuf.KeysRequest keys = 6;</code>
        */
       public patronobuf.Agents.KeysRequest.Builder getKeysBuilder() {
         return getKeysFieldBuilder().getBuilder();
       }
       /**
-       * <code>.patronobuf.KeysRequest keys = 5;</code>
+       * <code>.patronobuf.KeysRequest keys = 6;</code>
        */
       @java.lang.Override
       public patronobuf.Agents.KeysRequestOrBuilder getKeysOrBuilder() {
-        if ((payloadCase_ == 5) && (keysBuilder_ != null)) {
+        if ((payloadCase_ == 6) && (keysBuilder_ != null)) {
           return keysBuilder_.getMessageOrBuilder();
         } else {
-          if (payloadCase_ == 5) {
+          if (payloadCase_ == 6) {
             return (patronobuf.Agents.KeysRequest) payload_;
           }
           return patronobuf.Agents.KeysRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.KeysRequest keys = 5;</code>
+       * <code>.patronobuf.KeysRequest keys = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.KeysRequest, patronobuf.Agents.KeysRequest.Builder, patronobuf.Agents.KeysRequestOrBuilder> 
           getKeysFieldBuilder() {
         if (keysBuilder_ == null) {
-          if (!(payloadCase_ == 5)) {
+          if (!(payloadCase_ == 6)) {
             payload_ = patronobuf.Agents.KeysRequest.getDefaultInstance();
           }
           keysBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -1939,7 +2187,7 @@ public final class Agents {
                   isClean());
           payload_ = null;
         }
-        payloadCase_ = 5;
+        payloadCase_ = 6;
         onChanged();;
         return keysBuilder_;
       }
@@ -1947,33 +2195,33 @@ public final class Agents {
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.FileRequest, patronobuf.Agents.FileRequest.Builder, patronobuf.Agents.FileRequestOrBuilder> fileBuilder_;
       /**
-       * <code>.patronobuf.FileRequest file = 6;</code>
+       * <code>.patronobuf.FileRequest file = 7;</code>
        * @return Whether the file field is set.
        */
       @java.lang.Override
       public boolean hasFile() {
-        return payloadCase_ == 6;
+        return payloadCase_ == 7;
       }
       /**
-       * <code>.patronobuf.FileRequest file = 6;</code>
+       * <code>.patronobuf.FileRequest file = 7;</code>
        * @return The file.
        */
       @java.lang.Override
       public patronobuf.Agents.FileRequest getFile() {
         if (fileBuilder_ == null) {
-          if (payloadCase_ == 6) {
+          if (payloadCase_ == 7) {
             return (patronobuf.Agents.FileRequest) payload_;
           }
           return patronobuf.Agents.FileRequest.getDefaultInstance();
         } else {
-          if (payloadCase_ == 6) {
+          if (payloadCase_ == 7) {
             return fileBuilder_.getMessage();
           }
           return patronobuf.Agents.FileRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.FileRequest file = 6;</code>
+       * <code>.patronobuf.FileRequest file = 7;</code>
        */
       public Builder setFile(patronobuf.Agents.FileRequest value) {
         if (fileBuilder_ == null) {
@@ -1985,11 +2233,11 @@ public final class Agents {
         } else {
           fileBuilder_.setMessage(value);
         }
-        payloadCase_ = 6;
+        payloadCase_ = 7;
         return this;
       }
       /**
-       * <code>.patronobuf.FileRequest file = 6;</code>
+       * <code>.patronobuf.FileRequest file = 7;</code>
        */
       public Builder setFile(
           patronobuf.Agents.FileRequest.Builder builderForValue) {
@@ -1999,15 +2247,15 @@ public final class Agents {
         } else {
           fileBuilder_.setMessage(builderForValue.build());
         }
-        payloadCase_ = 6;
+        payloadCase_ = 7;
         return this;
       }
       /**
-       * <code>.patronobuf.FileRequest file = 6;</code>
+       * <code>.patronobuf.FileRequest file = 7;</code>
        */
       public Builder mergeFile(patronobuf.Agents.FileRequest value) {
         if (fileBuilder_ == null) {
-          if (payloadCase_ == 6 &&
+          if (payloadCase_ == 7 &&
               payload_ != patronobuf.Agents.FileRequest.getDefaultInstance()) {
             payload_ = patronobuf.Agents.FileRequest.newBuilder((patronobuf.Agents.FileRequest) payload_)
                 .mergeFrom(value).buildPartial();
@@ -2016,27 +2264,27 @@ public final class Agents {
           }
           onChanged();
         } else {
-          if (payloadCase_ == 6) {
+          if (payloadCase_ == 7) {
             fileBuilder_.mergeFrom(value);
           } else {
             fileBuilder_.setMessage(value);
           }
         }
-        payloadCase_ = 6;
+        payloadCase_ = 7;
         return this;
       }
       /**
-       * <code>.patronobuf.FileRequest file = 6;</code>
+       * <code>.patronobuf.FileRequest file = 7;</code>
        */
       public Builder clearFile() {
         if (fileBuilder_ == null) {
-          if (payloadCase_ == 6) {
+          if (payloadCase_ == 7) {
             payloadCase_ = 0;
             payload_ = null;
             onChanged();
           }
         } else {
-          if (payloadCase_ == 6) {
+          if (payloadCase_ == 7) {
             payloadCase_ = 0;
             payload_ = null;
           }
@@ -2045,33 +2293,33 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>.patronobuf.FileRequest file = 6;</code>
+       * <code>.patronobuf.FileRequest file = 7;</code>
        */
       public patronobuf.Agents.FileRequest.Builder getFileBuilder() {
         return getFileFieldBuilder().getBuilder();
       }
       /**
-       * <code>.patronobuf.FileRequest file = 6;</code>
+       * <code>.patronobuf.FileRequest file = 7;</code>
        */
       @java.lang.Override
       public patronobuf.Agents.FileRequestOrBuilder getFileOrBuilder() {
-        if ((payloadCase_ == 6) && (fileBuilder_ != null)) {
+        if ((payloadCase_ == 7) && (fileBuilder_ != null)) {
           return fileBuilder_.getMessageOrBuilder();
         } else {
-          if (payloadCase_ == 6) {
+          if (payloadCase_ == 7) {
             return (patronobuf.Agents.FileRequest) payload_;
           }
           return patronobuf.Agents.FileRequest.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.FileRequest file = 6;</code>
+       * <code>.patronobuf.FileRequest file = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.FileRequest, patronobuf.Agents.FileRequest.Builder, patronobuf.Agents.FileRequestOrBuilder> 
           getFileFieldBuilder() {
         if (fileBuilder_ == null) {
-          if (!(payloadCase_ == 6)) {
+          if (!(payloadCase_ == 7)) {
             payload_ = patronobuf.Agents.FileRequest.getDefaultInstance();
           }
           fileBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2081,7 +2329,7 @@ public final class Agents {
                   isClean());
           payload_ = null;
         }
-        payloadCase_ = 6;
+        payloadCase_ = 7;
         onChanged();;
         return fileBuilder_;
       }
@@ -2089,33 +2337,33 @@ public final class Agents {
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.FileToServer, patronobuf.Agents.FileToServer.Builder, patronobuf.Agents.FileToServerOrBuilder> fileToServerBuilder_;
       /**
-       * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+       * <code>.patronobuf.FileToServer file_to_server = 8;</code>
        * @return Whether the fileToServer field is set.
        */
       @java.lang.Override
       public boolean hasFileToServer() {
-        return payloadCase_ == 7;
+        return payloadCase_ == 8;
       }
       /**
-       * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+       * <code>.patronobuf.FileToServer file_to_server = 8;</code>
        * @return The fileToServer.
        */
       @java.lang.Override
       public patronobuf.Agents.FileToServer getFileToServer() {
         if (fileToServerBuilder_ == null) {
-          if (payloadCase_ == 7) {
+          if (payloadCase_ == 8) {
             return (patronobuf.Agents.FileToServer) payload_;
           }
           return patronobuf.Agents.FileToServer.getDefaultInstance();
         } else {
-          if (payloadCase_ == 7) {
+          if (payloadCase_ == 8) {
             return fileToServerBuilder_.getMessage();
           }
           return patronobuf.Agents.FileToServer.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+       * <code>.patronobuf.FileToServer file_to_server = 8;</code>
        */
       public Builder setFileToServer(patronobuf.Agents.FileToServer value) {
         if (fileToServerBuilder_ == null) {
@@ -2127,11 +2375,11 @@ public final class Agents {
         } else {
           fileToServerBuilder_.setMessage(value);
         }
-        payloadCase_ = 7;
+        payloadCase_ = 8;
         return this;
       }
       /**
-       * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+       * <code>.patronobuf.FileToServer file_to_server = 8;</code>
        */
       public Builder setFileToServer(
           patronobuf.Agents.FileToServer.Builder builderForValue) {
@@ -2141,15 +2389,15 @@ public final class Agents {
         } else {
           fileToServerBuilder_.setMessage(builderForValue.build());
         }
-        payloadCase_ = 7;
+        payloadCase_ = 8;
         return this;
       }
       /**
-       * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+       * <code>.patronobuf.FileToServer file_to_server = 8;</code>
        */
       public Builder mergeFileToServer(patronobuf.Agents.FileToServer value) {
         if (fileToServerBuilder_ == null) {
-          if (payloadCase_ == 7 &&
+          if (payloadCase_ == 8 &&
               payload_ != patronobuf.Agents.FileToServer.getDefaultInstance()) {
             payload_ = patronobuf.Agents.FileToServer.newBuilder((patronobuf.Agents.FileToServer) payload_)
                 .mergeFrom(value).buildPartial();
@@ -2158,27 +2406,27 @@ public final class Agents {
           }
           onChanged();
         } else {
-          if (payloadCase_ == 7) {
+          if (payloadCase_ == 8) {
             fileToServerBuilder_.mergeFrom(value);
           } else {
             fileToServerBuilder_.setMessage(value);
           }
         }
-        payloadCase_ = 7;
+        payloadCase_ = 8;
         return this;
       }
       /**
-       * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+       * <code>.patronobuf.FileToServer file_to_server = 8;</code>
        */
       public Builder clearFileToServer() {
         if (fileToServerBuilder_ == null) {
-          if (payloadCase_ == 7) {
+          if (payloadCase_ == 8) {
             payloadCase_ = 0;
             payload_ = null;
             onChanged();
           }
         } else {
-          if (payloadCase_ == 7) {
+          if (payloadCase_ == 8) {
             payloadCase_ = 0;
             payload_ = null;
           }
@@ -2187,33 +2435,33 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+       * <code>.patronobuf.FileToServer file_to_server = 8;</code>
        */
       public patronobuf.Agents.FileToServer.Builder getFileToServerBuilder() {
         return getFileToServerFieldBuilder().getBuilder();
       }
       /**
-       * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+       * <code>.patronobuf.FileToServer file_to_server = 8;</code>
        */
       @java.lang.Override
       public patronobuf.Agents.FileToServerOrBuilder getFileToServerOrBuilder() {
-        if ((payloadCase_ == 7) && (fileToServerBuilder_ != null)) {
+        if ((payloadCase_ == 8) && (fileToServerBuilder_ != null)) {
           return fileToServerBuilder_.getMessageOrBuilder();
         } else {
-          if (payloadCase_ == 7) {
+          if (payloadCase_ == 8) {
             return (patronobuf.Agents.FileToServer) payload_;
           }
           return patronobuf.Agents.FileToServer.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.FileToServer file_to_server = 7;</code>
+       * <code>.patronobuf.FileToServer file_to_server = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.FileToServer, patronobuf.Agents.FileToServer.Builder, patronobuf.Agents.FileToServerOrBuilder> 
           getFileToServerFieldBuilder() {
         if (fileToServerBuilder_ == null) {
-          if (!(payloadCase_ == 7)) {
+          if (!(payloadCase_ == 8)) {
             payload_ = patronobuf.Agents.FileToServer.getDefaultInstance();
           }
           fileToServerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -2223,7 +2471,7 @@ public final class Agents {
                   isClean());
           payload_ = null;
         }
-        payloadCase_ = 7;
+        payloadCase_ = 8;
         onChanged();;
         return fileToServerBuilder_;
       }
@@ -2296,92 +2544,107 @@ public final class Agents {
     patronobuf.Agents.ResponseType getType();
 
     /**
-     * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+     * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+     * @return Whether the startupResponse field is set.
+     */
+    boolean hasStartupResponse();
+    /**
+     * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+     * @return The startupResponse.
+     */
+    patronobuf.Agents.StartupResponse getStartupResponse();
+    /**
+     * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+     */
+    patronobuf.Agents.StartupResponseOrBuilder getStartupResponseOrBuilder();
+
+    /**
+     * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
      * @return Whether the configurationResponse field is set.
      */
     boolean hasConfigurationResponse();
     /**
-     * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+     * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
      * @return The configurationResponse.
      */
     patronobuf.Agents.ConfigurationResponse getConfigurationResponse();
     /**
-     * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+     * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
      */
     patronobuf.Agents.ConfigurationResponseOrBuilder getConfigurationResponseOrBuilder();
 
     /**
-     * <code>.patronobuf.CommandResponse command_response = 3;</code>
+     * <code>.patronobuf.CommandResponse command_response = 4;</code>
      * @return Whether the commandResponse field is set.
      */
     boolean hasCommandResponse();
     /**
-     * <code>.patronobuf.CommandResponse command_response = 3;</code>
+     * <code>.patronobuf.CommandResponse command_response = 4;</code>
      * @return The commandResponse.
      */
     patronobuf.Agents.CommandResponse getCommandResponse();
     /**
-     * <code>.patronobuf.CommandResponse command_response = 3;</code>
+     * <code>.patronobuf.CommandResponse command_response = 4;</code>
      */
     patronobuf.Agents.CommandResponseOrBuilder getCommandResponseOrBuilder();
 
     /**
-     * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+     * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
      * @return Whether the commandStatusResponse field is set.
      */
     boolean hasCommandStatusResponse();
     /**
-     * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+     * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
      * @return The commandStatusResponse.
      */
     patronobuf.Agents.CommandStatusResponse getCommandStatusResponse();
     /**
-     * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+     * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
      */
     patronobuf.Agents.CommandStatusResponseOrBuilder getCommandStatusResponseOrBuilder();
 
     /**
-     * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+     * <code>.patronobuf.KeysResponse keys_response = 6;</code>
      * @return Whether the keysResponse field is set.
      */
     boolean hasKeysResponse();
     /**
-     * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+     * <code>.patronobuf.KeysResponse keys_response = 6;</code>
      * @return The keysResponse.
      */
     patronobuf.Agents.KeysResponse getKeysResponse();
     /**
-     * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+     * <code>.patronobuf.KeysResponse keys_response = 6;</code>
      */
     patronobuf.Agents.KeysResponseOrBuilder getKeysResponseOrBuilder();
 
     /**
-     * <code>.patronobuf.FileResponse file_response = 6;</code>
+     * <code>.patronobuf.FileResponse file_response = 7;</code>
      * @return Whether the fileResponse field is set.
      */
     boolean hasFileResponse();
     /**
-     * <code>.patronobuf.FileResponse file_response = 6;</code>
+     * <code>.patronobuf.FileResponse file_response = 7;</code>
      * @return The fileResponse.
      */
     patronobuf.Agents.FileResponse getFileResponse();
     /**
-     * <code>.patronobuf.FileResponse file_response = 6;</code>
+     * <code>.patronobuf.FileResponse file_response = 7;</code>
      */
     patronobuf.Agents.FileResponseOrBuilder getFileResponseOrBuilder();
 
     /**
-     * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+     * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
      * @return Whether the fileTransferStatusResponse field is set.
      */
     boolean hasFileTransferStatusResponse();
     /**
-     * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+     * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
      * @return The fileTransferStatusResponse.
      */
     patronobuf.Agents.FileTransferStatusResponse getFileTransferStatusResponse();
     /**
-     * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+     * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
      */
     patronobuf.Agents.FileTransferStatusResponseOrBuilder getFileTransferStatusResponseOrBuilder();
 
@@ -2440,8 +2703,22 @@ public final class Agents {
               break;
             }
             case 18: {
-              patronobuf.Agents.ConfigurationResponse.Builder subBuilder = null;
+              patronobuf.Agents.StartupResponse.Builder subBuilder = null;
               if (payloadCase_ == 2) {
+                subBuilder = ((patronobuf.Agents.StartupResponse) payload_).toBuilder();
+              }
+              payload_ =
+                  input.readMessage(patronobuf.Agents.StartupResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((patronobuf.Agents.StartupResponse) payload_);
+                payload_ = subBuilder.buildPartial();
+              }
+              payloadCase_ = 2;
+              break;
+            }
+            case 26: {
+              patronobuf.Agents.ConfigurationResponse.Builder subBuilder = null;
+              if (payloadCase_ == 3) {
                 subBuilder = ((patronobuf.Agents.ConfigurationResponse) payload_).toBuilder();
               }
               payload_ =
@@ -2450,12 +2727,12 @@ public final class Agents {
                 subBuilder.mergeFrom((patronobuf.Agents.ConfigurationResponse) payload_);
                 payload_ = subBuilder.buildPartial();
               }
-              payloadCase_ = 2;
+              payloadCase_ = 3;
               break;
             }
-            case 26: {
+            case 34: {
               patronobuf.Agents.CommandResponse.Builder subBuilder = null;
-              if (payloadCase_ == 3) {
+              if (payloadCase_ == 4) {
                 subBuilder = ((patronobuf.Agents.CommandResponse) payload_).toBuilder();
               }
               payload_ =
@@ -2464,12 +2741,12 @@ public final class Agents {
                 subBuilder.mergeFrom((patronobuf.Agents.CommandResponse) payload_);
                 payload_ = subBuilder.buildPartial();
               }
-              payloadCase_ = 3;
+              payloadCase_ = 4;
               break;
             }
-            case 34: {
+            case 42: {
               patronobuf.Agents.CommandStatusResponse.Builder subBuilder = null;
-              if (payloadCase_ == 4) {
+              if (payloadCase_ == 5) {
                 subBuilder = ((patronobuf.Agents.CommandStatusResponse) payload_).toBuilder();
               }
               payload_ =
@@ -2478,12 +2755,12 @@ public final class Agents {
                 subBuilder.mergeFrom((patronobuf.Agents.CommandStatusResponse) payload_);
                 payload_ = subBuilder.buildPartial();
               }
-              payloadCase_ = 4;
+              payloadCase_ = 5;
               break;
             }
-            case 42: {
+            case 50: {
               patronobuf.Agents.KeysResponse.Builder subBuilder = null;
-              if (payloadCase_ == 5) {
+              if (payloadCase_ == 6) {
                 subBuilder = ((patronobuf.Agents.KeysResponse) payload_).toBuilder();
               }
               payload_ =
@@ -2492,12 +2769,12 @@ public final class Agents {
                 subBuilder.mergeFrom((patronobuf.Agents.KeysResponse) payload_);
                 payload_ = subBuilder.buildPartial();
               }
-              payloadCase_ = 5;
+              payloadCase_ = 6;
               break;
             }
-            case 50: {
+            case 58: {
               patronobuf.Agents.FileResponse.Builder subBuilder = null;
-              if (payloadCase_ == 6) {
+              if (payloadCase_ == 7) {
                 subBuilder = ((patronobuf.Agents.FileResponse) payload_).toBuilder();
               }
               payload_ =
@@ -2506,12 +2783,12 @@ public final class Agents {
                 subBuilder.mergeFrom((patronobuf.Agents.FileResponse) payload_);
                 payload_ = subBuilder.buildPartial();
               }
-              payloadCase_ = 6;
+              payloadCase_ = 7;
               break;
             }
-            case 58: {
+            case 66: {
               patronobuf.Agents.FileTransferStatusResponse.Builder subBuilder = null;
-              if (payloadCase_ == 7) {
+              if (payloadCase_ == 8) {
                 subBuilder = ((patronobuf.Agents.FileTransferStatusResponse) payload_).toBuilder();
               }
               payload_ =
@@ -2520,7 +2797,7 @@ public final class Agents {
                 subBuilder.mergeFrom((patronobuf.Agents.FileTransferStatusResponse) payload_);
                 payload_ = subBuilder.buildPartial();
               }
-              payloadCase_ = 7;
+              payloadCase_ = 8;
               break;
             }
             default: {
@@ -2562,12 +2839,13 @@ public final class Agents {
     public enum PayloadCase
         implements com.google.protobuf.Internal.EnumLite,
             com.google.protobuf.AbstractMessage.InternalOneOfEnum {
-      CONFIGURATION_RESPONSE(2),
-      COMMAND_RESPONSE(3),
-      COMMAND_STATUS_RESPONSE(4),
-      KEYS_RESPONSE(5),
-      FILE_RESPONSE(6),
-      FILE_TRANSFER_STATUS_RESPONSE(7),
+      STARTUP_RESPONSE(2),
+      CONFIGURATION_RESPONSE(3),
+      COMMAND_RESPONSE(4),
+      COMMAND_STATUS_RESPONSE(5),
+      KEYS_RESPONSE(6),
+      FILE_RESPONSE(7),
+      FILE_TRANSFER_STATUS_RESPONSE(8),
       PAYLOAD_NOT_SET(0);
       private final int value;
       private PayloadCase(int value) {
@@ -2585,12 +2863,13 @@ public final class Agents {
 
       public static PayloadCase forNumber(int value) {
         switch (value) {
-          case 2: return CONFIGURATION_RESPONSE;
-          case 3: return COMMAND_RESPONSE;
-          case 4: return COMMAND_STATUS_RESPONSE;
-          case 5: return KEYS_RESPONSE;
-          case 6: return FILE_RESPONSE;
-          case 7: return FILE_TRANSFER_STATUS_RESPONSE;
+          case 2: return STARTUP_RESPONSE;
+          case 3: return CONFIGURATION_RESPONSE;
+          case 4: return COMMAND_RESPONSE;
+          case 5: return COMMAND_STATUS_RESPONSE;
+          case 6: return KEYS_RESPONSE;
+          case 7: return FILE_RESPONSE;
+          case 8: return FILE_TRANSFER_STATUS_RESPONSE;
           case 0: return PAYLOAD_NOT_SET;
           default: return null;
         }
@@ -2625,187 +2904,218 @@ public final class Agents {
       return result == null ? patronobuf.Agents.ResponseType.UNRECOGNIZED : result;
     }
 
-    public static final int CONFIGURATION_RESPONSE_FIELD_NUMBER = 2;
+    public static final int STARTUP_RESPONSE_FIELD_NUMBER = 2;
     /**
-     * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+     * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+     * @return Whether the startupResponse field is set.
+     */
+    @java.lang.Override
+    public boolean hasStartupResponse() {
+      return payloadCase_ == 2;
+    }
+    /**
+     * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+     * @return The startupResponse.
+     */
+    @java.lang.Override
+    public patronobuf.Agents.StartupResponse getStartupResponse() {
+      if (payloadCase_ == 2) {
+         return (patronobuf.Agents.StartupResponse) payload_;
+      }
+      return patronobuf.Agents.StartupResponse.getDefaultInstance();
+    }
+    /**
+     * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+     */
+    @java.lang.Override
+    public patronobuf.Agents.StartupResponseOrBuilder getStartupResponseOrBuilder() {
+      if (payloadCase_ == 2) {
+         return (patronobuf.Agents.StartupResponse) payload_;
+      }
+      return patronobuf.Agents.StartupResponse.getDefaultInstance();
+    }
+
+    public static final int CONFIGURATION_RESPONSE_FIELD_NUMBER = 3;
+    /**
+     * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
      * @return Whether the configurationResponse field is set.
      */
     @java.lang.Override
     public boolean hasConfigurationResponse() {
-      return payloadCase_ == 2;
+      return payloadCase_ == 3;
     }
     /**
-     * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+     * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
      * @return The configurationResponse.
      */
     @java.lang.Override
     public patronobuf.Agents.ConfigurationResponse getConfigurationResponse() {
-      if (payloadCase_ == 2) {
+      if (payloadCase_ == 3) {
          return (patronobuf.Agents.ConfigurationResponse) payload_;
       }
       return patronobuf.Agents.ConfigurationResponse.getDefaultInstance();
     }
     /**
-     * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+     * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
      */
     @java.lang.Override
     public patronobuf.Agents.ConfigurationResponseOrBuilder getConfigurationResponseOrBuilder() {
-      if (payloadCase_ == 2) {
+      if (payloadCase_ == 3) {
          return (patronobuf.Agents.ConfigurationResponse) payload_;
       }
       return patronobuf.Agents.ConfigurationResponse.getDefaultInstance();
     }
 
-    public static final int COMMAND_RESPONSE_FIELD_NUMBER = 3;
+    public static final int COMMAND_RESPONSE_FIELD_NUMBER = 4;
     /**
-     * <code>.patronobuf.CommandResponse command_response = 3;</code>
+     * <code>.patronobuf.CommandResponse command_response = 4;</code>
      * @return Whether the commandResponse field is set.
      */
     @java.lang.Override
     public boolean hasCommandResponse() {
-      return payloadCase_ == 3;
+      return payloadCase_ == 4;
     }
     /**
-     * <code>.patronobuf.CommandResponse command_response = 3;</code>
+     * <code>.patronobuf.CommandResponse command_response = 4;</code>
      * @return The commandResponse.
      */
     @java.lang.Override
     public patronobuf.Agents.CommandResponse getCommandResponse() {
-      if (payloadCase_ == 3) {
+      if (payloadCase_ == 4) {
          return (patronobuf.Agents.CommandResponse) payload_;
       }
       return patronobuf.Agents.CommandResponse.getDefaultInstance();
     }
     /**
-     * <code>.patronobuf.CommandResponse command_response = 3;</code>
+     * <code>.patronobuf.CommandResponse command_response = 4;</code>
      */
     @java.lang.Override
     public patronobuf.Agents.CommandResponseOrBuilder getCommandResponseOrBuilder() {
-      if (payloadCase_ == 3) {
+      if (payloadCase_ == 4) {
          return (patronobuf.Agents.CommandResponse) payload_;
       }
       return patronobuf.Agents.CommandResponse.getDefaultInstance();
     }
 
-    public static final int COMMAND_STATUS_RESPONSE_FIELD_NUMBER = 4;
+    public static final int COMMAND_STATUS_RESPONSE_FIELD_NUMBER = 5;
     /**
-     * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+     * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
      * @return Whether the commandStatusResponse field is set.
      */
     @java.lang.Override
     public boolean hasCommandStatusResponse() {
-      return payloadCase_ == 4;
+      return payloadCase_ == 5;
     }
     /**
-     * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+     * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
      * @return The commandStatusResponse.
      */
     @java.lang.Override
     public patronobuf.Agents.CommandStatusResponse getCommandStatusResponse() {
-      if (payloadCase_ == 4) {
+      if (payloadCase_ == 5) {
          return (patronobuf.Agents.CommandStatusResponse) payload_;
       }
       return patronobuf.Agents.CommandStatusResponse.getDefaultInstance();
     }
     /**
-     * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+     * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
      */
     @java.lang.Override
     public patronobuf.Agents.CommandStatusResponseOrBuilder getCommandStatusResponseOrBuilder() {
-      if (payloadCase_ == 4) {
+      if (payloadCase_ == 5) {
          return (patronobuf.Agents.CommandStatusResponse) payload_;
       }
       return patronobuf.Agents.CommandStatusResponse.getDefaultInstance();
     }
 
-    public static final int KEYS_RESPONSE_FIELD_NUMBER = 5;
+    public static final int KEYS_RESPONSE_FIELD_NUMBER = 6;
     /**
-     * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+     * <code>.patronobuf.KeysResponse keys_response = 6;</code>
      * @return Whether the keysResponse field is set.
      */
     @java.lang.Override
     public boolean hasKeysResponse() {
-      return payloadCase_ == 5;
+      return payloadCase_ == 6;
     }
     /**
-     * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+     * <code>.patronobuf.KeysResponse keys_response = 6;</code>
      * @return The keysResponse.
      */
     @java.lang.Override
     public patronobuf.Agents.KeysResponse getKeysResponse() {
-      if (payloadCase_ == 5) {
+      if (payloadCase_ == 6) {
          return (patronobuf.Agents.KeysResponse) payload_;
       }
       return patronobuf.Agents.KeysResponse.getDefaultInstance();
     }
     /**
-     * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+     * <code>.patronobuf.KeysResponse keys_response = 6;</code>
      */
     @java.lang.Override
     public patronobuf.Agents.KeysResponseOrBuilder getKeysResponseOrBuilder() {
-      if (payloadCase_ == 5) {
+      if (payloadCase_ == 6) {
          return (patronobuf.Agents.KeysResponse) payload_;
       }
       return patronobuf.Agents.KeysResponse.getDefaultInstance();
     }
 
-    public static final int FILE_RESPONSE_FIELD_NUMBER = 6;
+    public static final int FILE_RESPONSE_FIELD_NUMBER = 7;
     /**
-     * <code>.patronobuf.FileResponse file_response = 6;</code>
+     * <code>.patronobuf.FileResponse file_response = 7;</code>
      * @return Whether the fileResponse field is set.
      */
     @java.lang.Override
     public boolean hasFileResponse() {
-      return payloadCase_ == 6;
+      return payloadCase_ == 7;
     }
     /**
-     * <code>.patronobuf.FileResponse file_response = 6;</code>
+     * <code>.patronobuf.FileResponse file_response = 7;</code>
      * @return The fileResponse.
      */
     @java.lang.Override
     public patronobuf.Agents.FileResponse getFileResponse() {
-      if (payloadCase_ == 6) {
+      if (payloadCase_ == 7) {
          return (patronobuf.Agents.FileResponse) payload_;
       }
       return patronobuf.Agents.FileResponse.getDefaultInstance();
     }
     /**
-     * <code>.patronobuf.FileResponse file_response = 6;</code>
+     * <code>.patronobuf.FileResponse file_response = 7;</code>
      */
     @java.lang.Override
     public patronobuf.Agents.FileResponseOrBuilder getFileResponseOrBuilder() {
-      if (payloadCase_ == 6) {
+      if (payloadCase_ == 7) {
          return (patronobuf.Agents.FileResponse) payload_;
       }
       return patronobuf.Agents.FileResponse.getDefaultInstance();
     }
 
-    public static final int FILE_TRANSFER_STATUS_RESPONSE_FIELD_NUMBER = 7;
+    public static final int FILE_TRANSFER_STATUS_RESPONSE_FIELD_NUMBER = 8;
     /**
-     * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+     * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
      * @return Whether the fileTransferStatusResponse field is set.
      */
     @java.lang.Override
     public boolean hasFileTransferStatusResponse() {
-      return payloadCase_ == 7;
+      return payloadCase_ == 8;
     }
     /**
-     * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+     * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
      * @return The fileTransferStatusResponse.
      */
     @java.lang.Override
     public patronobuf.Agents.FileTransferStatusResponse getFileTransferStatusResponse() {
-      if (payloadCase_ == 7) {
+      if (payloadCase_ == 8) {
          return (patronobuf.Agents.FileTransferStatusResponse) payload_;
       }
       return patronobuf.Agents.FileTransferStatusResponse.getDefaultInstance();
     }
     /**
-     * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+     * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
      */
     @java.lang.Override
     public patronobuf.Agents.FileTransferStatusResponseOrBuilder getFileTransferStatusResponseOrBuilder() {
-      if (payloadCase_ == 7) {
+      if (payloadCase_ == 8) {
          return (patronobuf.Agents.FileTransferStatusResponse) payload_;
       }
       return patronobuf.Agents.FileTransferStatusResponse.getDefaultInstance();
@@ -2825,26 +3135,29 @@ public final class Agents {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (type_ != patronobuf.Agents.ResponseType.CONFIGURATION_RESPONSE.getNumber()) {
+      if (type_ != patronobuf.Agents.ResponseType.STARTUP_RESPONSE.getNumber()) {
         output.writeEnum(1, type_);
       }
       if (payloadCase_ == 2) {
-        output.writeMessage(2, (patronobuf.Agents.ConfigurationResponse) payload_);
+        output.writeMessage(2, (patronobuf.Agents.StartupResponse) payload_);
       }
       if (payloadCase_ == 3) {
-        output.writeMessage(3, (patronobuf.Agents.CommandResponse) payload_);
+        output.writeMessage(3, (patronobuf.Agents.ConfigurationResponse) payload_);
       }
       if (payloadCase_ == 4) {
-        output.writeMessage(4, (patronobuf.Agents.CommandStatusResponse) payload_);
+        output.writeMessage(4, (patronobuf.Agents.CommandResponse) payload_);
       }
       if (payloadCase_ == 5) {
-        output.writeMessage(5, (patronobuf.Agents.KeysResponse) payload_);
+        output.writeMessage(5, (patronobuf.Agents.CommandStatusResponse) payload_);
       }
       if (payloadCase_ == 6) {
-        output.writeMessage(6, (patronobuf.Agents.FileResponse) payload_);
+        output.writeMessage(6, (patronobuf.Agents.KeysResponse) payload_);
       }
       if (payloadCase_ == 7) {
-        output.writeMessage(7, (patronobuf.Agents.FileTransferStatusResponse) payload_);
+        output.writeMessage(7, (patronobuf.Agents.FileResponse) payload_);
+      }
+      if (payloadCase_ == 8) {
+        output.writeMessage(8, (patronobuf.Agents.FileTransferStatusResponse) payload_);
       }
       unknownFields.writeTo(output);
     }
@@ -2855,33 +3168,37 @@ public final class Agents {
       if (size != -1) return size;
 
       size = 0;
-      if (type_ != patronobuf.Agents.ResponseType.CONFIGURATION_RESPONSE.getNumber()) {
+      if (type_ != patronobuf.Agents.ResponseType.STARTUP_RESPONSE.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
       if (payloadCase_ == 2) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, (patronobuf.Agents.ConfigurationResponse) payload_);
+          .computeMessageSize(2, (patronobuf.Agents.StartupResponse) payload_);
       }
       if (payloadCase_ == 3) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, (patronobuf.Agents.CommandResponse) payload_);
+          .computeMessageSize(3, (patronobuf.Agents.ConfigurationResponse) payload_);
       }
       if (payloadCase_ == 4) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, (patronobuf.Agents.CommandStatusResponse) payload_);
+          .computeMessageSize(4, (patronobuf.Agents.CommandResponse) payload_);
       }
       if (payloadCase_ == 5) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, (patronobuf.Agents.KeysResponse) payload_);
+          .computeMessageSize(5, (patronobuf.Agents.CommandStatusResponse) payload_);
       }
       if (payloadCase_ == 6) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, (patronobuf.Agents.FileResponse) payload_);
+          .computeMessageSize(6, (patronobuf.Agents.KeysResponse) payload_);
       }
       if (payloadCase_ == 7) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, (patronobuf.Agents.FileTransferStatusResponse) payload_);
+          .computeMessageSize(7, (patronobuf.Agents.FileResponse) payload_);
+      }
+      if (payloadCase_ == 8) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, (patronobuf.Agents.FileTransferStatusResponse) payload_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2902,26 +3219,30 @@ public final class Agents {
       if (!getPayloadCase().equals(other.getPayloadCase())) return false;
       switch (payloadCase_) {
         case 2:
+          if (!getStartupResponse()
+              .equals(other.getStartupResponse())) return false;
+          break;
+        case 3:
           if (!getConfigurationResponse()
               .equals(other.getConfigurationResponse())) return false;
           break;
-        case 3:
+        case 4:
           if (!getCommandResponse()
               .equals(other.getCommandResponse())) return false;
           break;
-        case 4:
+        case 5:
           if (!getCommandStatusResponse()
               .equals(other.getCommandStatusResponse())) return false;
           break;
-        case 5:
+        case 6:
           if (!getKeysResponse()
               .equals(other.getKeysResponse())) return false;
           break;
-        case 6:
+        case 7:
           if (!getFileResponse()
               .equals(other.getFileResponse())) return false;
           break;
-        case 7:
+        case 8:
           if (!getFileTransferStatusResponse()
               .equals(other.getFileTransferStatusResponse())) return false;
           break;
@@ -2943,26 +3264,30 @@ public final class Agents {
       hash = (53 * hash) + type_;
       switch (payloadCase_) {
         case 2:
+          hash = (37 * hash) + STARTUP_RESPONSE_FIELD_NUMBER;
+          hash = (53 * hash) + getStartupResponse().hashCode();
+          break;
+        case 3:
           hash = (37 * hash) + CONFIGURATION_RESPONSE_FIELD_NUMBER;
           hash = (53 * hash) + getConfigurationResponse().hashCode();
           break;
-        case 3:
+        case 4:
           hash = (37 * hash) + COMMAND_RESPONSE_FIELD_NUMBER;
           hash = (53 * hash) + getCommandResponse().hashCode();
           break;
-        case 4:
+        case 5:
           hash = (37 * hash) + COMMAND_STATUS_RESPONSE_FIELD_NUMBER;
           hash = (53 * hash) + getCommandStatusResponse().hashCode();
           break;
-        case 5:
+        case 6:
           hash = (37 * hash) + KEYS_RESPONSE_FIELD_NUMBER;
           hash = (53 * hash) + getKeysResponse().hashCode();
           break;
-        case 6:
+        case 7:
           hash = (37 * hash) + FILE_RESPONSE_FIELD_NUMBER;
           hash = (53 * hash) + getFileResponse().hashCode();
           break;
-        case 7:
+        case 8:
           hash = (37 * hash) + FILE_TRANSFER_STATUS_RESPONSE_FIELD_NUMBER;
           hash = (53 * hash) + getFileTransferStatusResponse().hashCode();
           break;
@@ -3134,41 +3459,48 @@ public final class Agents {
         patronobuf.Agents.Response result = new patronobuf.Agents.Response(this);
         result.type_ = type_;
         if (payloadCase_ == 2) {
+          if (startupResponseBuilder_ == null) {
+            result.payload_ = payload_;
+          } else {
+            result.payload_ = startupResponseBuilder_.build();
+          }
+        }
+        if (payloadCase_ == 3) {
           if (configurationResponseBuilder_ == null) {
             result.payload_ = payload_;
           } else {
             result.payload_ = configurationResponseBuilder_.build();
           }
         }
-        if (payloadCase_ == 3) {
+        if (payloadCase_ == 4) {
           if (commandResponseBuilder_ == null) {
             result.payload_ = payload_;
           } else {
             result.payload_ = commandResponseBuilder_.build();
           }
         }
-        if (payloadCase_ == 4) {
+        if (payloadCase_ == 5) {
           if (commandStatusResponseBuilder_ == null) {
             result.payload_ = payload_;
           } else {
             result.payload_ = commandStatusResponseBuilder_.build();
           }
         }
-        if (payloadCase_ == 5) {
+        if (payloadCase_ == 6) {
           if (keysResponseBuilder_ == null) {
             result.payload_ = payload_;
           } else {
             result.payload_ = keysResponseBuilder_.build();
           }
         }
-        if (payloadCase_ == 6) {
+        if (payloadCase_ == 7) {
           if (fileResponseBuilder_ == null) {
             result.payload_ = payload_;
           } else {
             result.payload_ = fileResponseBuilder_.build();
           }
         }
-        if (payloadCase_ == 7) {
+        if (payloadCase_ == 8) {
           if (fileTransferStatusResponseBuilder_ == null) {
             result.payload_ = payload_;
           } else {
@@ -3228,6 +3560,10 @@ public final class Agents {
           setTypeValue(other.getTypeValue());
         }
         switch (other.getPayloadCase()) {
+          case STARTUP_RESPONSE: {
+            mergeStartupResponse(other.getStartupResponse());
+            break;
+          }
           case CONFIGURATION_RESPONSE: {
             mergeConfigurationResponse(other.getConfigurationResponse());
             break;
@@ -3355,35 +3691,177 @@ public final class Agents {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
+          patronobuf.Agents.StartupResponse, patronobuf.Agents.StartupResponse.Builder, patronobuf.Agents.StartupResponseOrBuilder> startupResponseBuilder_;
+      /**
+       * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+       * @return Whether the startupResponse field is set.
+       */
+      @java.lang.Override
+      public boolean hasStartupResponse() {
+        return payloadCase_ == 2;
+      }
+      /**
+       * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+       * @return The startupResponse.
+       */
+      @java.lang.Override
+      public patronobuf.Agents.StartupResponse getStartupResponse() {
+        if (startupResponseBuilder_ == null) {
+          if (payloadCase_ == 2) {
+            return (patronobuf.Agents.StartupResponse) payload_;
+          }
+          return patronobuf.Agents.StartupResponse.getDefaultInstance();
+        } else {
+          if (payloadCase_ == 2) {
+            return startupResponseBuilder_.getMessage();
+          }
+          return patronobuf.Agents.StartupResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+       */
+      public Builder setStartupResponse(patronobuf.Agents.StartupResponse value) {
+        if (startupResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          payload_ = value;
+          onChanged();
+        } else {
+          startupResponseBuilder_.setMessage(value);
+        }
+        payloadCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+       */
+      public Builder setStartupResponse(
+          patronobuf.Agents.StartupResponse.Builder builderForValue) {
+        if (startupResponseBuilder_ == null) {
+          payload_ = builderForValue.build();
+          onChanged();
+        } else {
+          startupResponseBuilder_.setMessage(builderForValue.build());
+        }
+        payloadCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+       */
+      public Builder mergeStartupResponse(patronobuf.Agents.StartupResponse value) {
+        if (startupResponseBuilder_ == null) {
+          if (payloadCase_ == 2 &&
+              payload_ != patronobuf.Agents.StartupResponse.getDefaultInstance()) {
+            payload_ = patronobuf.Agents.StartupResponse.newBuilder((patronobuf.Agents.StartupResponse) payload_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            payload_ = value;
+          }
+          onChanged();
+        } else {
+          if (payloadCase_ == 2) {
+            startupResponseBuilder_.mergeFrom(value);
+          } else {
+            startupResponseBuilder_.setMessage(value);
+          }
+        }
+        payloadCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+       */
+      public Builder clearStartupResponse() {
+        if (startupResponseBuilder_ == null) {
+          if (payloadCase_ == 2) {
+            payloadCase_ = 0;
+            payload_ = null;
+            onChanged();
+          }
+        } else {
+          if (payloadCase_ == 2) {
+            payloadCase_ = 0;
+            payload_ = null;
+          }
+          startupResponseBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+       */
+      public patronobuf.Agents.StartupResponse.Builder getStartupResponseBuilder() {
+        return getStartupResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+       */
+      @java.lang.Override
+      public patronobuf.Agents.StartupResponseOrBuilder getStartupResponseOrBuilder() {
+        if ((payloadCase_ == 2) && (startupResponseBuilder_ != null)) {
+          return startupResponseBuilder_.getMessageOrBuilder();
+        } else {
+          if (payloadCase_ == 2) {
+            return (patronobuf.Agents.StartupResponse) payload_;
+          }
+          return patronobuf.Agents.StartupResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.patronobuf.StartupResponse startup_response = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          patronobuf.Agents.StartupResponse, patronobuf.Agents.StartupResponse.Builder, patronobuf.Agents.StartupResponseOrBuilder> 
+          getStartupResponseFieldBuilder() {
+        if (startupResponseBuilder_ == null) {
+          if (!(payloadCase_ == 2)) {
+            payload_ = patronobuf.Agents.StartupResponse.getDefaultInstance();
+          }
+          startupResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              patronobuf.Agents.StartupResponse, patronobuf.Agents.StartupResponse.Builder, patronobuf.Agents.StartupResponseOrBuilder>(
+                  (patronobuf.Agents.StartupResponse) payload_,
+                  getParentForChildren(),
+                  isClean());
+          payload_ = null;
+        }
+        payloadCase_ = 2;
+        onChanged();;
+        return startupResponseBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.ConfigurationResponse, patronobuf.Agents.ConfigurationResponse.Builder, patronobuf.Agents.ConfigurationResponseOrBuilder> configurationResponseBuilder_;
       /**
-       * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+       * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
        * @return Whether the configurationResponse field is set.
        */
       @java.lang.Override
       public boolean hasConfigurationResponse() {
-        return payloadCase_ == 2;
+        return payloadCase_ == 3;
       }
       /**
-       * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+       * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
        * @return The configurationResponse.
        */
       @java.lang.Override
       public patronobuf.Agents.ConfigurationResponse getConfigurationResponse() {
         if (configurationResponseBuilder_ == null) {
-          if (payloadCase_ == 2) {
+          if (payloadCase_ == 3) {
             return (patronobuf.Agents.ConfigurationResponse) payload_;
           }
           return patronobuf.Agents.ConfigurationResponse.getDefaultInstance();
         } else {
-          if (payloadCase_ == 2) {
+          if (payloadCase_ == 3) {
             return configurationResponseBuilder_.getMessage();
           }
           return patronobuf.Agents.ConfigurationResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+       * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
        */
       public Builder setConfigurationResponse(patronobuf.Agents.ConfigurationResponse value) {
         if (configurationResponseBuilder_ == null) {
@@ -3395,11 +3873,11 @@ public final class Agents {
         } else {
           configurationResponseBuilder_.setMessage(value);
         }
-        payloadCase_ = 2;
+        payloadCase_ = 3;
         return this;
       }
       /**
-       * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+       * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
        */
       public Builder setConfigurationResponse(
           patronobuf.Agents.ConfigurationResponse.Builder builderForValue) {
@@ -3409,15 +3887,15 @@ public final class Agents {
         } else {
           configurationResponseBuilder_.setMessage(builderForValue.build());
         }
-        payloadCase_ = 2;
+        payloadCase_ = 3;
         return this;
       }
       /**
-       * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+       * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
        */
       public Builder mergeConfigurationResponse(patronobuf.Agents.ConfigurationResponse value) {
         if (configurationResponseBuilder_ == null) {
-          if (payloadCase_ == 2 &&
+          if (payloadCase_ == 3 &&
               payload_ != patronobuf.Agents.ConfigurationResponse.getDefaultInstance()) {
             payload_ = patronobuf.Agents.ConfigurationResponse.newBuilder((patronobuf.Agents.ConfigurationResponse) payload_)
                 .mergeFrom(value).buildPartial();
@@ -3426,27 +3904,27 @@ public final class Agents {
           }
           onChanged();
         } else {
-          if (payloadCase_ == 2) {
+          if (payloadCase_ == 3) {
             configurationResponseBuilder_.mergeFrom(value);
           } else {
             configurationResponseBuilder_.setMessage(value);
           }
         }
-        payloadCase_ = 2;
+        payloadCase_ = 3;
         return this;
       }
       /**
-       * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+       * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
        */
       public Builder clearConfigurationResponse() {
         if (configurationResponseBuilder_ == null) {
-          if (payloadCase_ == 2) {
+          if (payloadCase_ == 3) {
             payloadCase_ = 0;
             payload_ = null;
             onChanged();
           }
         } else {
-          if (payloadCase_ == 2) {
+          if (payloadCase_ == 3) {
             payloadCase_ = 0;
             payload_ = null;
           }
@@ -3455,33 +3933,33 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+       * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
        */
       public patronobuf.Agents.ConfigurationResponse.Builder getConfigurationResponseBuilder() {
         return getConfigurationResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+       * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
        */
       @java.lang.Override
       public patronobuf.Agents.ConfigurationResponseOrBuilder getConfigurationResponseOrBuilder() {
-        if ((payloadCase_ == 2) && (configurationResponseBuilder_ != null)) {
+        if ((payloadCase_ == 3) && (configurationResponseBuilder_ != null)) {
           return configurationResponseBuilder_.getMessageOrBuilder();
         } else {
-          if (payloadCase_ == 2) {
+          if (payloadCase_ == 3) {
             return (patronobuf.Agents.ConfigurationResponse) payload_;
           }
           return patronobuf.Agents.ConfigurationResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.ConfigurationResponse configuration_response = 2;</code>
+       * <code>.patronobuf.ConfigurationResponse configuration_response = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.ConfigurationResponse, patronobuf.Agents.ConfigurationResponse.Builder, patronobuf.Agents.ConfigurationResponseOrBuilder> 
           getConfigurationResponseFieldBuilder() {
         if (configurationResponseBuilder_ == null) {
-          if (!(payloadCase_ == 2)) {
+          if (!(payloadCase_ == 3)) {
             payload_ = patronobuf.Agents.ConfigurationResponse.getDefaultInstance();
           }
           configurationResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -3491,7 +3969,7 @@ public final class Agents {
                   isClean());
           payload_ = null;
         }
-        payloadCase_ = 2;
+        payloadCase_ = 3;
         onChanged();;
         return configurationResponseBuilder_;
       }
@@ -3499,33 +3977,33 @@ public final class Agents {
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.CommandResponse, patronobuf.Agents.CommandResponse.Builder, patronobuf.Agents.CommandResponseOrBuilder> commandResponseBuilder_;
       /**
-       * <code>.patronobuf.CommandResponse command_response = 3;</code>
+       * <code>.patronobuf.CommandResponse command_response = 4;</code>
        * @return Whether the commandResponse field is set.
        */
       @java.lang.Override
       public boolean hasCommandResponse() {
-        return payloadCase_ == 3;
+        return payloadCase_ == 4;
       }
       /**
-       * <code>.patronobuf.CommandResponse command_response = 3;</code>
+       * <code>.patronobuf.CommandResponse command_response = 4;</code>
        * @return The commandResponse.
        */
       @java.lang.Override
       public patronobuf.Agents.CommandResponse getCommandResponse() {
         if (commandResponseBuilder_ == null) {
-          if (payloadCase_ == 3) {
+          if (payloadCase_ == 4) {
             return (patronobuf.Agents.CommandResponse) payload_;
           }
           return patronobuf.Agents.CommandResponse.getDefaultInstance();
         } else {
-          if (payloadCase_ == 3) {
+          if (payloadCase_ == 4) {
             return commandResponseBuilder_.getMessage();
           }
           return patronobuf.Agents.CommandResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.CommandResponse command_response = 3;</code>
+       * <code>.patronobuf.CommandResponse command_response = 4;</code>
        */
       public Builder setCommandResponse(patronobuf.Agents.CommandResponse value) {
         if (commandResponseBuilder_ == null) {
@@ -3537,11 +4015,11 @@ public final class Agents {
         } else {
           commandResponseBuilder_.setMessage(value);
         }
-        payloadCase_ = 3;
+        payloadCase_ = 4;
         return this;
       }
       /**
-       * <code>.patronobuf.CommandResponse command_response = 3;</code>
+       * <code>.patronobuf.CommandResponse command_response = 4;</code>
        */
       public Builder setCommandResponse(
           patronobuf.Agents.CommandResponse.Builder builderForValue) {
@@ -3551,15 +4029,15 @@ public final class Agents {
         } else {
           commandResponseBuilder_.setMessage(builderForValue.build());
         }
-        payloadCase_ = 3;
+        payloadCase_ = 4;
         return this;
       }
       /**
-       * <code>.patronobuf.CommandResponse command_response = 3;</code>
+       * <code>.patronobuf.CommandResponse command_response = 4;</code>
        */
       public Builder mergeCommandResponse(patronobuf.Agents.CommandResponse value) {
         if (commandResponseBuilder_ == null) {
-          if (payloadCase_ == 3 &&
+          if (payloadCase_ == 4 &&
               payload_ != patronobuf.Agents.CommandResponse.getDefaultInstance()) {
             payload_ = patronobuf.Agents.CommandResponse.newBuilder((patronobuf.Agents.CommandResponse) payload_)
                 .mergeFrom(value).buildPartial();
@@ -3568,27 +4046,27 @@ public final class Agents {
           }
           onChanged();
         } else {
-          if (payloadCase_ == 3) {
+          if (payloadCase_ == 4) {
             commandResponseBuilder_.mergeFrom(value);
           } else {
             commandResponseBuilder_.setMessage(value);
           }
         }
-        payloadCase_ = 3;
+        payloadCase_ = 4;
         return this;
       }
       /**
-       * <code>.patronobuf.CommandResponse command_response = 3;</code>
+       * <code>.patronobuf.CommandResponse command_response = 4;</code>
        */
       public Builder clearCommandResponse() {
         if (commandResponseBuilder_ == null) {
-          if (payloadCase_ == 3) {
+          if (payloadCase_ == 4) {
             payloadCase_ = 0;
             payload_ = null;
             onChanged();
           }
         } else {
-          if (payloadCase_ == 3) {
+          if (payloadCase_ == 4) {
             payloadCase_ = 0;
             payload_ = null;
           }
@@ -3597,33 +4075,33 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>.patronobuf.CommandResponse command_response = 3;</code>
+       * <code>.patronobuf.CommandResponse command_response = 4;</code>
        */
       public patronobuf.Agents.CommandResponse.Builder getCommandResponseBuilder() {
         return getCommandResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>.patronobuf.CommandResponse command_response = 3;</code>
+       * <code>.patronobuf.CommandResponse command_response = 4;</code>
        */
       @java.lang.Override
       public patronobuf.Agents.CommandResponseOrBuilder getCommandResponseOrBuilder() {
-        if ((payloadCase_ == 3) && (commandResponseBuilder_ != null)) {
+        if ((payloadCase_ == 4) && (commandResponseBuilder_ != null)) {
           return commandResponseBuilder_.getMessageOrBuilder();
         } else {
-          if (payloadCase_ == 3) {
+          if (payloadCase_ == 4) {
             return (patronobuf.Agents.CommandResponse) payload_;
           }
           return patronobuf.Agents.CommandResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.CommandResponse command_response = 3;</code>
+       * <code>.patronobuf.CommandResponse command_response = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.CommandResponse, patronobuf.Agents.CommandResponse.Builder, patronobuf.Agents.CommandResponseOrBuilder> 
           getCommandResponseFieldBuilder() {
         if (commandResponseBuilder_ == null) {
-          if (!(payloadCase_ == 3)) {
+          if (!(payloadCase_ == 4)) {
             payload_ = patronobuf.Agents.CommandResponse.getDefaultInstance();
           }
           commandResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -3633,7 +4111,7 @@ public final class Agents {
                   isClean());
           payload_ = null;
         }
-        payloadCase_ = 3;
+        payloadCase_ = 4;
         onChanged();;
         return commandResponseBuilder_;
       }
@@ -3641,33 +4119,33 @@ public final class Agents {
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.CommandStatusResponse, patronobuf.Agents.CommandStatusResponse.Builder, patronobuf.Agents.CommandStatusResponseOrBuilder> commandStatusResponseBuilder_;
       /**
-       * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+       * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
        * @return Whether the commandStatusResponse field is set.
        */
       @java.lang.Override
       public boolean hasCommandStatusResponse() {
-        return payloadCase_ == 4;
+        return payloadCase_ == 5;
       }
       /**
-       * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+       * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
        * @return The commandStatusResponse.
        */
       @java.lang.Override
       public patronobuf.Agents.CommandStatusResponse getCommandStatusResponse() {
         if (commandStatusResponseBuilder_ == null) {
-          if (payloadCase_ == 4) {
+          if (payloadCase_ == 5) {
             return (patronobuf.Agents.CommandStatusResponse) payload_;
           }
           return patronobuf.Agents.CommandStatusResponse.getDefaultInstance();
         } else {
-          if (payloadCase_ == 4) {
+          if (payloadCase_ == 5) {
             return commandStatusResponseBuilder_.getMessage();
           }
           return patronobuf.Agents.CommandStatusResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+       * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
        */
       public Builder setCommandStatusResponse(patronobuf.Agents.CommandStatusResponse value) {
         if (commandStatusResponseBuilder_ == null) {
@@ -3679,11 +4157,11 @@ public final class Agents {
         } else {
           commandStatusResponseBuilder_.setMessage(value);
         }
-        payloadCase_ = 4;
+        payloadCase_ = 5;
         return this;
       }
       /**
-       * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+       * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
        */
       public Builder setCommandStatusResponse(
           patronobuf.Agents.CommandStatusResponse.Builder builderForValue) {
@@ -3693,15 +4171,15 @@ public final class Agents {
         } else {
           commandStatusResponseBuilder_.setMessage(builderForValue.build());
         }
-        payloadCase_ = 4;
+        payloadCase_ = 5;
         return this;
       }
       /**
-       * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+       * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
        */
       public Builder mergeCommandStatusResponse(patronobuf.Agents.CommandStatusResponse value) {
         if (commandStatusResponseBuilder_ == null) {
-          if (payloadCase_ == 4 &&
+          if (payloadCase_ == 5 &&
               payload_ != patronobuf.Agents.CommandStatusResponse.getDefaultInstance()) {
             payload_ = patronobuf.Agents.CommandStatusResponse.newBuilder((patronobuf.Agents.CommandStatusResponse) payload_)
                 .mergeFrom(value).buildPartial();
@@ -3710,27 +4188,27 @@ public final class Agents {
           }
           onChanged();
         } else {
-          if (payloadCase_ == 4) {
+          if (payloadCase_ == 5) {
             commandStatusResponseBuilder_.mergeFrom(value);
           } else {
             commandStatusResponseBuilder_.setMessage(value);
           }
         }
-        payloadCase_ = 4;
+        payloadCase_ = 5;
         return this;
       }
       /**
-       * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+       * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
        */
       public Builder clearCommandStatusResponse() {
         if (commandStatusResponseBuilder_ == null) {
-          if (payloadCase_ == 4) {
+          if (payloadCase_ == 5) {
             payloadCase_ = 0;
             payload_ = null;
             onChanged();
           }
         } else {
-          if (payloadCase_ == 4) {
+          if (payloadCase_ == 5) {
             payloadCase_ = 0;
             payload_ = null;
           }
@@ -3739,33 +4217,33 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+       * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
        */
       public patronobuf.Agents.CommandStatusResponse.Builder getCommandStatusResponseBuilder() {
         return getCommandStatusResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+       * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
        */
       @java.lang.Override
       public patronobuf.Agents.CommandStatusResponseOrBuilder getCommandStatusResponseOrBuilder() {
-        if ((payloadCase_ == 4) && (commandStatusResponseBuilder_ != null)) {
+        if ((payloadCase_ == 5) && (commandStatusResponseBuilder_ != null)) {
           return commandStatusResponseBuilder_.getMessageOrBuilder();
         } else {
-          if (payloadCase_ == 4) {
+          if (payloadCase_ == 5) {
             return (patronobuf.Agents.CommandStatusResponse) payload_;
           }
           return patronobuf.Agents.CommandStatusResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.CommandStatusResponse command_status_response = 4;</code>
+       * <code>.patronobuf.CommandStatusResponse command_status_response = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.CommandStatusResponse, patronobuf.Agents.CommandStatusResponse.Builder, patronobuf.Agents.CommandStatusResponseOrBuilder> 
           getCommandStatusResponseFieldBuilder() {
         if (commandStatusResponseBuilder_ == null) {
-          if (!(payloadCase_ == 4)) {
+          if (!(payloadCase_ == 5)) {
             payload_ = patronobuf.Agents.CommandStatusResponse.getDefaultInstance();
           }
           commandStatusResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -3775,7 +4253,7 @@ public final class Agents {
                   isClean());
           payload_ = null;
         }
-        payloadCase_ = 4;
+        payloadCase_ = 5;
         onChanged();;
         return commandStatusResponseBuilder_;
       }
@@ -3783,33 +4261,33 @@ public final class Agents {
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.KeysResponse, patronobuf.Agents.KeysResponse.Builder, patronobuf.Agents.KeysResponseOrBuilder> keysResponseBuilder_;
       /**
-       * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+       * <code>.patronobuf.KeysResponse keys_response = 6;</code>
        * @return Whether the keysResponse field is set.
        */
       @java.lang.Override
       public boolean hasKeysResponse() {
-        return payloadCase_ == 5;
+        return payloadCase_ == 6;
       }
       /**
-       * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+       * <code>.patronobuf.KeysResponse keys_response = 6;</code>
        * @return The keysResponse.
        */
       @java.lang.Override
       public patronobuf.Agents.KeysResponse getKeysResponse() {
         if (keysResponseBuilder_ == null) {
-          if (payloadCase_ == 5) {
+          if (payloadCase_ == 6) {
             return (patronobuf.Agents.KeysResponse) payload_;
           }
           return patronobuf.Agents.KeysResponse.getDefaultInstance();
         } else {
-          if (payloadCase_ == 5) {
+          if (payloadCase_ == 6) {
             return keysResponseBuilder_.getMessage();
           }
           return patronobuf.Agents.KeysResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+       * <code>.patronobuf.KeysResponse keys_response = 6;</code>
        */
       public Builder setKeysResponse(patronobuf.Agents.KeysResponse value) {
         if (keysResponseBuilder_ == null) {
@@ -3821,11 +4299,11 @@ public final class Agents {
         } else {
           keysResponseBuilder_.setMessage(value);
         }
-        payloadCase_ = 5;
+        payloadCase_ = 6;
         return this;
       }
       /**
-       * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+       * <code>.patronobuf.KeysResponse keys_response = 6;</code>
        */
       public Builder setKeysResponse(
           patronobuf.Agents.KeysResponse.Builder builderForValue) {
@@ -3835,15 +4313,15 @@ public final class Agents {
         } else {
           keysResponseBuilder_.setMessage(builderForValue.build());
         }
-        payloadCase_ = 5;
+        payloadCase_ = 6;
         return this;
       }
       /**
-       * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+       * <code>.patronobuf.KeysResponse keys_response = 6;</code>
        */
       public Builder mergeKeysResponse(patronobuf.Agents.KeysResponse value) {
         if (keysResponseBuilder_ == null) {
-          if (payloadCase_ == 5 &&
+          if (payloadCase_ == 6 &&
               payload_ != patronobuf.Agents.KeysResponse.getDefaultInstance()) {
             payload_ = patronobuf.Agents.KeysResponse.newBuilder((patronobuf.Agents.KeysResponse) payload_)
                 .mergeFrom(value).buildPartial();
@@ -3852,27 +4330,27 @@ public final class Agents {
           }
           onChanged();
         } else {
-          if (payloadCase_ == 5) {
+          if (payloadCase_ == 6) {
             keysResponseBuilder_.mergeFrom(value);
           } else {
             keysResponseBuilder_.setMessage(value);
           }
         }
-        payloadCase_ = 5;
+        payloadCase_ = 6;
         return this;
       }
       /**
-       * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+       * <code>.patronobuf.KeysResponse keys_response = 6;</code>
        */
       public Builder clearKeysResponse() {
         if (keysResponseBuilder_ == null) {
-          if (payloadCase_ == 5) {
+          if (payloadCase_ == 6) {
             payloadCase_ = 0;
             payload_ = null;
             onChanged();
           }
         } else {
-          if (payloadCase_ == 5) {
+          if (payloadCase_ == 6) {
             payloadCase_ = 0;
             payload_ = null;
           }
@@ -3881,33 +4359,33 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+       * <code>.patronobuf.KeysResponse keys_response = 6;</code>
        */
       public patronobuf.Agents.KeysResponse.Builder getKeysResponseBuilder() {
         return getKeysResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+       * <code>.patronobuf.KeysResponse keys_response = 6;</code>
        */
       @java.lang.Override
       public patronobuf.Agents.KeysResponseOrBuilder getKeysResponseOrBuilder() {
-        if ((payloadCase_ == 5) && (keysResponseBuilder_ != null)) {
+        if ((payloadCase_ == 6) && (keysResponseBuilder_ != null)) {
           return keysResponseBuilder_.getMessageOrBuilder();
         } else {
-          if (payloadCase_ == 5) {
+          if (payloadCase_ == 6) {
             return (patronobuf.Agents.KeysResponse) payload_;
           }
           return patronobuf.Agents.KeysResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.KeysResponse keys_response = 5;</code>
+       * <code>.patronobuf.KeysResponse keys_response = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.KeysResponse, patronobuf.Agents.KeysResponse.Builder, patronobuf.Agents.KeysResponseOrBuilder> 
           getKeysResponseFieldBuilder() {
         if (keysResponseBuilder_ == null) {
-          if (!(payloadCase_ == 5)) {
+          if (!(payloadCase_ == 6)) {
             payload_ = patronobuf.Agents.KeysResponse.getDefaultInstance();
           }
           keysResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -3917,7 +4395,7 @@ public final class Agents {
                   isClean());
           payload_ = null;
         }
-        payloadCase_ = 5;
+        payloadCase_ = 6;
         onChanged();;
         return keysResponseBuilder_;
       }
@@ -3925,33 +4403,33 @@ public final class Agents {
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.FileResponse, patronobuf.Agents.FileResponse.Builder, patronobuf.Agents.FileResponseOrBuilder> fileResponseBuilder_;
       /**
-       * <code>.patronobuf.FileResponse file_response = 6;</code>
+       * <code>.patronobuf.FileResponse file_response = 7;</code>
        * @return Whether the fileResponse field is set.
        */
       @java.lang.Override
       public boolean hasFileResponse() {
-        return payloadCase_ == 6;
+        return payloadCase_ == 7;
       }
       /**
-       * <code>.patronobuf.FileResponse file_response = 6;</code>
+       * <code>.patronobuf.FileResponse file_response = 7;</code>
        * @return The fileResponse.
        */
       @java.lang.Override
       public patronobuf.Agents.FileResponse getFileResponse() {
         if (fileResponseBuilder_ == null) {
-          if (payloadCase_ == 6) {
+          if (payloadCase_ == 7) {
             return (patronobuf.Agents.FileResponse) payload_;
           }
           return patronobuf.Agents.FileResponse.getDefaultInstance();
         } else {
-          if (payloadCase_ == 6) {
+          if (payloadCase_ == 7) {
             return fileResponseBuilder_.getMessage();
           }
           return patronobuf.Agents.FileResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.FileResponse file_response = 6;</code>
+       * <code>.patronobuf.FileResponse file_response = 7;</code>
        */
       public Builder setFileResponse(patronobuf.Agents.FileResponse value) {
         if (fileResponseBuilder_ == null) {
@@ -3963,11 +4441,11 @@ public final class Agents {
         } else {
           fileResponseBuilder_.setMessage(value);
         }
-        payloadCase_ = 6;
+        payloadCase_ = 7;
         return this;
       }
       /**
-       * <code>.patronobuf.FileResponse file_response = 6;</code>
+       * <code>.patronobuf.FileResponse file_response = 7;</code>
        */
       public Builder setFileResponse(
           patronobuf.Agents.FileResponse.Builder builderForValue) {
@@ -3977,15 +4455,15 @@ public final class Agents {
         } else {
           fileResponseBuilder_.setMessage(builderForValue.build());
         }
-        payloadCase_ = 6;
+        payloadCase_ = 7;
         return this;
       }
       /**
-       * <code>.patronobuf.FileResponse file_response = 6;</code>
+       * <code>.patronobuf.FileResponse file_response = 7;</code>
        */
       public Builder mergeFileResponse(patronobuf.Agents.FileResponse value) {
         if (fileResponseBuilder_ == null) {
-          if (payloadCase_ == 6 &&
+          if (payloadCase_ == 7 &&
               payload_ != patronobuf.Agents.FileResponse.getDefaultInstance()) {
             payload_ = patronobuf.Agents.FileResponse.newBuilder((patronobuf.Agents.FileResponse) payload_)
                 .mergeFrom(value).buildPartial();
@@ -3994,27 +4472,27 @@ public final class Agents {
           }
           onChanged();
         } else {
-          if (payloadCase_ == 6) {
+          if (payloadCase_ == 7) {
             fileResponseBuilder_.mergeFrom(value);
           } else {
             fileResponseBuilder_.setMessage(value);
           }
         }
-        payloadCase_ = 6;
+        payloadCase_ = 7;
         return this;
       }
       /**
-       * <code>.patronobuf.FileResponse file_response = 6;</code>
+       * <code>.patronobuf.FileResponse file_response = 7;</code>
        */
       public Builder clearFileResponse() {
         if (fileResponseBuilder_ == null) {
-          if (payloadCase_ == 6) {
+          if (payloadCase_ == 7) {
             payloadCase_ = 0;
             payload_ = null;
             onChanged();
           }
         } else {
-          if (payloadCase_ == 6) {
+          if (payloadCase_ == 7) {
             payloadCase_ = 0;
             payload_ = null;
           }
@@ -4023,33 +4501,33 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>.patronobuf.FileResponse file_response = 6;</code>
+       * <code>.patronobuf.FileResponse file_response = 7;</code>
        */
       public patronobuf.Agents.FileResponse.Builder getFileResponseBuilder() {
         return getFileResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>.patronobuf.FileResponse file_response = 6;</code>
+       * <code>.patronobuf.FileResponse file_response = 7;</code>
        */
       @java.lang.Override
       public patronobuf.Agents.FileResponseOrBuilder getFileResponseOrBuilder() {
-        if ((payloadCase_ == 6) && (fileResponseBuilder_ != null)) {
+        if ((payloadCase_ == 7) && (fileResponseBuilder_ != null)) {
           return fileResponseBuilder_.getMessageOrBuilder();
         } else {
-          if (payloadCase_ == 6) {
+          if (payloadCase_ == 7) {
             return (patronobuf.Agents.FileResponse) payload_;
           }
           return patronobuf.Agents.FileResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.FileResponse file_response = 6;</code>
+       * <code>.patronobuf.FileResponse file_response = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.FileResponse, patronobuf.Agents.FileResponse.Builder, patronobuf.Agents.FileResponseOrBuilder> 
           getFileResponseFieldBuilder() {
         if (fileResponseBuilder_ == null) {
-          if (!(payloadCase_ == 6)) {
+          if (!(payloadCase_ == 7)) {
             payload_ = patronobuf.Agents.FileResponse.getDefaultInstance();
           }
           fileResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -4059,7 +4537,7 @@ public final class Agents {
                   isClean());
           payload_ = null;
         }
-        payloadCase_ = 6;
+        payloadCase_ = 7;
         onChanged();;
         return fileResponseBuilder_;
       }
@@ -4067,33 +4545,33 @@ public final class Agents {
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.FileTransferStatusResponse, patronobuf.Agents.FileTransferStatusResponse.Builder, patronobuf.Agents.FileTransferStatusResponseOrBuilder> fileTransferStatusResponseBuilder_;
       /**
-       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
        * @return Whether the fileTransferStatusResponse field is set.
        */
       @java.lang.Override
       public boolean hasFileTransferStatusResponse() {
-        return payloadCase_ == 7;
+        return payloadCase_ == 8;
       }
       /**
-       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
        * @return The fileTransferStatusResponse.
        */
       @java.lang.Override
       public patronobuf.Agents.FileTransferStatusResponse getFileTransferStatusResponse() {
         if (fileTransferStatusResponseBuilder_ == null) {
-          if (payloadCase_ == 7) {
+          if (payloadCase_ == 8) {
             return (patronobuf.Agents.FileTransferStatusResponse) payload_;
           }
           return patronobuf.Agents.FileTransferStatusResponse.getDefaultInstance();
         } else {
-          if (payloadCase_ == 7) {
+          if (payloadCase_ == 8) {
             return fileTransferStatusResponseBuilder_.getMessage();
           }
           return patronobuf.Agents.FileTransferStatusResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
        */
       public Builder setFileTransferStatusResponse(patronobuf.Agents.FileTransferStatusResponse value) {
         if (fileTransferStatusResponseBuilder_ == null) {
@@ -4105,11 +4583,11 @@ public final class Agents {
         } else {
           fileTransferStatusResponseBuilder_.setMessage(value);
         }
-        payloadCase_ = 7;
+        payloadCase_ = 8;
         return this;
       }
       /**
-       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
        */
       public Builder setFileTransferStatusResponse(
           patronobuf.Agents.FileTransferStatusResponse.Builder builderForValue) {
@@ -4119,15 +4597,15 @@ public final class Agents {
         } else {
           fileTransferStatusResponseBuilder_.setMessage(builderForValue.build());
         }
-        payloadCase_ = 7;
+        payloadCase_ = 8;
         return this;
       }
       /**
-       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
        */
       public Builder mergeFileTransferStatusResponse(patronobuf.Agents.FileTransferStatusResponse value) {
         if (fileTransferStatusResponseBuilder_ == null) {
-          if (payloadCase_ == 7 &&
+          if (payloadCase_ == 8 &&
               payload_ != patronobuf.Agents.FileTransferStatusResponse.getDefaultInstance()) {
             payload_ = patronobuf.Agents.FileTransferStatusResponse.newBuilder((patronobuf.Agents.FileTransferStatusResponse) payload_)
                 .mergeFrom(value).buildPartial();
@@ -4136,27 +4614,27 @@ public final class Agents {
           }
           onChanged();
         } else {
-          if (payloadCase_ == 7) {
+          if (payloadCase_ == 8) {
             fileTransferStatusResponseBuilder_.mergeFrom(value);
           } else {
             fileTransferStatusResponseBuilder_.setMessage(value);
           }
         }
-        payloadCase_ = 7;
+        payloadCase_ = 8;
         return this;
       }
       /**
-       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
        */
       public Builder clearFileTransferStatusResponse() {
         if (fileTransferStatusResponseBuilder_ == null) {
-          if (payloadCase_ == 7) {
+          if (payloadCase_ == 8) {
             payloadCase_ = 0;
             payload_ = null;
             onChanged();
           }
         } else {
-          if (payloadCase_ == 7) {
+          if (payloadCase_ == 8) {
             payloadCase_ = 0;
             payload_ = null;
           }
@@ -4165,33 +4643,33 @@ public final class Agents {
         return this;
       }
       /**
-       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
        */
       public patronobuf.Agents.FileTransferStatusResponse.Builder getFileTransferStatusResponseBuilder() {
         return getFileTransferStatusResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
        */
       @java.lang.Override
       public patronobuf.Agents.FileTransferStatusResponseOrBuilder getFileTransferStatusResponseOrBuilder() {
-        if ((payloadCase_ == 7) && (fileTransferStatusResponseBuilder_ != null)) {
+        if ((payloadCase_ == 8) && (fileTransferStatusResponseBuilder_ != null)) {
           return fileTransferStatusResponseBuilder_.getMessageOrBuilder();
         } else {
-          if (payloadCase_ == 7) {
+          if (payloadCase_ == 8) {
             return (patronobuf.Agents.FileTransferStatusResponse) payload_;
           }
           return patronobuf.Agents.FileTransferStatusResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 7;</code>
+       * <code>.patronobuf.FileTransferStatusResponse file_transfer_status_response = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           patronobuf.Agents.FileTransferStatusResponse, patronobuf.Agents.FileTransferStatusResponse.Builder, patronobuf.Agents.FileTransferStatusResponseOrBuilder> 
           getFileTransferStatusResponseFieldBuilder() {
         if (fileTransferStatusResponseBuilder_ == null) {
-          if (!(payloadCase_ == 7)) {
+          if (!(payloadCase_ == 8)) {
             payload_ = patronobuf.Agents.FileTransferStatusResponse.getDefaultInstance();
           }
           fileTransferStatusResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -4201,7 +4679,7 @@ public final class Agents {
                   isClean());
           payload_ = null;
         }
-        payloadCase_ = 7;
+        payloadCase_ = 8;
         onChanged();;
         return fileTransferStatusResponseBuilder_;
       }
@@ -4258,21 +4736,21 @@ public final class Agents {
 
   }
 
-  public interface ConfigurationRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:patronobuf.ConfigurationRequest)
+  public interface StartupRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:patronobuf.StartupRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string uuid = 1;</code>
-     * @return The uuid.
+     * <code>string filepath = 1;</code>
+     * @return The filepath.
      */
-    java.lang.String getUuid();
+    java.lang.String getFilepath();
     /**
-     * <code>string uuid = 1;</code>
-     * @return The bytes for uuid.
+     * <code>string filepath = 1;</code>
+     * @return The bytes for filepath.
      */
     com.google.protobuf.ByteString
-        getUuidBytes();
+        getFilepathBytes();
 
     /**
      * <code>string username = 2;</code>
@@ -4371,133 +4849,44 @@ public final class Agents {
         getAgentipBytes();
 
     /**
-     * <code>string serverip = 10;</code>
-     * @return The serverip.
+     * <code>repeated string capabilities = 10;</code>
+     * @return A list containing the capabilities.
      */
-    java.lang.String getServerip();
+    java.util.List<java.lang.String>
+        getCapabilitiesList();
     /**
-     * <code>string serverip = 10;</code>
-     * @return The bytes for serverip.
+     * <code>repeated string capabilities = 10;</code>
+     * @return The count of capabilities.
+     */
+    int getCapabilitiesCount();
+    /**
+     * <code>repeated string capabilities = 10;</code>
+     * @param index The index of the element to return.
+     * @return The capabilities at the given index.
+     */
+    java.lang.String getCapabilities(int index);
+    /**
+     * <code>repeated string capabilities = 10;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the capabilities at the given index.
      */
     com.google.protobuf.ByteString
-        getServeripBytes();
-
-    /**
-     * <code>string serverport = 11;</code>
-     * @return The serverport.
-     */
-    java.lang.String getServerport();
-    /**
-     * <code>string serverport = 11;</code>
-     * @return The bytes for serverport.
-     */
-    com.google.protobuf.ByteString
-        getServerportBytes();
-
-    /**
-     * <code>string callbackfrequency = 12;</code>
-     * @return The callbackfrequency.
-     */
-    java.lang.String getCallbackfrequency();
-    /**
-     * <code>string callbackfrequency = 12;</code>
-     * @return The bytes for callbackfrequency.
-     */
-    com.google.protobuf.ByteString
-        getCallbackfrequencyBytes();
-
-    /**
-     * <code>string callbackjitter = 13;</code>
-     * @return The callbackjitter.
-     */
-    java.lang.String getCallbackjitter();
-    /**
-     * <code>string callbackjitter = 13;</code>
-     * @return The bytes for callbackjitter.
-     */
-    com.google.protobuf.ByteString
-        getCallbackjitterBytes();
-
-    /**
-     * <code>string masterkey = 14;</code>
-     * @return The masterkey.
-     */
-    java.lang.String getMasterkey();
-    /**
-     * <code>string masterkey = 14;</code>
-     * @return The bytes for masterkey.
-     */
-    com.google.protobuf.ByteString
-        getMasterkeyBytes();
-
-    /**
-     * <code>string status = 15;</code>
-     * @return The status.
-     */
-    java.lang.String getStatus();
-    /**
-     * <code>string status = 15;</code>
-     * @return The bytes for status.
-     */
-    com.google.protobuf.ByteString
-        getStatusBytes();
-
-    /**
-     * <code>repeated .patronobuf.Tag tags = 16;</code>
-     */
-    java.util.List<patronobuf.Agents.Tag> 
-        getTagsList();
-    /**
-     * <code>repeated .patronobuf.Tag tags = 16;</code>
-     */
-    patronobuf.Agents.Tag getTags(int index);
-    /**
-     * <code>repeated .patronobuf.Tag tags = 16;</code>
-     */
-    int getTagsCount();
-    /**
-     * <code>repeated .patronobuf.Tag tags = 16;</code>
-     */
-    java.util.List<? extends patronobuf.Agents.TagOrBuilder> 
-        getTagsOrBuilderList();
-    /**
-     * <code>repeated .patronobuf.Tag tags = 16;</code>
-     */
-    patronobuf.Agents.TagOrBuilder getTagsOrBuilder(
-        int index);
-
-    /**
-     * <code>int64 nextcallback_unix = 17;</code>
-     * @return The nextcallbackUnix.
-     */
-    long getNextcallbackUnix();
-
-    /**
-     * <code>string transportprotocol = 18;</code>
-     * @return The transportprotocol.
-     */
-    java.lang.String getTransportprotocol();
-    /**
-     * <code>string transportprotocol = 18;</code>
-     * @return The bytes for transportprotocol.
-     */
-    com.google.protobuf.ByteString
-        getTransportprotocolBytes();
+        getCapabilitiesBytes(int index);
   }
   /**
-   * Protobuf type {@code patronobuf.ConfigurationRequest}
+   * Protobuf type {@code patronobuf.StartupRequest}
    */
-  public static final class ConfigurationRequest extends
+  public static final class StartupRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:patronobuf.ConfigurationRequest)
-      ConfigurationRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:patronobuf.StartupRequest)
+      StartupRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ConfigurationRequest.newBuilder() to construct.
-    private ConfigurationRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use StartupRequest.newBuilder() to construct.
+    private StartupRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ConfigurationRequest() {
-      uuid_ = "";
+    private StartupRequest() {
+      filepath_ = "";
       username_ = "";
       hostname_ = "";
       ostype_ = "";
@@ -4506,21 +4895,14 @@ public final class Agents {
       cpus_ = "";
       memory_ = "";
       agentip_ = "";
-      serverip_ = "";
-      serverport_ = "";
-      callbackfrequency_ = "";
-      callbackjitter_ = "";
-      masterkey_ = "";
-      status_ = "";
-      tags_ = java.util.Collections.emptyList();
-      transportprotocol_ = "";
+      capabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ConfigurationRequest();
+      return new StartupRequest();
     }
 
     @java.lang.Override
@@ -4528,7 +4910,7 @@ public final class Agents {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ConfigurationRequest(
+    private StartupRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4550,7 +4932,7 @@ public final class Agents {
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              uuid_ = s;
+              filepath_ = s;
               break;
             }
             case 18: {
@@ -4603,58 +4985,11 @@ public final class Agents {
             }
             case 82: {
               java.lang.String s = input.readStringRequireUtf8();
-
-              serverip_ = s;
-              break;
-            }
-            case 90: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              serverport_ = s;
-              break;
-            }
-            case 98: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              callbackfrequency_ = s;
-              break;
-            }
-            case 106: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              callbackjitter_ = s;
-              break;
-            }
-            case 114: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              masterkey_ = s;
-              break;
-            }
-            case 122: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              status_ = s;
-              break;
-            }
-            case 130: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                tags_ = new java.util.ArrayList<patronobuf.Agents.Tag>();
+                capabilities_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              tags_.add(
-                  input.readMessage(patronobuf.Agents.Tag.parser(), extensionRegistry));
-              break;
-            }
-            case 136: {
-
-              nextcallbackUnix_ = input.readInt64();
-              break;
-            }
-            case 146: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              transportprotocol_ = s;
+              capabilities_.add(s);
               break;
             }
             default: {
@@ -4675,7 +5010,7 @@ public final class Agents {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          tags_ = java.util.Collections.unmodifiableList(tags_);
+          capabilities_ = capabilities_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -4683,49 +5018,49 @@ public final class Agents {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return patronobuf.Agents.internal_static_patronobuf_ConfigurationRequest_descriptor;
+      return patronobuf.Agents.internal_static_patronobuf_StartupRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return patronobuf.Agents.internal_static_patronobuf_ConfigurationRequest_fieldAccessorTable
+      return patronobuf.Agents.internal_static_patronobuf_StartupRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              patronobuf.Agents.ConfigurationRequest.class, patronobuf.Agents.ConfigurationRequest.Builder.class);
+              patronobuf.Agents.StartupRequest.class, patronobuf.Agents.StartupRequest.Builder.class);
     }
 
-    public static final int UUID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object uuid_;
+    public static final int FILEPATH_FIELD_NUMBER = 1;
+    private volatile java.lang.Object filepath_;
     /**
-     * <code>string uuid = 1;</code>
-     * @return The uuid.
+     * <code>string filepath = 1;</code>
+     * @return The filepath.
      */
     @java.lang.Override
-    public java.lang.String getUuid() {
-      java.lang.Object ref = uuid_;
+    public java.lang.String getFilepath() {
+      java.lang.Object ref = filepath_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        uuid_ = s;
+        filepath_ = s;
         return s;
       }
     }
     /**
-     * <code>string uuid = 1;</code>
-     * @return The bytes for uuid.
+     * <code>string filepath = 1;</code>
+     * @return The bytes for filepath.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getUuidBytes() {
-      java.lang.Object ref = uuid_;
+        getFilepathBytes() {
+      java.lang.Object ref = filepath_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        uuid_ = b;
+        filepath_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -5036,321 +5371,39 @@ public final class Agents {
       }
     }
 
-    public static final int SERVERIP_FIELD_NUMBER = 10;
-    private volatile java.lang.Object serverip_;
+    public static final int CAPABILITIES_FIELD_NUMBER = 10;
+    private com.google.protobuf.LazyStringList capabilities_;
     /**
-     * <code>string serverip = 10;</code>
-     * @return The serverip.
+     * <code>repeated string capabilities = 10;</code>
+     * @return A list containing the capabilities.
      */
-    @java.lang.Override
-    public java.lang.String getServerip() {
-      java.lang.Object ref = serverip_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        serverip_ = s;
-        return s;
-      }
+    public com.google.protobuf.ProtocolStringList
+        getCapabilitiesList() {
+      return capabilities_;
     }
     /**
-     * <code>string serverip = 10;</code>
-     * @return The bytes for serverip.
+     * <code>repeated string capabilities = 10;</code>
+     * @return The count of capabilities.
      */
-    @java.lang.Override
+    public int getCapabilitiesCount() {
+      return capabilities_.size();
+    }
+    /**
+     * <code>repeated string capabilities = 10;</code>
+     * @param index The index of the element to return.
+     * @return The capabilities at the given index.
+     */
+    public java.lang.String getCapabilities(int index) {
+      return capabilities_.get(index);
+    }
+    /**
+     * <code>repeated string capabilities = 10;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the capabilities at the given index.
+     */
     public com.google.protobuf.ByteString
-        getServeripBytes() {
-      java.lang.Object ref = serverip_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        serverip_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SERVERPORT_FIELD_NUMBER = 11;
-    private volatile java.lang.Object serverport_;
-    /**
-     * <code>string serverport = 11;</code>
-     * @return The serverport.
-     */
-    @java.lang.Override
-    public java.lang.String getServerport() {
-      java.lang.Object ref = serverport_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        serverport_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string serverport = 11;</code>
-     * @return The bytes for serverport.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getServerportBytes() {
-      java.lang.Object ref = serverport_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        serverport_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CALLBACKFREQUENCY_FIELD_NUMBER = 12;
-    private volatile java.lang.Object callbackfrequency_;
-    /**
-     * <code>string callbackfrequency = 12;</code>
-     * @return The callbackfrequency.
-     */
-    @java.lang.Override
-    public java.lang.String getCallbackfrequency() {
-      java.lang.Object ref = callbackfrequency_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        callbackfrequency_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string callbackfrequency = 12;</code>
-     * @return The bytes for callbackfrequency.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCallbackfrequencyBytes() {
-      java.lang.Object ref = callbackfrequency_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        callbackfrequency_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CALLBACKJITTER_FIELD_NUMBER = 13;
-    private volatile java.lang.Object callbackjitter_;
-    /**
-     * <code>string callbackjitter = 13;</code>
-     * @return The callbackjitter.
-     */
-    @java.lang.Override
-    public java.lang.String getCallbackjitter() {
-      java.lang.Object ref = callbackjitter_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        callbackjitter_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string callbackjitter = 13;</code>
-     * @return The bytes for callbackjitter.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getCallbackjitterBytes() {
-      java.lang.Object ref = callbackjitter_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        callbackjitter_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int MASTERKEY_FIELD_NUMBER = 14;
-    private volatile java.lang.Object masterkey_;
-    /**
-     * <code>string masterkey = 14;</code>
-     * @return The masterkey.
-     */
-    @java.lang.Override
-    public java.lang.String getMasterkey() {
-      java.lang.Object ref = masterkey_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        masterkey_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string masterkey = 14;</code>
-     * @return The bytes for masterkey.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMasterkeyBytes() {
-      java.lang.Object ref = masterkey_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        masterkey_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int STATUS_FIELD_NUMBER = 15;
-    private volatile java.lang.Object status_;
-    /**
-     * <code>string status = 15;</code>
-     * @return The status.
-     */
-    @java.lang.Override
-    public java.lang.String getStatus() {
-      java.lang.Object ref = status_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        status_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string status = 15;</code>
-     * @return The bytes for status.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getStatusBytes() {
-      java.lang.Object ref = status_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        status_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TAGS_FIELD_NUMBER = 16;
-    private java.util.List<patronobuf.Agents.Tag> tags_;
-    /**
-     * <code>repeated .patronobuf.Tag tags = 16;</code>
-     */
-    @java.lang.Override
-    public java.util.List<patronobuf.Agents.Tag> getTagsList() {
-      return tags_;
-    }
-    /**
-     * <code>repeated .patronobuf.Tag tags = 16;</code>
-     */
-    @java.lang.Override
-    public java.util.List<? extends patronobuf.Agents.TagOrBuilder> 
-        getTagsOrBuilderList() {
-      return tags_;
-    }
-    /**
-     * <code>repeated .patronobuf.Tag tags = 16;</code>
-     */
-    @java.lang.Override
-    public int getTagsCount() {
-      return tags_.size();
-    }
-    /**
-     * <code>repeated .patronobuf.Tag tags = 16;</code>
-     */
-    @java.lang.Override
-    public patronobuf.Agents.Tag getTags(int index) {
-      return tags_.get(index);
-    }
-    /**
-     * <code>repeated .patronobuf.Tag tags = 16;</code>
-     */
-    @java.lang.Override
-    public patronobuf.Agents.TagOrBuilder getTagsOrBuilder(
-        int index) {
-      return tags_.get(index);
-    }
-
-    public static final int NEXTCALLBACK_UNIX_FIELD_NUMBER = 17;
-    private long nextcallbackUnix_;
-    /**
-     * <code>int64 nextcallback_unix = 17;</code>
-     * @return The nextcallbackUnix.
-     */
-    @java.lang.Override
-    public long getNextcallbackUnix() {
-      return nextcallbackUnix_;
-    }
-
-    public static final int TRANSPORTPROTOCOL_FIELD_NUMBER = 18;
-    private volatile java.lang.Object transportprotocol_;
-    /**
-     * <code>string transportprotocol = 18;</code>
-     * @return The transportprotocol.
-     */
-    @java.lang.Override
-    public java.lang.String getTransportprotocol() {
-      java.lang.Object ref = transportprotocol_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        transportprotocol_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string transportprotocol = 18;</code>
-     * @return The bytes for transportprotocol.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getTransportprotocolBytes() {
-      java.lang.Object ref = transportprotocol_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        transportprotocol_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getCapabilitiesBytes(int index) {
+      return capabilities_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5367,8 +5420,8 @@ public final class Agents {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filepath_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filepath_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(username_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, username_);
@@ -5394,32 +5447,8 @@ public final class Agents {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agentip_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, agentip_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverip_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, serverip_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverport_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, serverport_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackfrequency_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, callbackfrequency_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackjitter_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, callbackjitter_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(masterkey_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, masterkey_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, status_);
-      }
-      for (int i = 0; i < tags_.size(); i++) {
-        output.writeMessage(16, tags_.get(i));
-      }
-      if (nextcallbackUnix_ != 0L) {
-        output.writeInt64(17, nextcallbackUnix_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transportprotocol_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 18, transportprotocol_);
+      for (int i = 0; i < capabilities_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, capabilities_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -5430,8 +5459,8 @@ public final class Agents {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filepath_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filepath_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(username_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, username_);
@@ -5457,34 +5486,13 @@ public final class Agents {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agentip_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, agentip_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverip_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, serverip_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverport_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, serverport_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackfrequency_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, callbackfrequency_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackjitter_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, callbackjitter_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(masterkey_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, masterkey_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, status_);
-      }
-      for (int i = 0; i < tags_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(16, tags_.get(i));
-      }
-      if (nextcallbackUnix_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(17, nextcallbackUnix_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transportprotocol_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, transportprotocol_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < capabilities_.size(); i++) {
+          dataSize += computeStringSizeNoTag(capabilities_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getCapabilitiesList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5496,13 +5504,13 @@ public final class Agents {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof patronobuf.Agents.ConfigurationRequest)) {
+      if (!(obj instanceof patronobuf.Agents.StartupRequest)) {
         return super.equals(obj);
       }
-      patronobuf.Agents.ConfigurationRequest other = (patronobuf.Agents.ConfigurationRequest) obj;
+      patronobuf.Agents.StartupRequest other = (patronobuf.Agents.StartupRequest) obj;
 
-      if (!getUuid()
-          .equals(other.getUuid())) return false;
+      if (!getFilepath()
+          .equals(other.getFilepath())) return false;
       if (!getUsername()
           .equals(other.getUsername())) return false;
       if (!getHostname()
@@ -5519,24 +5527,8 @@ public final class Agents {
           .equals(other.getMemory())) return false;
       if (!getAgentip()
           .equals(other.getAgentip())) return false;
-      if (!getServerip()
-          .equals(other.getServerip())) return false;
-      if (!getServerport()
-          .equals(other.getServerport())) return false;
-      if (!getCallbackfrequency()
-          .equals(other.getCallbackfrequency())) return false;
-      if (!getCallbackjitter()
-          .equals(other.getCallbackjitter())) return false;
-      if (!getMasterkey()
-          .equals(other.getMasterkey())) return false;
-      if (!getStatus()
-          .equals(other.getStatus())) return false;
-      if (!getTagsList()
-          .equals(other.getTagsList())) return false;
-      if (getNextcallbackUnix()
-          != other.getNextcallbackUnix()) return false;
-      if (!getTransportprotocol()
-          .equals(other.getTransportprotocol())) return false;
+      if (!getCapabilitiesList()
+          .equals(other.getCapabilitiesList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -5548,8 +5540,8 @@ public final class Agents {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + UUID_FIELD_NUMBER;
-      hash = (53 * hash) + getUuid().hashCode();
+      hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getFilepath().hashCode();
       hash = (37 * hash) + USERNAME_FIELD_NUMBER;
       hash = (53 * hash) + getUsername().hashCode();
       hash = (37 * hash) + HOSTNAME_FIELD_NUMBER;
@@ -5566,95 +5558,78 @@ public final class Agents {
       hash = (53 * hash) + getMemory().hashCode();
       hash = (37 * hash) + AGENTIP_FIELD_NUMBER;
       hash = (53 * hash) + getAgentip().hashCode();
-      hash = (37 * hash) + SERVERIP_FIELD_NUMBER;
-      hash = (53 * hash) + getServerip().hashCode();
-      hash = (37 * hash) + SERVERPORT_FIELD_NUMBER;
-      hash = (53 * hash) + getServerport().hashCode();
-      hash = (37 * hash) + CALLBACKFREQUENCY_FIELD_NUMBER;
-      hash = (53 * hash) + getCallbackfrequency().hashCode();
-      hash = (37 * hash) + CALLBACKJITTER_FIELD_NUMBER;
-      hash = (53 * hash) + getCallbackjitter().hashCode();
-      hash = (37 * hash) + MASTERKEY_FIELD_NUMBER;
-      hash = (53 * hash) + getMasterkey().hashCode();
-      hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + getStatus().hashCode();
-      if (getTagsCount() > 0) {
-        hash = (37 * hash) + TAGS_FIELD_NUMBER;
-        hash = (53 * hash) + getTagsList().hashCode();
+      if (getCapabilitiesCount() > 0) {
+        hash = (37 * hash) + CAPABILITIES_FIELD_NUMBER;
+        hash = (53 * hash) + getCapabilitiesList().hashCode();
       }
-      hash = (37 * hash) + NEXTCALLBACK_UNIX_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getNextcallbackUnix());
-      hash = (37 * hash) + TRANSPORTPROTOCOL_FIELD_NUMBER;
-      hash = (53 * hash) + getTransportprotocol().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static patronobuf.Agents.ConfigurationRequest parseFrom(
+    public static patronobuf.Agents.StartupRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static patronobuf.Agents.ConfigurationRequest parseFrom(
+    public static patronobuf.Agents.StartupRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static patronobuf.Agents.ConfigurationRequest parseFrom(
+    public static patronobuf.Agents.StartupRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static patronobuf.Agents.ConfigurationRequest parseFrom(
+    public static patronobuf.Agents.StartupRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static patronobuf.Agents.ConfigurationRequest parseFrom(byte[] data)
+    public static patronobuf.Agents.StartupRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static patronobuf.Agents.ConfigurationRequest parseFrom(
+    public static patronobuf.Agents.StartupRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static patronobuf.Agents.ConfigurationRequest parseFrom(java.io.InputStream input)
+    public static patronobuf.Agents.StartupRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static patronobuf.Agents.ConfigurationRequest parseFrom(
+    public static patronobuf.Agents.StartupRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static patronobuf.Agents.ConfigurationRequest parseDelimitedFrom(java.io.InputStream input)
+    public static patronobuf.Agents.StartupRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static patronobuf.Agents.ConfigurationRequest parseDelimitedFrom(
+    public static patronobuf.Agents.StartupRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static patronobuf.Agents.ConfigurationRequest parseFrom(
+    public static patronobuf.Agents.StartupRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static patronobuf.Agents.ConfigurationRequest parseFrom(
+    public static patronobuf.Agents.StartupRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5667,7 +5642,7 @@ public final class Agents {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(patronobuf.Agents.ConfigurationRequest prototype) {
+    public static Builder newBuilder(patronobuf.Agents.StartupRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -5683,26 +5658,26 @@ public final class Agents {
       return builder;
     }
     /**
-     * Protobuf type {@code patronobuf.ConfigurationRequest}
+     * Protobuf type {@code patronobuf.StartupRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:patronobuf.ConfigurationRequest)
-        patronobuf.Agents.ConfigurationRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:patronobuf.StartupRequest)
+        patronobuf.Agents.StartupRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return patronobuf.Agents.internal_static_patronobuf_ConfigurationRequest_descriptor;
+        return patronobuf.Agents.internal_static_patronobuf_StartupRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return patronobuf.Agents.internal_static_patronobuf_ConfigurationRequest_fieldAccessorTable
+        return patronobuf.Agents.internal_static_patronobuf_StartupRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                patronobuf.Agents.ConfigurationRequest.class, patronobuf.Agents.ConfigurationRequest.Builder.class);
+                patronobuf.Agents.StartupRequest.class, patronobuf.Agents.StartupRequest.Builder.class);
       }
 
-      // Construct using patronobuf.Agents.ConfigurationRequest.newBuilder()
+      // Construct using patronobuf.Agents.StartupRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -5715,13 +5690,12 @@ public final class Agents {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getTagsFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        uuid_ = "";
+        filepath_ = "";
 
         username_ = "";
 
@@ -5739,45 +5713,25 @@ public final class Agents {
 
         agentip_ = "";
 
-        serverip_ = "";
-
-        serverport_ = "";
-
-        callbackfrequency_ = "";
-
-        callbackjitter_ = "";
-
-        masterkey_ = "";
-
-        status_ = "";
-
-        if (tagsBuilder_ == null) {
-          tags_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          tagsBuilder_.clear();
-        }
-        nextcallbackUnix_ = 0L;
-
-        transportprotocol_ = "";
-
+        capabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return patronobuf.Agents.internal_static_patronobuf_ConfigurationRequest_descriptor;
+        return patronobuf.Agents.internal_static_patronobuf_StartupRequest_descriptor;
       }
 
       @java.lang.Override
-      public patronobuf.Agents.ConfigurationRequest getDefaultInstanceForType() {
-        return patronobuf.Agents.ConfigurationRequest.getDefaultInstance();
+      public patronobuf.Agents.StartupRequest getDefaultInstanceForType() {
+        return patronobuf.Agents.StartupRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public patronobuf.Agents.ConfigurationRequest build() {
-        patronobuf.Agents.ConfigurationRequest result = buildPartial();
+      public patronobuf.Agents.StartupRequest build() {
+        patronobuf.Agents.StartupRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -5785,10 +5739,10 @@ public final class Agents {
       }
 
       @java.lang.Override
-      public patronobuf.Agents.ConfigurationRequest buildPartial() {
-        patronobuf.Agents.ConfigurationRequest result = new patronobuf.Agents.ConfigurationRequest(this);
+      public patronobuf.Agents.StartupRequest buildPartial() {
+        patronobuf.Agents.StartupRequest result = new patronobuf.Agents.StartupRequest(this);
         int from_bitField0_ = bitField0_;
-        result.uuid_ = uuid_;
+        result.filepath_ = filepath_;
         result.username_ = username_;
         result.hostname_ = hostname_;
         result.ostype_ = ostype_;
@@ -5797,23 +5751,11 @@ public final class Agents {
         result.cpus_ = cpus_;
         result.memory_ = memory_;
         result.agentip_ = agentip_;
-        result.serverip_ = serverip_;
-        result.serverport_ = serverport_;
-        result.callbackfrequency_ = callbackfrequency_;
-        result.callbackjitter_ = callbackjitter_;
-        result.masterkey_ = masterkey_;
-        result.status_ = status_;
-        if (tagsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
-            tags_ = java.util.Collections.unmodifiableList(tags_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.tags_ = tags_;
-        } else {
-          result.tags_ = tagsBuilder_.build();
+        if (((bitField0_ & 0x00000001) != 0)) {
+          capabilities_ = capabilities_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.nextcallbackUnix_ = nextcallbackUnix_;
-        result.transportprotocol_ = transportprotocol_;
+        result.capabilities_ = capabilities_;
         onBuilt();
         return result;
       }
@@ -5852,18 +5794,18 @@ public final class Agents {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof patronobuf.Agents.ConfigurationRequest) {
-          return mergeFrom((patronobuf.Agents.ConfigurationRequest)other);
+        if (other instanceof patronobuf.Agents.StartupRequest) {
+          return mergeFrom((patronobuf.Agents.StartupRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(patronobuf.Agents.ConfigurationRequest other) {
-        if (other == patronobuf.Agents.ConfigurationRequest.getDefaultInstance()) return this;
-        if (!other.getUuid().isEmpty()) {
-          uuid_ = other.uuid_;
+      public Builder mergeFrom(patronobuf.Agents.StartupRequest other) {
+        if (other == patronobuf.Agents.StartupRequest.getDefaultInstance()) return this;
+        if (!other.getFilepath().isEmpty()) {
+          filepath_ = other.filepath_;
           onChanged();
         }
         if (!other.getUsername().isEmpty()) {
@@ -5898,61 +5840,14 @@ public final class Agents {
           agentip_ = other.agentip_;
           onChanged();
         }
-        if (!other.getServerip().isEmpty()) {
-          serverip_ = other.serverip_;
-          onChanged();
-        }
-        if (!other.getServerport().isEmpty()) {
-          serverport_ = other.serverport_;
-          onChanged();
-        }
-        if (!other.getCallbackfrequency().isEmpty()) {
-          callbackfrequency_ = other.callbackfrequency_;
-          onChanged();
-        }
-        if (!other.getCallbackjitter().isEmpty()) {
-          callbackjitter_ = other.callbackjitter_;
-          onChanged();
-        }
-        if (!other.getMasterkey().isEmpty()) {
-          masterkey_ = other.masterkey_;
-          onChanged();
-        }
-        if (!other.getStatus().isEmpty()) {
-          status_ = other.status_;
-          onChanged();
-        }
-        if (tagsBuilder_ == null) {
-          if (!other.tags_.isEmpty()) {
-            if (tags_.isEmpty()) {
-              tags_ = other.tags_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureTagsIsMutable();
-              tags_.addAll(other.tags_);
-            }
-            onChanged();
+        if (!other.capabilities_.isEmpty()) {
+          if (capabilities_.isEmpty()) {
+            capabilities_ = other.capabilities_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureCapabilitiesIsMutable();
+            capabilities_.addAll(other.capabilities_);
           }
-        } else {
-          if (!other.tags_.isEmpty()) {
-            if (tagsBuilder_.isEmpty()) {
-              tagsBuilder_.dispose();
-              tagsBuilder_ = null;
-              tags_ = other.tags_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              tagsBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getTagsFieldBuilder() : null;
-            } else {
-              tagsBuilder_.addAllMessages(other.tags_);
-            }
-          }
-        }
-        if (other.getNextcallbackUnix() != 0L) {
-          setNextcallbackUnix(other.getNextcallbackUnix());
-        }
-        if (!other.getTransportprotocol().isEmpty()) {
-          transportprotocol_ = other.transportprotocol_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -5970,11 +5865,11 @@ public final class Agents {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        patronobuf.Agents.ConfigurationRequest parsedMessage = null;
+        patronobuf.Agents.StartupRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (patronobuf.Agents.ConfigurationRequest) e.getUnfinishedMessage();
+          parsedMessage = (patronobuf.Agents.StartupRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5985,78 +5880,78 @@ public final class Agents {
       }
       private int bitField0_;
 
-      private java.lang.Object uuid_ = "";
+      private java.lang.Object filepath_ = "";
       /**
-       * <code>string uuid = 1;</code>
-       * @return The uuid.
+       * <code>string filepath = 1;</code>
+       * @return The filepath.
        */
-      public java.lang.String getUuid() {
-        java.lang.Object ref = uuid_;
+      public java.lang.String getFilepath() {
+        java.lang.Object ref = filepath_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          uuid_ = s;
+          filepath_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string uuid = 1;</code>
-       * @return The bytes for uuid.
+       * <code>string filepath = 1;</code>
+       * @return The bytes for filepath.
        */
       public com.google.protobuf.ByteString
-          getUuidBytes() {
-        java.lang.Object ref = uuid_;
+          getFilepathBytes() {
+        java.lang.Object ref = filepath_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          uuid_ = b;
+          filepath_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string uuid = 1;</code>
-       * @param value The uuid to set.
+       * <code>string filepath = 1;</code>
+       * @param value The filepath to set.
        * @return This builder for chaining.
        */
-      public Builder setUuid(
+      public Builder setFilepath(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        uuid_ = value;
+        filepath_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string uuid = 1;</code>
+       * <code>string filepath = 1;</code>
        * @return This builder for chaining.
        */
-      public Builder clearUuid() {
+      public Builder clearFilepath() {
         
-        uuid_ = getDefaultInstance().getUuid();
+        filepath_ = getDefaultInstance().getFilepath();
         onChanged();
         return this;
       }
       /**
-       * <code>string uuid = 1;</code>
-       * @param value The bytes for uuid to set.
+       * <code>string filepath = 1;</code>
+       * @param value The bytes for filepath to set.
        * @return This builder for chaining.
        */
-      public Builder setUuidBytes(
+      public Builder setFilepathBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        uuid_ = value;
+        filepath_ = value;
         onChanged();
         return this;
       }
@@ -6669,805 +6564,112 @@ public final class Agents {
         return this;
       }
 
-      private java.lang.Object serverip_ = "";
-      /**
-       * <code>string serverip = 10;</code>
-       * @return The serverip.
-       */
-      public java.lang.String getServerip() {
-        java.lang.Object ref = serverip_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          serverip_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string serverip = 10;</code>
-       * @return The bytes for serverip.
-       */
-      public com.google.protobuf.ByteString
-          getServeripBytes() {
-        java.lang.Object ref = serverip_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          serverip_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string serverip = 10;</code>
-       * @param value The serverip to set.
-       * @return This builder for chaining.
-       */
-      public Builder setServerip(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        serverip_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string serverip = 10;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearServerip() {
-        
-        serverip_ = getDefaultInstance().getServerip();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string serverip = 10;</code>
-       * @param value The bytes for serverip to set.
-       * @return This builder for chaining.
-       */
-      public Builder setServeripBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        serverip_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object serverport_ = "";
-      /**
-       * <code>string serverport = 11;</code>
-       * @return The serverport.
-       */
-      public java.lang.String getServerport() {
-        java.lang.Object ref = serverport_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          serverport_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string serverport = 11;</code>
-       * @return The bytes for serverport.
-       */
-      public com.google.protobuf.ByteString
-          getServerportBytes() {
-        java.lang.Object ref = serverport_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          serverport_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string serverport = 11;</code>
-       * @param value The serverport to set.
-       * @return This builder for chaining.
-       */
-      public Builder setServerport(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        serverport_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string serverport = 11;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearServerport() {
-        
-        serverport_ = getDefaultInstance().getServerport();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string serverport = 11;</code>
-       * @param value The bytes for serverport to set.
-       * @return This builder for chaining.
-       */
-      public Builder setServerportBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        serverport_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object callbackfrequency_ = "";
-      /**
-       * <code>string callbackfrequency = 12;</code>
-       * @return The callbackfrequency.
-       */
-      public java.lang.String getCallbackfrequency() {
-        java.lang.Object ref = callbackfrequency_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          callbackfrequency_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string callbackfrequency = 12;</code>
-       * @return The bytes for callbackfrequency.
-       */
-      public com.google.protobuf.ByteString
-          getCallbackfrequencyBytes() {
-        java.lang.Object ref = callbackfrequency_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          callbackfrequency_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string callbackfrequency = 12;</code>
-       * @param value The callbackfrequency to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCallbackfrequency(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        callbackfrequency_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string callbackfrequency = 12;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCallbackfrequency() {
-        
-        callbackfrequency_ = getDefaultInstance().getCallbackfrequency();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string callbackfrequency = 12;</code>
-       * @param value The bytes for callbackfrequency to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCallbackfrequencyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        callbackfrequency_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object callbackjitter_ = "";
-      /**
-       * <code>string callbackjitter = 13;</code>
-       * @return The callbackjitter.
-       */
-      public java.lang.String getCallbackjitter() {
-        java.lang.Object ref = callbackjitter_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          callbackjitter_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string callbackjitter = 13;</code>
-       * @return The bytes for callbackjitter.
-       */
-      public com.google.protobuf.ByteString
-          getCallbackjitterBytes() {
-        java.lang.Object ref = callbackjitter_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          callbackjitter_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string callbackjitter = 13;</code>
-       * @param value The callbackjitter to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCallbackjitter(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        callbackjitter_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string callbackjitter = 13;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCallbackjitter() {
-        
-        callbackjitter_ = getDefaultInstance().getCallbackjitter();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string callbackjitter = 13;</code>
-       * @param value The bytes for callbackjitter to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCallbackjitterBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        callbackjitter_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object masterkey_ = "";
-      /**
-       * <code>string masterkey = 14;</code>
-       * @return The masterkey.
-       */
-      public java.lang.String getMasterkey() {
-        java.lang.Object ref = masterkey_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          masterkey_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string masterkey = 14;</code>
-       * @return The bytes for masterkey.
-       */
-      public com.google.protobuf.ByteString
-          getMasterkeyBytes() {
-        java.lang.Object ref = masterkey_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          masterkey_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string masterkey = 14;</code>
-       * @param value The masterkey to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMasterkey(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        masterkey_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string masterkey = 14;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearMasterkey() {
-        
-        masterkey_ = getDefaultInstance().getMasterkey();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string masterkey = 14;</code>
-       * @param value The bytes for masterkey to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMasterkeyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        masterkey_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object status_ = "";
-      /**
-       * <code>string status = 15;</code>
-       * @return The status.
-       */
-      public java.lang.String getStatus() {
-        java.lang.Object ref = status_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          status_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string status = 15;</code>
-       * @return The bytes for status.
-       */
-      public com.google.protobuf.ByteString
-          getStatusBytes() {
-        java.lang.Object ref = status_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          status_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string status = 15;</code>
-       * @param value The status to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStatus(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        status_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string status = 15;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearStatus() {
-        
-        status_ = getDefaultInstance().getStatus();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string status = 15;</code>
-       * @param value The bytes for status to set.
-       * @return This builder for chaining.
-       */
-      public Builder setStatusBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        status_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<patronobuf.Agents.Tag> tags_ =
-        java.util.Collections.emptyList();
-      private void ensureTagsIsMutable() {
+      private com.google.protobuf.LazyStringList capabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureCapabilitiesIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          tags_ = new java.util.ArrayList<patronobuf.Agents.Tag>(tags_);
+          capabilities_ = new com.google.protobuf.LazyStringArrayList(capabilities_);
           bitField0_ |= 0x00000001;
          }
       }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          patronobuf.Agents.Tag, patronobuf.Agents.Tag.Builder, patronobuf.Agents.TagOrBuilder> tagsBuilder_;
-
       /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
+       * <code>repeated string capabilities = 10;</code>
+       * @return A list containing the capabilities.
        */
-      public java.util.List<patronobuf.Agents.Tag> getTagsList() {
-        if (tagsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(tags_);
-        } else {
-          return tagsBuilder_.getMessageList();
-        }
+      public com.google.protobuf.ProtocolStringList
+          getCapabilitiesList() {
+        return capabilities_.getUnmodifiableView();
       }
       /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
+       * <code>repeated string capabilities = 10;</code>
+       * @return The count of capabilities.
        */
-      public int getTagsCount() {
-        if (tagsBuilder_ == null) {
-          return tags_.size();
-        } else {
-          return tagsBuilder_.getCount();
-        }
+      public int getCapabilitiesCount() {
+        return capabilities_.size();
       }
       /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
+       * <code>repeated string capabilities = 10;</code>
+       * @param index The index of the element to return.
+       * @return The capabilities at the given index.
        */
-      public patronobuf.Agents.Tag getTags(int index) {
-        if (tagsBuilder_ == null) {
-          return tags_.get(index);
-        } else {
-          return tagsBuilder_.getMessage(index);
-        }
+      public java.lang.String getCapabilities(int index) {
+        return capabilities_.get(index);
       }
       /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public Builder setTags(
-          int index, patronobuf.Agents.Tag value) {
-        if (tagsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTagsIsMutable();
-          tags_.set(index, value);
-          onChanged();
-        } else {
-          tagsBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public Builder setTags(
-          int index, patronobuf.Agents.Tag.Builder builderForValue) {
-        if (tagsBuilder_ == null) {
-          ensureTagsIsMutable();
-          tags_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          tagsBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public Builder addTags(patronobuf.Agents.Tag value) {
-        if (tagsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTagsIsMutable();
-          tags_.add(value);
-          onChanged();
-        } else {
-          tagsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public Builder addTags(
-          int index, patronobuf.Agents.Tag value) {
-        if (tagsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureTagsIsMutable();
-          tags_.add(index, value);
-          onChanged();
-        } else {
-          tagsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public Builder addTags(
-          patronobuf.Agents.Tag.Builder builderForValue) {
-        if (tagsBuilder_ == null) {
-          ensureTagsIsMutable();
-          tags_.add(builderForValue.build());
-          onChanged();
-        } else {
-          tagsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public Builder addTags(
-          int index, patronobuf.Agents.Tag.Builder builderForValue) {
-        if (tagsBuilder_ == null) {
-          ensureTagsIsMutable();
-          tags_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          tagsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public Builder addAllTags(
-          java.lang.Iterable<? extends patronobuf.Agents.Tag> values) {
-        if (tagsBuilder_ == null) {
-          ensureTagsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, tags_);
-          onChanged();
-        } else {
-          tagsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public Builder clearTags() {
-        if (tagsBuilder_ == null) {
-          tags_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          tagsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public Builder removeTags(int index) {
-        if (tagsBuilder_ == null) {
-          ensureTagsIsMutable();
-          tags_.remove(index);
-          onChanged();
-        } else {
-          tagsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public patronobuf.Agents.Tag.Builder getTagsBuilder(
-          int index) {
-        return getTagsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public patronobuf.Agents.TagOrBuilder getTagsOrBuilder(
-          int index) {
-        if (tagsBuilder_ == null) {
-          return tags_.get(index);  } else {
-          return tagsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public java.util.List<? extends patronobuf.Agents.TagOrBuilder> 
-           getTagsOrBuilderList() {
-        if (tagsBuilder_ != null) {
-          return tagsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(tags_);
-        }
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public patronobuf.Agents.Tag.Builder addTagsBuilder() {
-        return getTagsFieldBuilder().addBuilder(
-            patronobuf.Agents.Tag.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public patronobuf.Agents.Tag.Builder addTagsBuilder(
-          int index) {
-        return getTagsFieldBuilder().addBuilder(
-            index, patronobuf.Agents.Tag.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .patronobuf.Tag tags = 16;</code>
-       */
-      public java.util.List<patronobuf.Agents.Tag.Builder> 
-           getTagsBuilderList() {
-        return getTagsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          patronobuf.Agents.Tag, patronobuf.Agents.Tag.Builder, patronobuf.Agents.TagOrBuilder> 
-          getTagsFieldBuilder() {
-        if (tagsBuilder_ == null) {
-          tagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              patronobuf.Agents.Tag, patronobuf.Agents.Tag.Builder, patronobuf.Agents.TagOrBuilder>(
-                  tags_,
-                  ((bitField0_ & 0x00000001) != 0),
-                  getParentForChildren(),
-                  isClean());
-          tags_ = null;
-        }
-        return tagsBuilder_;
-      }
-
-      private long nextcallbackUnix_ ;
-      /**
-       * <code>int64 nextcallback_unix = 17;</code>
-       * @return The nextcallbackUnix.
-       */
-      @java.lang.Override
-      public long getNextcallbackUnix() {
-        return nextcallbackUnix_;
-      }
-      /**
-       * <code>int64 nextcallback_unix = 17;</code>
-       * @param value The nextcallbackUnix to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNextcallbackUnix(long value) {
-        
-        nextcallbackUnix_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int64 nextcallback_unix = 17;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearNextcallbackUnix() {
-        
-        nextcallbackUnix_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object transportprotocol_ = "";
-      /**
-       * <code>string transportprotocol = 18;</code>
-       * @return The transportprotocol.
-       */
-      public java.lang.String getTransportprotocol() {
-        java.lang.Object ref = transportprotocol_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          transportprotocol_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string transportprotocol = 18;</code>
-       * @return The bytes for transportprotocol.
+       * <code>repeated string capabilities = 10;</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the capabilities at the given index.
        */
       public com.google.protobuf.ByteString
-          getTransportprotocolBytes() {
-        java.lang.Object ref = transportprotocol_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          transportprotocol_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getCapabilitiesBytes(int index) {
+        return capabilities_.getByteString(index);
       }
       /**
-       * <code>string transportprotocol = 18;</code>
-       * @param value The transportprotocol to set.
+       * <code>repeated string capabilities = 10;</code>
+       * @param index The index to set the value at.
+       * @param value The capabilities to set.
        * @return This builder for chaining.
        */
-      public Builder setTransportprotocol(
+      public Builder setCapabilities(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCapabilitiesIsMutable();
+        capabilities_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string capabilities = 10;</code>
+       * @param value The capabilities to add.
+       * @return This builder for chaining.
+       */
+      public Builder addCapabilities(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
-        transportprotocol_ = value;
+  ensureCapabilitiesIsMutable();
+        capabilities_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>string transportprotocol = 18;</code>
+       * <code>repeated string capabilities = 10;</code>
+       * @param values The capabilities to add.
        * @return This builder for chaining.
        */
-      public Builder clearTransportprotocol() {
-        
-        transportprotocol_ = getDefaultInstance().getTransportprotocol();
+      public Builder addAllCapabilities(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureCapabilitiesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, capabilities_);
         onChanged();
         return this;
       }
       /**
-       * <code>string transportprotocol = 18;</code>
-       * @param value The bytes for transportprotocol to set.
+       * <code>repeated string capabilities = 10;</code>
        * @return This builder for chaining.
        */
-      public Builder setTransportprotocolBytes(
+      public Builder clearCapabilities() {
+        capabilities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string capabilities = 10;</code>
+       * @param value The bytes of the capabilities to add.
+       * @return This builder for chaining.
+       */
+      public Builder addCapabilitiesBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-        
-        transportprotocol_ = value;
+        ensureCapabilitiesIsMutable();
+        capabilities_.add(value);
         onChanged();
         return this;
       }
@@ -7484,48 +6686,618 @@ public final class Agents {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:patronobuf.ConfigurationRequest)
+      // @@protoc_insertion_point(builder_scope:patronobuf.StartupRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:patronobuf.ConfigurationRequest)
-    private static final patronobuf.Agents.ConfigurationRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:patronobuf.StartupRequest)
+    private static final patronobuf.Agents.StartupRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new patronobuf.Agents.ConfigurationRequest();
+      DEFAULT_INSTANCE = new patronobuf.Agents.StartupRequest();
     }
 
-    public static patronobuf.Agents.ConfigurationRequest getDefaultInstance() {
+    public static patronobuf.Agents.StartupRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ConfigurationRequest>
-        PARSER = new com.google.protobuf.AbstractParser<ConfigurationRequest>() {
+    private static final com.google.protobuf.Parser<StartupRequest>
+        PARSER = new com.google.protobuf.AbstractParser<StartupRequest>() {
       @java.lang.Override
-      public ConfigurationRequest parsePartialFrom(
+      public StartupRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ConfigurationRequest(input, extensionRegistry);
+        return new StartupRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ConfigurationRequest> parser() {
+    public static com.google.protobuf.Parser<StartupRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ConfigurationRequest> getParserForType() {
+    public com.google.protobuf.Parser<StartupRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public patronobuf.Agents.ConfigurationRequest getDefaultInstanceForType() {
+    public patronobuf.Agents.StartupRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface ConfigurationResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:patronobuf.ConfigurationResponse)
+  public interface StartupResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:patronobuf.StartupResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    java.lang.String getUuid();
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    com.google.protobuf.ByteString
+        getUuidBytes();
+  }
+  /**
+   * Protobuf type {@code patronobuf.StartupResponse}
+   */
+  public static final class StartupResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:patronobuf.StartupResponse)
+      StartupResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use StartupResponse.newBuilder() to construct.
+    private StartupResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StartupResponse() {
+      uuid_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new StartupResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private StartupResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              uuid_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return patronobuf.Agents.internal_static_patronobuf_StartupResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return patronobuf.Agents.internal_static_patronobuf_StartupResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              patronobuf.Agents.StartupResponse.class, patronobuf.Agents.StartupResponse.Builder.class);
+    }
+
+    public static final int UUID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object uuid_;
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The uuid.
+     */
+    @java.lang.Override
+    public java.lang.String getUuid() {
+      java.lang.Object ref = uuid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uuid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string uuid = 1;</code>
+     * @return The bytes for uuid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUuidBytes() {
+      java.lang.Object ref = uuid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uuid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uuid_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(uuid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uuid_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof patronobuf.Agents.StartupResponse)) {
+        return super.equals(obj);
+      }
+      patronobuf.Agents.StartupResponse other = (patronobuf.Agents.StartupResponse) obj;
+
+      if (!getUuid()
+          .equals(other.getUuid())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + UUID_FIELD_NUMBER;
+      hash = (53 * hash) + getUuid().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static patronobuf.Agents.StartupResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.StartupResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.StartupResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.StartupResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.StartupResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.StartupResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.StartupResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.StartupResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static patronobuf.Agents.StartupResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.StartupResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static patronobuf.Agents.StartupResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.StartupResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(patronobuf.Agents.StartupResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code patronobuf.StartupResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:patronobuf.StartupResponse)
+        patronobuf.Agents.StartupResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return patronobuf.Agents.internal_static_patronobuf_StartupResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return patronobuf.Agents.internal_static_patronobuf_StartupResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                patronobuf.Agents.StartupResponse.class, patronobuf.Agents.StartupResponse.Builder.class);
+      }
+
+      // Construct using patronobuf.Agents.StartupResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        uuid_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return patronobuf.Agents.internal_static_patronobuf_StartupResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.StartupResponse getDefaultInstanceForType() {
+        return patronobuf.Agents.StartupResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.StartupResponse build() {
+        patronobuf.Agents.StartupResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.StartupResponse buildPartial() {
+        patronobuf.Agents.StartupResponse result = new patronobuf.Agents.StartupResponse(this);
+        result.uuid_ = uuid_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof patronobuf.Agents.StartupResponse) {
+          return mergeFrom((patronobuf.Agents.StartupResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(patronobuf.Agents.StartupResponse other) {
+        if (other == patronobuf.Agents.StartupResponse.getDefaultInstance()) return this;
+        if (!other.getUuid().isEmpty()) {
+          uuid_ = other.uuid_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        patronobuf.Agents.StartupResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (patronobuf.Agents.StartupResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object uuid_ = "";
+      /**
+       * <code>string uuid = 1;</code>
+       * @return The uuid.
+       */
+      public java.lang.String getUuid() {
+        java.lang.Object ref = uuid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uuid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @return The bytes for uuid.
+       */
+      public com.google.protobuf.ByteString
+          getUuidBytes() {
+        java.lang.Object ref = uuid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uuid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @param value The uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUuid() {
+        
+        uuid_ = getDefaultInstance().getUuid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uuid = 1;</code>
+       * @param value The bytes for uuid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUuidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uuid_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:patronobuf.StartupResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:patronobuf.StartupResponse)
+    private static final patronobuf.Agents.StartupResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new patronobuf.Agents.StartupResponse();
+    }
+
+    public static patronobuf.Agents.StartupResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StartupResponse>
+        PARSER = new com.google.protobuf.AbstractParser<StartupResponse>() {
+      @java.lang.Override
+      public StartupResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new StartupResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StartupResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StartupResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public patronobuf.Agents.StartupResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ConfigurationRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:patronobuf.ConfigurationRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -7589,35 +7361,92 @@ public final class Agents {
         getCallbackjitterBytes();
 
     /**
-     * <code>string transportprotocol = 6;</code>
+     * <code>string masterkey = 6;</code>
+     * @return The masterkey.
+     */
+    java.lang.String getMasterkey();
+    /**
+     * <code>string masterkey = 6;</code>
+     * @return The bytes for masterkey.
+     */
+    com.google.protobuf.ByteString
+        getMasterkeyBytes();
+
+    /**
+     * <code>string status = 7;</code>
+     * @return The status.
+     */
+    java.lang.String getStatus();
+    /**
+     * <code>string status = 7;</code>
+     * @return The bytes for status.
+     */
+    com.google.protobuf.ByteString
+        getStatusBytes();
+
+    /**
+     * <code>repeated .patronobuf.Tag tags = 8;</code>
+     */
+    java.util.List<patronobuf.Agents.Tag> 
+        getTagsList();
+    /**
+     * <code>repeated .patronobuf.Tag tags = 8;</code>
+     */
+    patronobuf.Agents.Tag getTags(int index);
+    /**
+     * <code>repeated .patronobuf.Tag tags = 8;</code>
+     */
+    int getTagsCount();
+    /**
+     * <code>repeated .patronobuf.Tag tags = 8;</code>
+     */
+    java.util.List<? extends patronobuf.Agents.TagOrBuilder> 
+        getTagsOrBuilderList();
+    /**
+     * <code>repeated .patronobuf.Tag tags = 8;</code>
+     */
+    patronobuf.Agents.TagOrBuilder getTagsOrBuilder(
+        int index);
+
+    /**
+     * <code>int64 nextcallback_unix = 9;</code>
+     * @return The nextcallbackUnix.
+     */
+    long getNextcallbackUnix();
+
+    /**
+     * <code>string transportprotocol = 10;</code>
      * @return The transportprotocol.
      */
     java.lang.String getTransportprotocol();
     /**
-     * <code>string transportprotocol = 6;</code>
+     * <code>string transportprotocol = 10;</code>
      * @return The bytes for transportprotocol.
      */
     com.google.protobuf.ByteString
         getTransportprotocolBytes();
   }
   /**
-   * Protobuf type {@code patronobuf.ConfigurationResponse}
+   * Protobuf type {@code patronobuf.ConfigurationRequest}
    */
-  public static final class ConfigurationResponse extends
+  public static final class ConfigurationRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:patronobuf.ConfigurationResponse)
-      ConfigurationResponseOrBuilder {
+      // @@protoc_insertion_point(message_implements:patronobuf.ConfigurationRequest)
+      ConfigurationRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use ConfigurationResponse.newBuilder() to construct.
-    private ConfigurationResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ConfigurationRequest.newBuilder() to construct.
+    private ConfigurationRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ConfigurationResponse() {
+    private ConfigurationRequest() {
       uuid_ = "";
       serverip_ = "";
       serverport_ = "";
       callbackfrequency_ = "";
       callbackjitter_ = "";
+      masterkey_ = "";
+      status_ = "";
+      tags_ = java.util.Collections.emptyList();
       transportprotocol_ = "";
     }
 
@@ -7625,7 +7454,7 @@ public final class Agents {
     @SuppressWarnings({"unused"})
     protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
-      return new ConfigurationResponse();
+      return new ConfigurationRequest();
     }
 
     @java.lang.Override
@@ -7633,7 +7462,7 @@ public final class Agents {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ConfigurationResponse(
+    private ConfigurationRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7641,6 +7470,7 @@ public final class Agents {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -7684,6 +7514,32 @@ public final class Agents {
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
+              masterkey_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              status_ = s;
+              break;
+            }
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                tags_ = new java.util.ArrayList<patronobuf.Agents.Tag>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              tags_.add(
+                  input.readMessage(patronobuf.Agents.Tag.parser(), extensionRegistry));
+              break;
+            }
+            case 72: {
+
+              nextcallbackUnix_ = input.readInt64();
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
               transportprotocol_ = s;
               break;
             }
@@ -7704,21 +7560,24 @@ public final class Agents {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          tags_ = java.util.Collections.unmodifiableList(tags_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return patronobuf.Agents.internal_static_patronobuf_ConfigurationResponse_descriptor;
+      return patronobuf.Agents.internal_static_patronobuf_ConfigurationRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return patronobuf.Agents.internal_static_patronobuf_ConfigurationResponse_fieldAccessorTable
+      return patronobuf.Agents.internal_static_patronobuf_ConfigurationRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              patronobuf.Agents.ConfigurationResponse.class, patronobuf.Agents.ConfigurationResponse.Builder.class);
+              patronobuf.Agents.ConfigurationRequest.class, patronobuf.Agents.ConfigurationRequest.Builder.class);
     }
 
     public static final int UUID_FIELD_NUMBER = 1;
@@ -7911,10 +7770,137 @@ public final class Agents {
       }
     }
 
-    public static final int TRANSPORTPROTOCOL_FIELD_NUMBER = 6;
+    public static final int MASTERKEY_FIELD_NUMBER = 6;
+    private volatile java.lang.Object masterkey_;
+    /**
+     * <code>string masterkey = 6;</code>
+     * @return The masterkey.
+     */
+    @java.lang.Override
+    public java.lang.String getMasterkey() {
+      java.lang.Object ref = masterkey_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        masterkey_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string masterkey = 6;</code>
+     * @return The bytes for masterkey.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMasterkeyBytes() {
+      java.lang.Object ref = masterkey_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        masterkey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 7;
+    private volatile java.lang.Object status_;
+    /**
+     * <code>string status = 7;</code>
+     * @return The status.
+     */
+    @java.lang.Override
+    public java.lang.String getStatus() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        status_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string status = 7;</code>
+     * @return The bytes for status.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStatusBytes() {
+      java.lang.Object ref = status_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        status_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TAGS_FIELD_NUMBER = 8;
+    private java.util.List<patronobuf.Agents.Tag> tags_;
+    /**
+     * <code>repeated .patronobuf.Tag tags = 8;</code>
+     */
+    @java.lang.Override
+    public java.util.List<patronobuf.Agents.Tag> getTagsList() {
+      return tags_;
+    }
+    /**
+     * <code>repeated .patronobuf.Tag tags = 8;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends patronobuf.Agents.TagOrBuilder> 
+        getTagsOrBuilderList() {
+      return tags_;
+    }
+    /**
+     * <code>repeated .patronobuf.Tag tags = 8;</code>
+     */
+    @java.lang.Override
+    public int getTagsCount() {
+      return tags_.size();
+    }
+    /**
+     * <code>repeated .patronobuf.Tag tags = 8;</code>
+     */
+    @java.lang.Override
+    public patronobuf.Agents.Tag getTags(int index) {
+      return tags_.get(index);
+    }
+    /**
+     * <code>repeated .patronobuf.Tag tags = 8;</code>
+     */
+    @java.lang.Override
+    public patronobuf.Agents.TagOrBuilder getTagsOrBuilder(
+        int index) {
+      return tags_.get(index);
+    }
+
+    public static final int NEXTCALLBACK_UNIX_FIELD_NUMBER = 9;
+    private long nextcallbackUnix_;
+    /**
+     * <code>int64 nextcallback_unix = 9;</code>
+     * @return The nextcallbackUnix.
+     */
+    @java.lang.Override
+    public long getNextcallbackUnix() {
+      return nextcallbackUnix_;
+    }
+
+    public static final int TRANSPORTPROTOCOL_FIELD_NUMBER = 10;
     private volatile java.lang.Object transportprotocol_;
     /**
-     * <code>string transportprotocol = 6;</code>
+     * <code>string transportprotocol = 10;</code>
      * @return The transportprotocol.
      */
     @java.lang.Override
@@ -7931,7 +7917,7 @@ public final class Agents {
       }
     }
     /**
-     * <code>string transportprotocol = 6;</code>
+     * <code>string transportprotocol = 10;</code>
      * @return The bytes for transportprotocol.
      */
     @java.lang.Override
@@ -7978,8 +7964,20 @@ public final class Agents {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackjitter_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, callbackjitter_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(masterkey_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, masterkey_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, status_);
+      }
+      for (int i = 0; i < tags_.size(); i++) {
+        output.writeMessage(8, tags_.get(i));
+      }
+      if (nextcallbackUnix_ != 0L) {
+        output.writeInt64(9, nextcallbackUnix_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transportprotocol_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, transportprotocol_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, transportprotocol_);
       }
       unknownFields.writeTo(output);
     }
@@ -8005,8 +8003,22 @@ public final class Agents {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(callbackjitter_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, callbackjitter_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(masterkey_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, masterkey_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(status_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, status_);
+      }
+      for (int i = 0; i < tags_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, tags_.get(i));
+      }
+      if (nextcallbackUnix_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(9, nextcallbackUnix_);
+      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transportprotocol_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, transportprotocol_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, transportprotocol_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8018,10 +8030,10 @@ public final class Agents {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof patronobuf.Agents.ConfigurationResponse)) {
+      if (!(obj instanceof patronobuf.Agents.ConfigurationRequest)) {
         return super.equals(obj);
       }
-      patronobuf.Agents.ConfigurationResponse other = (patronobuf.Agents.ConfigurationResponse) obj;
+      patronobuf.Agents.ConfigurationRequest other = (patronobuf.Agents.ConfigurationRequest) obj;
 
       if (!getUuid()
           .equals(other.getUuid())) return false;
@@ -8033,6 +8045,14 @@ public final class Agents {
           .equals(other.getCallbackfrequency())) return false;
       if (!getCallbackjitter()
           .equals(other.getCallbackjitter())) return false;
+      if (!getMasterkey()
+          .equals(other.getMasterkey())) return false;
+      if (!getStatus()
+          .equals(other.getStatus())) return false;
+      if (!getTagsList()
+          .equals(other.getTagsList())) return false;
+      if (getNextcallbackUnix()
+          != other.getNextcallbackUnix()) return false;
       if (!getTransportprotocol()
           .equals(other.getTransportprotocol())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -8056,6 +8076,17 @@ public final class Agents {
       hash = (53 * hash) + getCallbackfrequency().hashCode();
       hash = (37 * hash) + CALLBACKJITTER_FIELD_NUMBER;
       hash = (53 * hash) + getCallbackjitter().hashCode();
+      hash = (37 * hash) + MASTERKEY_FIELD_NUMBER;
+      hash = (53 * hash) + getMasterkey().hashCode();
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getStatus().hashCode();
+      if (getTagsCount() > 0) {
+        hash = (37 * hash) + TAGS_FIELD_NUMBER;
+        hash = (53 * hash) + getTagsList().hashCode();
+      }
+      hash = (37 * hash) + NEXTCALLBACK_UNIX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getNextcallbackUnix());
       hash = (37 * hash) + TRANSPORTPROTOCOL_FIELD_NUMBER;
       hash = (53 * hash) + getTransportprotocol().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -8063,69 +8094,69 @@ public final class Agents {
       return hash;
     }
 
-    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+    public static patronobuf.Agents.ConfigurationRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+    public static patronobuf.Agents.ConfigurationRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+    public static patronobuf.Agents.ConfigurationRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+    public static patronobuf.Agents.ConfigurationRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static patronobuf.Agents.ConfigurationResponse parseFrom(byte[] data)
+    public static patronobuf.Agents.ConfigurationRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+    public static patronobuf.Agents.ConfigurationRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static patronobuf.Agents.ConfigurationResponse parseFrom(java.io.InputStream input)
+    public static patronobuf.Agents.ConfigurationRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+    public static patronobuf.Agents.ConfigurationRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static patronobuf.Agents.ConfigurationResponse parseDelimitedFrom(java.io.InputStream input)
+    public static patronobuf.Agents.ConfigurationRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static patronobuf.Agents.ConfigurationResponse parseDelimitedFrom(
+    public static patronobuf.Agents.ConfigurationRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+    public static patronobuf.Agents.ConfigurationRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+    public static patronobuf.Agents.ConfigurationRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8138,7 +8169,7 @@ public final class Agents {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(patronobuf.Agents.ConfigurationResponse prototype) {
+    public static Builder newBuilder(patronobuf.Agents.ConfigurationRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -8154,26 +8185,26 @@ public final class Agents {
       return builder;
     }
     /**
-     * Protobuf type {@code patronobuf.ConfigurationResponse}
+     * Protobuf type {@code patronobuf.ConfigurationRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:patronobuf.ConfigurationResponse)
-        patronobuf.Agents.ConfigurationResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:patronobuf.ConfigurationRequest)
+        patronobuf.Agents.ConfigurationRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return patronobuf.Agents.internal_static_patronobuf_ConfigurationResponse_descriptor;
+        return patronobuf.Agents.internal_static_patronobuf_ConfigurationRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return patronobuf.Agents.internal_static_patronobuf_ConfigurationResponse_fieldAccessorTable
+        return patronobuf.Agents.internal_static_patronobuf_ConfigurationRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                patronobuf.Agents.ConfigurationResponse.class, patronobuf.Agents.ConfigurationResponse.Builder.class);
+                patronobuf.Agents.ConfigurationRequest.class, patronobuf.Agents.ConfigurationRequest.Builder.class);
       }
 
-      // Construct using patronobuf.Agents.ConfigurationResponse.newBuilder()
+      // Construct using patronobuf.Agents.ConfigurationRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -8186,6 +8217,7 @@ public final class Agents {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getTagsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -8201,6 +8233,18 @@ public final class Agents {
 
         callbackjitter_ = "";
 
+        masterkey_ = "";
+
+        status_ = "";
+
+        if (tagsBuilder_ == null) {
+          tags_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          tagsBuilder_.clear();
+        }
+        nextcallbackUnix_ = 0L;
+
         transportprotocol_ = "";
 
         return this;
@@ -8209,17 +8253,17 @@ public final class Agents {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return patronobuf.Agents.internal_static_patronobuf_ConfigurationResponse_descriptor;
+        return patronobuf.Agents.internal_static_patronobuf_ConfigurationRequest_descriptor;
       }
 
       @java.lang.Override
-      public patronobuf.Agents.ConfigurationResponse getDefaultInstanceForType() {
-        return patronobuf.Agents.ConfigurationResponse.getDefaultInstance();
+      public patronobuf.Agents.ConfigurationRequest getDefaultInstanceForType() {
+        return patronobuf.Agents.ConfigurationRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public patronobuf.Agents.ConfigurationResponse build() {
-        patronobuf.Agents.ConfigurationResponse result = buildPartial();
+      public patronobuf.Agents.ConfigurationRequest build() {
+        patronobuf.Agents.ConfigurationRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -8227,13 +8271,26 @@ public final class Agents {
       }
 
       @java.lang.Override
-      public patronobuf.Agents.ConfigurationResponse buildPartial() {
-        patronobuf.Agents.ConfigurationResponse result = new patronobuf.Agents.ConfigurationResponse(this);
+      public patronobuf.Agents.ConfigurationRequest buildPartial() {
+        patronobuf.Agents.ConfigurationRequest result = new patronobuf.Agents.ConfigurationRequest(this);
+        int from_bitField0_ = bitField0_;
         result.uuid_ = uuid_;
         result.serverip_ = serverip_;
         result.serverport_ = serverport_;
         result.callbackfrequency_ = callbackfrequency_;
         result.callbackjitter_ = callbackjitter_;
+        result.masterkey_ = masterkey_;
+        result.status_ = status_;
+        if (tagsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            tags_ = java.util.Collections.unmodifiableList(tags_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.tags_ = tags_;
+        } else {
+          result.tags_ = tagsBuilder_.build();
+        }
+        result.nextcallbackUnix_ = nextcallbackUnix_;
         result.transportprotocol_ = transportprotocol_;
         onBuilt();
         return result;
@@ -8273,16 +8330,16 @@ public final class Agents {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof patronobuf.Agents.ConfigurationResponse) {
-          return mergeFrom((patronobuf.Agents.ConfigurationResponse)other);
+        if (other instanceof patronobuf.Agents.ConfigurationRequest) {
+          return mergeFrom((patronobuf.Agents.ConfigurationRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(patronobuf.Agents.ConfigurationResponse other) {
-        if (other == patronobuf.Agents.ConfigurationResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(patronobuf.Agents.ConfigurationRequest other) {
+        if (other == patronobuf.Agents.ConfigurationRequest.getDefaultInstance()) return this;
         if (!other.getUuid().isEmpty()) {
           uuid_ = other.uuid_;
           onChanged();
@@ -8303,6 +8360,43 @@ public final class Agents {
           callbackjitter_ = other.callbackjitter_;
           onChanged();
         }
+        if (!other.getMasterkey().isEmpty()) {
+          masterkey_ = other.masterkey_;
+          onChanged();
+        }
+        if (!other.getStatus().isEmpty()) {
+          status_ = other.status_;
+          onChanged();
+        }
+        if (tagsBuilder_ == null) {
+          if (!other.tags_.isEmpty()) {
+            if (tags_.isEmpty()) {
+              tags_ = other.tags_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureTagsIsMutable();
+              tags_.addAll(other.tags_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.tags_.isEmpty()) {
+            if (tagsBuilder_.isEmpty()) {
+              tagsBuilder_.dispose();
+              tagsBuilder_ = null;
+              tags_ = other.tags_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              tagsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTagsFieldBuilder() : null;
+            } else {
+              tagsBuilder_.addAllMessages(other.tags_);
+            }
+          }
+        }
+        if (other.getNextcallbackUnix() != 0L) {
+          setNextcallbackUnix(other.getNextcallbackUnix());
+        }
         if (!other.getTransportprotocol().isEmpty()) {
           transportprotocol_ = other.transportprotocol_;
           onChanged();
@@ -8322,11 +8416,11 @@ public final class Agents {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        patronobuf.Agents.ConfigurationResponse parsedMessage = null;
+        patronobuf.Agents.ConfigurationRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (patronobuf.Agents.ConfigurationResponse) e.getUnfinishedMessage();
+          parsedMessage = (patronobuf.Agents.ConfigurationRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -8335,6 +8429,7 @@ public final class Agents {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object uuid_ = "";
       /**
@@ -8716,6 +8811,1339 @@ public final class Agents {
         return this;
       }
 
+      private java.lang.Object masterkey_ = "";
+      /**
+       * <code>string masterkey = 6;</code>
+       * @return The masterkey.
+       */
+      public java.lang.String getMasterkey() {
+        java.lang.Object ref = masterkey_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          masterkey_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string masterkey = 6;</code>
+       * @return The bytes for masterkey.
+       */
+      public com.google.protobuf.ByteString
+          getMasterkeyBytes() {
+        java.lang.Object ref = masterkey_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          masterkey_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string masterkey = 6;</code>
+       * @param value The masterkey to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMasterkey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        masterkey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string masterkey = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMasterkey() {
+        
+        masterkey_ = getDefaultInstance().getMasterkey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string masterkey = 6;</code>
+       * @param value The bytes for masterkey to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMasterkeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        masterkey_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object status_ = "";
+      /**
+       * <code>string status = 7;</code>
+       * @return The status.
+       */
+      public java.lang.String getStatus() {
+        java.lang.Object ref = status_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          status_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string status = 7;</code>
+       * @return The bytes for status.
+       */
+      public com.google.protobuf.ByteString
+          getStatusBytes() {
+        java.lang.Object ref = status_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          status_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string status = 7;</code>
+       * @param value The status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatus(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string status = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStatus() {
+        
+        status_ = getDefaultInstance().getStatus();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string status = 7;</code>
+       * @param value The bytes for status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatusBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        status_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<patronobuf.Agents.Tag> tags_ =
+        java.util.Collections.emptyList();
+      private void ensureTagsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          tags_ = new java.util.ArrayList<patronobuf.Agents.Tag>(tags_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          patronobuf.Agents.Tag, patronobuf.Agents.Tag.Builder, patronobuf.Agents.TagOrBuilder> tagsBuilder_;
+
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public java.util.List<patronobuf.Agents.Tag> getTagsList() {
+        if (tagsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(tags_);
+        } else {
+          return tagsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public int getTagsCount() {
+        if (tagsBuilder_ == null) {
+          return tags_.size();
+        } else {
+          return tagsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public patronobuf.Agents.Tag getTags(int index) {
+        if (tagsBuilder_ == null) {
+          return tags_.get(index);
+        } else {
+          return tagsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public Builder setTags(
+          int index, patronobuf.Agents.Tag value) {
+        if (tagsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTagsIsMutable();
+          tags_.set(index, value);
+          onChanged();
+        } else {
+          tagsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public Builder setTags(
+          int index, patronobuf.Agents.Tag.Builder builderForValue) {
+        if (tagsBuilder_ == null) {
+          ensureTagsIsMutable();
+          tags_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          tagsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public Builder addTags(patronobuf.Agents.Tag value) {
+        if (tagsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTagsIsMutable();
+          tags_.add(value);
+          onChanged();
+        } else {
+          tagsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public Builder addTags(
+          int index, patronobuf.Agents.Tag value) {
+        if (tagsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTagsIsMutable();
+          tags_.add(index, value);
+          onChanged();
+        } else {
+          tagsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public Builder addTags(
+          patronobuf.Agents.Tag.Builder builderForValue) {
+        if (tagsBuilder_ == null) {
+          ensureTagsIsMutable();
+          tags_.add(builderForValue.build());
+          onChanged();
+        } else {
+          tagsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public Builder addTags(
+          int index, patronobuf.Agents.Tag.Builder builderForValue) {
+        if (tagsBuilder_ == null) {
+          ensureTagsIsMutable();
+          tags_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          tagsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public Builder addAllTags(
+          java.lang.Iterable<? extends patronobuf.Agents.Tag> values) {
+        if (tagsBuilder_ == null) {
+          ensureTagsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, tags_);
+          onChanged();
+        } else {
+          tagsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public Builder clearTags() {
+        if (tagsBuilder_ == null) {
+          tags_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          tagsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public Builder removeTags(int index) {
+        if (tagsBuilder_ == null) {
+          ensureTagsIsMutable();
+          tags_.remove(index);
+          onChanged();
+        } else {
+          tagsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public patronobuf.Agents.Tag.Builder getTagsBuilder(
+          int index) {
+        return getTagsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public patronobuf.Agents.TagOrBuilder getTagsOrBuilder(
+          int index) {
+        if (tagsBuilder_ == null) {
+          return tags_.get(index);  } else {
+          return tagsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public java.util.List<? extends patronobuf.Agents.TagOrBuilder> 
+           getTagsOrBuilderList() {
+        if (tagsBuilder_ != null) {
+          return tagsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(tags_);
+        }
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public patronobuf.Agents.Tag.Builder addTagsBuilder() {
+        return getTagsFieldBuilder().addBuilder(
+            patronobuf.Agents.Tag.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public patronobuf.Agents.Tag.Builder addTagsBuilder(
+          int index) {
+        return getTagsFieldBuilder().addBuilder(
+            index, patronobuf.Agents.Tag.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .patronobuf.Tag tags = 8;</code>
+       */
+      public java.util.List<patronobuf.Agents.Tag.Builder> 
+           getTagsBuilderList() {
+        return getTagsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          patronobuf.Agents.Tag, patronobuf.Agents.Tag.Builder, patronobuf.Agents.TagOrBuilder> 
+          getTagsFieldBuilder() {
+        if (tagsBuilder_ == null) {
+          tagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              patronobuf.Agents.Tag, patronobuf.Agents.Tag.Builder, patronobuf.Agents.TagOrBuilder>(
+                  tags_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          tags_ = null;
+        }
+        return tagsBuilder_;
+      }
+
+      private long nextcallbackUnix_ ;
+      /**
+       * <code>int64 nextcallback_unix = 9;</code>
+       * @return The nextcallbackUnix.
+       */
+      @java.lang.Override
+      public long getNextcallbackUnix() {
+        return nextcallbackUnix_;
+      }
+      /**
+       * <code>int64 nextcallback_unix = 9;</code>
+       * @param value The nextcallbackUnix to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNextcallbackUnix(long value) {
+        
+        nextcallbackUnix_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 nextcallback_unix = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNextcallbackUnix() {
+        
+        nextcallbackUnix_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object transportprotocol_ = "";
+      /**
+       * <code>string transportprotocol = 10;</code>
+       * @return The transportprotocol.
+       */
+      public java.lang.String getTransportprotocol() {
+        java.lang.Object ref = transportprotocol_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          transportprotocol_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string transportprotocol = 10;</code>
+       * @return The bytes for transportprotocol.
+       */
+      public com.google.protobuf.ByteString
+          getTransportprotocolBytes() {
+        java.lang.Object ref = transportprotocol_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          transportprotocol_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string transportprotocol = 10;</code>
+       * @param value The transportprotocol to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTransportprotocol(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        transportprotocol_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string transportprotocol = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTransportprotocol() {
+        
+        transportprotocol_ = getDefaultInstance().getTransportprotocol();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string transportprotocol = 10;</code>
+       * @param value The bytes for transportprotocol to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTransportprotocolBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        transportprotocol_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:patronobuf.ConfigurationRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:patronobuf.ConfigurationRequest)
+    private static final patronobuf.Agents.ConfigurationRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new patronobuf.Agents.ConfigurationRequest();
+    }
+
+    public static patronobuf.Agents.ConfigurationRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ConfigurationRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ConfigurationRequest>() {
+      @java.lang.Override
+      public ConfigurationRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ConfigurationRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ConfigurationRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ConfigurationRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public patronobuf.Agents.ConfigurationRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ConfigurationResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:patronobuf.ConfigurationResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string serverip = 2;</code>
+     * @return The serverip.
+     */
+    java.lang.String getServerip();
+    /**
+     * <code>string serverip = 2;</code>
+     * @return The bytes for serverip.
+     */
+    com.google.protobuf.ByteString
+        getServeripBytes();
+
+    /**
+     * <code>string serverport = 3;</code>
+     * @return The serverport.
+     */
+    java.lang.String getServerport();
+    /**
+     * <code>string serverport = 3;</code>
+     * @return The bytes for serverport.
+     */
+    com.google.protobuf.ByteString
+        getServerportBytes();
+
+    /**
+     * <code>string transportprotocol = 6;</code>
+     * @return The transportprotocol.
+     */
+    java.lang.String getTransportprotocol();
+    /**
+     * <code>string transportprotocol = 6;</code>
+     * @return The bytes for transportprotocol.
+     */
+    com.google.protobuf.ByteString
+        getTransportprotocolBytes();
+
+    /**
+     * <code>int64 sleep_seconds = 7;</code>
+     * @return The sleepSeconds.
+     */
+    long getSleepSeconds();
+  }
+  /**
+   * Protobuf type {@code patronobuf.ConfigurationResponse}
+   */
+  public static final class ConfigurationResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:patronobuf.ConfigurationResponse)
+      ConfigurationResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ConfigurationResponse.newBuilder() to construct.
+    private ConfigurationResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ConfigurationResponse() {
+      serverip_ = "";
+      serverport_ = "";
+      transportprotocol_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ConfigurationResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ConfigurationResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              serverip_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              serverport_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              transportprotocol_ = s;
+              break;
+            }
+            case 56: {
+
+              sleepSeconds_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return patronobuf.Agents.internal_static_patronobuf_ConfigurationResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return patronobuf.Agents.internal_static_patronobuf_ConfigurationResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              patronobuf.Agents.ConfigurationResponse.class, patronobuf.Agents.ConfigurationResponse.Builder.class);
+    }
+
+    public static final int SERVERIP_FIELD_NUMBER = 2;
+    private volatile java.lang.Object serverip_;
+    /**
+     * <code>string serverip = 2;</code>
+     * @return The serverip.
+     */
+    @java.lang.Override
+    public java.lang.String getServerip() {
+      java.lang.Object ref = serverip_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serverip_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string serverip = 2;</code>
+     * @return The bytes for serverip.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getServeripBytes() {
+      java.lang.Object ref = serverip_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serverip_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SERVERPORT_FIELD_NUMBER = 3;
+    private volatile java.lang.Object serverport_;
+    /**
+     * <code>string serverport = 3;</code>
+     * @return The serverport.
+     */
+    @java.lang.Override
+    public java.lang.String getServerport() {
+      java.lang.Object ref = serverport_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serverport_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string serverport = 3;</code>
+     * @return The bytes for serverport.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getServerportBytes() {
+      java.lang.Object ref = serverport_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serverport_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TRANSPORTPROTOCOL_FIELD_NUMBER = 6;
+    private volatile java.lang.Object transportprotocol_;
+    /**
+     * <code>string transportprotocol = 6;</code>
+     * @return The transportprotocol.
+     */
+    @java.lang.Override
+    public java.lang.String getTransportprotocol() {
+      java.lang.Object ref = transportprotocol_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        transportprotocol_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string transportprotocol = 6;</code>
+     * @return The bytes for transportprotocol.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTransportprotocolBytes() {
+      java.lang.Object ref = transportprotocol_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        transportprotocol_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SLEEP_SECONDS_FIELD_NUMBER = 7;
+    private long sleepSeconds_;
+    /**
+     * <code>int64 sleep_seconds = 7;</code>
+     * @return The sleepSeconds.
+     */
+    @java.lang.Override
+    public long getSleepSeconds() {
+      return sleepSeconds_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverip_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, serverip_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverport_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, serverport_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transportprotocol_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, transportprotocol_);
+      }
+      if (sleepSeconds_ != 0L) {
+        output.writeInt64(7, sleepSeconds_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverip_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, serverip_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serverport_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, serverport_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transportprotocol_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, transportprotocol_);
+      }
+      if (sleepSeconds_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, sleepSeconds_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof patronobuf.Agents.ConfigurationResponse)) {
+        return super.equals(obj);
+      }
+      patronobuf.Agents.ConfigurationResponse other = (patronobuf.Agents.ConfigurationResponse) obj;
+
+      if (!getServerip()
+          .equals(other.getServerip())) return false;
+      if (!getServerport()
+          .equals(other.getServerport())) return false;
+      if (!getTransportprotocol()
+          .equals(other.getTransportprotocol())) return false;
+      if (getSleepSeconds()
+          != other.getSleepSeconds()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SERVERIP_FIELD_NUMBER;
+      hash = (53 * hash) + getServerip().hashCode();
+      hash = (37 * hash) + SERVERPORT_FIELD_NUMBER;
+      hash = (53 * hash) + getServerport().hashCode();
+      hash = (37 * hash) + TRANSPORTPROTOCOL_FIELD_NUMBER;
+      hash = (53 * hash) + getTransportprotocol().hashCode();
+      hash = (37 * hash) + SLEEP_SECONDS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getSleepSeconds());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.ConfigurationResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static patronobuf.Agents.ConfigurationResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static patronobuf.Agents.ConfigurationResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.ConfigurationResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static patronobuf.Agents.ConfigurationResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(patronobuf.Agents.ConfigurationResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code patronobuf.ConfigurationResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:patronobuf.ConfigurationResponse)
+        patronobuf.Agents.ConfigurationResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return patronobuf.Agents.internal_static_patronobuf_ConfigurationResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return patronobuf.Agents.internal_static_patronobuf_ConfigurationResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                patronobuf.Agents.ConfigurationResponse.class, patronobuf.Agents.ConfigurationResponse.Builder.class);
+      }
+
+      // Construct using patronobuf.Agents.ConfigurationResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        serverip_ = "";
+
+        serverport_ = "";
+
+        transportprotocol_ = "";
+
+        sleepSeconds_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return patronobuf.Agents.internal_static_patronobuf_ConfigurationResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.ConfigurationResponse getDefaultInstanceForType() {
+        return patronobuf.Agents.ConfigurationResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.ConfigurationResponse build() {
+        patronobuf.Agents.ConfigurationResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public patronobuf.Agents.ConfigurationResponse buildPartial() {
+        patronobuf.Agents.ConfigurationResponse result = new patronobuf.Agents.ConfigurationResponse(this);
+        result.serverip_ = serverip_;
+        result.serverport_ = serverport_;
+        result.transportprotocol_ = transportprotocol_;
+        result.sleepSeconds_ = sleepSeconds_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof patronobuf.Agents.ConfigurationResponse) {
+          return mergeFrom((patronobuf.Agents.ConfigurationResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(patronobuf.Agents.ConfigurationResponse other) {
+        if (other == patronobuf.Agents.ConfigurationResponse.getDefaultInstance()) return this;
+        if (!other.getServerip().isEmpty()) {
+          serverip_ = other.serverip_;
+          onChanged();
+        }
+        if (!other.getServerport().isEmpty()) {
+          serverport_ = other.serverport_;
+          onChanged();
+        }
+        if (!other.getTransportprotocol().isEmpty()) {
+          transportprotocol_ = other.transportprotocol_;
+          onChanged();
+        }
+        if (other.getSleepSeconds() != 0L) {
+          setSleepSeconds(other.getSleepSeconds());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        patronobuf.Agents.ConfigurationResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (patronobuf.Agents.ConfigurationResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object serverip_ = "";
+      /**
+       * <code>string serverip = 2;</code>
+       * @return The serverip.
+       */
+      public java.lang.String getServerip() {
+        java.lang.Object ref = serverip_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serverip_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string serverip = 2;</code>
+       * @return The bytes for serverip.
+       */
+      public com.google.protobuf.ByteString
+          getServeripBytes() {
+        java.lang.Object ref = serverip_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serverip_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string serverip = 2;</code>
+       * @param value The serverip to set.
+       * @return This builder for chaining.
+       */
+      public Builder setServerip(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serverip_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string serverip = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearServerip() {
+        
+        serverip_ = getDefaultInstance().getServerip();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string serverip = 2;</code>
+       * @param value The bytes for serverip to set.
+       * @return This builder for chaining.
+       */
+      public Builder setServeripBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serverip_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object serverport_ = "";
+      /**
+       * <code>string serverport = 3;</code>
+       * @return The serverport.
+       */
+      public java.lang.String getServerport() {
+        java.lang.Object ref = serverport_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serverport_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string serverport = 3;</code>
+       * @return The bytes for serverport.
+       */
+      public com.google.protobuf.ByteString
+          getServerportBytes() {
+        java.lang.Object ref = serverport_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serverport_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string serverport = 3;</code>
+       * @param value The serverport to set.
+       * @return This builder for chaining.
+       */
+      public Builder setServerport(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serverport_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string serverport = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearServerport() {
+        
+        serverport_ = getDefaultInstance().getServerport();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string serverport = 3;</code>
+       * @param value The bytes for serverport to set.
+       * @return This builder for chaining.
+       */
+      public Builder setServerportBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serverport_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object transportprotocol_ = "";
       /**
        * <code>string transportprotocol = 6;</code>
@@ -8788,6 +10216,37 @@ public final class Agents {
   checkByteStringIsUtf8(value);
         
         transportprotocol_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long sleepSeconds_ ;
+      /**
+       * <code>int64 sleep_seconds = 7;</code>
+       * @return The sleepSeconds.
+       */
+      @java.lang.Override
+      public long getSleepSeconds() {
+        return sleepSeconds_;
+      }
+      /**
+       * <code>int64 sleep_seconds = 7;</code>
+       * @param value The sleepSeconds to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSleepSeconds(long value) {
+        
+        sleepSeconds_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 sleep_seconds = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSleepSeconds() {
+        
+        sleepSeconds_ = 0L;
         onChanged();
         return this;
       }
@@ -17673,6 +19132,16 @@ public final class Agents {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_patronobuf_Response_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_patronobuf_StartupRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_patronobuf_StartupRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_patronobuf_StartupResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_patronobuf_StartupResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_patronobuf_ConfigurationRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -17746,65 +19215,70 @@ public final class Agents {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014agents.proto\022\npatronobuf\"\347\002\n\007Request\022%" +
-      "\n\004type\030\001 \001(\0162\027.patronobuf.RequestType\0229\n" +
-      "\rconfiguration\030\002 \001(\0132 .patronobuf.Config" +
-      "urationRequestH\000\022-\n\007command\030\003 \001(\0132\032.patr" +
-      "onobuf.CommandRequestH\000\022:\n\016command_statu" +
-      "s\030\004 \001(\0132 .patronobuf.CommandStatusReques" +
-      "tH\000\022\'\n\004keys\030\005 \001(\0132\027.patronobuf.KeysReque" +
-      "stH\000\022\'\n\004file\030\006 \001(\0132\027.patronobuf.FileRequ" +
-      "estH\000\0222\n\016file_to_server\030\007 \001(\0132\030.patronob" +
-      "uf.FileToServerH\000B\t\n\007payload\"\270\003\n\010Respons" +
-      "e\022&\n\004type\030\001 \001(\0162\030.patronobuf.ResponseTyp" +
-      "e\022C\n\026configuration_response\030\002 \001(\0132!.patr" +
-      "onobuf.ConfigurationResponseH\000\0227\n\020comman" +
-      "d_response\030\003 \001(\0132\033.patronobuf.CommandRes" +
-      "ponseH\000\022D\n\027command_status_response\030\004 \001(\013" +
-      "2!.patronobuf.CommandStatusResponseH\000\0221\n" +
-      "\rkeys_response\030\005 \001(\0132\030.patronobuf.KeysRe" +
-      "sponseH\000\0221\n\rfile_response\030\006 \001(\0132\030.patron" +
-      "obuf.FileResponseH\000\022O\n\035file_transfer_sta" +
-      "tus_response\030\007 \001(\0132&.patronobuf.FileTran" +
-      "sferStatusResponseH\000B\t\n\007payload\"\367\002\n\024Conf" +
-      "igurationRequest\022\014\n\004uuid\030\001 \001(\t\022\020\n\010userna" +
-      "me\030\002 \001(\t\022\020\n\010hostname\030\003 \001(\t\022\016\n\006ostype\030\004 \001" +
-      "(\t\022\014\n\004arch\030\005 \001(\t\022\017\n\007osbuild\030\006 \001(\t\022\014\n\004cpu" +
-      "s\030\007 \001(\t\022\016\n\006memory\030\010 \001(\t\022\017\n\007agentip\030\t \001(\t" +
-      "\022\020\n\010serverip\030\n \001(\t\022\022\n\nserverport\030\013 \001(\t\022\031" +
-      "\n\021callbackfrequency\030\014 \001(\t\022\026\n\016callbackjit" +
-      "ter\030\r \001(\t\022\021\n\tmasterkey\030\016 \001(\t\022\016\n\006status\030\017" +
-      " \001(\t\022\035\n\004tags\030\020 \003(\0132\017.patronobuf.Tag\022\031\n\021n" +
-      "extcallback_unix\030\021 \001(\003\022\031\n\021transportproto" +
-      "col\030\022 \001(\t\"\231\001\n\025ConfigurationResponse\022\014\n\004u" +
-      "uid\030\001 \001(\t\022\020\n\010serverip\030\002 \001(\t\022\022\n\nserverpor" +
-      "t\030\003 \001(\t\022\031\n\021callbackfrequency\030\004 \001(\t\022\026\n\016ca" +
-      "llbackjitter\030\005 \001(\t\022\031\n\021transportprotocol\030" +
-      "\006 \001(\t\"\036\n\016CommandRequest\022\014\n\004uuid\030\001 \001(\t\"X\n" +
-      "\017CommandResponse\022\014\n\004uuid\030\001 \001(\t\022\023\n\013comman" +
-      "dtype\030\002 \001(\t\022\021\n\tcommandid\030\003 \001(\t\022\017\n\007comman" +
-      "d\030\004 \001(\t\"W\n\024CommandStatusRequest\022\014\n\004uuid\030" +
-      "\001 \001(\t\022\021\n\tcommandid\030\002 \001(\t\022\016\n\006result\030\003 \001(\t" +
-      "\022\016\n\006output\030\004 \001(\t\"%\n\025CommandStatusRespons" +
-      "e\022\014\n\004uuid\030\001 \001(\t\")\n\013KeysRequest\022\014\n\004uuid\030\001" +
-      " \001(\t\022\014\n\004keys\030\002 \001(\t\"\034\n\014KeysResponse\022\014\n\004uu" +
-      "id\030\001 \001(\t\"\033\n\013FileRequest\022\014\n\004uuid\030\001 \001(\t\"c\n" +
-      "\014FileResponse\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 " +
-      "\001(\t\022\024\n\014transfertype\030\003 \001(\t\022\020\n\010filepath\030\004 " +
-      "\001(\t\022\r\n\005chunk\030\005 \001(\014\"o\n\014FileToServer\022\016\n\006fi" +
-      "leid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014transfertype" +
-      "\030\003 \001(\t\022\014\n\004path\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022\r\n\005" +
-      "chunk\030\006 \001(\014\":\n\032FileTransferStatusRespons" +
-      "e\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\"!\n\003Tag\022\013" +
-      "\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t*i\n\013RequestTyp" +
-      "e\022\021\n\rCONFIGURATION\020\000\022\013\n\007COMMAND\020\001\022\022\n\016COM" +
-      "MAND_STATUS\020\002\022\010\n\004KEYS\020\003\022\010\n\004FILE\020\004\022\022\n\016FIL" +
-      "E_TO_SERVER\020\005*\235\001\n\014ResponseType\022\032\n\026CONFIG" +
-      "URATION_RESPONSE\020\000\022\024\n\020COMMAND_RESPONSE\020\001" +
-      "\022\033\n\027COMMAND_STATUS_RESPONSE\020\002\022\021\n\rKEYS_RE" +
-      "SPONSE\020\003\022\021\n\rFILE_RESPONSE\020\004\022\030\n\024FILE_TRAN" +
-      "SFER_STATUS\020\005B.Z,github.com/PatronC2/Pat" +
-      "ronobuf/go/patronobufb\006proto3"
+      "\n\014agents.proto\022\npatronobuf\"\226\003\n\007Request\022%" +
+      "\n\004type\030\001 \001(\0162\027.patronobuf.RequestType\022-\n" +
+      "\007startup\030\002 \001(\0132\032.patronobuf.StartupReque" +
+      "stH\000\0229\n\rconfiguration\030\003 \001(\0132 .patronobuf" +
+      ".ConfigurationRequestH\000\022-\n\007command\030\004 \001(\013" +
+      "2\032.patronobuf.CommandRequestH\000\022:\n\016comman" +
+      "d_status\030\005 \001(\0132 .patronobuf.CommandStatu" +
+      "sRequestH\000\022\'\n\004keys\030\006 \001(\0132\027.patronobuf.Ke" +
+      "ysRequestH\000\022\'\n\004file\030\007 \001(\0132\027.patronobuf.F" +
+      "ileRequestH\000\0222\n\016file_to_server\030\010 \001(\0132\030.p" +
+      "atronobuf.FileToServerH\000B\t\n\007payload\"\361\003\n\010" +
+      "Response\022&\n\004type\030\001 \001(\0162\030.patronobuf.Resp" +
+      "onseType\0227\n\020startup_response\030\002 \001(\0132\033.pat" +
+      "ronobuf.StartupResponseH\000\022C\n\026configurati" +
+      "on_response\030\003 \001(\0132!.patronobuf.Configura" +
+      "tionResponseH\000\0227\n\020command_response\030\004 \001(\013" +
+      "2\033.patronobuf.CommandResponseH\000\022D\n\027comma" +
+      "nd_status_response\030\005 \001(\0132!.patronobuf.Co" +
+      "mmandStatusResponseH\000\0221\n\rkeys_response\030\006" +
+      " \001(\0132\030.patronobuf.KeysResponseH\000\0221\n\rfile" +
+      "_response\030\007 \001(\0132\030.patronobuf.FileRespons" +
+      "eH\000\022O\n\035file_transfer_status_response\030\010 \001" +
+      "(\0132&.patronobuf.FileTransferStatusRespon" +
+      "seH\000B\t\n\007payload\"\272\001\n\016StartupRequest\022\020\n\010fi" +
+      "lepath\030\001 \001(\t\022\020\n\010username\030\002 \001(\t\022\020\n\010hostna" +
+      "me\030\003 \001(\t\022\016\n\006ostype\030\004 \001(\t\022\014\n\004arch\030\005 \001(\t\022\017" +
+      "\n\007osbuild\030\006 \001(\t\022\014\n\004cpus\030\007 \001(\t\022\016\n\006memory\030" +
+      "\010 \001(\t\022\017\n\007agentip\030\t \001(\t\022\024\n\014capabilities\030\n" +
+      " \003(\t\"\037\n\017StartupResponse\022\014\n\004uuid\030\001 \001(\t\"\365\001" +
+      "\n\024ConfigurationRequest\022\014\n\004uuid\030\001 \001(\t\022\020\n\010" +
+      "serverip\030\002 \001(\t\022\022\n\nserverport\030\003 \001(\t\022\031\n\021ca" +
+      "llbackfrequency\030\004 \001(\t\022\026\n\016callbackjitter\030" +
+      "\005 \001(\t\022\021\n\tmasterkey\030\006 \001(\t\022\016\n\006status\030\007 \001(\t" +
+      "\022\035\n\004tags\030\010 \003(\0132\017.patronobuf.Tag\022\031\n\021nextc" +
+      "allback_unix\030\t \001(\003\022\031\n\021transportprotocol\030" +
+      "\n \001(\t\"o\n\025ConfigurationResponse\022\020\n\010server" +
+      "ip\030\002 \001(\t\022\022\n\nserverport\030\003 \001(\t\022\031\n\021transpor" +
+      "tprotocol\030\006 \001(\t\022\025\n\rsleep_seconds\030\007 \001(\003\"\036" +
+      "\n\016CommandRequest\022\014\n\004uuid\030\001 \001(\t\"X\n\017Comman" +
+      "dResponse\022\014\n\004uuid\030\001 \001(\t\022\023\n\013commandtype\030\002" +
+      " \001(\t\022\021\n\tcommandid\030\003 \001(\t\022\017\n\007command\030\004 \001(\t" +
+      "\"W\n\024CommandStatusRequest\022\014\n\004uuid\030\001 \001(\t\022\021" +
+      "\n\tcommandid\030\002 \001(\t\022\016\n\006result\030\003 \001(\t\022\016\n\006out" +
+      "put\030\004 \001(\t\"%\n\025CommandStatusResponse\022\014\n\004uu" +
+      "id\030\001 \001(\t\")\n\013KeysRequest\022\014\n\004uuid\030\001 \001(\t\022\014\n" +
+      "\004keys\030\002 \001(\t\"\034\n\014KeysResponse\022\014\n\004uuid\030\001 \001(" +
+      "\t\"\033\n\013FileRequest\022\014\n\004uuid\030\001 \001(\t\"c\n\014FileRe" +
+      "sponse\022\016\n\006fileid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014" +
+      "transfertype\030\003 \001(\t\022\020\n\010filepath\030\004 \001(\t\022\r\n\005" +
+      "chunk\030\005 \001(\014\"o\n\014FileToServer\022\016\n\006fileid\030\001 " +
+      "\001(\t\022\014\n\004uuid\030\002 \001(\t\022\024\n\014transfertype\030\003 \001(\t\022" +
+      "\014\n\004path\030\004 \001(\t\022\016\n\006status\030\005 \001(\t\022\r\n\005chunk\030\006" +
+      " \001(\014\":\n\032FileTransferStatusResponse\022\016\n\006fi" +
+      "leid\030\001 \001(\t\022\014\n\004uuid\030\002 \001(\t\"!\n\003Tag\022\013\n\003key\030\001" +
+      " \001(\t\022\r\n\005value\030\002 \001(\t*v\n\013RequestType\022\013\n\007ST" +
+      "ARTUP\020\000\022\021\n\rCONFIGURATION\020\001\022\013\n\007COMMAND\020\002\022" +
+      "\022\n\016COMMAND_STATUS\020\003\022\010\n\004KEYS\020\004\022\010\n\004FILE\020\005\022" +
+      "\022\n\016FILE_TO_SERVER\020\006*\263\001\n\014ResponseType\022\024\n\020" +
+      "STARTUP_RESPONSE\020\000\022\032\n\026CONFIGURATION_RESP" +
+      "ONSE\020\001\022\024\n\020COMMAND_RESPONSE\020\002\022\033\n\027COMMAND_" +
+      "STATUS_RESPONSE\020\003\022\021\n\rKEYS_RESPONSE\020\004\022\021\n\r" +
+      "FILE_RESPONSE\020\005\022\030\n\024FILE_TRANSFER_STATUS\020" +
+      "\006B.Z,github.com/PatronC2/Patronobuf/go/p" +
+      "atronobufb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -17815,87 +19289,99 @@ public final class Agents {
     internal_static_patronobuf_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_Request_descriptor,
-        new java.lang.String[] { "Type", "Configuration", "Command", "CommandStatus", "Keys", "File", "FileToServer", "Payload", });
+        new java.lang.String[] { "Type", "Startup", "Configuration", "Command", "CommandStatus", "Keys", "File", "FileToServer", "Payload", });
     internal_static_patronobuf_Response_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_patronobuf_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_Response_descriptor,
-        new java.lang.String[] { "Type", "ConfigurationResponse", "CommandResponse", "CommandStatusResponse", "KeysResponse", "FileResponse", "FileTransferStatusResponse", "Payload", });
-    internal_static_patronobuf_ConfigurationRequest_descriptor =
+        new java.lang.String[] { "Type", "StartupResponse", "ConfigurationResponse", "CommandResponse", "CommandStatusResponse", "KeysResponse", "FileResponse", "FileTransferStatusResponse", "Payload", });
+    internal_static_patronobuf_StartupRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_patronobuf_StartupRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_patronobuf_StartupRequest_descriptor,
+        new java.lang.String[] { "Filepath", "Username", "Hostname", "Ostype", "Arch", "Osbuild", "Cpus", "Memory", "Agentip", "Capabilities", });
+    internal_static_patronobuf_StartupResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_patronobuf_StartupResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_patronobuf_StartupResponse_descriptor,
+        new java.lang.String[] { "Uuid", });
+    internal_static_patronobuf_ConfigurationRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_patronobuf_ConfigurationRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_ConfigurationRequest_descriptor,
-        new java.lang.String[] { "Uuid", "Username", "Hostname", "Ostype", "Arch", "Osbuild", "Cpus", "Memory", "Agentip", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", "Masterkey", "Status", "Tags", "NextcallbackUnix", "Transportprotocol", });
+        new java.lang.String[] { "Uuid", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", "Masterkey", "Status", "Tags", "NextcallbackUnix", "Transportprotocol", });
     internal_static_patronobuf_ConfigurationResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_patronobuf_ConfigurationResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_ConfigurationResponse_descriptor,
-        new java.lang.String[] { "Uuid", "Serverip", "Serverport", "Callbackfrequency", "Callbackjitter", "Transportprotocol", });
+        new java.lang.String[] { "Serverip", "Serverport", "Transportprotocol", "SleepSeconds", });
     internal_static_patronobuf_CommandRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_patronobuf_CommandRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_CommandRequest_descriptor,
         new java.lang.String[] { "Uuid", });
     internal_static_patronobuf_CommandResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_patronobuf_CommandResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_CommandResponse_descriptor,
         new java.lang.String[] { "Uuid", "Commandtype", "Commandid", "Command", });
     internal_static_patronobuf_CommandStatusRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_patronobuf_CommandStatusRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_CommandStatusRequest_descriptor,
         new java.lang.String[] { "Uuid", "Commandid", "Result", "Output", });
     internal_static_patronobuf_CommandStatusResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_patronobuf_CommandStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_CommandStatusResponse_descriptor,
         new java.lang.String[] { "Uuid", });
     internal_static_patronobuf_KeysRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_patronobuf_KeysRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_KeysRequest_descriptor,
         new java.lang.String[] { "Uuid", "Keys", });
     internal_static_patronobuf_KeysResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_patronobuf_KeysResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_KeysResponse_descriptor,
         new java.lang.String[] { "Uuid", });
     internal_static_patronobuf_FileRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_patronobuf_FileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_FileRequest_descriptor,
         new java.lang.String[] { "Uuid", });
     internal_static_patronobuf_FileResponse_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_patronobuf_FileResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_FileResponse_descriptor,
         new java.lang.String[] { "Fileid", "Uuid", "Transfertype", "Filepath", "Chunk", });
     internal_static_patronobuf_FileToServer_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_patronobuf_FileToServer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_FileToServer_descriptor,
         new java.lang.String[] { "Fileid", "Uuid", "Transfertype", "Path", "Status", "Chunk", });
     internal_static_patronobuf_FileTransferStatusResponse_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_patronobuf_FileTransferStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_FileTransferStatusResponse_descriptor,
         new java.lang.String[] { "Fileid", "Uuid", });
     internal_static_patronobuf_Tag_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_patronobuf_Tag_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_patronobuf_Tag_descriptor,

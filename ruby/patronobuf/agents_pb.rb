@@ -8,27 +8,29 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "patronobuf.Request" do
       optional :type, :enum, 1, "patronobuf.RequestType"
       oneof :payload do
-        optional :configuration, :message, 2, "patronobuf.ConfigurationRequest"
-        optional :command, :message, 3, "patronobuf.CommandRequest"
-        optional :command_status, :message, 4, "patronobuf.CommandStatusRequest"
-        optional :keys, :message, 5, "patronobuf.KeysRequest"
-        optional :file, :message, 6, "patronobuf.FileRequest"
-        optional :file_to_server, :message, 7, "patronobuf.FileToServer"
+        optional :startup, :message, 2, "patronobuf.StartupRequest"
+        optional :configuration, :message, 3, "patronobuf.ConfigurationRequest"
+        optional :command, :message, 4, "patronobuf.CommandRequest"
+        optional :command_status, :message, 5, "patronobuf.CommandStatusRequest"
+        optional :keys, :message, 6, "patronobuf.KeysRequest"
+        optional :file, :message, 7, "patronobuf.FileRequest"
+        optional :file_to_server, :message, 8, "patronobuf.FileToServer"
       end
     end
     add_message "patronobuf.Response" do
       optional :type, :enum, 1, "patronobuf.ResponseType"
       oneof :payload do
-        optional :configuration_response, :message, 2, "patronobuf.ConfigurationResponse"
-        optional :command_response, :message, 3, "patronobuf.CommandResponse"
-        optional :command_status_response, :message, 4, "patronobuf.CommandStatusResponse"
-        optional :keys_response, :message, 5, "patronobuf.KeysResponse"
-        optional :file_response, :message, 6, "patronobuf.FileResponse"
-        optional :file_transfer_status_response, :message, 7, "patronobuf.FileTransferStatusResponse"
+        optional :startup_response, :message, 2, "patronobuf.StartupResponse"
+        optional :configuration_response, :message, 3, "patronobuf.ConfigurationResponse"
+        optional :command_response, :message, 4, "patronobuf.CommandResponse"
+        optional :command_status_response, :message, 5, "patronobuf.CommandStatusResponse"
+        optional :keys_response, :message, 6, "patronobuf.KeysResponse"
+        optional :file_response, :message, 7, "patronobuf.FileResponse"
+        optional :file_transfer_status_response, :message, 8, "patronobuf.FileTransferStatusResponse"
       end
     end
-    add_message "patronobuf.ConfigurationRequest" do
-      optional :uuid, :string, 1
+    add_message "patronobuf.StartupRequest" do
+      optional :filepath, :string, 1
       optional :username, :string, 2
       optional :hostname, :string, 3
       optional :ostype, :string, 4
@@ -37,23 +39,28 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :cpus, :string, 7
       optional :memory, :string, 8
       optional :agentip, :string, 9
-      optional :serverip, :string, 10
-      optional :serverport, :string, 11
-      optional :callbackfrequency, :string, 12
-      optional :callbackjitter, :string, 13
-      optional :masterkey, :string, 14
-      optional :status, :string, 15
-      repeated :tags, :message, 16, "patronobuf.Tag"
-      optional :nextcallback_unix, :int64, 17
-      optional :transportprotocol, :string, 18
+      repeated :capabilities, :string, 10
     end
-    add_message "patronobuf.ConfigurationResponse" do
+    add_message "patronobuf.StartupResponse" do
+      optional :uuid, :string, 1
+    end
+    add_message "patronobuf.ConfigurationRequest" do
       optional :uuid, :string, 1
       optional :serverip, :string, 2
       optional :serverport, :string, 3
       optional :callbackfrequency, :string, 4
       optional :callbackjitter, :string, 5
+      optional :masterkey, :string, 6
+      optional :status, :string, 7
+      repeated :tags, :message, 8, "patronobuf.Tag"
+      optional :nextcallback_unix, :int64, 9
+      optional :transportprotocol, :string, 10
+    end
+    add_message "patronobuf.ConfigurationResponse" do
+      optional :serverip, :string, 2
+      optional :serverport, :string, 3
       optional :transportprotocol, :string, 6
+      optional :sleep_seconds, :int64, 7
     end
     add_message "patronobuf.CommandRequest" do
       optional :uuid, :string, 1
@@ -107,20 +114,22 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :value, :string, 2
     end
     add_enum "patronobuf.RequestType" do
-      value :CONFIGURATION, 0
-      value :COMMAND, 1
-      value :COMMAND_STATUS, 2
-      value :KEYS, 3
-      value :FILE, 4
-      value :FILE_TO_SERVER, 5
+      value :STARTUP, 0
+      value :CONFIGURATION, 1
+      value :COMMAND, 2
+      value :COMMAND_STATUS, 3
+      value :KEYS, 4
+      value :FILE, 5
+      value :FILE_TO_SERVER, 6
     end
     add_enum "patronobuf.ResponseType" do
-      value :CONFIGURATION_RESPONSE, 0
-      value :COMMAND_RESPONSE, 1
-      value :COMMAND_STATUS_RESPONSE, 2
-      value :KEYS_RESPONSE, 3
-      value :FILE_RESPONSE, 4
-      value :FILE_TRANSFER_STATUS, 5
+      value :STARTUP_RESPONSE, 0
+      value :CONFIGURATION_RESPONSE, 1
+      value :COMMAND_RESPONSE, 2
+      value :COMMAND_STATUS_RESPONSE, 3
+      value :KEYS_RESPONSE, 4
+      value :FILE_RESPONSE, 5
+      value :FILE_TRANSFER_STATUS, 6
     end
   end
 end
@@ -128,6 +137,8 @@ end
 module Patronobuf
   Request = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.Request").msgclass
   Response = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.Response").msgclass
+  StartupRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.StartupRequest").msgclass
+  StartupResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.StartupResponse").msgclass
   ConfigurationRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.ConfigurationRequest").msgclass
   ConfigurationResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.ConfigurationResponse").msgclass
   CommandRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("patronobuf.CommandRequest").msgclass

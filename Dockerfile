@@ -1,4 +1,4 @@
-FROM golang:1.24.3
+FROM golang:1.26.3
 
 # Install protoc
 RUN apt-get update && apt-get install -y curl unzip && \

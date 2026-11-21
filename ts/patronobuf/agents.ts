@@ -5,33 +5,37 @@ import * as _m0 from "protobufjs/minimal";
 export const protobufPackage = "patronobuf";
 
 export enum RequestType {
-  CONFIGURATION = 0,
-  COMMAND = 1,
-  COMMAND_STATUS = 2,
-  KEYS = 3,
-  FILE = 4,
-  FILE_TO_SERVER = 5,
+  STARTUP = 0,
+  CONFIGURATION = 1,
+  COMMAND = 2,
+  COMMAND_STATUS = 3,
+  KEYS = 4,
+  FILE = 5,
+  FILE_TO_SERVER = 6,
   UNRECOGNIZED = -1,
 }
 
 export function requestTypeFromJSON(object: any): RequestType {
   switch (object) {
     case 0:
+    case "STARTUP":
+      return RequestType.STARTUP;
+    case 1:
     case "CONFIGURATION":
       return RequestType.CONFIGURATION;
-    case 1:
+    case 2:
     case "COMMAND":
       return RequestType.COMMAND;
-    case 2:
+    case 3:
     case "COMMAND_STATUS":
       return RequestType.COMMAND_STATUS;
-    case 3:
+    case 4:
     case "KEYS":
       return RequestType.KEYS;
-    case 4:
+    case 5:
     case "FILE":
       return RequestType.FILE;
-    case 5:
+    case 6:
     case "FILE_TO_SERVER":
       return RequestType.FILE_TO_SERVER;
     case -1:
@@ -43,6 +47,8 @@ export function requestTypeFromJSON(object: any): RequestType {
 
 export function requestTypeToJSON(object: RequestType): string {
   switch (object) {
+    case RequestType.STARTUP:
+      return "STARTUP";
     case RequestType.CONFIGURATION:
       return "CONFIGURATION";
     case RequestType.COMMAND:
@@ -62,33 +68,37 @@ export function requestTypeToJSON(object: RequestType): string {
 }
 
 export enum ResponseType {
-  CONFIGURATION_RESPONSE = 0,
-  COMMAND_RESPONSE = 1,
-  COMMAND_STATUS_RESPONSE = 2,
-  KEYS_RESPONSE = 3,
-  FILE_RESPONSE = 4,
-  FILE_TRANSFER_STATUS = 5,
+  STARTUP_RESPONSE = 0,
+  CONFIGURATION_RESPONSE = 1,
+  COMMAND_RESPONSE = 2,
+  COMMAND_STATUS_RESPONSE = 3,
+  KEYS_RESPONSE = 4,
+  FILE_RESPONSE = 5,
+  FILE_TRANSFER_STATUS = 6,
   UNRECOGNIZED = -1,
 }
 
 export function responseTypeFromJSON(object: any): ResponseType {
   switch (object) {
     case 0:
+    case "STARTUP_RESPONSE":
+      return ResponseType.STARTUP_RESPONSE;
+    case 1:
     case "CONFIGURATION_RESPONSE":
       return ResponseType.CONFIGURATION_RESPONSE;
-    case 1:
+    case 2:
     case "COMMAND_RESPONSE":
       return ResponseType.COMMAND_RESPONSE;
-    case 2:
+    case 3:
     case "COMMAND_STATUS_RESPONSE":
       return ResponseType.COMMAND_STATUS_RESPONSE;
-    case 3:
+    case 4:
     case "KEYS_RESPONSE":
       return ResponseType.KEYS_RESPONSE;
-    case 4:
+    case 5:
     case "FILE_RESPONSE":
       return ResponseType.FILE_RESPONSE;
-    case 5:
+    case 6:
     case "FILE_TRANSFER_STATUS":
       return ResponseType.FILE_TRANSFER_STATUS;
     case -1:
@@ -100,6 +110,8 @@ export function responseTypeFromJSON(object: any): ResponseType {
 
 export function responseTypeToJSON(object: ResponseType): string {
   switch (object) {
+    case ResponseType.STARTUP_RESPONSE:
+      return "STARTUP_RESPONSE";
     case ResponseType.CONFIGURATION_RESPONSE:
       return "CONFIGURATION_RESPONSE";
     case ResponseType.COMMAND_RESPONSE:
@@ -120,6 +132,7 @@ export function responseTypeToJSON(object: ResponseType): string {
 
 export interface Request {
   type: RequestType;
+  startup?: StartupRequest | undefined;
   configuration?: ConfigurationRequest | undefined;
   command?: CommandRequest | undefined;
   commandStatus?: CommandStatusRequest | undefined;
@@ -130,6 +143,7 @@ export interface Request {
 
 export interface Response {
   type: ResponseType;
+  startupResponse?: StartupResponse | undefined;
   configurationResponse?: ConfigurationResponse | undefined;
   commandResponse?: CommandResponse | undefined;
   commandStatusResponse?: CommandStatusResponse | undefined;
@@ -138,8 +152,8 @@ export interface Response {
   fileTransferStatusResponse?: FileTransferStatusResponse | undefined;
 }
 
-export interface ConfigurationRequest {
-  uuid: string;
+export interface StartupRequest {
+  filepath: string;
   username: string;
   hostname: string;
   ostype: string;
@@ -148,6 +162,15 @@ export interface ConfigurationRequest {
   cpus: string;
   memory: string;
   agentip: string;
+  capabilities: string[];
+}
+
+export interface StartupResponse {
+  uuid: string;
+}
+
+export interface ConfigurationRequest {
+  uuid: string;
   serverip: string;
   serverport: string;
   callbackfrequency: string;
@@ -160,12 +183,10 @@ export interface ConfigurationRequest {
 }
 
 export interface ConfigurationResponse {
-  uuid: string;
   serverip: string;
   serverport: string;
-  callbackfrequency: string;
-  callbackjitter: string;
   transportprotocol: string;
+  sleepSeconds: number;
 }
 
 export interface CommandRequest {
@@ -233,6 +254,7 @@ export interface Tag {
 function createBaseRequest(): Request {
   return {
     type: 0,
+    startup: undefined,
     configuration: undefined,
     command: undefined,
     commandStatus: undefined,
@@ -247,23 +269,26 @@ export const Request = {
     if (message.type !== 0) {
       writer.uint32(8).int32(message.type);
     }
+    if (message.startup !== undefined) {
+      StartupRequest.encode(message.startup, writer.uint32(18).fork()).ldelim();
+    }
     if (message.configuration !== undefined) {
-      ConfigurationRequest.encode(message.configuration, writer.uint32(18).fork()).ldelim();
+      ConfigurationRequest.encode(message.configuration, writer.uint32(26).fork()).ldelim();
     }
     if (message.command !== undefined) {
-      CommandRequest.encode(message.command, writer.uint32(26).fork()).ldelim();
+      CommandRequest.encode(message.command, writer.uint32(34).fork()).ldelim();
     }
     if (message.commandStatus !== undefined) {
-      CommandStatusRequest.encode(message.commandStatus, writer.uint32(34).fork()).ldelim();
+      CommandStatusRequest.encode(message.commandStatus, writer.uint32(42).fork()).ldelim();
     }
     if (message.keys !== undefined) {
-      KeysRequest.encode(message.keys, writer.uint32(42).fork()).ldelim();
+      KeysRequest.encode(message.keys, writer.uint32(50).fork()).ldelim();
     }
     if (message.file !== undefined) {
-      FileRequest.encode(message.file, writer.uint32(50).fork()).ldelim();
+      FileRequest.encode(message.file, writer.uint32(58).fork()).ldelim();
     }
     if (message.fileToServer !== undefined) {
-      FileToServer.encode(message.fileToServer, writer.uint32(58).fork()).ldelim();
+      FileToServer.encode(message.fileToServer, writer.uint32(66).fork()).ldelim();
     }
     return writer;
   },
@@ -279,21 +304,24 @@ export const Request = {
           message.type = reader.int32() as any;
           break;
         case 2:
-          message.configuration = ConfigurationRequest.decode(reader, reader.uint32());
+          message.startup = StartupRequest.decode(reader, reader.uint32());
           break;
         case 3:
-          message.command = CommandRequest.decode(reader, reader.uint32());
+          message.configuration = ConfigurationRequest.decode(reader, reader.uint32());
           break;
         case 4:
-          message.commandStatus = CommandStatusRequest.decode(reader, reader.uint32());
+          message.command = CommandRequest.decode(reader, reader.uint32());
           break;
         case 5:
-          message.keys = KeysRequest.decode(reader, reader.uint32());
+          message.commandStatus = CommandStatusRequest.decode(reader, reader.uint32());
           break;
         case 6:
-          message.file = FileRequest.decode(reader, reader.uint32());
+          message.keys = KeysRequest.decode(reader, reader.uint32());
           break;
         case 7:
+          message.file = FileRequest.decode(reader, reader.uint32());
+          break;
+        case 8:
           message.fileToServer = FileToServer.decode(reader, reader.uint32());
           break;
         default:
@@ -307,6 +335,7 @@ export const Request = {
   fromJSON(object: any): Request {
     return {
       type: isSet(object.type) ? requestTypeFromJSON(object.type) : 0,
+      startup: isSet(object.startup) ? StartupRequest.fromJSON(object.startup) : undefined,
       configuration: isSet(object.configuration) ? ConfigurationRequest.fromJSON(object.configuration) : undefined,
       command: isSet(object.command) ? CommandRequest.fromJSON(object.command) : undefined,
       commandStatus: isSet(object.commandStatus) ? CommandStatusRequest.fromJSON(object.commandStatus) : undefined,
@@ -319,6 +348,8 @@ export const Request = {
   toJSON(message: Request): unknown {
     const obj: any = {};
     message.type !== undefined && (obj.type = requestTypeToJSON(message.type));
+    message.startup !== undefined &&
+      (obj.startup = message.startup ? StartupRequest.toJSON(message.startup) : undefined);
     message.configuration !== undefined &&
       (obj.configuration = message.configuration ? ConfigurationRequest.toJSON(message.configuration) : undefined);
     message.command !== undefined &&
@@ -339,6 +370,9 @@ export const Request = {
   fromPartial<I extends Exact<DeepPartial<Request>, I>>(object: I): Request {
     const message = createBaseRequest();
     message.type = object.type ?? 0;
+    message.startup = (object.startup !== undefined && object.startup !== null)
+      ? StartupRequest.fromPartial(object.startup)
+      : undefined;
     message.configuration = (object.configuration !== undefined && object.configuration !== null)
       ? ConfigurationRequest.fromPartial(object.configuration)
       : undefined;
@@ -364,6 +398,7 @@ export const Request = {
 function createBaseResponse(): Response {
   return {
     type: 0,
+    startupResponse: undefined,
     configurationResponse: undefined,
     commandResponse: undefined,
     commandStatusResponse: undefined,
@@ -378,23 +413,26 @@ export const Response = {
     if (message.type !== 0) {
       writer.uint32(8).int32(message.type);
     }
+    if (message.startupResponse !== undefined) {
+      StartupResponse.encode(message.startupResponse, writer.uint32(18).fork()).ldelim();
+    }
     if (message.configurationResponse !== undefined) {
-      ConfigurationResponse.encode(message.configurationResponse, writer.uint32(18).fork()).ldelim();
+      ConfigurationResponse.encode(message.configurationResponse, writer.uint32(26).fork()).ldelim();
     }
     if (message.commandResponse !== undefined) {
-      CommandResponse.encode(message.commandResponse, writer.uint32(26).fork()).ldelim();
+      CommandResponse.encode(message.commandResponse, writer.uint32(34).fork()).ldelim();
     }
     if (message.commandStatusResponse !== undefined) {
-      CommandStatusResponse.encode(message.commandStatusResponse, writer.uint32(34).fork()).ldelim();
+      CommandStatusResponse.encode(message.commandStatusResponse, writer.uint32(42).fork()).ldelim();
     }
     if (message.keysResponse !== undefined) {
-      KeysResponse.encode(message.keysResponse, writer.uint32(42).fork()).ldelim();
+      KeysResponse.encode(message.keysResponse, writer.uint32(50).fork()).ldelim();
     }
     if (message.fileResponse !== undefined) {
-      FileResponse.encode(message.fileResponse, writer.uint32(50).fork()).ldelim();
+      FileResponse.encode(message.fileResponse, writer.uint32(58).fork()).ldelim();
     }
     if (message.fileTransferStatusResponse !== undefined) {
-      FileTransferStatusResponse.encode(message.fileTransferStatusResponse, writer.uint32(58).fork()).ldelim();
+      FileTransferStatusResponse.encode(message.fileTransferStatusResponse, writer.uint32(66).fork()).ldelim();
     }
     return writer;
   },
@@ -410,21 +448,24 @@ export const Response = {
           message.type = reader.int32() as any;
           break;
         case 2:
-          message.configurationResponse = ConfigurationResponse.decode(reader, reader.uint32());
+          message.startupResponse = StartupResponse.decode(reader, reader.uint32());
           break;
         case 3:
-          message.commandResponse = CommandResponse.decode(reader, reader.uint32());
+          message.configurationResponse = ConfigurationResponse.decode(reader, reader.uint32());
           break;
         case 4:
-          message.commandStatusResponse = CommandStatusResponse.decode(reader, reader.uint32());
+          message.commandResponse = CommandResponse.decode(reader, reader.uint32());
           break;
         case 5:
-          message.keysResponse = KeysResponse.decode(reader, reader.uint32());
+          message.commandStatusResponse = CommandStatusResponse.decode(reader, reader.uint32());
           break;
         case 6:
-          message.fileResponse = FileResponse.decode(reader, reader.uint32());
+          message.keysResponse = KeysResponse.decode(reader, reader.uint32());
           break;
         case 7:
+          message.fileResponse = FileResponse.decode(reader, reader.uint32());
+          break;
+        case 8:
           message.fileTransferStatusResponse = FileTransferStatusResponse.decode(reader, reader.uint32());
           break;
         default:
@@ -438,6 +479,7 @@ export const Response = {
   fromJSON(object: any): Response {
     return {
       type: isSet(object.type) ? responseTypeFromJSON(object.type) : 0,
+      startupResponse: isSet(object.startupResponse) ? StartupResponse.fromJSON(object.startupResponse) : undefined,
       configurationResponse: isSet(object.configurationResponse)
         ? ConfigurationResponse.fromJSON(object.configurationResponse)
         : undefined,
@@ -456,6 +498,8 @@ export const Response = {
   toJSON(message: Response): unknown {
     const obj: any = {};
     message.type !== undefined && (obj.type = responseTypeToJSON(message.type));
+    message.startupResponse !== undefined &&
+      (obj.startupResponse = message.startupResponse ? StartupResponse.toJSON(message.startupResponse) : undefined);
     message.configurationResponse !== undefined && (obj.configurationResponse = message.configurationResponse
       ? ConfigurationResponse.toJSON(message.configurationResponse)
       : undefined);
@@ -482,6 +526,9 @@ export const Response = {
   fromPartial<I extends Exact<DeepPartial<Response>, I>>(object: I): Response {
     const message = createBaseResponse();
     message.type = object.type ?? 0;
+    message.startupResponse = (object.startupResponse !== undefined && object.startupResponse !== null)
+      ? StartupResponse.fromPartial(object.startupResponse)
+      : undefined;
     message.configurationResponse =
       (object.configurationResponse !== undefined && object.configurationResponse !== null)
         ? ConfigurationResponse.fromPartial(object.configurationResponse)
@@ -507,9 +554,9 @@ export const Response = {
   },
 };
 
-function createBaseConfigurationRequest(): ConfigurationRequest {
+function createBaseStartupRequest(): StartupRequest {
   return {
-    uuid: "",
+    filepath: "",
     username: "",
     hostname: "",
     ostype: "",
@@ -518,22 +565,14 @@ function createBaseConfigurationRequest(): ConfigurationRequest {
     cpus: "",
     memory: "",
     agentip: "",
-    serverip: "",
-    serverport: "",
-    callbackfrequency: "",
-    callbackjitter: "",
-    masterkey: "",
-    status: "",
-    tags: [],
-    nextcallbackUnix: 0,
-    transportprotocol: "",
+    capabilities: [],
   };
 }
 
-export const ConfigurationRequest = {
-  encode(message: ConfigurationRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.uuid !== "") {
-      writer.uint32(10).string(message.uuid);
+export const StartupRequest = {
+  encode(message: StartupRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.filepath !== "") {
+      writer.uint32(10).string(message.filepath);
     }
     if (message.username !== "") {
       writer.uint32(18).string(message.username);
@@ -559,45 +598,21 @@ export const ConfigurationRequest = {
     if (message.agentip !== "") {
       writer.uint32(74).string(message.agentip);
     }
-    if (message.serverip !== "") {
-      writer.uint32(82).string(message.serverip);
-    }
-    if (message.serverport !== "") {
-      writer.uint32(90).string(message.serverport);
-    }
-    if (message.callbackfrequency !== "") {
-      writer.uint32(98).string(message.callbackfrequency);
-    }
-    if (message.callbackjitter !== "") {
-      writer.uint32(106).string(message.callbackjitter);
-    }
-    if (message.masterkey !== "") {
-      writer.uint32(114).string(message.masterkey);
-    }
-    if (message.status !== "") {
-      writer.uint32(122).string(message.status);
-    }
-    for (const v of message.tags) {
-      Tag.encode(v!, writer.uint32(130).fork()).ldelim();
-    }
-    if (message.nextcallbackUnix !== 0) {
-      writer.uint32(136).int64(message.nextcallbackUnix);
-    }
-    if (message.transportprotocol !== "") {
-      writer.uint32(146).string(message.transportprotocol);
+    for (const v of message.capabilities) {
+      writer.uint32(82).string(v!);
     }
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): ConfigurationRequest {
+  decode(input: _m0.Reader | Uint8Array, length?: number): StartupRequest {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseConfigurationRequest();
+    const message = createBaseStartupRequest();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.uuid = reader.string();
+          message.filepath = reader.string();
           break;
         case 2:
           message.username = reader.string();
@@ -624,30 +639,206 @@ export const ConfigurationRequest = {
           message.agentip = reader.string();
           break;
         case 10:
+          message.capabilities.push(reader.string());
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): StartupRequest {
+    return {
+      filepath: isSet(object.filepath) ? String(object.filepath) : "",
+      username: isSet(object.username) ? String(object.username) : "",
+      hostname: isSet(object.hostname) ? String(object.hostname) : "",
+      ostype: isSet(object.ostype) ? String(object.ostype) : "",
+      arch: isSet(object.arch) ? String(object.arch) : "",
+      osbuild: isSet(object.osbuild) ? String(object.osbuild) : "",
+      cpus: isSet(object.cpus) ? String(object.cpus) : "",
+      memory: isSet(object.memory) ? String(object.memory) : "",
+      agentip: isSet(object.agentip) ? String(object.agentip) : "",
+      capabilities: Array.isArray(object?.capabilities) ? object.capabilities.map((e: any) => String(e)) : [],
+    };
+  },
+
+  toJSON(message: StartupRequest): unknown {
+    const obj: any = {};
+    message.filepath !== undefined && (obj.filepath = message.filepath);
+    message.username !== undefined && (obj.username = message.username);
+    message.hostname !== undefined && (obj.hostname = message.hostname);
+    message.ostype !== undefined && (obj.ostype = message.ostype);
+    message.arch !== undefined && (obj.arch = message.arch);
+    message.osbuild !== undefined && (obj.osbuild = message.osbuild);
+    message.cpus !== undefined && (obj.cpus = message.cpus);
+    message.memory !== undefined && (obj.memory = message.memory);
+    message.agentip !== undefined && (obj.agentip = message.agentip);
+    if (message.capabilities) {
+      obj.capabilities = message.capabilities.map((e) => e);
+    } else {
+      obj.capabilities = [];
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<StartupRequest>, I>>(base?: I): StartupRequest {
+    return StartupRequest.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<StartupRequest>, I>>(object: I): StartupRequest {
+    const message = createBaseStartupRequest();
+    message.filepath = object.filepath ?? "";
+    message.username = object.username ?? "";
+    message.hostname = object.hostname ?? "";
+    message.ostype = object.ostype ?? "";
+    message.arch = object.arch ?? "";
+    message.osbuild = object.osbuild ?? "";
+    message.cpus = object.cpus ?? "";
+    message.memory = object.memory ?? "";
+    message.agentip = object.agentip ?? "";
+    message.capabilities = object.capabilities?.map((e) => e) || [];
+    return message;
+  },
+};
+
+function createBaseStartupResponse(): StartupResponse {
+  return { uuid: "" };
+}
+
+export const StartupResponse = {
+  encode(message: StartupResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.uuid !== "") {
+      writer.uint32(10).string(message.uuid);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): StartupResponse {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseStartupResponse();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.uuid = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): StartupResponse {
+    return { uuid: isSet(object.uuid) ? String(object.uuid) : "" };
+  },
+
+  toJSON(message: StartupResponse): unknown {
+    const obj: any = {};
+    message.uuid !== undefined && (obj.uuid = message.uuid);
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<StartupResponse>, I>>(base?: I): StartupResponse {
+    return StartupResponse.fromPartial(base ?? {});
+  },
+
+  fromPartial<I extends Exact<DeepPartial<StartupResponse>, I>>(object: I): StartupResponse {
+    const message = createBaseStartupResponse();
+    message.uuid = object.uuid ?? "";
+    return message;
+  },
+};
+
+function createBaseConfigurationRequest(): ConfigurationRequest {
+  return {
+    uuid: "",
+    serverip: "",
+    serverport: "",
+    callbackfrequency: "",
+    callbackjitter: "",
+    masterkey: "",
+    status: "",
+    tags: [],
+    nextcallbackUnix: 0,
+    transportprotocol: "",
+  };
+}
+
+export const ConfigurationRequest = {
+  encode(message: ConfigurationRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.uuid !== "") {
+      writer.uint32(10).string(message.uuid);
+    }
+    if (message.serverip !== "") {
+      writer.uint32(18).string(message.serverip);
+    }
+    if (message.serverport !== "") {
+      writer.uint32(26).string(message.serverport);
+    }
+    if (message.callbackfrequency !== "") {
+      writer.uint32(34).string(message.callbackfrequency);
+    }
+    if (message.callbackjitter !== "") {
+      writer.uint32(42).string(message.callbackjitter);
+    }
+    if (message.masterkey !== "") {
+      writer.uint32(50).string(message.masterkey);
+    }
+    if (message.status !== "") {
+      writer.uint32(58).string(message.status);
+    }
+    for (const v of message.tags) {
+      Tag.encode(v!, writer.uint32(66).fork()).ldelim();
+    }
+    if (message.nextcallbackUnix !== 0) {
+      writer.uint32(72).int64(message.nextcallbackUnix);
+    }
+    if (message.transportprotocol !== "") {
+      writer.uint32(82).string(message.transportprotocol);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): ConfigurationRequest {
+    const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseConfigurationRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.uuid = reader.string();
+          break;
+        case 2:
           message.serverip = reader.string();
           break;
-        case 11:
+        case 3:
           message.serverport = reader.string();
           break;
-        case 12:
+        case 4:
           message.callbackfrequency = reader.string();
           break;
-        case 13:
+        case 5:
           message.callbackjitter = reader.string();
           break;
-        case 14:
+        case 6:
           message.masterkey = reader.string();
           break;
-        case 15:
+        case 7:
           message.status = reader.string();
           break;
-        case 16:
+        case 8:
           message.tags.push(Tag.decode(reader, reader.uint32()));
           break;
-        case 17:
+        case 9:
           message.nextcallbackUnix = longToNumber(reader.int64() as Long);
           break;
-        case 18:
+        case 10:
           message.transportprotocol = reader.string();
           break;
         default:
@@ -661,14 +852,6 @@ export const ConfigurationRequest = {
   fromJSON(object: any): ConfigurationRequest {
     return {
       uuid: isSet(object.uuid) ? String(object.uuid) : "",
-      username: isSet(object.username) ? String(object.username) : "",
-      hostname: isSet(object.hostname) ? String(object.hostname) : "",
-      ostype: isSet(object.ostype) ? String(object.ostype) : "",
-      arch: isSet(object.arch) ? String(object.arch) : "",
-      osbuild: isSet(object.osbuild) ? String(object.osbuild) : "",
-      cpus: isSet(object.cpus) ? String(object.cpus) : "",
-      memory: isSet(object.memory) ? String(object.memory) : "",
-      agentip: isSet(object.agentip) ? String(object.agentip) : "",
       serverip: isSet(object.serverip) ? String(object.serverip) : "",
       serverport: isSet(object.serverport) ? String(object.serverport) : "",
       callbackfrequency: isSet(object.callbackfrequency) ? String(object.callbackfrequency) : "",
@@ -684,14 +867,6 @@ export const ConfigurationRequest = {
   toJSON(message: ConfigurationRequest): unknown {
     const obj: any = {};
     message.uuid !== undefined && (obj.uuid = message.uuid);
-    message.username !== undefined && (obj.username = message.username);
-    message.hostname !== undefined && (obj.hostname = message.hostname);
-    message.ostype !== undefined && (obj.ostype = message.ostype);
-    message.arch !== undefined && (obj.arch = message.arch);
-    message.osbuild !== undefined && (obj.osbuild = message.osbuild);
-    message.cpus !== undefined && (obj.cpus = message.cpus);
-    message.memory !== undefined && (obj.memory = message.memory);
-    message.agentip !== undefined && (obj.agentip = message.agentip);
     message.serverip !== undefined && (obj.serverip = message.serverip);
     message.serverport !== undefined && (obj.serverport = message.serverport);
     message.callbackfrequency !== undefined && (obj.callbackfrequency = message.callbackfrequency);
@@ -715,14 +890,6 @@ export const ConfigurationRequest = {
   fromPartial<I extends Exact<DeepPartial<ConfigurationRequest>, I>>(object: I): ConfigurationRequest {
     const message = createBaseConfigurationRequest();
     message.uuid = object.uuid ?? "";
-    message.username = object.username ?? "";
-    message.hostname = object.hostname ?? "";
-    message.ostype = object.ostype ?? "";
-    message.arch = object.arch ?? "";
-    message.osbuild = object.osbuild ?? "";
-    message.cpus = object.cpus ?? "";
-    message.memory = object.memory ?? "";
-    message.agentip = object.agentip ?? "";
     message.serverip = object.serverip ?? "";
     message.serverport = object.serverport ?? "";
     message.callbackfrequency = object.callbackfrequency ?? "";
@@ -737,28 +904,22 @@ export const ConfigurationRequest = {
 };
 
 function createBaseConfigurationResponse(): ConfigurationResponse {
-  return { uuid: "", serverip: "", serverport: "", callbackfrequency: "", callbackjitter: "", transportprotocol: "" };
+  return { serverip: "", serverport: "", transportprotocol: "", sleepSeconds: 0 };
 }
 
 export const ConfigurationResponse = {
   encode(message: ConfigurationResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.uuid !== "") {
-      writer.uint32(10).string(message.uuid);
-    }
     if (message.serverip !== "") {
       writer.uint32(18).string(message.serverip);
     }
     if (message.serverport !== "") {
       writer.uint32(26).string(message.serverport);
     }
-    if (message.callbackfrequency !== "") {
-      writer.uint32(34).string(message.callbackfrequency);
-    }
-    if (message.callbackjitter !== "") {
-      writer.uint32(42).string(message.callbackjitter);
-    }
     if (message.transportprotocol !== "") {
       writer.uint32(50).string(message.transportprotocol);
+    }
+    if (message.sleepSeconds !== 0) {
+      writer.uint32(56).int64(message.sleepSeconds);
     }
     return writer;
   },
@@ -770,23 +931,17 @@ export const ConfigurationResponse = {
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
-        case 1:
-          message.uuid = reader.string();
-          break;
         case 2:
           message.serverip = reader.string();
           break;
         case 3:
           message.serverport = reader.string();
           break;
-        case 4:
-          message.callbackfrequency = reader.string();
-          break;
-        case 5:
-          message.callbackjitter = reader.string();
-          break;
         case 6:
           message.transportprotocol = reader.string();
+          break;
+        case 7:
+          message.sleepSeconds = longToNumber(reader.int64() as Long);
           break;
         default:
           reader.skipType(tag & 7);
@@ -798,23 +953,19 @@ export const ConfigurationResponse = {
 
   fromJSON(object: any): ConfigurationResponse {
     return {
-      uuid: isSet(object.uuid) ? String(object.uuid) : "",
       serverip: isSet(object.serverip) ? String(object.serverip) : "",
       serverport: isSet(object.serverport) ? String(object.serverport) : "",
-      callbackfrequency: isSet(object.callbackfrequency) ? String(object.callbackfrequency) : "",
-      callbackjitter: isSet(object.callbackjitter) ? String(object.callbackjitter) : "",
       transportprotocol: isSet(object.transportprotocol) ? String(object.transportprotocol) : "",
+      sleepSeconds: isSet(object.sleepSeconds) ? Number(object.sleepSeconds) : 0,
     };
   },
 
   toJSON(message: ConfigurationResponse): unknown {
     const obj: any = {};
-    message.uuid !== undefined && (obj.uuid = message.uuid);
     message.serverip !== undefined && (obj.serverip = message.serverip);
     message.serverport !== undefined && (obj.serverport = message.serverport);
-    message.callbackfrequency !== undefined && (obj.callbackfrequency = message.callbackfrequency);
-    message.callbackjitter !== undefined && (obj.callbackjitter = message.callbackjitter);
     message.transportprotocol !== undefined && (obj.transportprotocol = message.transportprotocol);
+    message.sleepSeconds !== undefined && (obj.sleepSeconds = Math.round(message.sleepSeconds));
     return obj;
   },
 
@@ -824,12 +975,10 @@ export const ConfigurationResponse = {
 
   fromPartial<I extends Exact<DeepPartial<ConfigurationResponse>, I>>(object: I): ConfigurationResponse {
     const message = createBaseConfigurationResponse();
-    message.uuid = object.uuid ?? "";
     message.serverip = object.serverip ?? "";
     message.serverport = object.serverport ?? "";
-    message.callbackfrequency = object.callbackfrequency ?? "";
-    message.callbackjitter = object.callbackjitter ?? "";
     message.transportprotocol = object.transportprotocol ?? "";
+    message.sleepSeconds = object.sleepSeconds ?? 0;
     return message;
   },
 };
